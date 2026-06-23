@@ -1,10 +1,15 @@
-<?php 
+<?php // new naming migration //
 
-$GLOBALS['SITE'] = "WWW";
-$GLOBALS['site'] = $GLOBALS['SITE']; // HOLD OVER UNTIL WE FIND REMAINING LITTLE CASE 'site'
-$GLOBALS[$SITE]['SYS_SLUG'] = "WWW";
-$GLOBALS[$SITE]['SYS_DISPLAY'] = "WWW: POCKET ONLINE";
-$GLOBALS[$SITE]['SYS'] = "WWW";
-$GLOBALS[$SITE]['URI'] = "WWW";
+define('WORLD_ID', 'WWW');
+define('WORLD_TAG', "MIRA ONLINE");
+define('BLOCK_ID', 'WWW');
+define('BLOCK_URI', 'WWW');
 
-// 
+global $SITE;
+// in-phase-out
+$GLOBALS['SITE'] = BLOCK_ID;
+$GLOBALS[$SITE]['SYS'] = WORLD_ID;
+$GLOBALS[$SITE]['SYS_SLUG'] = WORLD_ID;
+$GLOBALS[$SITE]['SYS_DISPLAY'] = WORLD_TAG;
+$GLOBALS[$SITE]['URI'] = BLOCK_URI;
+?>

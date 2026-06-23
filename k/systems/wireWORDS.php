@@ -74,7 +74,7 @@ function wireFILEinput (
 }
 
 
-function wireTEXTAREA($uniqueID, 
+function wireTEXTAREA(string $uniqueID, 
     ?string $ph = null,
     ?string $required = null,
     ){
@@ -82,7 +82,7 @@ function wireTEXTAREA($uniqueID,
     $placement = $uniqueID . '_pl';
         
         if($ph == true)
-        { $hasPH = "placeholder='<?= $mySIGFIG[$placement]'"; } 
+        { $hasPH = "placeholder='$mySIGFIG[$placement]'"; } 
             else { $hasPH = ""; }
         
         if($required == true)

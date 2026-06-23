@@ -238,5 +238,287 @@
             "event_unix": 1782215794,
             "timezone": "America\/New_York"
         }
+    },
+    "crate.BA424C3F8E4FA821": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "chatBOX",
+            "function": "chatroom",
+            "type": "chat",
+            "version": 4
+        },
+        "payload": {
+            "soper": {
+                "username": "testing",
+                "message": "She wanted him, mind body and soul. Carnally. She waited for lifetimes.",
+                "time": null
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "programs",
+            "room_slug": "oriel-chat",
+            "room_display": "Chat Room Text",
+            "mod_slug": "www",
+            "mod_display": "Mira Mobile Media"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782238629.tps",
+            "ingest_unix": 1782238629,
+            "event_unix": 1782238629,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.9412AF7E802302D7": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "chatBOX",
+            "function": "chatroom",
+            "type": "chat",
+            "version": 4
+        },
+        "payload": {
+            "soper": {
+                "username": "testing",
+                "message": "She wanted him, mind body and soul. Carnally. She waited for lifetimes.",
+                "time": null
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "programs",
+            "room_slug": "oriel-chat",
+            "room_display": "Chat Room Text",
+            "mod_slug": "www",
+            "mod_display": "Mira Mobile Media"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782238719.tps",
+            "ingest_unix": 1782238719,
+            "event_unix": 1782238719,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.B22EF81CC7A782C3": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "chatBOX",
+            "function": "chatroom",
+            "type": "chat",
+            "version": 4
+        },
+        "payload": {
+            "soper": {
+                "username": "testing",
+                "message": "She wanted him, mind body and soul. Carnally. She waited for lifetimes.",
+                "time": null
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "programs",
+            "room_slug": "oriel-chat",
+            "room_display": "Chat Room Text",
+            "mod_slug": "www",
+            "mod_display": "Mira Mobile Media"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782238756.tps",
+            "ingest_unix": 1782238756,
+            "event_unix": 1782238756,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.B3AA97B95FA637D4": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "chatBOX",
+            "function": "chatroom",
+            "type": "chat",
+            "version": 4
+        },
+        "payload": {
+            "soper": {
+                "username": "testing",
+                "message": "She wanted him, mind body and soul. Carnally. She waited for lifetimes.",
+                "time": null
+            }
+        },
+        "route": [],
+        "tags": {
+            "testing": {
+                "chats": [
+                    "oriel-chat"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "testing*chats>oriel-chat",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "programs",
+            "room_slug": "oriel-chat",
+            "room_display": "Chat Room Text",
+            "mod_slug": "www",
+            "mod_display": "Mira Mobile Media"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782238808.tps",
+            "ingest_unix": 1782238808,
+            "event_unix": 1782238808,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D48CCA7430BE09B0": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "chatBOX",
+            "function": "chatroom",
+            "type": "chat",
+            "version": 4
+        },
+        "payload": {
+            "chat": {
+                "username": "Remir",
+                "message": "She wanted him, mind body and soul. Carnally. She waited for lifetimes.",
+                "time": 1782238927
+            }
+        },
+        "route": [],
+        "tags": {
+            "remir": {
+                "speaks-to": [
+                    "oriel-chat"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "Remir*speaks-to>oriel-chat",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "programs",
+            "room_slug": "oriel-chat",
+            "room_display": "Chat Room Text",
+            "mod_slug": "www",
+            "mod_display": "Mira Mobile Media"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782238927.tps",
+            "ingest_unix": 1782238927,
+            "event_unix": 1782238927,
+            "timezone": "America\/New_York"
+        }
     }
 }

@@ -5,8 +5,6 @@
 
     
     include __DIR__ . "/-FIG--nav.php";
-    include __DIR__ . "/-FIG--plogBasic.php"; 
-    include __DIR__ . "/-FIG--mailroomBasic.php"; 
     include __DIR__ . "/-FIG--routeErrors.php"; 
     
     function getMy_Styles(){
