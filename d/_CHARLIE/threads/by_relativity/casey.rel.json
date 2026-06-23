@@ -1,0 +1,37 @@
+{
+    "VEN": "casey",
+    "GRAVITY": 5,
+    "METADATA": [],
+    "SHELF": {
+        "secret": {
+            "GRAVITY": 1,
+            "BIN": {
+                "jason": 1
+            }
+        },
+        "terminal-io": {
+            "GRAVITY": 1,
+            "BIN": {
+                "daily-inventory": 1
+            }
+        },
+        "topics": {
+            "GRAVITY": 1,
+            "BIN": {
+                "hymn": 1
+            }
+        },
+        "": {
+            "GRAVITY": 1,
+            "BIN": {
+                "hymn": 1
+            }
+        },
+        "hymn": {
+            "GRAVITY": 1,
+            "BIN": {
+                "archetype": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "crate.04EBA95107105F91": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "d.SELF:pink",
+                "topic": "You have arrived at the SKYLINE FRONT DESK.",
+                "content": "Thank you for becoming part of our SIGHT. We are THE-CU and this is SKYLINE on INTERA. Now running in DEMO MODE, so you can explore our place and store your data as your explore. Your data will not merge with mine! It is stored uniquely for this DEMO (POCKET)POCKET INTERNET.\r\n\r\nSKYLINE is a reporting surface, meaning it is primarily used to REPORT information into the deeper architecture beneath the POCKET INTERNET (the 'wires').\r\n\r\nYou may explore the REPORTING tools by journeying to THE REPORT DEPARTMENT\r\n\r\nGood luck! -THE-CU-"
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "content": [
+                    "general"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*content>general",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781910911.tps",
+            "ingest_unix": 1781910911,
+            "event_unix": 1781910911,
+            "timezone": "America\/New_York"
+        }
+    }
+}

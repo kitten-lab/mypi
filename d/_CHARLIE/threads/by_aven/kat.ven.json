@@ -1,0 +1,21 @@
+{
+    "VEN": "kat",
+    "GRAVITY": 2,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "rejected": {
+            "GRAVITY": 1,
+            "BIN": {
+                "elion": 1
+            }
+        },
+        "dislikes": {
+            "GRAVITY": 1,
+            "BIN": {
+                "elion": 1
+            }
+        }
+    }
+}

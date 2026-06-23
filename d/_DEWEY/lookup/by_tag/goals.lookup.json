@@ -1,0 +1,152 @@
+{
+    "CABINET": {
+        "goals": {
+            "METADATA": {
+                "GRAVITY": 5,
+                "INGEST": {
+                    "FIRST": 1777166064,
+                    "LAST": 1777166489
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984119": [
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "betsoft": {
+                    "METADATA": {
+                        "GRAVITY": 5,
+                        "INGEST": {
+                            "FIRST": 1777166064,
+                            "LAST": 1777166489
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984119": [
+                                "increase-releases",
+                                "top-tier",
+                                "partnerships",
+                                "strategic-partnerships",
+                                "global-connections"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "increase-releases": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166064,
+                                    "LAST": 1777166064
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.9E8ACD35C7D3774C"
+                                    ]
+                                }
+                            }
+                        },
+                        "top-tier": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166301,
+                                    "LAST": 1777166301
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.E0B6CD8DC6C80E20"
+                                    ]
+                                }
+                            }
+                        },
+                        "partnerships": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166489,
+                                    "LAST": 1777166489
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.9F066115C32E0E06"
+                                    ]
+                                }
+                            }
+                        },
+                        "strategic-partnerships": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166489,
+                                    "LAST": 1777166489
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.9F066115C32E0E06"
+                                    ]
+                                }
+                            }
+                        },
+                        "global-connections": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166489,
+                                    "LAST": 1777166489
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.9F066115C32E0E06"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

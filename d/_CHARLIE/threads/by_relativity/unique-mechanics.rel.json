@@ -1,0 +1,15 @@
+{
+    "VEN": "unique-mechanics",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 3,
+            "BIN": {
+                "weaknesses": 1,
+                "opportunities": 1,
+                "suggested-goals": 1
+            }
+        }
+    }
+}

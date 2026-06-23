@@ -1,0 +1,67 @@
+{
+    "crate.4B13E46A627D966F": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": null,
+                "topic": "i keep dreaming of being myself",
+                "content": "and its hard because everyone always knows what i do best and they direct me to that, and i guess that makes sense? but its hard to accept because i wanted to be something else... not a corporate extractive machine"
+            }
+        },
+        "route": [],
+        "tags": {
+            "www": {
+                "thoughts": [
+                    "self-identity",
+                    "expectations"
+                ],
+                "fears": [
+                    "extractive-nature",
+                    "corporatization"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "www*thoughts>self-identity,expectations&fears>extractive-nature,corporatization",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW: POCKET ONLINE",
+            "dom_slug": "personal-log",
+            "dom_display": "personal-log",
+            "room_slug": "write",
+            "room_display": "www's plog",
+            "mod_slug": "www",
+            "mod_display": "www"
+        },
+        "ref_material": {
+            "material": {
+                "type": "",
+                "source": {
+                    "name": "",
+                    "id": "",
+                    "created_on": "",
+                    "last_modified": ""
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777249480.tps",
+            "ingest_unix": 1777249480,
+            "event_unix": 1777249480,
+            "timezone": "America\/New_York"
+        }
+    }
+}

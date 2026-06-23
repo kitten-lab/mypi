@@ -1,0 +1,125 @@
+{
+    "CABINET": {
+        "thoughts": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777249480,
+                    "LAST": 1777477577
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1744767843": [
+                        "sdk-808"
+                    ]
+                }
+            },
+            "SHELF": {
+                "www": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777249480,
+                            "LAST": 1777249480
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777249480": [
+                                "self-identity",
+                                "expectations"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "self-identity": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777249480,
+                                    "LAST": 1777249480
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777249480": {
+                                    "www": [
+                                        "crate.4B13E46A627D966F"
+                                    ]
+                                }
+                            }
+                        },
+                        "expectations": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777249480,
+                                    "LAST": 1777249480
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777249480": {
+                                    "www": [
+                                        "crate.4B13E46A627D966F"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "sdk-808": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777477577,
+                            "LAST": 1777477577
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1744767843": [
+                                "chester"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "chester": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777477577,
+                                    "LAST": 1777477577
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1744767843": {
+                                    "SDK-808": [
+                                        "crate.E0BD1B135E50FC5E"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

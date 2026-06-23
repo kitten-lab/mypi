@@ -1,0 +1,23 @@
+{
+    "VEN": "strengths",
+    "GRAVITY": 17,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 17,
+            "BIN": {
+                "established-brand": 2,
+                "high-quality": 2,
+                "large-portfolio": 1,
+                "relationships-with-operators": 2,
+                "regulated-market-presence": 2,
+                "proven-game-mechanics": 2,
+                "visual-identity": 2,
+                "slots": 1,
+                "graphics": 1,
+                "animations": 1,
+                "best-graphics": 1
+            }
+        }
+    }
+}

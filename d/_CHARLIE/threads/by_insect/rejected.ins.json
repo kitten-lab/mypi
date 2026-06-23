@@ -1,0 +1,13 @@
+{
+    "VEN": "rejected",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "kat": {
+            "GRAVITY": 1,
+            "BIN": {
+                "elion": 1
+            }
+        }
+    }
+}

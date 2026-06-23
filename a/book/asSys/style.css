@@ -1,0 +1,44 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.6rem;
+}
+.soper_frag {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 6px;
+    align-items: start;
+    padding: 5px;
+    width: 80vw;
+    border: 1px solid gray;
+    margin: 6px;
+}
+
+.slug {
+    font-size: 0.4rem;
+    text-transform: uppercase;
+    opacity: 0.4;
+    padding-top:5px;
+    padding-bottom:5px;
+    white-space: wrap;
+    background-color: rgb(255, 200, 0);
+}
+
+
+.content {
+    margin-top:-7px;
+    line-height: 1.2;
+}
+
+pre {
+  font-size: xx-small;
+  margin: 2px;
+}
+
+nav.bookNav {
+  background-color: indigo;
+  padding: 6px;
+}
+
+nav.bookNav a {
+  color: white;
+}

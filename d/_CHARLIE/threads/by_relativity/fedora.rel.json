@@ -1,0 +1,13 @@
+{
+    "VEN": "fedora",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "detective-case_work": {
+            "GRAVITY": 1,
+            "BIN": {
+                "symbols": 1
+            }
+        }
+    }
+}

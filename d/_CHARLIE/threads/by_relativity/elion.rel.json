@@ -1,0 +1,30 @@
+{
+    "VEN": "elion",
+    "GRAVITY": 19,
+    "METADATA": [],
+    "SHELF": {
+        "omen": {
+            "GRAVITY": 1,
+            "BIN": {
+                "signs": 1
+            }
+        },
+        "oriel": {
+            "GRAVITY": 16,
+            "BIN": {
+                "knows": 2,
+                "misses": 4,
+                "relatedto": 1,
+                "confused": 5,
+                "loves": 4
+            }
+        },
+        "kat": {
+            "GRAVITY": 2,
+            "BIN": {
+                "rejected": 1,
+                "dislikes": 1
+            }
+        }
+    }
+}

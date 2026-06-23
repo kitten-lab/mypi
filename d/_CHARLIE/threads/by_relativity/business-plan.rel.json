@@ -1,0 +1,13 @@
+{
+    "VEN": "business-plan",
+    "GRAVITY": 7,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 7,
+            "BIN": {
+                "docs": 7
+            }
+        }
+    }
+}

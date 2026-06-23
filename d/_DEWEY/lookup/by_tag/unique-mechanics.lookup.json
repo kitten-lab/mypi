@@ -1,0 +1,108 @@
+{
+    "CABINET": {
+        "unique-mechanics": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777165622,
+                    "LAST": 1777166185
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984119": [
+                        "betsoft",
+                        "betsoft",
+                        "betsoft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "betsoft": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1777165622,
+                            "LAST": 1777166185
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984119": [
+                                "weaknesses",
+                                "opportunities",
+                                "suggested-goals"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "weaknesses": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165622,
+                                    "LAST": 1777165622
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.37D8F0182FC9EB57"
+                                    ]
+                                }
+                            }
+                        },
+                        "opportunities": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165773,
+                                    "LAST": 1777165773
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.026D035C666FC4CA"
+                                    ]
+                                }
+                            }
+                        },
+                        "suggested-goals": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166185,
+                                    "LAST": 1777166185
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.A7C1371E7C314CE6"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

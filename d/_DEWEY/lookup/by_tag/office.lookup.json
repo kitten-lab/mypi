@@ -1,0 +1,110 @@
+{
+    "CABINET": {
+        "office": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777221142,
+                    "LAST": 1777221279
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777221279": [
+                        "slots",
+                        "detective-case_work"
+                    ]
+                }
+            },
+            "SHELF": {
+                "slots": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777221142,
+                            "LAST": 1777221279
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777221279": [
+                                "detective-case_work"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "detective-case_work": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777221142,
+                                    "LAST": 1777221279
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221142": {
+                                    "DW": [
+                                        "crate.604C840E3575303D"
+                                    ]
+                                },
+                                "1777221279": {
+                                    "DW": [
+                                        "crate.DACE7DDA54F7AF36"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "detective-case_work": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777221279,
+                            "LAST": 1777221279
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777221279": [
+                                "location"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "location": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221279,
+                                    "LAST": 1777221279
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221279": {
+                                    "DW": [
+                                        "crate.DACE7DDA54F7AF36"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

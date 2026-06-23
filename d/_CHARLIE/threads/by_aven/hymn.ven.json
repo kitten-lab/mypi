@@ -1,0 +1,17 @@
+{
+    "VEN": "hymn",
+    "GRAVITY": 3,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "archetype": {
+            "GRAVITY": 3,
+            "BIN": {
+                "casey": 1,
+                "glass": 1,
+                "wire-wolf": 1
+            }
+        }
+    }
+}

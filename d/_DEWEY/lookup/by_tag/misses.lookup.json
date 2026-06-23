@@ -1,0 +1,79 @@
+{
+    "CABINET": {
+        "misses": {
+            "METADATA": {
+                "GRAVITY": 4,
+                "INGEST": {
+                    "FIRST": 1782050368,
+                    "LAST": 1782051566
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1782051566": [
+                        "oriel"
+                    ]
+                }
+            },
+            "SHELF": {
+                "oriel": {
+                    "METADATA": {
+                        "GRAVITY": 4,
+                        "INGEST": {
+                            "FIRST": 1782050368,
+                            "LAST": 1782051566
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782051566": [
+                                "elion"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "elion": {
+                            "METADATA": {
+                                "GRAVITY": 4,
+                                "INGEST": {
+                                    "FIRST": 1782050368,
+                                    "LAST": 1782051566
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782050368": {
+                                    "km": [
+                                        "crate.CCC0A8DF29FB725F"
+                                    ]
+                                },
+                                "1782050408": {
+                                    "km": [
+                                        "crate.5B58FF41CFAFDDAA"
+                                    ]
+                                },
+                                "1782051365": {
+                                    "km": [
+                                        "crate.13204086AF532FDA"
+                                    ]
+                                },
+                                "1782051566": {
+                                    "km": [
+                                        "crate.F5D3993400100AA7"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "VEN": "goals",
+    "GRAVITY": 5,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 5,
+            "BIN": {
+                "increase-releases": 1,
+                "top-tier": 1,
+                "partnerships": 1,
+                "strategic-partnerships": 1,
+                "global-connections": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "glass-box": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1781977950,
+                    "LAST": 1781977950
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1781977950": [
+                        "elion"
+                    ]
+                }
+            },
+            "SHELF": {
+                "elion": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1781977950,
+                            "LAST": 1781977950
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1781977950": [
+                                "can_use"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "can_use": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1781977950,
+                                    "LAST": 1781977950
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1781977950": {
+                                    "km": [
+                                        "crate.78AFD80D4714F69B"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

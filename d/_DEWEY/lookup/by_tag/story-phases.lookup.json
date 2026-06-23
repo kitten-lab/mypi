@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "story-phases": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1777221105,
+                    "LAST": 1777221105
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777221105": [
+                        "slots"
+                    ]
+                }
+            },
+            "SHELF": {
+                "slots": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777221105,
+                            "LAST": 1777221105
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777221105": [
+                                "detective-case_work"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "detective-case_work": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221105,
+                                    "LAST": 1777221105
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221105": {
+                                    "DW": [
+                                        "crate.B7C1AD281172231F"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

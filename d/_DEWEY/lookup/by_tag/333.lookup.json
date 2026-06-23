@@ -1,0 +1,69 @@
+{
+    "CABINET": {
+        "333": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1777404875,
+                    "LAST": 1777481593
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777481593": [
+                        "omen"
+                    ]
+                }
+            },
+            "SHELF": {
+                "omen": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777404875,
+                            "LAST": 1777481593
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777481593": [
+                                "numbers"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "numbers": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777404875,
+                                    "LAST": 1777481593
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777404875": {
+                                    "OM": [
+                                        "crate.69797D90B6847337"
+                                    ]
+                                },
+                                "1777481593": {
+                                    "OM": [
+                                        "crate.78B22A9168AD1A70"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

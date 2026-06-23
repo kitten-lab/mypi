@@ -1,0 +1,104 @@
+{
+    "crate.20778E94F73E9EE1": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "KDE",
+                "topic": "LOVE YOU SITE! REALLY COOL IDEA! (It's me, the maker, posting to myself for an example!)"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "KDE"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "publicOffices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "publicOffices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778201620.tps",
+            "ingest_unix": 1778201620,
+            "event_unix": 1778201620,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D290A9E35E30825B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "SDK-909",
+                "topic": "I got to say, I didn't originally know how the end product would be when you imagined it, but I love how it is all coming together!"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "SDK-909"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "publicOffices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "publicOffices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778202170.tps",
+            "ingest_unix": 1778202170,
+            "event_unix": 1778202170,
+            "timezone": "America\/New_York"
+        }
+    }
+}

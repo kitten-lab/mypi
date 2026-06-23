@@ -1,0 +1,95 @@
+{
+    "1778295418.tps": {
+        "tps_version": 3,
+        "cUID": [
+            "crate.859772E71AC0BC96"
+        ],
+        "event_slug": [],
+        "import_unix": [
+            1778295418
+        ],
+        "time_certainty": [],
+        "event_timezone": "America\/New_York",
+        "tps_timzezone": "UTC",
+        "tps_unix": 1778295418,
+        "tps_report": {
+            "netLoop": 164,
+            "millennium": 2,
+            "century": 20,
+            "decade": 202,
+            "year": 2026,
+            "leap": 0,
+            "month": 5,
+            "week": 19,
+            "dayOfYear": 128,
+            "dayOfMonth": 9,
+            "dayOfWeek": 6,
+            "hour": 2,
+            "minute": 56,
+            "second": 58,
+            "ms": 943
+        }
+    },
+    "1778295774.tps": {
+        "tps_version": 3,
+        "cUID": [
+            "crate.B88DA0B7D160411E"
+        ],
+        "event_slug": [],
+        "import_unix": [
+            1778295774
+        ],
+        "time_certainty": [],
+        "event_timezone": "America\/New_York",
+        "tps_timzezone": "UTC",
+        "tps_unix": 1778295774,
+        "tps_report": {
+            "netLoop": 168,
+            "millennium": 2,
+            "century": 20,
+            "decade": 202,
+            "year": 2026,
+            "leap": 0,
+            "month": 5,
+            "week": 19,
+            "dayOfYear": 128,
+            "dayOfMonth": 9,
+            "dayOfWeek": 6,
+            "hour": 3,
+            "minute": 2,
+            "second": 54,
+            "ms": 412
+        }
+    },
+    "1778296483.tps": {
+        "tps_version": 3,
+        "cUID": [
+            "crate.D039C3F438DFE9EC"
+        ],
+        "event_slug": [],
+        "import_unix": [
+            1778296483
+        ],
+        "time_certainty": [],
+        "event_timezone": "America\/New_York",
+        "tps_timzezone": "UTC",
+        "tps_unix": 1778296483,
+        "tps_report": {
+            "netLoop": 176,
+            "millennium": 2,
+            "century": 20,
+            "decade": 202,
+            "year": 2026,
+            "leap": 0,
+            "month": 5,
+            "week": 19,
+            "dayOfYear": 128,
+            "dayOfMonth": 9,
+            "dayOfWeek": 6,
+            "hour": 3,
+            "minute": 14,
+            "second": 43,
+            "ms": 295
+        }
+    }
+}

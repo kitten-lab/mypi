@@ -1,0 +1,14 @@
+{
+    "VEN": "dorn",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "glitch-slip": {
+            "GRAVITY": 2,
+            "BIN": {
+                "dorm": 1,
+                "thorn": 1
+            }
+        }
+    }
+}

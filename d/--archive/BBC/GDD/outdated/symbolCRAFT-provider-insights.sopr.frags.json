@@ -1,0 +1,123 @@
+{
+    "SECTION": {
+        "betsoft-gaming": {
+            "LABEL": "Betsoft Gaming",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "betsoft-gaming-0001",
+                    "FRAG": "mid-tier iGaming provider specializing in online slots",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777162426,
+                        "cUID": "crate.8D54B3700F9EB092",
+                        "TAGS": {
+                            "symbolcraft": {
+                                "insights": [
+                                    "provider"
+                                ],
+                                "insights-provider": [
+                                    "betsoft"
+                                ]
+                            },
+                            "betsoft": {
+                                "tier": [
+                                    "mid"
+                                ],
+                                "specialty": [
+                                    "online-slots"
+                                ],
+                                "industry": [
+                                    "igaming"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "betsoft-gaming-0002",
+                    "FRAG": "the company has established a strong presence in the industry",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777162591,
+                        "cUID": "crate.7AE36D58F30422AF",
+                        "TAGS": {
+                            "symbolcraft": {
+                                "insights": [
+                                    "provider"
+                                ],
+                                "insights-provider": [
+                                    "betsoft"
+                                ]
+                            },
+                            "betsoft": {
+                                "presence": [
+                                    "strong",
+                                    "established"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "betsoft-gaming-current-state-analysis": {
+            "LABEL": "Betsoft Gaming Current State Analysis",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "betsoft-gaming-current-state-analysis-0001",
+                    "FRAG": "Strengths:\r\n- Established brand with a portfolio of high-quality slot games.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777162966,
+                        "cUID": "crate.5D069770D09B9A74",
+                        "TAGS": {
+                            "betsoft": {
+                                "strengths": [
+                                    "established-brand",
+                                    "high-quality",
+                                    "large-portfolio"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "betsoft-gaming-current-state-analysis-0002",
+                    "FRAG": "Strengths:\r\n- Strong relationships with key operators in regulated markets.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777163064,
+                        "cUID": "crate.EE9F5D595854CFD5",
+                        "TAGS": {
+                            "betsoft": {
+                                "strengths": [
+                                    "relationships-with-operators",
+                                    "regulated-market-presence"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "betsoft-gaming-current-state-analysis-0003",
+                    "FRAG": "Strengths: \r\n- Proven game mechanics and engaging visual design.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777163141,
+                        "cUID": "crate.E908A966018F7D5D",
+                        "TAGS": {
+                            "betsoft": {
+                                "strengths": [
+                                    "proven-game-mechanics",
+                                    "visual-identity"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

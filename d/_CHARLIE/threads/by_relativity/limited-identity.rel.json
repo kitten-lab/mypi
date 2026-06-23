@@ -1,0 +1,13 @@
+{
+    "VEN": "limited-identity",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "weaknesses": 1
+            }
+        }
+    }
+}

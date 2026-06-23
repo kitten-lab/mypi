@@ -1,0 +1,20 @@
+{
+    "VEN": "thoughts",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "www": {
+            "GRAVITY": 2,
+            "BIN": {
+                "self-identity": 1,
+                "expectations": 1
+            }
+        },
+        "sdk-808": {
+            "GRAVITY": 1,
+            "BIN": {
+                "chester": 1
+            }
+        }
+    }
+}

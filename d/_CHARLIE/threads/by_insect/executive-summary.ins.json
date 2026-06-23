@@ -1,0 +1,15 @@
+{
+    "VEN": "executive-summary",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 3,
+            "BIN": {
+                "innovation": 1,
+                "market-expansion": 1,
+                "operational-efficiency": 1
+            }
+        }
+    }
+}

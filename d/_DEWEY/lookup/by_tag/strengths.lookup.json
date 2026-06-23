@@ -1,0 +1,274 @@
+{
+    "CABINET": {
+        "strengths": {
+            "METADATA": {
+                "GRAVITY": 17,
+                "INGEST": {
+                    "FIRST": 1777162966,
+                    "LAST": 1777168245
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984206": [
+                        "betsoft",
+                        "betsoft",
+                        "betsoft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "betsoft": {
+                    "METADATA": {
+                        "GRAVITY": 17,
+                        "INGEST": {
+                            "FIRST": 1777162966,
+                            "LAST": 1777168245
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984206": [
+                                "graphics",
+                                "animations",
+                                "best-graphics"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "established-brand": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777162966,
+                                    "LAST": 1777164206
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.5D069770D09B9A74",
+                                        "crate.DA805FFCD49E3F1A"
+                                    ]
+                                }
+                            }
+                        },
+                        "high-quality": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777162966,
+                                    "LAST": 1777164206
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.5D069770D09B9A74",
+                                        "crate.DA805FFCD49E3F1A"
+                                    ]
+                                }
+                            }
+                        },
+                        "large-portfolio": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777162966,
+                                    "LAST": 1777162966
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.5D069770D09B9A74"
+                                    ]
+                                }
+                            }
+                        },
+                        "relationships-with-operators": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777163064,
+                                    "LAST": 1777164258
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.EE9F5D595854CFD5",
+                                        "crate.BD1BFD79DD92005F"
+                                    ]
+                                }
+                            }
+                        },
+                        "regulated-market-presence": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777163064,
+                                    "LAST": 1777164258
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.EE9F5D595854CFD5",
+                                        "crate.BD1BFD79DD92005F"
+                                    ]
+                                }
+                            }
+                        },
+                        "proven-game-mechanics": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777163141,
+                                    "LAST": 1777164336
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.E908A966018F7D5D",
+                                        "crate.564AC96B9D26961E"
+                                    ]
+                                }
+                            }
+                        },
+                        "visual-identity": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777163141,
+                                    "LAST": 1777164336
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.E908A966018F7D5D",
+                                        "crate.564AC96B9D26961E"
+                                    ]
+                                }
+                            }
+                        },
+                        "slots": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777164206,
+                                    "LAST": 1777164206
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.DA805FFCD49E3F1A"
+                                    ]
+                                }
+                            }
+                        },
+                        "graphics": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777168245,
+                                    "LAST": 1777168245
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984206": {
+                                    "DW": [
+                                        "crate.8751E198D0E1FF53"
+                                    ]
+                                }
+                            }
+                        },
+                        "animations": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777168245,
+                                    "LAST": 1777168245
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984206": {
+                                    "DW": [
+                                        "crate.8751E198D0E1FF53"
+                                    ]
+                                }
+                            }
+                        },
+                        "best-graphics": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777168245,
+                                    "LAST": 1777168245
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984206": {
+                                    "DW": [
+                                        "crate.8751E198D0E1FF53"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

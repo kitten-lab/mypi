@@ -1,0 +1,5 @@
+<?php 
+
+$SITE = $GLOBALS['SITE'];
+
+?>

@@ -1,0 +1,105 @@
+{
+    "CABINET": {
+        "808": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1777378279,
+                    "LAST": 1777378279
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777372800": [
+                        "symbols",
+                        "omens"
+                    ]
+                }
+            },
+            "SHELF": {
+                "symbols": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777378279,
+                            "LAST": 1777378279
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777372800": [
+                                "numbers"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "numbers": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777378279,
+                                    "LAST": 1777378279
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777372800": {
+                                    "OM": [
+                                        "crate.44889914DFFDE6B9"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "omens": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777378279,
+                            "LAST": 1777378279
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777372800": [
+                                "numbers"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "numbers": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777378279,
+                                    "LAST": 1777378279
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777372800": {
+                                    "OM": [
+                                        "crate.44889914DFFDE6B9"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

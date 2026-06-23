@@ -1,0 +1,13 @@
+{
+    "VEN": "glass-box",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "elion": {
+            "GRAVITY": 1,
+            "BIN": {
+                "can_use": 1
+            }
+        }
+    }
+}

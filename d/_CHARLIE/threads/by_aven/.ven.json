@@ -1,0 +1,16 @@
+{
+    "VEN": "",
+    "GRAVITY": 3,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "hymn": {
+            "GRAVITY": 3,
+            "BIN": {
+                "wire-wolf": 2,
+                "casey": 1
+            }
+        }
+    }
+}

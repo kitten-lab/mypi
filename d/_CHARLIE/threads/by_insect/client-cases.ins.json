@@ -1,0 +1,21 @@
+{
+    "VEN": "client-cases",
+    "GRAVITY": 9,
+    "METADATA": [],
+    "SHELF": {
+        "detective-case_work": {
+            "GRAVITY": 9,
+            "BIN": {
+                "personality": 1,
+                "urgency": 1,
+                "wealth": 1,
+                "tone": 1,
+                "nervous-widow": 1,
+                "rich-businessman": 1,
+                "desperate-teenager": 1,
+                "shady-gangster": 1,
+                "tone-variation": 1
+            }
+        }
+    }
+}

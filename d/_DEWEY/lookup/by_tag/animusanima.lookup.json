@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "animusanima": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1777468267,
+                    "LAST": 1777468267
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777468266": [
+                        "topics"
+                    ]
+                }
+            },
+            "SHELF": {
+                "topics": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777468267,
+                            "LAST": 1777468267
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777468266": [
+                                "names"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "names": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777468267,
+                                    "LAST": 1777468267
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777468266": {
+                                    "SDK-808": [
+                                        "crate.DE16492FC5916F9B"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

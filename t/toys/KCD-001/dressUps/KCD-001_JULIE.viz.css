@@ -1,0 +1,109 @@
+
+
+/* JULIE ROMS */
+
+
+#VEN_JULIE.KCD-001 {
+  height: 144px;
+  width: 133px;
+  border-radius: 4px;
+  background-image: radial-gradient(red, rgba(116, 0, 0, 0.538));
+  box-shadow: 
+    0px 2px 10px 1px rgba(0,0,0,0.3),
+    inset 0px 0px 10px 2px rgba(255, 82, 82, 0.4),
+    inset 0px 0px 0px 1px rgba(160, 0, 0, 0.2),
+    inset 0px 0px 2px 2px rgba(252, 8, 8, 0.5),
+    inset 1px 1px 0px white;
+  border: 1px solid rgba(0,0,0,0.2);
+  backdrop-filter: blur(2px);
+  position: relative;
+  display: grid;
+  grid-template-rows:  
+  "Logo"
+  "Sublogo";
+  justify-content: center; 
+  align-items: top; 
+  cursor: pointer;
+  overflow: visible;
+}
+
+#VEN_JULIE.KCD-001::before {
+    content: "JULIE";
+    position: fixed;
+      left: 1rem;
+    height: .50rem;
+    width: 2rem;
+    font-size: .4rem;
+      text-align: center;
+  background: rgb(192, 0, 0);
+  box-shadow: 
+    inset 0px 0px 2px 2px rgba(1, 1, 1, 0.136),
+    inset 0px 0px 0px 1px rgba(255,255,255,0.2);
+  cursor: pointer;
+
+}
+
+#VEN_JULIE.KCD-001::after {
+    content: "";
+    position: relative;
+    top: 3px;
+    background-color: #333;
+    box-shadow: 
+    inset 0px 0px 10px 2px rgba(79, 71, 71, 0.4),
+    inset 0px 0px 0px 1px rgba(255,255,255,0.2);
+  border: 1px solid rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+#VEN_JULIE.KCD-001 .label {
+  cursor: pointer;
+  grid-area: Logo;
+  display: block;
+  position: relative;
+    top: 1rem;
+  align-items: center;
+  text-align: center;
+  width: 111px;
+  height: 65px;
+  line-height: 0.7;
+  background-image: linear-gradient(23deg, rgba(41, 0, 0, 0.9), rgba(174, 14, 14, 0.97));
+    box-shadow: 0 0 5px rgba(161, 161, 161, 0.452),
+    inset 0 1px 1px rgba(8, 9, 38, 0.454);
+
+}
+
+#VEN_JULIE.KCD-001 .label .title {
+  display: block;
+  position: relative;
+  top: 8px;
+     color: rgb(255, 170, 0);
+    font-family: var(--font-bugaloo);
+    font-size: 1.4rem;
+    text-shadow: 
+    0 0 5px #040404,
+    0 3px 0 rgba(70, 15, 15, 0.444),
+    0 0 2px red,
+    1px 1px 2px white
+}
+
+#VEN_JULIE.KCD-001 .label .funtitle {
+  display: block;
+  position: relative;
+  top: 16px;
+    font-size: .8rem;
+}
+
+#VEN_JULIE.KCD-001 .label::before {
+  padding: 4px;
+  content: "";
+  display: block;
+  position: absolute;
+    top: -4px;
+    left: -4px;
+  align-items: center;
+  text-align: center;
+  width: 111px;
+  height: 65px;
+  box-shadow: 
+    0px 0px 2px 2px rgba(252, 8, 8, 0.5);
+}

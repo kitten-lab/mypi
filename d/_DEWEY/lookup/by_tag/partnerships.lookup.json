@@ -1,0 +1,86 @@
+{
+    "CABINET": {
+        "partnerships": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1777165817,
+                    "LAST": 1777166489
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984119": [
+                        "betsoft",
+                        "betsoft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "betsoft": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777165817,
+                            "LAST": 1777166489
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984119": [
+                                "opportunities",
+                                "goals"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "opportunities": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165817,
+                                    "LAST": 1777165817
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.F82FC5DD79FD0226"
+                                    ]
+                                }
+                            }
+                        },
+                        "goals": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166489,
+                                    "LAST": 1777166489
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.9F066115C32E0E06"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

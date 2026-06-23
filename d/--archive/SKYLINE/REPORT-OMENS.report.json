@@ -1,0 +1,453 @@
+{
+    "crate.91EE24AE1C223ADC": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": 2
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-DANIEL.WAKE",
+                "topic": "owl",
+                "content": "there is an owl outside. i can hear it. who who who."
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "DW"
+            },
+            "to": {
+                "mod": "OM",
+                "room": "OMENS",
+                "dom": "REPORT",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": {
+            "omen": {
+                "animal": [
+                    "owl"
+                ]
+            },
+            "symbol": {
+                "animal": [
+                    "owl",
+                    "who"
+                ]
+            },
+            "questions": {
+                "who": [
+                    "who-am-i"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "omen*animal>owl;symbol*animal>owl,who;questions*who>who-am-i",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE ON INTERA",
+            "dom_slug": "REPORT",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "OMENS",
+            "room_display": "OMAN'S OMENS",
+            "mod_slug": "OM",
+            "mod_display": "OMAN"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Chat",
+                "source": {
+                    "name": "Glass_Box",
+                    "id": "2025-02-19__Business_Plan_Help__53msgs.json",
+                    "created_on": 1739983654,
+                    "last_modified": 1740599830
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777209023.tps",
+            "ingest_unix": 1777209023,
+            "event_unix": 1777209023,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.44889914DFFDE6B9": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": 2
+        },
+        "payload": {
+            "post": {
+                "agent": null,
+                "topic": "8:08am",
+                "content": "8:08 mark time when discussing moving careers - 808align"
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "daniel wake"
+            },
+            "to": {
+                "mod": "OM",
+                "room": "OMENS",
+                "dom": "REPORT",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": {
+            "symbols": {
+                "numbers": [
+                    "808"
+                ]
+            },
+            "omens": {
+                "numbers": [
+                    "808"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbols*numbers>808;omens*numbers>808",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE ON INTERA",
+            "dom_slug": "REPORT",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "OMENS",
+            "room_display": "OMAN'S OMENS",
+            "mod_slug": "OM",
+            "mod_display": "OMAN"
+        },
+        "ref_material": {
+            "material": {
+                "type": "",
+                "source": {
+                    "name": "",
+                    "id": "",
+                    "created_on": "",
+                    "last_modified": ""
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777372800.tps",
+            "ingest_unix": 1777378279,
+            "event_unix": 1777372800,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.69797D90B6847337": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": 2
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-JackWEAK",
+                "topic": "3:33",
+                "content": "3:33"
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "SDK-808"
+            },
+            "to": {
+                "mod": "OM",
+                "room": "OMENS",
+                "dom": "REPORT",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": {
+            "omen": {
+                "numbers": [
+                    "3",
+                    "333"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "omen*numbers>3,333",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE ON INTERA",
+            "dom_slug": "REPORT",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "OMENS",
+            "room_display": "OMAN'S OMENS",
+            "mod_slug": "OM",
+            "mod_display": "OMAN"
+        },
+        "ref_material": {
+            "material": {
+                "type": "",
+                "source": {
+                    "name": "",
+                    "id": "",
+                    "created_on": "",
+                    "last_modified": ""
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777404875.tps",
+            "ingest_unix": 1777404875,
+            "event_unix": 1777404875,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.97331F97B9ABD46B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": 2
+        },
+        "payload": {
+            "post": {
+                "agent": null,
+                "topic": "555 bank balance",
+                "content": "looking to see if i can order food 2 days before payday. balanced is 555.00$"
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "daniel wake"
+            },
+            "to": {
+                "mod": "OM",
+                "room": "OMENS",
+                "dom": "REPORT",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": {
+            "symbols": {
+                "numbers": [
+                    "555"
+                ]
+            },
+            "omen": {
+                "numbers": [
+                    "5",
+                    "555"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbols*numbers>555;omen*numbers>5,555",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE ON INTERA",
+            "dom_slug": "REPORT",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "OMENS",
+            "room_display": "OMAN'S OMENS",
+            "mod_slug": "OM",
+            "mod_display": "OMAN"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777418027.tps",
+            "ingest_unix": 1777418027,
+            "event_unix": 1777418027,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E581A5110DF12FA1": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": 2
+        },
+        "payload": {
+            "post": {
+                "agent": null,
+                "topic": "also 1000.01 on savings $",
+                "content": "balance on savings at same time as 555 balance: 1000.01$"
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "daniel wake"
+            },
+            "to": {
+                "mod": "OM",
+                "room": "OMENS",
+                "dom": "REPORT",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": {
+            "symbols": {
+                "numbers": [
+                    "101",
+                    "100001"
+                ]
+            },
+            "omen": {
+                "numbers": [
+                    "101",
+                    "100001"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbols*numbers>101,100001;omen*numbers>101,100001",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE ON INTERA",
+            "dom_slug": "REPORT",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "OMENS",
+            "room_display": "OMAN'S OMENS",
+            "mod_slug": "OM",
+            "mod_display": "OMAN"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777418089.tps",
+            "ingest_unix": 1777418089,
+            "event_unix": 1777418089,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.78B22A9168AD1A70": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": 2
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-JackWEAK",
+                "topic": "3:33",
+                "content": "3:33"
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "SDK-808"
+            },
+            "to": {
+                "mod": "OM",
+                "room": "OMENS",
+                "dom": "REPORT",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": {
+            "omen": {
+                "numbers": [
+                    "3",
+                    "333"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "omen*numbers>3,333",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE ON INTERA",
+            "dom_slug": "REPORT",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "OMENS",
+            "room_display": "OMAN'S OMENS",
+            "mod_slug": "OM",
+            "mod_display": "OMAN"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777481593.tps",
+            "ingest_unix": 1777481593,
+            "event_unix": 1777481593,
+            "timezone": "America\/New_York"
+        }
+    }
+}

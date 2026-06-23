@@ -1,0 +1,74 @@
+{
+    "CABINET": {
+        "jackcross": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1782052577,
+                    "LAST": 1782052892
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1782052892": [
+                        "oriel"
+                    ]
+                }
+            },
+            "SHELF": {
+                "oriel": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1782052577,
+                            "LAST": 1782052892
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782052892": [
+                                "relatesto"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "relatesto": {
+                            "METADATA": {
+                                "GRAVITY": 3,
+                                "INGEST": {
+                                    "FIRST": 1782052577,
+                                    "LAST": 1782052892
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782052577": {
+                                    "km": [
+                                        "crate.EFA9F8D2AF56353A"
+                                    ]
+                                },
+                                "1782052587": {
+                                    "km": [
+                                        "crate.7A1CAD10C6945465"
+                                    ]
+                                },
+                                "1782052892": {
+                                    "km": [
+                                        "crate.BFE713F954CA94F9"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "VEN": "weaknesses",
+    "GRAVITY": 8,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 8,
+            "BIN": {
+                "limited-identity": 1,
+                "derivative": 1,
+                "low-brand-awareness": 1,
+                "low-marketing-awareness": 1,
+                "regulated-market-presence": 1,
+                "innovation": 1,
+                "unique-mechanics": 1,
+                "unique-tech": 1
+            }
+        }
+    }
+}

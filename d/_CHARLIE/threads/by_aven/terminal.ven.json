@@ -1,0 +1,15 @@
+{
+    "VEN": "terminal",
+    "GRAVITY": 1,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "mentions": {
+            "GRAVITY": 1,
+            "BIN": {
+                "sam": 1
+            }
+        }
+    }
+}

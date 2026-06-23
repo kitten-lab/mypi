@@ -1,0 +1,67 @@
+{
+    "CABINET": {
+        "established-brand": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1777162966,
+                    "LAST": 1777164206
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984119": [
+                        "betsoft",
+                        "betsoft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "betsoft": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777162966,
+                            "LAST": 1777164206
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984119": [
+                                "strengths",
+                                "strengths"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "strengths": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777162966,
+                                    "LAST": 1777164206
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.5D069770D09B9A74",
+                                        "crate.DA805FFCD49E3F1A"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

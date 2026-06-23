@@ -1,0 +1,79 @@
+{
+    "CABINET": {
+        "news": {
+            "METADATA": {
+                "GRAVITY": 4,
+                "INGEST": {
+                    "FIRST": 1777895832,
+                    "LAST": 1777900262
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1757430000": [
+                        "media"
+                    ]
+                }
+            },
+            "SHELF": {
+                "media": {
+                    "METADATA": {
+                        "GRAVITY": 4,
+                        "INGEST": {
+                            "FIRST": 1777895832,
+                            "LAST": 1777900262
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1757430000": [
+                                "mythleak"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "mythleak": {
+                            "METADATA": {
+                                "GRAVITY": 4,
+                                "INGEST": {
+                                    "FIRST": 1777895832,
+                                    "LAST": 1777900262
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758812400": {
+                                    "MCS-000": [
+                                        "crate.C524A478667B2186"
+                                    ]
+                                },
+                                "1759081200": {
+                                    "MCS-000": [
+                                        "crate.C05568A757A22870"
+                                    ]
+                                },
+                                "1759071600": {
+                                    "MCS-000": [
+                                        "crate.9C5AC629CF91FDA6"
+                                    ]
+                                },
+                                "1757430000": {
+                                    "MCS-000": [
+                                        "crate.294FCC2F01F150F6"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

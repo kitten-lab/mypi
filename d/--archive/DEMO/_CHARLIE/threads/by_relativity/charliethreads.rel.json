@@ -1,0 +1,13 @@
+{
+    "VEN": "charliethreads",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "skyline-news": {
+            "GRAVITY": 2,
+            "BIN": {
+                "reports": 2
+            }
+        }
+    }
+}

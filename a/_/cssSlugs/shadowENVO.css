@@ -1,0 +1,15 @@
+
+.sha_env {
+  position: fixed;
+  padding: 20px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000; /* Keeps it above other content */
+  background-color: rgba(0, 0, 0, 0.411);
+  color: white;
+  font-family: var(--skyFont-family);
+  text-align: right;
+  pointer-events: none;
+}

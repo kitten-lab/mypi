@@ -1,0 +1,58 @@
+{
+    "SECTION": {
+        "data-forestry": {
+            "LABEL": "Data Forestry",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "data-forestry-0001",
+                    "FRAG": "# what is data forestry?",
+                    "AGENT": "MRA-JackWEAK",
+                    "METADATA": {
+                        "ADDED": 1777248732,
+                        "cUID": "crate.3F6C628C882AF653",
+                        "TAGS": {
+                            "sopr": {
+                                "nim": [
+                                    "data-forestry",
+                                    "docs"
+                                ],
+                                "docs": [
+                                    "data-forestry"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "data-forestry-0002",
+                    "FRAG": "the process of ingesting material and storing it in searchable fragments",
+                    "AGENT": "MRA-JackWEAK",
+                    "METADATA": {
+                        "ADDED": 1777248798,
+                        "cUID": "crate.8860A24BA6AA4C1B",
+                        "TAGS": {
+                            "sopr": {
+                                "nim": [
+                                    "data-forestry",
+                                    "docs"
+                                ],
+                                "docs": [
+                                    "data-forestry"
+                                ]
+                            },
+                            "data-forestry": {
+                                "purpose": [
+                                    "ingest-material",
+                                    "searchable",
+                                    "storage",
+                                    "silo"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

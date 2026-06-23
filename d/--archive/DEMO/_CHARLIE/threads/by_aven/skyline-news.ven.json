@@ -1,0 +1,34 @@
+{
+    "VEN": "skyline-news",
+    "GRAVITY": 22,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "reports": {
+            "GRAVITY": 22,
+            "BIN": {
+                "larger-text-area": 1,
+                "charliethreads": 2,
+                "storage": 2,
+                "world-storage": 1,
+                "merging": 1,
+                "echoes": 1,
+                "tps": 1,
+                "data": 1,
+                "tools": 1,
+                "charlie": 1,
+                "eyes": 1,
+                "reporting": 1,
+                "layout": 1,
+                "post": 1,
+                "tool": 1,
+                "database": 1,
+                "worlds": 1,
+                "duplication": 1,
+                "errors": 1,
+                "user-error": 1
+            }
+        }
+    }
+}

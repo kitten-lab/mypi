@@ -1,0 +1,22 @@
+{
+    "VEN": "topics",
+    "GRAVITY": 4,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "hymn": {
+            "GRAVITY": 3,
+            "BIN": {
+                "wire-wolf": 2,
+                "casey": 1
+            }
+        },
+        "animusanima": {
+            "GRAVITY": 1,
+            "BIN": {
+                "names": 1
+            }
+        }
+    }
+}

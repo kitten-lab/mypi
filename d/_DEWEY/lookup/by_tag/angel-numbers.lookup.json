@@ -1,0 +1,144 @@
+{
+    "CABINET": {
+        "angel-numbers": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777416655,
+                    "LAST": 1777416958
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1758046781": [
+                        "omen"
+                    ]
+                }
+            },
+            "SHELF": {
+                "terminal-io": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777416655,
+                            "LAST": 1777416655
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758056547": [
+                                "daily-inventory"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "daily-inventory": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777416655,
+                                    "LAST": 1777416655
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758056547": {
+                                    "SDK-808": [
+                                        "crate.700CAE8753686057"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "omens": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777416655,
+                            "LAST": 1777416655
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758056547": [
+                                "signs"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "signs": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777416655,
+                                    "LAST": 1777416655
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758056547": {
+                                    "SDK-808": [
+                                        "crate.700CAE8753686057"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "omen": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777416958,
+                            "LAST": 1777416958
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758046781": [
+                                "numbers"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "numbers": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777416958,
+                                    "LAST": 1777416958
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758046781": {
+                                    "SDK-808": [
+                                        "crate.3AE7599373BA8D42"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

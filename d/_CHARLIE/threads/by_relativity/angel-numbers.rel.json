@@ -1,0 +1,25 @@
+{
+    "VEN": "angel-numbers",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "terminal-io": {
+            "GRAVITY": 1,
+            "BIN": {
+                "daily-inventory": 1
+            }
+        },
+        "omens": {
+            "GRAVITY": 1,
+            "BIN": {
+                "signs": 1
+            }
+        },
+        "omen": {
+            "GRAVITY": 1,
+            "BIN": {
+                "numbers": 1
+            }
+        }
+    }
+}

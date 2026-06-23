@@ -1,0 +1,123 @@
+{
+    "CABINET": {
+        "event": {
+            "METADATA": {
+                "GRAVITY": 6,
+                "INGEST": {
+                    "FIRST": 1782011908,
+                    "LAST": 1782012570
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1782012570": [
+                        "oriel",
+                        "oriel",
+                        "oriel"
+                    ]
+                }
+            },
+            "SHELF": {
+                "oriel": {
+                    "METADATA": {
+                        "GRAVITY": 6,
+                        "INGEST": {
+                            "FIRST": 1782011908,
+                            "LAST": 1782012570
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782012570": [
+                                "gem",
+                                "frozen",
+                                "crystalized"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "gem": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1782011908,
+                                    "LAST": 1782012570
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782011908": {
+                                    "km": [
+                                        "crate.AA9319FD730D5551"
+                                    ]
+                                },
+                                "1782012570": {
+                                    "km": [
+                                        "crate.8B99A911D849D91A"
+                                    ]
+                                }
+                            }
+                        },
+                        "frozen": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1782011908,
+                                    "LAST": 1782012570
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782011908": {
+                                    "km": [
+                                        "crate.AA9319FD730D5551"
+                                    ]
+                                },
+                                "1782012570": {
+                                    "km": [
+                                        "crate.8B99A911D849D91A"
+                                    ]
+                                }
+                            }
+                        },
+                        "crystalized": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1782011908,
+                                    "LAST": 1782012570
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782011908": {
+                                    "km": [
+                                        "crate.AA9319FD730D5551"
+                                    ]
+                                },
+                                "1782012570": {
+                                    "km": [
+                                        "crate.8B99A911D849D91A"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

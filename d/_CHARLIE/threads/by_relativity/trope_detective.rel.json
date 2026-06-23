@@ -1,0 +1,13 @@
+{
+    "VEN": "trope_detective",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "slots": {
+            "GRAVITY": 1,
+            "BIN": {
+                "detective-case_work": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "welcome-message1",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "skyline": {
+            "GRAVITY": 1,
+            "BIN": {
+                "posts": 1
+            }
+        }
+    }
+}

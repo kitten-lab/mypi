@@ -1,0 +1,23 @@
+{
+    "VEN": "omen",
+    "GRAVITY": 4,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "animal": {
+            "GRAVITY": 2,
+            "BIN": {
+                "cat": 1,
+                "mouse": 1
+            }
+        },
+        "pattern": {
+            "GRAVITY": 2,
+            "BIN": {
+                "hunt": 1,
+                "cat-and-mouse": 1
+            }
+        }
+    }
+}

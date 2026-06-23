@@ -1,0 +1,13 @@
+{
+    "VEN": "loom",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "mythleak": {
+            "GRAVITY": 1,
+            "BIN": {
+                "mentions": 1
+            }
+        }
+    }
+}

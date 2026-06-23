@@ -1,0 +1,74 @@
+{
+    "CABINET": {
+        "customer": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777221449,
+                    "LAST": 1777221535
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777221535": [
+                        "detective-case_work"
+                    ]
+                }
+            },
+            "SHELF": {
+                "detective-case_work": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1777221449,
+                            "LAST": 1777221535
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777221535": [
+                                "feature"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "feature": {
+                            "METADATA": {
+                                "GRAVITY": 3,
+                                "INGEST": {
+                                    "FIRST": 1777221449,
+                                    "LAST": 1777221535
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221449": {
+                                    "DW": [
+                                        "crate.078A4AC0EDACFADC"
+                                    ]
+                                },
+                                "1777221518": {
+                                    "DW": [
+                                        "crate.D3450BE4E10A4C90"
+                                    ]
+                                },
+                                "1777221535": {
+                                    "DW": [
+                                        "crate.29138ED2B15944A2"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

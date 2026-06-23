@@ -1,0 +1,13 @@
+{
+    "VEN": "444",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "omen": {
+            "GRAVITY": 1,
+            "BIN": {
+                "numbers": 1
+            }
+        }
+    }
+}

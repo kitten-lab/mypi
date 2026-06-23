@@ -1,0 +1,73 @@
+{
+    "crate.F3B28EED692EE40A": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": 2
+        },
+        "payload": {
+            "post": {
+                "agent": null,
+                "topic": "CHECKING IN FOR LIVE UPDATES",
+                "content": "SDK-808 CHECKING IN"
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "SDK-808"
+            },
+            "to": {
+                "mod": "SKYLINE-AGENT",
+                "room": "FRONT-DESK",
+                "dom": "PUBLIC",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": {
+            "sdk-808": {
+                "checkin": [
+                    "skyline",
+                    "live-updates"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "SDK-808*checkin>skyline,live-updates",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE ON INTERA",
+            "dom_slug": "PUBLIC",
+            "dom_display": "PUBLIC OFFICE",
+            "room_slug": "FRONT-DESK",
+            "room_display": "WELCOME DESK",
+            "mod_slug": "SKYLINE-AGENT",
+            "mod_display": "SKYLINE PUBLIC OFFICIAL"
+        },
+        "ref_material": {
+            "material": {
+                "type": "",
+                "source": {
+                    "name": "",
+                    "id": "",
+                    "created_on": "",
+                    "last_modified": ""
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777383911.tps",
+            "ingest_unix": 1777383911,
+            "event_unix": 1777383911,
+            "timezone": "America\/New_York"
+        }
+    }
+}

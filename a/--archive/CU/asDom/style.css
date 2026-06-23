@@ -1,0 +1,76 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Coral+Pixels&display=swap');
+/* "Coral Pixels" */
+@import url('https://fonts.googleapis.com/css2?family=Coral+Pixels&family=Jersey+10+Charted&display=swap'); 
+/* "Jersey 10 Charted" */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* "VT323" */
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+/* "Sixtyfour" */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --my-fav-color: #ffa600;
+    --my-dark-color: #302f2c;
+    --my-dark-colors: #444444;
+    --my-mid-color: #655b4c66;
+    --my-fav-colorInvis: #3131317e;
+    --color-black: #00000066;
+}
+
+
+/*
+:root { 
+    --backgroundColor: #ffffff;
+    --accentColor-dark: rgb(48, 62, 52);
+    --accentColor-light: rgb(191, 208, 184);
+}
+
+body {
+    background: var(--backgroundColor);
+    margin: 0;
+    color: var(--accentColor-dark);
+}
+
+main {
+    margin: 0.5rem;
+    background-color: var(--accentColor-light);
+    padding: 1rem;
+    box-shadow: inset 0 0 2rem #fff;
+    border-radius: .5rem;
+}
+
+
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    height: 5.5rem;
+    width: 100%;
+    box-shadow: 0 .1rem 0rem var(--accentColor-light);
+}
+
+header h1 {
+    display: inline-block;
+    position: absolute;
+    margin: 2rem 2rem;
+    font-weight: 300;
+    letter-spacing: .5rem;
+    font-size: .6rem;
+    border-bottom: .05rem solid black;
+}
+
+footer {
+    font-size: .5rem;
+    padding: .7rem;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5.5rem;
+    text-transform: uppercase;
+    width: 100%;
+    box-shadow: 0 -.1rem 0rem var(--accentColor-light);
+}*/

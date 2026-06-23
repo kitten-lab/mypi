@@ -1,0 +1,20 @@
+{
+    "VEN": "dani",
+    "GRAVITY": 13,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "materials": {
+            "GRAVITY": 13,
+            "BIN": {
+                "resume": 3,
+                "portfolio": 3,
+                "work-experience": 1,
+                "system": 2,
+                "infographic": 2,
+                "skills": 2
+            }
+        }
+    }
+}

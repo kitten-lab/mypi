@@ -1,0 +1,13 @@
+{
+    "VEN": "client-cases",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "slots": {
+            "GRAVITY": 2,
+            "BIN": {
+                "detective-case_work": 2
+            }
+        }
+    }
+}

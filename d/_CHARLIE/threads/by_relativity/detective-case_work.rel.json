@@ -1,0 +1,13 @@
+{
+    "VEN": "detective-case_work",
+    "GRAVITY": 25,
+    "METADATA": [],
+    "SHELF": {
+        "games": {
+            "GRAVITY": 25,
+            "BIN": {
+                "slots": 25
+            }
+        }
+    }
+}

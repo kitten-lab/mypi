@@ -1,0 +1,18 @@
+{
+    "VEN": "crate",
+    "GRAVITY": 4,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "relates-to": {
+            "GRAVITY": 4,
+            "BIN": {
+                "enlil": 1,
+                "deities": 1,
+                "sumeria": 1,
+                "jupiter": 1
+            }
+        }
+    }
+}

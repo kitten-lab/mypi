@@ -1,0 +1,259 @@
+{
+    "SECTION": {
+        "executive-summary": {
+            "LABEL": "Executive Summary",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "executive-summary-0001",
+                    "FRAG": "A high-level overview of [the] business, goals, and key milestones",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777157704,
+                        "cUID": "crate.24CE2832C69D7BC7",
+                        "TAGS": {
+                            "sopr": {
+                                "bbc": [
+                                    "gdd",
+                                    "bbc-gdd"
+                                ],
+                                "bbc-gdd": [
+                                    "symbolcraft"
+                                ]
+                            },
+                            "symbolcraft": {
+                                "docs": [
+                                    "business-plan",
+                                    "executive-summary"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "executive-summary-0002",
+                    "FRAG": "breaking into the top tier requires a strategic focus on innovation, market expansion, and operational efficiency",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777162819,
+                        "cUID": "crate.D195C9EF5FB1EC2E",
+                        "TAGS": {
+                            "symbolcraft": {
+                                "executive-summary": [
+                                    "innovation",
+                                    "market-expansion",
+                                    "operational-efficiency"
+                                ],
+                                "goal": [
+                                    "top-tier"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "current-state-analysis": {
+            "LABEL": "Current State Analysis",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "current-state-analysis-0001",
+                    "FRAG": "Where [we] are now, including strengths, weaknesses, and key metrics",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777158812,
+                        "cUID": "crate.78940B5234D29364",
+                        "TAGS": {
+                            "sopr": {
+                                "bbc": [
+                                    "gdd",
+                                    "bbc-gdd"
+                                ],
+                                "bbc-gdd": [
+                                    "symbolcraft"
+                                ]
+                            },
+                            "symbolcraft": {
+                                "docs": [
+                                    "business-plan",
+                                    "current-state",
+                                    "analysis"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "vision-&-goals": {
+            "LABEL": "Vision & Goals",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "vision-&-goals-0001",
+                    "FRAG": "Where [we] want to be, both short-term and long-term",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777158837,
+                        "cUID": "crate.C78775B1DE023BD0",
+                        "TAGS": {
+                            "sopr": {
+                                "bbc": [
+                                    "gdd",
+                                    "bbc-gdd"
+                                ],
+                                "bbc-gdd": [
+                                    "symbolcraft"
+                                ]
+                            },
+                            "symbolcraft": {
+                                "docs": [
+                                    "business-plan",
+                                    "current-state",
+                                    "analysis"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "projects-&-initiatives": {
+            "LABEL": "Projects & Initiatives",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "projects-&-initiatives-0001",
+                    "FRAG": "The key tasks and projects needed to reach [our] goals",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777158897,
+                        "cUID": "crate.709D87CD7FDFEAFC",
+                        "TAGS": {
+                            "sopr": {
+                                "bbc": [
+                                    "gdd",
+                                    "bbc-gdd"
+                                ],
+                                "bbc-gdd": [
+                                    "symbolcraft"
+                                ]
+                            },
+                            "symbolcraft": {
+                                "docs": [
+                                    "business-plan",
+                                    "projects",
+                                    "initiaties"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "blockers-&-challenges": {
+            "LABEL": "Blockers & Challenges",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "blockers-&-challenges-0001",
+                    "FRAG": "What\u2019s standing in [our] way and potential solutions.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777158928,
+                        "cUID": "crate.3E3DA2432AD6FBF1",
+                        "TAGS": {
+                            "sopr": {
+                                "bbc": [
+                                    "gdd",
+                                    "bbc-gdd"
+                                ],
+                                "bbc-gdd": [
+                                    "symbolcraft"
+                                ]
+                            },
+                            "symbolcraft": {
+                                "docs": [
+                                    "business-plan",
+                                    "blockers",
+                                    "challenges"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "roadmap-&-timeline": {
+            "LABEL": "Roadmap & Timeline",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "roadmap-&-timeline-0001",
+                    "FRAG": "A structured timeline showing how [we'll] get from here to there.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777158964,
+                        "cUID": "crate.E219DA26BBBA4650",
+                        "TAGS": {
+                            "sopr": {
+                                "bbc": [
+                                    "gdd",
+                                    "bbc-gdd"
+                                ],
+                                "bbc-gdd": [
+                                    "symbolcraft"
+                                ]
+                            },
+                            "symbolcraft": {
+                                "docs": [
+                                    "business-plan",
+                                    "roadmap",
+                                    "timeline",
+                                    "schedule"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "financial-plan-&-resources": {
+            "LABEL": "Financial Plan & Resources",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "financial-plan-&-resources-0001",
+                    "FRAG": "Budget, funding, and resource allocation to support [our] roadmap",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777159009,
+                        "cUID": "crate.26570475582EB59D",
+                        "TAGS": {
+                            "sopr": {
+                                "bbc": [
+                                    "gdd",
+                                    "bbc-gdd"
+                                ],
+                                "bbc-gdd": [
+                                    "symbolcraft"
+                                ]
+                            },
+                            "symbolcraft": {
+                                "docs": [
+                                    "business-plan",
+                                    "budget",
+                                    "financial-plan",
+                                    "resources",
+                                    "funding",
+                                    "allocation"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

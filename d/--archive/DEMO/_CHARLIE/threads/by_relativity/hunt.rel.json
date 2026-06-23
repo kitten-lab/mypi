@@ -1,0 +1,13 @@
+{
+    "VEN": "hunt",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "omen": {
+            "GRAVITY": 1,
+            "BIN": {
+                "pattern": 1
+            }
+        }
+    }
+}

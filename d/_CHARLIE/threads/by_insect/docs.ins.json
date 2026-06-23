@@ -1,0 +1,34 @@
+{
+    "VEN": "docs",
+    "GRAVITY": 26,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 24,
+            "BIN": {
+                "business-plan": 7,
+                "executive-summary": 1,
+                "current-state": 2,
+                "analysis": 2,
+                "projects": 1,
+                "initiaties": 1,
+                "blockers": 1,
+                "challenges": 1,
+                "roadmap": 1,
+                "timeline": 1,
+                "schedule": 1,
+                "budget": 1,
+                "financial-plan": 1,
+                "resources": 1,
+                "funding": 1,
+                "allocation": 1
+            }
+        },
+        "sopr": {
+            "GRAVITY": 2,
+            "BIN": {
+                "data-forestry": 2
+            }
+        }
+    }
+}

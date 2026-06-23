@@ -1,0 +1,196 @@
+{
+    "CABINET": {
+        "opportunities": {
+            "METADATA": {
+                "GRAVITY": 7,
+                "INGEST": {
+                    "FIRST": 1777165742,
+                    "LAST": 1777165817
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984119": [
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "betsoft": {
+                    "METADATA": {
+                        "GRAVITY": 7,
+                        "INGEST": {
+                            "FIRST": 1777165742,
+                            "LAST": 1777165817
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984119": [
+                                "expanding-markets",
+                                "innovation",
+                                "unique-mechanics",
+                                "unique-tech",
+                                "partnerships",
+                                "relationships",
+                                "tier-one-connections"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "expanding-markets": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165742,
+                                    "LAST": 1777165742
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.FF1ECCA8A3639C82"
+                                    ]
+                                }
+                            }
+                        },
+                        "innovation": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165773,
+                                    "LAST": 1777165773
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.026D035C666FC4CA"
+                                    ]
+                                }
+                            }
+                        },
+                        "unique-mechanics": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165773,
+                                    "LAST": 1777165773
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.026D035C666FC4CA"
+                                    ]
+                                }
+                            }
+                        },
+                        "unique-tech": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165773,
+                                    "LAST": 1777165773
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.026D035C666FC4CA"
+                                    ]
+                                }
+                            }
+                        },
+                        "partnerships": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165817,
+                                    "LAST": 1777165817
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.F82FC5DD79FD0226"
+                                    ]
+                                }
+                            }
+                        },
+                        "relationships": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165817,
+                                    "LAST": 1777165817
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.F82FC5DD79FD0226"
+                                    ]
+                                }
+                            }
+                        },
+                        "tier-one-connections": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165817,
+                                    "LAST": 1777165817
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.F82FC5DD79FD0226"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

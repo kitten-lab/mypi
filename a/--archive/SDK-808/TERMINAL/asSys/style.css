@@ -1,0 +1,334 @@
+:root {
+    --my-fav-color: #ffffff;
+    --my-dark-color: #242424;
+    --my-dark-colors: #444444;
+    --my-mid-color: #8d8d8d66;
+    --my-fav-colorInvis: #3131317e;
+    --color-black: #00000066;
+}
+
+.dom_header { color: red; }
+
+body {
+    background-color: var(--my-dark-color);
+    height: 98vh;
+  background-size: 1.8vh 1.4vh; /* Controls the size of the grid cells */
+  background-image: 
+    linear-gradient(to right, var(--my-fav-colorInvis) 0.15rem, transparent 0.15rem), /* Vertical lines */
+    linear-gradient(to bottom, var(--my-fav-colorInvis) 0.15rem, transparent 0.15rem); /* Horizontal lines */
+    font-family: VT323;
+    font-size: 2vh;
+    box-shadow: inset 0 0 30vh black;
+    overflow: hidden;
+    padding-top: 1vh;
+}
+
+/* ============= > BLOG BASIC cssSLUGs < =================== */
+.blogBasic_container {
+    color: var(--my-fav-color);
+}
+
+p.blogBasic_content {
+    text-transform: uppercase;
+    letter-spacing: 0.15vh;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+h1.pageTitle {
+    font-size: 1.6rem;
+    font-family: "Sixtyfour";
+    text-transform: uppercase;
+    line-height: 1.6rem;
+}
+
+input, textarea, select {
+    padding: .8vh;
+    width: 40vh;
+}
+
+input {
+    background: none;
+    border: none;
+    color: var(--my-fav-color);
+    font-family: VT323;
+    font-size: 2vh;
+    margin-left: 1.2vh;
+}
+
+textarea {
+    background: none;
+    border: none;
+    font-family: 'VT323';
+    font-size: 2vh;
+    margin-left: 1.2vh;
+    color: var(--my-fav-color);
+    height: 20vh;
+    width: 40vh;
+}
+
+.blogBasic_postMsg {
+    position: fixed;
+    margin-top: 1vh;
+}
+
+.blogBasic_formEl {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.blogBasic_formEl::before {
+    display: block;
+    position: absolute;
+    content: ">| ";
+    margin-top: .45rem;
+    margin-right: -20px;
+}
+
+button {
+    width: 13vh; 
+    height: 4vh; 
+    font-family: 'VT323'; 
+    background: none; 
+    border: none;
+    border-right: 0.15rem none var(--my-fav-color); 
+    color: var(--my-fav-color);
+    text-transform: uppercase;
+    font-size: 3vh;
+}
+
+button:hover::after {
+    content: " >| ";
+    margin-right: -10px;
+}
+
+
+input:focus {
+    stroke: 0.15rem solid var(--my-fav-color);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none; /* Removes the default browser outline */
+  border: none;
+}
+
+/* MAKE A concept of connection ======================================================= */
+.monitor-container {
+    position: relative;
+  height: 60vh;
+  aspect-ratio: 12 / 7;  
+  background-color: var(--my-fav-colorInvis); /* Bezel color */
+  border: 0.3vh solid var(--my-fav-color); /* Outer bezel */
+  border-radius: 2.5vh;
+  margin: auto;
+  margin-top:2dvh;
+  padding: 4vh 3vh; /* Space between bezel and content */
+  padding-bottom: 80px;
+  backdrop-filter: blur(2px);
+  box-shadow: 
+    inset 0 .5vh 0 var(--my-mid-color), 
+    inset 0 -.5vh 0 var(--my-mid-color), 
+    inset 0 0 13px var(--my-fav-color), 
+    0 0 100px var(--my-fav-color);
+  overflow: hidden; /* Keeps screen content inside */
+}
+
+.monitor-container::before {
+    content: ">|TERMINAL";
+    color: var(--my-fav-color);
+    font-family: 'Press Start 2P';
+    font-size: 1.6dvh;
+    margin: auto;
+  position: fixed;
+  align-content: center;
+  margin-top: -2.4vh;
+  margin-left: 0vh;
+}
+
+.monitor-interior {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left:0;
+  right: 0;
+  background-color: var(--my-fav-colorInvis); /* Bezel color */
+  border: 0.3vh solid var(--my-fav-color); /* Outer bezel */
+  border-radius: 1vh;
+  margin: 4vh 3vh 6vh;
+  padding: 1vh; /* Space between bezel and content */
+  box-shadow: 
+  inset 0 2px 5px var(--my-dark-color), 
+  inset 0 0 5px var(--my-fav-color), 
+  0 .5vh --color-black,
+  0 0 2vh var(--my-fav-color);
+  padding-bottom: 3.5rem;
+  overflow: hidden; /* Keeps screen content inside */
+}
+
+.screen-content {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left:0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.75); /* Page color */
+  color: var(--my-fav-color);
+  border-radius: 1vh;
+  padding: 1.5vh;backdrop-filter: blur(10px);
+  border: 0.2vh solid var(--my-fav-color);
+  margin: 5vh 4vh 8vh;
+  box-shadow: 
+    0 0 20px var(--my-fav-color);
+  overflow: hidden; /* Scrollable content inside monitor */
+    font-family: "VT323";
+}
+
+.computer_scene {
+  width: 88vh;
+  height: 34vh;
+  margin:auto;
+  perspective: 3000px; /* Establishes the 3D viewing distance */
+}
+
+.computer_cube {
+  width: 100%;
+  height: 50%;
+  position: relative;
+  margin: auto;
+  transform-style: preserve-3d; /* Allows children to be in 3D space */
+  transform: rotateX(-6deg) rotateY(0deg) translateZ(0px) translateY(2rem); /* Initial rotation for static view */
+}
+
+.computer_face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: var(--my-fav-color);
+  justify-content: center;
+  background-color: var(--my-fav-colorInvis);
+    border: 3px solid var(--my-fav-color);
+  box-shadow: inset 0 0 13px var(--my-fav-color), 0 0 20px var(--my-fav-color);
+}
+
+.front::before {
+    position: absolute;
+    content: "|<>|";
+    font-family: "Sixtyfour";
+}
+
+.front::after {
+    position: absolute;
+    content: "CONCEPT OF CONNECTION";
+    font-family: "Sixtyfour";
+    margin-top: -6dvh;
+    padding: 3px;
+}
+
+/* Positioning each face with transforms */
+.front  { transform: translateZ(3vh); 
+  border-radius: 0 0 3rem 3rem;} /* 100px is half the width/height */
+.top    { transform: rotateX(90deg) rotateY(0deg) translateZ(9vh) translateY(-2.5vh); 
+  border-radius: 3rem 3rem 0 0;}
+.pole {transform: translateY(-10vh) rotateZ(65deg); width: 10px;
+  border-radius: 0 0 3rem 3rem;} 
+.pole2 {transform: translateY(-10vh) translateX(88dvh) rotateZ(-65deg); width: 10px;
+  border-radius: 0 0 3rem 3rem;} 
+
+
+
+
+.iox_coreContainer {
+    position: relative;
+    top: 0;
+    bottom: 0;/* Aligns sidebar and content side-by-side */
+ border-top: solid 0.1rem var(--iox-core-ContainerBorderColor);
+}
+
+.iox_coreContents {
+    position: fixed;
+  top: 2vh;
+  bottom: 2vh;
+  left:0;
+  right: 2vh;
+  flex: 1; /* Takes up remaining space */
+  padding: 1.4rem;
+  margin:0;
+  margin-left: 23vh;
+  background-image: 
+    linear-gradient(to top, var(--my-dark-color) 
+    0.15rem, transparent 0px);
+  background-repeat: round; 
+  background-size: 1rem  .2rem;   
+  box-shadow: 
+      0px 2px 0 var(--my-fav-colorInvis),
+      0px -2px 0 var(--my-fav-colorInvis),
+      inset 0 0 10px black;
+  border-radius: .4vh;
+  overflow: scroll;
+}
+
+p { padding: 0.5rem;}
+
+
+body {
+    text-shadow: 0 0 .5vh var(--my-fav-color);
+
+}
+
+h1 {
+    font-family: "Sixtyfour";
+    font-size:1vh;
+    font-weight: 200;
+    padding-left: .1vh;
+}
+
+a {
+    color: var(--my-fav-color);
+}
+
+html {
+  scrollbar-color: var(--my-fav-color) var(--my-dark-color); /* Red thumb, Green track */
+  scrollbar-width: thin; /* Optional: makes the scrollbar thinner in Firefox, auto or thin */
+}
+
+.nav {
+  position:fixed; /* Makes it stick when scrolling */
+display: inline-block;
+}
+
+li {
+    list-style:  none;}
+
+
+li a {
+    display: block;
+    border: 1px solid var(--my-dark-color);
+    width: 15vh;
+    padding: 1vh;
+    margin: 5px;
+    font-family: "Press Start 2P";
+    font-size: 1vh;
+    text-decoration: none;
+    opacity: 0.7;
+}
+nav {padding: 10px;}
+li a::before {
+    content: "> ";
+}
+
+ul {
+    padding: 0;
+}
+
+li a:hover {
+    display: block;
+    border: 1px solid var(--my-fav-color);
+    background-color: var(--my-dark-color);
+    opacity: 1.0;
+}

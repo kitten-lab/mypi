@@ -1,0 +1,1957 @@
+{
+    "crate.24CE2832C69D7BC7": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Executive Summary",
+                "sec_slug": "executive-summary",
+                "supr_slug": "executive-summary-0001",
+                "content": "A high-level overview of [the] business, goals, and key milestones"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "executive-summary"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,executive-summary",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777157704,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.78940B5234D29364": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Current State Analysis",
+                "sec_slug": "current-state-analysis",
+                "supr_slug": "current-state-analysis-0001",
+                "content": "Where [we] are now, including strengths, weaknesses, and key metrics"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "current-state",
+                    "analysis"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,current-state,analysis",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777158812,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.C78775B1DE023BD0": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Vision & Goals",
+                "sec_slug": "vision-&-goals",
+                "supr_slug": "vision-&-goals-0001",
+                "content": "Where [we] want to be, both short-term and long-term"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "current-state",
+                    "analysis"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,current-state,analysis",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777158837,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.709D87CD7FDFEAFC": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Projects & Initiatives",
+                "sec_slug": "projects-&-initiatives",
+                "supr_slug": "projects-&-initiatives-0001",
+                "content": "The key tasks and projects needed to reach [our] goals"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "projects",
+                    "initiaties"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,projects,initiaties",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777158897,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.3E3DA2432AD6FBF1": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Blockers & Challenges",
+                "sec_slug": "blockers-&-challenges",
+                "supr_slug": "blockers-&-challenges-0001",
+                "content": "What\u2019s standing in [our] way and potential solutions."
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "blockers",
+                    "challenges"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,blockers,challenges",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777158928,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E219DA26BBBA4650": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Roadmap & Timeline",
+                "sec_slug": "roadmap-&-timeline",
+                "supr_slug": "roadmap-&-timeline-0001",
+                "content": "A structured timeline showing how [we'll] get from here to there."
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "roadmap",
+                    "timeline",
+                    "schedule"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,roadmap,timeline,schedule",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777158964,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.26570475582EB59D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Financial Plan & Resources",
+                "sec_slug": "financial-plan-&-resources",
+                "supr_slug": "financial-plan-&-resources-0001",
+                "content": "Budget, funding, and resource allocation to support [our] roadmap"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "budget",
+                    "financial-plan",
+                    "resources",
+                    "funding",
+                    "allocation"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,budget,financial-plan,resources,funding,allocation",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777159009,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8D54B3700F9EB092": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Betsoft Gaming",
+                "sec_slug": "betsoft-gaming",
+                "supr_slug": "betsoft-gaming-0001",
+                "content": "mid-tier iGaming provider specializing in online slots"
+            }
+        },
+        "route": [],
+        "tags": {
+            "symbolcraft": {
+                "insights": [
+                    "provider"
+                ],
+                "insights-provider": [
+                    "betsoft"
+                ]
+            },
+            "betsoft": {
+                "tier": [
+                    "mid"
+                ],
+                "specialty": [
+                    "online-slots"
+                ],
+                "industry": [
+                    "igaming"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbolcraft*insights>provider&insights-provider>betsoft;betsoft*tier>mid&specialty>online-slots&industry>iGaming;",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights",
+            "room_display": "provider-insights",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777162426,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.7AE36D58F30422AF": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Betsoft Gaming",
+                "sec_slug": "betsoft-gaming",
+                "supr_slug": "betsoft-gaming-0002",
+                "content": "the company has established a strong presence in the industry"
+            }
+        },
+        "route": [],
+        "tags": {
+            "symbolcraft": {
+                "insights": [
+                    "provider"
+                ],
+                "insights-provider": [
+                    "betsoft"
+                ]
+            },
+            "betsoft": {
+                "presence": [
+                    "strong",
+                    "established"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbolcraft*insights>provider&insights-provider>betsoft;betsoft*presence>strong,established",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights",
+            "room_display": "provider-insights",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777162591,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D195C9EF5FB1EC2E": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Executive Summary",
+                "sec_slug": "executive-summary",
+                "supr_slug": "executive-summary-0002",
+                "content": "breaking into the top tier requires a strategic focus on innovation, market expansion, and operational efficiency"
+            }
+        },
+        "route": [],
+        "tags": {
+            "symbolcraft": {
+                "executive-summary": [
+                    "innovation",
+                    "market-expansion",
+                    "operational-efficiency"
+                ],
+                "goal": [
+                    "top-tier"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbolcraft*executive-summary>innovation,market-expansion,operational-efficiency;symbolcraft*goal>top-tier",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777162819,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.5D069770D09B9A74": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Betsoft Gaming Current State Analysis",
+                "sec_slug": "betsoft-gaming-current-state-analysis",
+                "supr_slug": "betsoft-gaming-current-state-analysis-0001",
+                "content": "Strengths:\r\n- Established brand with a portfolio of high-quality slot games."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "strengths": [
+                    "established-brand",
+                    "high-quality",
+                    "large-portfolio"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*strengths>established-brand,high-quality,large-portfolio",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights",
+            "room_display": "provider-insights",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777162966,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.EE9F5D595854CFD5": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Betsoft Gaming Current State Analysis",
+                "sec_slug": "betsoft-gaming-current-state-analysis",
+                "supr_slug": "betsoft-gaming-current-state-analysis-0002",
+                "content": "Strengths:\r\n- Strong relationships with key operators in regulated markets."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "strengths": [
+                    "relationships-with-operators",
+                    "regulated-market-presence"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*strengths>relationships-with-operators,regulated-market-presence",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights",
+            "room_display": "provider-insights",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777163064,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E908A966018F7D5D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Betsoft Gaming Current State Analysis",
+                "sec_slug": "betsoft-gaming-current-state-analysis",
+                "supr_slug": "betsoft-gaming-current-state-analysis-0003",
+                "content": "Strengths: \r\n- Proven game mechanics and engaging visual design."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "strengths": [
+                    "proven-game-mechanics",
+                    "visual-identity"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*strengths>proven-game-mechanics,visual-identity",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights",
+            "room_display": "provider-insights",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777163141,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.028C3DAD6367A189": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Company Overview",
+                "sec_slug": "company-overview",
+                "supr_slug": "company-overview-0001",
+                "content": "Betsoft Gaming is a mid-tier iGaming provider specializing in online slots"
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "provider_insights": [
+                    "mid-tier",
+                    "igaming",
+                    "slots"
+                ],
+                "specialty": [
+                    "online-slots",
+                    "slots"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*provider_insights>mid-tier,iGaming,slots&specialty>online-slots,slots",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777164139,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.DA805FFCD49E3F1A": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Strengths",
+                "sec_slug": "strengths",
+                "supr_slug": "strengths-0001",
+                "content": "Established brand with a portfolio of high-quality slot games"
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "strengths": [
+                    "established-brand",
+                    "high-quality",
+                    "slots"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*strengths>established-brand,high-quality,slots",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777164206,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.BD1BFD79DD92005F": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Strengths",
+                "sec_slug": "strengths",
+                "supr_slug": "strengths-0002",
+                "content": "[Moderate] relationships with key operators in regulated markets."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "strengths": [
+                    "relationships-with-operators",
+                    "regulated-market-presence"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*strengths>relationships-with-operators,regulated-market-presence",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777164258,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.564AC96B9D26961E": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Strengths",
+                "sec_slug": "strengths",
+                "supr_slug": "strengths-0003",
+                "content": "Proven game mechanics and engaging visual design."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "strengths": [
+                    "proven-game-mechanics",
+                    "visual-identity"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*strengths>proven-game-mechanics,visual-identity",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777164336,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.CD4CC52F15A1FD59": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Weaknesses",
+                "sec_slug": "weaknesses",
+                "supr_slug": "weaknesses-0001",
+                "content": "Limited differentiation from top-tier competitors."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "weaknesses": [
+                    "limited-identity",
+                    "derivative"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*weaknesses>limited-identity,derivative",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777164450,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.615126237D2A85B2": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Weaknesses",
+                "sec_slug": "weaknesses",
+                "supr_slug": "weaknesses-0002",
+                "content": "Marketing and brand awareness lag behind major players."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "weaknesses": [
+                    "low-brand-awareness",
+                    "low-marketing-awareness"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*weaknesses>low-brand-awareness,low-marketing-awareness",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777164495,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E69040CD162BD330": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Weaknesses",
+                "sec_slug": "weaknesses",
+                "supr_slug": "weaknesses-0003",
+                "content": "Expanding into new regulated markets."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "weaknesses": [
+                    "regulated-market-presence"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*weaknesses>regulated-market-presence",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777165557,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.37D8F0182FC9EB57": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Weaknesses",
+                "sec_slug": "weaknesses",
+                "supr_slug": "weaknesses-0004",
+                "content": "Innovating with unique game mechanics or technologies."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "weaknesses": [
+                    "innovation",
+                    "unique-mechanics",
+                    "unique-tech"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*weaknesses>innovation,unique-mechanics,unique-tech",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777165622,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.FF1ECCA8A3639C82": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Opportunities",
+                "sec_slug": "opportunities",
+                "supr_slug": "opportunities-0001",
+                "content": "Expanding into new regulated markets."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "opportunities": [
+                    "expanding-markets"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*opportunities>expanding-markets",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777165742,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.026D035C666FC4CA": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Opportunities",
+                "sec_slug": "opportunities",
+                "supr_slug": "opportunities-0002",
+                "content": "Innovating with unique game mechanics or technologies"
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "opportunities": [
+                    "innovation",
+                    "unique-mechanics",
+                    "unique-tech"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*opportunities>innovation,unique-mechanics,unique-tech",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777165772,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.F82FC5DD79FD0226": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Opportunities",
+                "sec_slug": "opportunities",
+                "supr_slug": "opportunities-0003",
+                "content": "strengthening partnerships with tier-one operators."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "opportunities": [
+                    "partnerships",
+                    "relationships",
+                    "tier-one-connections"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*opportunities>partnerships,relationships,tier-one-connections",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777165817,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.6BF0A99C8206B4C3": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Threats",
+                "sec_slug": "threats",
+                "supr_slug": "threats-0001",
+                "content": "Increasing competition from emerging studios and major brands."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "threads": [
+                    "competition",
+                    "emerging-studios",
+                    "major-brands"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*threads>competition,emerging-studios,major-brands",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777165860,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.73AF3E740CE181A4": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Threats",
+                "sec_slug": "threats",
+                "supr_slug": "threats-0002",
+                "content": "Regulatory changes impacting existing and potential markets."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "threads": [
+                    "regulations"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*threads>regulations",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777165880,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.422B9B7EA6623B95": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Threats",
+                "sec_slug": "threats",
+                "supr_slug": "threats-0003",
+                "content": "Shifting player preferences requiring constant adaptation."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "threats": [
+                    "regulations",
+                    "competition",
+                    "emerging-studios",
+                    "major-brands",
+                    "player-preferences",
+                    "constant-change"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*threats>regulations,competition,emerging-studios,major-brands,player-preferences,constant-change",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777165954,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.9E8ACD35C7D3774C": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Vision & Goals",
+                "sec_slug": "vision-&-goals",
+                "supr_slug": "vision-&-goals-0001",
+                "content": "Increase release cadence to match top-tier competitors."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "goals": [
+                    "increase-releases"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*goals>increase-releases",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777166064,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.B571DEB3A3046186": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Suggested Goals",
+                "sec_slug": "suggested-goals",
+                "supr_slug": "suggested-goals-0001",
+                "content": "Improve marketing strategies and brand positioning."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "suggested-goals": [
+                    "improve-marketing"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*suggested-goals>improve-marketing",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777166124,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.AA323298057ACEDC": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Suggested Goals",
+                "sec_slug": "suggested-goals",
+                "supr_slug": "suggested-goals-0002",
+                "content": "Strengthen relationships with existing operators"
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "suggested-goals": [
+                    "better-relationships"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*suggested-goals>better-relationships",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777166140,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.A7C1371E7C314CE6": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Suggested Goals",
+                "sec_slug": "suggested-goals",
+                "supr_slug": "suggested-goals-0003",
+                "content": "Develop innovative game mechanics to differentiate offerings"
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "suggested-goals": [
+                    "innovation",
+                    "innovative-mechanics",
+                    "unique-mechanics"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*suggested-goals>innovation,innovative-mechanics,unique-mechanics",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777166185,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.C713DE85615D0995": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Suggested Goals",
+                "sec_slug": "suggested-goals",
+                "supr_slug": "suggested-goals-0004",
+                "content": "Expand into additional regulated markets"
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "suggested-goals": [
+                    "market-expansion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*suggested-goals>market-expansion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777166213,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.7B2D441FB29F498B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Suggested Goals",
+                "sec_slug": "suggested-goals",
+                "supr_slug": "suggested-goals-0005",
+                "content": "Enhance user engagement through gamification and loyalty features"
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "suggested-goals": [
+                    "gamification"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*suggested-goals>gamification",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777166248,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E0B6CD8DC6C80E20": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Goals",
+                "sec_slug": "goals",
+                "supr_slug": "goals-0001",
+                "content": "Establish Betsoft as a top-tier provider in the industry"
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "goals": [
+                    "top-tier"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*goals>top-tier",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777166301,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.9F066115C32E0E06": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Vision & Goals",
+                "sec_slug": "vision-&-goals",
+                "supr_slug": "vision-&-goals-0003",
+                "content": "Secure strategic partnerships with global industry leaders."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "goals": [
+                    "partnerships",
+                    "strategic-partnerships",
+                    "global-connections"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*goals>partnerships,strategic-partnerships,global-connections",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777166489,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8751E198D0E1FF53": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Strengths",
+                "sec_slug": "strengths",
+                "supr_slug": "strengths-0004",
+                "content": "High-quality graphics and animations, often considered among the best in the industry. "
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "strengths": [
+                    "graphics",
+                    "animations",
+                    "best-graphics"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*strengths>graphics,animations,best-graphics",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights: betsoft",
+            "room_display": "provider-insights-betsoft",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Chat",
+                "source": {
+                    "name": "Glass_Box",
+                    "id": "2025-02-19__Business_Plan_Help__53msgs.json",
+                    "created_on": 1739983654,
+                    "last_modified": 1740599830
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739984206.tps",
+            "ingest_unix": 1777168245,
+            "event_unix": 1739984206,
+            "timezone": "America\/New_York"
+        }
+    }
+}

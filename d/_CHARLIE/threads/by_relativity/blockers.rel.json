@@ -1,0 +1,13 @@
+{
+    "VEN": "blockers",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "docs": 1
+            }
+        }
+    }
+}

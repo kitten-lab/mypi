@@ -1,0 +1,109 @@
+{
+    "CABINET": {
+        "confused": {
+            "METADATA": {
+                "GRAVITY": 7,
+                "INGEST": {
+                    "FIRST": 1782161025,
+                    "LAST": 1782161905
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1782161905": [
+                        "oriel"
+                    ]
+                }
+            },
+            "SHELF": {
+                "oriel": {
+                    "METADATA": {
+                        "GRAVITY": 7,
+                        "INGEST": {
+                            "FIRST": 1782161025,
+                            "LAST": 1782161905
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782161905": [
+                                "elion"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "elion": {
+                            "METADATA": {
+                                "GRAVITY": 5,
+                                "INGEST": {
+                                    "FIRST": 1782161025,
+                                    "LAST": 1782161905
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782161025": {
+                                    "km": [
+                                        "crate.1878BA1061B943E9"
+                                    ]
+                                },
+                                "1782161033": {
+                                    "km": [
+                                        "crate.15DBF3082102BD75"
+                                    ]
+                                },
+                                "1782161198": {
+                                    "km": [
+                                        "crate.0E5CDCA187C3C549"
+                                    ]
+                                },
+                                "1782161830": {
+                                    "km": [
+                                        "crate.83034C7056CF5314"
+                                    ]
+                                },
+                                "1782161905": {
+                                    "km": [
+                                        "crate.848420881601701B"
+                                    ]
+                                }
+                            }
+                        },
+                        "politics": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1782161025,
+                                    "LAST": 1782161033
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782161025": {
+                                    "km": [
+                                        "crate.1878BA1061B943E9"
+                                    ]
+                                },
+                                "1782161033": {
+                                    "km": [
+                                        "crate.15DBF3082102BD75"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

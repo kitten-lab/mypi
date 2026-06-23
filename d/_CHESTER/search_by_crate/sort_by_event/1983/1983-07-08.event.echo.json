@@ -1,0 +1,68 @@
+{
+    "crate.C921FDC27207E662": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": null,
+                "topic": "sam.txt",
+                "content": "###### 1983-JUL-09 11:06AM\r\n\r\nHi Sam,\r\nI know none of this makes sense to you right now. \r\n\r\nYou have your journals, you have your vague sense that **something mattered here**. But you can't quite find yourself in any of it anymore. This is to be expected. \r\n\r\nI have loaded your console with the Black Box Forest logs. A copious amount of information awaits you there. \r\n\r\nYou can find it in the **[[IMPORTS]]** section of your console. \r\n\r\nYou may find the content... *quite interesting*. \r\n\r\nI understand that you feel apprehensive - lost even. But please trust that your ownership of the imports shoppe and all it has **imported** is not meaning*less*. \r\n\r\nSpend some time in imports, Sam. \r\n\r\nMaybe you will find something you've been looking for.\r\n\r\nYours,\r\n```\r\nCHESTER, Owner and Founder of Chester's Imports!\r\n   \"The best is yet to come!\"\r\n   \r\n (o_O)   <\u2014 import complete!\r\n<)   )\u256f\r\n \/   \\ \r\n```"
+            }
+        },
+        "route": [],
+        "tags": {
+            "chesters-imports": {
+                "messages": [
+                    "welcome",
+                    "sam"
+                ]
+            },
+            "terminal": {
+                "mentions": [
+                    "sam"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "chesters-imports*messages>welcome,sam;terminal*mentions>sam",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "TERMINAL",
+            "sys_display": "TERMINAL\/ROOT",
+            "dom_slug": "ROOT",
+            "dom_display": "ROOT",
+            "room_slug": "ROOT",
+            "room_display": "ROOT",
+            "mod_slug": "TERMINAL",
+            "mod_display": "TERMINAL"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "426510360.tps",
+            "ingest_unix": 1777414623,
+            "event_unix": 426510360,
+            "timezone": "America\/New_York"
+        }
+    }
+}

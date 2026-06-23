@@ -1,0 +1,13 @@
+{
+    "VEN": "docs",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "sopr": {
+            "GRAVITY": 2,
+            "BIN": {
+                "nim": 2
+            }
+        }
+    }
+}

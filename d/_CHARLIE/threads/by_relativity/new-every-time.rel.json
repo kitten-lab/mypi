@@ -1,0 +1,13 @@
+{
+    "VEN": "new-every-time",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "detective-case_work": {
+            "GRAVITY": 2,
+            "BIN": {
+                "intentions": 2
+            }
+        }
+    }
+}

@@ -1,0 +1,156 @@
+{
+    "CABINET": {
+        "wire-wolf": {
+            "METADATA": {
+                "GRAVITY": 5,
+                "INGEST": {
+                    "FIRST": 1777417138,
+                    "LAST": 1777417251
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1758005533": [
+                        "topics",
+                        "",
+                        "hymn"
+                    ]
+                }
+            },
+            "SHELF": {
+                "topics": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777417138,
+                            "LAST": 1777417251
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758005533": [
+                                "hymn"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "hymn": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777417138,
+                                    "LAST": 1777417251
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758042042": {
+                                    "SDK-808": [
+                                        "crate.D6F9B0993D381D82"
+                                    ]
+                                },
+                                "1758005533": {
+                                    "SDK-808": [
+                                        "crate.028373DD3C4C6B97"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777417138,
+                            "LAST": 1777417251
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758005533": [
+                                "hymn"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "hymn": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777417138,
+                                    "LAST": 1777417251
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758042042": {
+                                    "SDK-808": [
+                                        "crate.D6F9B0993D381D82"
+                                    ]
+                                },
+                                "1758005533": {
+                                    "SDK-808": [
+                                        "crate.028373DD3C4C6B97"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "hymn": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777417251,
+                            "LAST": 1777417251
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758005533": [
+                                "archetype"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "archetype": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777417251,
+                                    "LAST": 1777417251
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758005533": {
+                                    "SDK-808": [
+                                        "crate.028373DD3C4C6B97"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

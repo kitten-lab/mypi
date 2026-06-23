@@ -1,0 +1,19 @@
+{
+    "VEN": "market-expansion",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "executive-summary": 1
+            }
+        },
+        "betsoft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "suggested-goals": 1
+            }
+        }
+    }
+}

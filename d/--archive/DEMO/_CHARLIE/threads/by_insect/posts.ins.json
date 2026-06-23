@@ -1,0 +1,21 @@
+{
+    "VEN": "posts",
+    "GRAVITY": 13,
+    "METADATA": [],
+    "SHELF": {
+        "skyline": {
+            "GRAVITY": 13,
+            "BIN": {
+                "report": 3,
+                "welcome": 1,
+                "map": 2,
+                "offices": 2,
+                "final-note": 1,
+                "signature": 1,
+                "sky": 1,
+                "reception": 1,
+                "welcome-message1": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "CABINET": {
+        "misses": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1781559721,
+                    "LAST": 1781636275
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1781636275": [
+                        "kitten"
+                    ]
+                }
+            },
+            "SHELF": {
+                "kitten": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1781559721,
+                            "LAST": 1781636275
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1781636275": [
+                                "sam"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "sam": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1781559721,
+                                    "LAST": 1781636275
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1781559721": {
+                                    "PRINCESS": [
+                                        "crate.8FE3131F80DE4C31"
+                                    ]
+                                },
+                                "1781636275": {
+                                    "PRINCESS": [
+                                        "crate.DFEBBA05F318DECC"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,257 @@
+{
+    "crate.859772E71AC0BC96": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "RHEA.CEPCIAN",
+                "topic": "GREAT JOB HERE!! I LOVE THE OLD-SCHOOL VIBES!"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "RHEA.CEPCIAN"
+            },
+            "to": {
+                "sys": "WWW",
+                "dom": "go",
+                "mod": "DRL-SDK",
+                "key": "danyi.com"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW DEMO",
+            "dom_slug": "go",
+            "dom_display": "DEMO-WWW-GO",
+            "room_slug": "danyi.com",
+            "room_display": "welcome to danyi.com",
+            "mod_slug": "DRL-SDK",
+            "mod_display": "dani-leve"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778295418.tps",
+            "ingest_unix": 1778295418,
+            "event_unix": 1778295418,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.B88DA0B7D160411E": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "SDK-808",
+                "topic": "Hey younger me! Good job trying to remake the internet back when it was expressive!"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "SDK-808"
+            },
+            "to": {
+                "sys": "WWW",
+                "dom": "go",
+                "mod": "DRL-SDK",
+                "key": "danyi.com"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW DEMO",
+            "dom_slug": "go",
+            "dom_display": "DEMO-WWW-GO",
+            "room_slug": "danyi.com",
+            "room_display": "welcome to danyi.com",
+            "mod_slug": "DRL-SDK",
+            "mod_display": "dani-leve"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778295774.tps",
+            "ingest_unix": 1778295774,
+            "event_unix": 1778295774,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D039C3F438DFE9EC": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "EXE-708",
+                "topic": "HI"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "EXE-708"
+            },
+            "to": {
+                "sys": "WWW",
+                "dom": "go",
+                "mod": "DRL-SDK",
+                "key": "danyi.com"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW DEMO",
+            "dom_slug": "go",
+            "dom_display": "DEMO-WWW-GO",
+            "room_slug": "danyi.com",
+            "room_display": "welcome to danyi.com",
+            "mod_slug": "DRL-SDK",
+            "mod_display": "dani-leve"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778296483.tps",
+            "ingest_unix": 1778296483,
+            "event_unix": 1778296483,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.985D8A90280E2E3B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "LUMEN",
+                "topic": "GOOD GRIEF"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "LUMEN"
+            },
+            "to": {
+                "sys": "WWW",
+                "dom": "go",
+                "mod": "DRL-SDK",
+                "key": "danyi.com"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW DEMO",
+            "dom_slug": "go",
+            "dom_display": "DEMO-WWW-GO",
+            "room_slug": "danyi.com",
+            "room_display": "welcome to danyi.com",
+            "mod_slug": "DRL-SDK",
+            "mod_display": "dani-leve"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778330920.tps",
+            "ingest_unix": 1778330920,
+            "event_unix": 1778330920,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.5F68408CFFC835DB": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "wow",
+                "topic": "winners are winning"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "wow"
+            },
+            "to": {
+                "sys": "WWW",
+                "dom": "danyi",
+                "mod": "DRL-SDK",
+                "key": "index"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW DEMO",
+            "dom_slug": "danyi",
+            "dom_display": "danyi",
+            "room_slug": "index",
+            "room_display": "danyi's demo of the pocket internet",
+            "mod_slug": "DRL-SDK",
+            "mod_display": "danyi"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778359974.tps",
+            "ingest_unix": 1778359974,
+            "event_unix": 1778359974,
+            "timezone": "America\/New_York"
+        }
+    }
+}

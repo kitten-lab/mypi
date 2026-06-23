@@ -1,0 +1,14 @@
+{
+    "VEN": "confused",
+    "GRAVITY": 7,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 7,
+            "BIN": {
+                "elion": 5,
+                "politics": 2
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "goal",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "top-tier": 1
+            }
+        }
+    }
+}

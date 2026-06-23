@@ -1,0 +1,16 @@
+{
+    "VEN": "relates-to",
+    "GRAVITY": 4,
+    "METADATA": [],
+    "SHELF": {
+        "crate": {
+            "GRAVITY": 4,
+            "BIN": {
+                "enlil": 1,
+                "deities": 1,
+                "sumeria": 1,
+                "jupiter": 1
+            }
+        }
+    }
+}

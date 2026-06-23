@@ -1,0 +1,16 @@
+{
+    "VEN": "relatesto",
+    "GRAVITY": 6,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 6,
+            "BIN": {
+                "jackcross": 3,
+                "genesis": 1,
+                "translation": 1,
+                "the-great-self": 1
+            }
+        }
+    }
+}

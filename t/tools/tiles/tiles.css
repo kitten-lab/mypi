@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+app {
+  position: relative;
+  display: flex;
+  gap: 1.2rem;
+  top: 0;
+    font-size: 1.2rem;
+}
+
+.flex-container {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.column {
+  /* Each column takes up equal available space */
+  flex: 1; 
+}
+
+
+.column2 {
+  /* Each column takes up equal available space */
+  width: 20rem;
+}
+.game-screen { 
+  margin: auto;
+  padding: 1.2rem;
+  width: 70%;
+}
+
+.game-narrative {
+    flex: 1;
+  margin: auto;
+  padding: 1.2rem;
+  height: 15rem;
+}
+
+
+.major_clue {
+  height: 2rem;
+  padding: 2px 10px 10px  15px;
+  background-color: #e3c08d; /* Manila Yellow */
+  display: block;
+  width: 300px;
+  border-radius: 5px 5px 0 0;
+  color: rgb(68, 46, 33);
+  position: relative;
+  z-index: -2;
+}
+
+.major_clue h3 {
+  font-family: Permanent Marker;
+  position: absolute;
+  top: -2px;
+  z-index: -2;
+  font-size: 0.8rem;
+  color: rgb(0, 52, 136);
+  text-transform: uppercase;
+
+}
+
+.major_clue::before,
+.major_clue::after {
+    content: "";
+    position: absolute;
+
+    top: 44px;
+    left: 8px;
+
+    width: 88vw;
+    height: 500px;
+
+    background-color: rgb(240, 218, 200);
+  border: 1px solid #8e816da4;
+    border-radius: 2px;
+
+    z-index: -1;
+
+}
+
+.major_clue::after {
+    top: 40px;
+    left: 45px;
+    transform: rotate(0.5deg);
+}
+
+.major_clue::before {
+    transform: rotate(0.5deg);
+}
+
+.clue {
+  height:60vh;
+    overflow: scroll;
+  background-color: #e3c08d; /* Manila Yellow */
+  border-radius: 0 5px 5px 5px;
+  position: relative;
+  margin-top: 0;
+  box-shadow: 2px 2px 5px rgba(58, 45, 16, 0.585);
+  display: flex;
+  flex-wrap: wrap; /* Allows items to move to a new row if there are more than 5 */
+  gap: 1px;  
+  padding: 15px;
+  border: 1px solid #c8a46e;
+
+}
+
+
+
+customer p {
+    border-bottom: 1px;
+}
+
+
+.frag {
+     /* Dimensions & Shape */
+  width: 300px;
+  padding: 13px 20px;
+  height: fit-content;
+  
+  /* Paper Styling */
+  background-color: #fffdf5; /* Off-white paper color */
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  
+  /* Text Styling */
+  color: #2c3e50;
+  font-family: 'Courier New', Courier, monospace; /* Monospace for typewriter feel */
+  font-size: .7rem;
+  text-align: center;
+  line-height: 1.4;
+  
+  /* Center on page */
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Slight rotation for realism */
+  transform: rotate(-1deg);
+
+  flex: 0 0 calc(20% - 8px); 
+  box-sizing: border-box;
+  position: relative;
+    
+}
+
+.fragNm {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    width: 13px;
+    height: 13px;
+    margin: 4px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-weight: 800;
+}
+.fragNm::before{
+    content: " ";
+    width: 13px;
+    height: 13px;
+    margin: 4px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.34);
+    font-size: .7rem;
+    position: absolute;
+    top: 0px;
+    left: -5px;
+}
+
+.fragNm::after{
+    content: " ";
+    width: 13px;
+    height: 13px;
+    margin: 4px;
+    border-radius: 50%;
+    border: 1px solid rgba(91, 23, 23, 0.346);
+    font-size: .7rem;
+    position: absolute;
+    top: -2px;
+    left: 0px;
+}
+
+
+.frag:nth-child(odd) {
+    transform: translateY(4px) translateX(4px) rotate(1deg);
+}
+
+.frag:nth-child(even) {
+    transform: translateY(-4px) rotate(1deg);
+}
+
+
+.frag:nth-child(3n) {
+    transform: translateY(8px) rotate(-2deg);
+}
+
+
+.special {
+    font-weight: 600;
+    color: red;
+    font-family: Amatic SC;
+    font-size: 1.5rem;
+    background-color: rgb(255, 199, 199);
+}
+
+.high {
+    background-color: rgb(236, 236, 116);
+    font-family: Permanent Marker;
+    font-size: 1.5rem;
+}
+
+.feel {
+    font-family: cursive;
+    font-size: large;
+    background-color: rgb(221, 222, 247);
+}
+
+.clue {
+    font-size: 1.2rem;
+
+}
+
+@keyframes t{
+  90%,100% {width:100%}
+}
+
+.tile {
+    color: transparent;
+    flex: 1;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;
+    box-sizing: border-box;
+    margin:1px;
+    text-align: center;
+    font-size: .6rem;
+    height: 7rem;
+  box-shadow: 
+    inset -2px -1px rgba(255, 255, 255, 0.233), 
+    inset 2px -5px rgba(0, 0, 0, 0.178);
+}
+.reels {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+}
+.spin {
+    position: relative;
+    width:8vw;
+    margin: .6rem;
+}
+.SP {
+  background: linear-gradient(180deg, red, darkred);
+}
+
+
+.SP::after {
+    position: relative;
+    content: "KEY";
+    color: rgb(255, 255, 255) !important;
+    margin-left: -1.2rem;
+    opacity: 1;
+}
+
+.HP1 {
+  background: linear-gradient(180deg, blue, darkblue);
+}
+
+.HP1::before, 
+.HP2::before {
+    position: absolute;
+    content: "CLUE";
+    color: white;
+}
+
+.LP1::before, 
+.LP2::before,
+.LP3::before,
+.LP4::before {
+    position: absolute;
+    content: "FEEL";
+    color: white;
+}
+.HP2 {
+  background-color: rgb(0, 132, 255);
+  background: linear-gradient(180deg, rgb(0, 157, 255), rgb(0, 90, 139));
+}
+
+.MP1::before, 
+.MP2::before, 
+.MP3::before {
+    position: absolute;
+    content: "HINT";
+    color: white;
+}
+
+
+.MP1 {
+
+  background-color: #35ae31;
+}
+.MP2 {
+
+  background-color: rgba(223, 225, 85, 0.62);
+}
+.MP3 {
+
+  background-color: #e05e369e;
+}
+.LP1 {
+
+  background-color: #455930c5;
+
+}
+.LP2 {
+
+  background-color: #365760c5;
+}
+.LP3 {
+
+  background-color: #5a3350c5;
+
+}
+.LP4 {
+
+  background-color: #5a4133c5;
+
+}
+.match {
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 0 5px white;
+    scale: 1.05;
+}

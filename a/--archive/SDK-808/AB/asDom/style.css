@@ -1,0 +1,9 @@
+:root {
+    --my-fav-color: #ff3333;
+    --my-dark-color: #2b0000;
+    --my-fav-colorInvis: #ff333313;
+}
+
+.monitor-container::before {
+    content: ">|AB";
+}

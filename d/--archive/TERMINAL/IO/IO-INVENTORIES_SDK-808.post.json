@@ -1,0 +1,73 @@
+{
+    "crate.700CAE8753686057": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-SDK-808",
+                "topic": "5:02:22 on the clock @ 05:02 PM",
+                "content": "#### 5:02:22 on the clock @ 05:02 PM\r\nI looked up. It got my attention.\r\n\r\nCONTEXT: **thinking about [[CASEY]]**\r\nTAGGED: #signs\/angel-numbers\r\n<sup>CHRONOKEY:: | 09\/16\/2025-20253:38-09:2Tu-16PM.1758056547AD<\/sup>"
+            }
+        },
+        "route": [],
+        "tags": {
+            "terminal-io": {
+                "daily-inventory": [
+                    "casey",
+                    "signs",
+                    "angel-numbers"
+                ]
+            },
+            "omens": {
+                "signs": [
+                    "angel-numbers"
+                ],
+                "numbers": [
+                    "2",
+                    "222"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "terminal-io*daily-inventory>casey,signs,angel-numbers;omens*signs>angel-numbers&numbers>2,222",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "TERMINAL",
+            "sys_display": "TERMINAL.IO",
+            "dom_slug": "IO",
+            "dom_display": "IO",
+            "room_slug": "INVENTORIES_SDK-808",
+            "room_display": "POST A DAILY INVENTORY",
+            "mod_slug": "SDK-808",
+            "mod_display": "SDK-808"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1758056547.tps",
+            "ingest_unix": 1777416655,
+            "event_unix": 1758056547,
+            "timezone": "America\/New_York"
+        }
+    }
+}

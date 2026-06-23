@@ -1,0 +1,13 @@
+{
+    "VEN": "sam",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "kitten": {
+            "GRAVITY": 2,
+            "BIN": {
+                "misses": 2
+            }
+        }
+    }
+}

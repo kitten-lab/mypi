@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "operational-efficiency": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1777162819,
+                    "LAST": 1777162819
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984119": [
+                        "symbolcraft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "symbolcraft": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777162819,
+                            "LAST": 1777162819
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984119": [
+                                "executive-summary"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "executive-summary": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777162819,
+                                    "LAST": 1777162819
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.D195C9EF5FB1EC2E"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

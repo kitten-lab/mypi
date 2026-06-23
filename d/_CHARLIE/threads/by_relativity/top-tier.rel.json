@@ -1,0 +1,19 @@
+{
+    "VEN": "top-tier",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "goal": 1
+            }
+        },
+        "betsoft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "goals": 1
+            }
+        }
+    }
+}

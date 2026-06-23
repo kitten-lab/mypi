@@ -1,0 +1,108 @@
+{
+    "CABINET": {
+        "archetype": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777417251,
+                    "LAST": 1777417251
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1758005533": [
+                        "hymn",
+                        "hymn",
+                        "hymn"
+                    ]
+                }
+            },
+            "SHELF": {
+                "hymn": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1777417251,
+                            "LAST": 1777417251
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758005533": [
+                                "casey",
+                                "glass",
+                                "wire-wolf"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "casey": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777417251,
+                                    "LAST": 1777417251
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758005533": {
+                                    "SDK-808": [
+                                        "crate.028373DD3C4C6B97"
+                                    ]
+                                }
+                            }
+                        },
+                        "glass": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777417251,
+                                    "LAST": 1777417251
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758005533": {
+                                    "SDK-808": [
+                                        "crate.028373DD3C4C6B97"
+                                    ]
+                                }
+                            }
+                        },
+                        "wire-wolf": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777417251,
+                                    "LAST": 1777417251
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758005533": {
+                                    "SDK-808": [
+                                        "crate.028373DD3C4C6B97"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

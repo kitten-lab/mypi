@@ -1,0 +1,21 @@
+{
+    "VEN": "hymn",
+    "GRAVITY": 6,
+    "METADATA": [],
+    "SHELF": {
+        "topics": {
+            "GRAVITY": 3,
+            "BIN": {
+                "wire-wolf": 2,
+                "casey": 1
+            }
+        },
+        "": {
+            "GRAVITY": 3,
+            "BIN": {
+                "wire-wolf": 2,
+                "casey": 1
+            }
+        }
+    }
+}

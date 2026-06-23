@@ -1,0 +1,18 @@
+{
+    "VEN": "threats",
+    "GRAVITY": 6,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 6,
+            "BIN": {
+                "regulations": 1,
+                "competition": 1,
+                "emerging-studios": 1,
+                "major-brands": 1,
+                "player-preferences": 1,
+                "constant-change": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "signs",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "terminal-io": {
+            "GRAVITY": 1,
+            "BIN": {
+                "daily-inventory": 1
+            }
+        }
+    }
+}

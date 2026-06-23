@@ -1,0 +1,13 @@
+{
+    "VEN": "fragment",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 2,
+            "BIN": {
+                "repair": 2
+            }
+        }
+    }
+}

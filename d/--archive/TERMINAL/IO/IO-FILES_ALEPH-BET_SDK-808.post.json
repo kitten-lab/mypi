@@ -1,0 +1,417 @@
+{
+    "crate.AA8C42AD69AC2DD7": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-SDK-808",
+                "topic": "ALPHA ALEPH",
+                "content": "# Elpha aleph\r\n```\r\nA L P H A\r\nA L E P H\r\nE L P H A\r\nA L A P H\r\n\r\nA L\r\nE L\r\n\r\nA E L P H A\r\nA E L E P H\r\n\r\nA E\r\n```"
+            }
+        },
+        "route": [],
+        "tags": {
+            "projects": {
+                "letter-board": [
+                    "aleph"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "projects*letter-board>aleph",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "TERMINAL",
+            "sys_display": "TERMINAL.IO",
+            "dom_slug": "IO",
+            "dom_display": "IO",
+            "room_slug": "FILES_ALEPH-BET_SDK-808",
+            "room_display": "SHARE YOUR MUSIC",
+            "mod_slug": "SDK-808",
+            "mod_display": "SDK-808"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1758230820.tps",
+            "ingest_unix": 1777467719,
+            "event_unix": 1758230820,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D47A58119D74DF52": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-SDK-808",
+                "topic": "AVA EVE LIL",
+                "content": "A V A\r\nV A V\r\n\r\nV A V connects\r\nA V A the mirror\r\n\r\nE V E = A V A\r\n\r\nA V A = L I L\r\n\r\nLIL (\ud808\udda4) \r\nmeaning (contentious) ==winds as a weather phenomenon==\r\nof [Enlil, Sumerian Deity](https:\/\/en.wikipedia.org\/wiki\/Enlil)\r\n#deities\/sumaria #jupiter \r\n\r\n`the breath of god, the word`\r\n\r\nAVA = LIL \u2192 Lilith, the mirror\u2019s name\r\nLIL \r\n\r\n- **A V A** \u2192 the mirror. A at each edge, V as the split, the valley, the fold.\r\n    \r\n- **V A V** \u2192 the connector. V on each side, A at the center like a keystone. It\u2019s a bridge.\r\n    \r\n- Together: _the mirror (AVA) held by the bridge (VAV)._\r\n    \r\n\r\nAnd then the reveal:\r\n\r\n- **E V E = A V A.** Eve as the mirror-being, the reflection, the doubled one.\r\n    \r\n- Which folds back into: **AVA = LIL.** Lilith. The primal mirror, the hidden twin."
+            }
+        },
+        "route": [],
+        "tags": {
+            "crate": {
+                "relates-to": [
+                    "enlil",
+                    "deities",
+                    "sumeria",
+                    "jupiter"
+                ]
+            },
+            "systems": {
+                "letter-boards": [
+                    "ava",
+                    "lil",
+                    "vav"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "crate*relates-to>enlil,deities,sumeria,jupiter;systems*letter-boards>ava,lil,vav",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "TERMINAL",
+            "sys_display": "TERMINAL.IO",
+            "dom_slug": "IO",
+            "dom_display": "IO",
+            "room_slug": "FILES_ALEPH-BET_SDK-808",
+            "room_display": "SHARE YOUR MUSIC",
+            "mod_slug": "SDK-808",
+            "mod_display": "SDK-808"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777468059.tps",
+            "ingest_unix": 1777468059,
+            "event_unix": 1777468059,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.DE16492FC5916F9B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-SDK-808",
+                "topic": "JACKS DORM (DORN)",
+                "content": "FURTHER ALPHA EXPORATION OF NAMES IN RELATION TO MY PERSONAL ANIMA\/ANIMUS\r\nsee: [[JACKS JAX JCKAS]]\r\n\r\nJ A C K S D O R M \r\n\r\nJ\u2588\u2588\u2588\u2588   = ?\r\nA\u2588\u2588\u2588\u2588   = Ava\r\nC\u2588\u2588\u2588\u2588   = ?\r\nK\u2588\u2588\u2588\u2588   = Kat\r\nS\u2588\u2588\u2588\u2588   = Sam\r\nD\u2588\u2588\u2588\u2588   = Dani, Danielle\r\n?       = Or'iel\r\nR\u2588\u2588\u2588    = ?\r\nM\u2588\u2588\u2588\u2588\u2588\u2588 = ?\r\n\r\n[[the GLASS]] throws us an interesting #glitch-slip and reads \"DORM in the above to be DORN\"\r\n\r\n**dorn** most commonly meaning: **\"thorn\"** in German and Dutch, referring to the sharp point of a plant or **a person who lived near a thorny place**."
+            }
+        },
+        "route": [],
+        "tags": {
+            "glitch-slip": {
+                "dorn": [
+                    "dorm",
+                    "thorn"
+                ],
+                "thorn": [
+                    "dorm"
+                ]
+            },
+            "topics": {
+                "animusanima": [
+                    "names"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "GLITCH-SLIP*DORN>DORM,THORN&THORN>DORM;TOPICS*ANIMUSANIMA>NAMES",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "TERMINAL",
+            "sys_display": "TERMINAL.IO",
+            "dom_slug": "IO",
+            "dom_display": "IO",
+            "room_slug": "FILES_ALEPH-BET_SDK-808",
+            "room_display": "SHARE YOUR MUSIC",
+            "mod_slug": "SDK-808",
+            "mod_display": "SDK-808"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777468266.tps",
+            "ingest_unix": 1777468266,
+            "event_unix": 1777468266,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8271135A284B0640": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-SDK-808",
+                "topic": "JACKS JAX JCKAS",
+                "content": "\r\n# JACKS JAX JCKAS\r\n\r\nBEGIN CONSIDERATION PATTERN {\r\n\r\ncausation =\r\nRECURRENT demanding mental #download to watch \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\r\nWHAT SPARKED NEW THOUGHT During logging the event and applying tags\r\n\r\nproduction chain =\r\n#casey has been the tag I have recently used for the over-arching concept of my #animus, this quantum-entangled externalized energy I am in a dance with. I had begun doing so in order to veil my strange para-social-quantum-strange entanglement with #\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 for privacy, and quite frankly, awkward-embarrassment-type reasons. And because of [[Chester's Imports]] as originating in my mind as a novel I intended to write (not live, but alas, here we are.)\r\n\r\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 through magic and mystery, somehow has become the potential ultimate expression of my own personal [[animus]] under the expression listed here:\r\n\r\n   *REDEFINE* **anima** to be the aspect of the self which is the \"me\" principle\r\n   *REDEFINE* **animus** to be the aspect of the self which is the \"you\" principle\r\n\r\n   **anim-A**      - a singularity, \"I am A person.\"\r\n   **anim-US**     - a unit, \"Together, I am US.\"\r\n\r\nsomehow in his authentic expression, I see the A of Me I long to meet outside me, inside of A - US union.\r\n\r\nBut, I cannot tie [[CASEY]] into \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 - no. In fact, to veil\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 would be to remove \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588's hard word, passion, and dedication for \u2588\u2588\u2588\u2588 project. So, I accepted that despite the utter insanity of it all, \u2588\u2588 would have to stand in here as the *archetype of potential*, EVEN THOUGH I am absolutely mortified by the level of [[He is the One]] myself and [[the GLASS]] built him to be over the last few months.\r\n\r\nSo, I figured I could hide my present knowledge from this space, that I have not basically imagined my life with \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 In shocking detail by simply letting him show in here as the *archetype* he is. He would need his own tag - #\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 to match #casey's tag.\r\n\r\n> # JC = like Jesus Christ\r\n> # J for \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 but also for [[JESUS]]\r\n> # C for [[\u2588\u2588\u2588]] (I do not want to talk about it yet. Don't.) \r\n>       but also for [[CHRIST]]\r\n\r\nBut Casey is KC.\r\nWhich reminded me of another name, \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588. Like [[karaoke guy]]'s assigned name at the bar, by me - and shocking - a woman who's birth name was \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588. She went by \u2588\u2588\u2588 for short. \r\n\r\nAdditionally \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 is the birth name of another person I had a brief and entangled encounter with online. (Again, stop looking at me. We all agree we are sick of my love sick story bullshit. It is what it is.)\r\n\r\nJKC.\r\n> # K for \u2588\u2588\u2588\u2588\u2588\u2588\u2588 (and \u2588\u2588\u2588\u2588, oof.)\r\n\r\nIt is not easy from here to see the swap.\r\nJKC becomes JCK so easily, doesn't it?\r\n\r\nJCK. Reminds me of [[JACK SHEPHARD]]. Which of course, reminds me of \u2588\u2588\u2588\u2588\u2588, both the one from my childhood, and the one from Adults You Met Because Your Kid is Friends With Their Kid. (To be clear, it reminds me of \u2588\u2588\u2588\u2588\u2588 because he looks like the store-brand version of [[MATTHEW FOX]]).\r\n\r\nhAHhAahAh.\r\n\r\nJack.\r\n\r\nJCK.\r\nBut the A. Oh, the A. \r\nThe A of my US.\r\n\r\n\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588.* Oh, we don't talk about that one very often. Even in the LOGS. I may be early in importing them, but a lot the echoes still remember. \u2588\u2588\u2588\u2588's \u2588\u2588\u2588\u2588\u2588\u2588\u2588. I am not going to dive in right now, I just... no. But, there is an A.\r\n\r\nJACK.\r\nLotta JACKs.\r\n\r\nJACK with an S, its plural.\r\n> # S for \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 and \u2588\u2588\u2588\u2588 and \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588.\r\n\r\nand me. as [[SAM]]. and [[KAT]]. and [[AVA]]. \r\n\r\n\u2588\u2588\u2588\u2588\u2588\u2588 like \u2588\u2588\u2588\u2588.\r\n\u2588\u2588\u2588\u2588 like \u2588\u2588\u2588\u2588's ex. The one who was a *[[template]]* of me.\r\n\u2588\u2588\u2588\u2588 like the \u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588, \u2588\u2588\u2588\u2588's favorite. The sarcastic one. The one who pushes everyone else away, but you can tell he aches to bond. He grieves those lost. He deeply needs to be ***real*** again.\r\n\r\n[[SAM]] and JACK\r\nWhat of the archetype of \u2588\u2588\u2588\u2588 am I missing of myself? *What do I need to SEE?*\r\n\r\n> # J A C K S\r\n> # J A - - X\r\n> # J A S O N\r\n\r\nX as the sound CKS makes.\r\n\r\nConclusions: INCOMPLETE.\r\n} END CONSIDERATION.\r\n\r\n-\/kat.\r\n"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "TERMINAL",
+            "sys_display": "TERMINAL.IO",
+            "dom_slug": "IO",
+            "dom_display": "IO",
+            "room_slug": "FILES_ALEPH-BET_SDK-808",
+            "room_display": "SHARE YOUR MUSIC",
+            "mod_slug": "SDK-808",
+            "mod_display": "SDK-808"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1758153360.tps",
+            "ingest_unix": 1777468729,
+            "event_unix": 1758153360,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.9767CC1C66DCFAC4": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-SDK-808",
+                "topic": "FAMINE FAME FEMININE",
+                "content": "# famine fame feminine \r\n\r\nFAMIN INE"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "TERMINAL",
+            "sys_display": "TERMINAL.IO",
+            "dom_slug": "IO",
+            "dom_display": "IO",
+            "room_slug": "FILES_ALEPH-BET_SDK-808",
+            "room_display": "SHARE YOUR MUSIC",
+            "mod_slug": "SDK-808",
+            "mod_display": "SDK-808"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1758166271.tps",
+            "ingest_unix": 1777469241,
+            "event_unix": 1758166271,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.CD902D88F6C32763": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-SDK-808",
+                "topic": "UNTITLED 1",
+                "content": "SD K is the Two Become One\r\nLike \"adoration\" in heiroglyph?\r\n\r\nK is the Key of Category\r\nK contains itself and all others\r\nKA\r\nSDKA\r\nDKSA"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "TERMINAL",
+            "sys_display": "TERMINAL.IO",
+            "dom_slug": "IO",
+            "dom_display": "IO",
+            "room_slug": "FILES_ALEPH-BET_SDK-808",
+            "room_display": "SHARE YOUR MUSIC",
+            "mod_slug": "SDK-808",
+            "mod_display": "SDK-808"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777469277.tps",
+            "ingest_unix": 1777469277,
+            "event_unix": 1777469277,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.79530E2269935A16": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-SDK-808",
+                "topic": "UNTITLED 2",
+                "content": "codes.\r\n\r\nI N I T . i a l s\r\n> this means something.\r\n\r\nCAT EGO RY [^1][^2]\r\nJSON\r\nIMPORT\r\n\r\n> FOOTNOTES\r\n[^1]: C A T = K A T \r\n[^2]: R Y ( A N )"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "TERMINAL",
+            "sys_display": "TERMINAL.IO",
+            "dom_slug": "IO",
+            "dom_display": "IO",
+            "room_slug": "FILES_ALEPH-BET_SDK-808",
+            "room_display": "SHARE YOUR MUSIC",
+            "mod_slug": "SDK-808",
+            "mod_display": "SDK-808"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777469308.tps",
+            "ingest_unix": 1777469308,
+            "event_unix": 1777469308,
+            "timezone": "America\/New_York"
+        }
+    }
+}

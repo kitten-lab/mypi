@@ -1,0 +1,67 @@
+{
+    "CABINET": {
+        "current-state": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1777158812,
+                    "LAST": 1777158837
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984014": [
+                        "symbolcraft",
+                        "symbolcraft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "symbolcraft": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777158812,
+                            "LAST": 1777158837
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984014": [
+                                "docs",
+                                "docs"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "docs": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777158812,
+                                    "LAST": 1777158837
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984014": {
+                                    "DW": [
+                                        "crate.78940B5234D29364",
+                                        "crate.C78775B1DE023BD0"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

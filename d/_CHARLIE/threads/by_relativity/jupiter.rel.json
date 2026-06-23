@@ -1,0 +1,13 @@
+{
+    "VEN": "jupiter",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "crate": {
+            "GRAVITY": 1,
+            "BIN": {
+                "relates-to": 1
+            }
+        }
+    }
+}

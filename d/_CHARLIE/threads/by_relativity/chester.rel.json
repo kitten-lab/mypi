@@ -1,0 +1,13 @@
+{
+    "VEN": "chester",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "sdk-808": {
+            "GRAVITY": 1,
+            "BIN": {
+                "thoughts": 1
+            }
+        }
+    }
+}

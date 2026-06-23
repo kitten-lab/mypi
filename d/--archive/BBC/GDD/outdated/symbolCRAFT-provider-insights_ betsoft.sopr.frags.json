@@ -1,0 +1,412 @@
+{
+    "SECTION": {
+        "company-overview": {
+            "LABEL": "Company Overview",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "company-overview-0001",
+                    "FRAG": "Betsoft Gaming is a mid-tier iGaming provider specializing in online slots",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777164139,
+                        "cUID": "crate.028C3DAD6367A189",
+                        "TAGS": {
+                            "betsoft": {
+                                "provider_insights": [
+                                    "mid-tier",
+                                    "igaming",
+                                    "slots"
+                                ],
+                                "specialty": [
+                                    "online-slots",
+                                    "slots"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "strengths": {
+            "LABEL": "Strengths",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "strengths-0001",
+                    "FRAG": "Established brand with a portfolio of high-quality slot games",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777164206,
+                        "cUID": "crate.DA805FFCD49E3F1A",
+                        "TAGS": {
+                            "betsoft": {
+                                "strengths": [
+                                    "established-brand",
+                                    "high-quality",
+                                    "slots"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "strengths-0002",
+                    "FRAG": "[Moderate] relationships with key operators in regulated markets.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777164258,
+                        "cUID": "crate.BD1BFD79DD92005F",
+                        "TAGS": {
+                            "betsoft": {
+                                "strengths": [
+                                    "relationships-with-operators",
+                                    "regulated-market-presence"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "strengths-0003",
+                    "FRAG": "Proven game mechanics and engaging visual design.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777164336,
+                        "cUID": "crate.564AC96B9D26961E",
+                        "TAGS": {
+                            "betsoft": {
+                                "strengths": [
+                                    "proven-game-mechanics",
+                                    "visual-identity"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "strengths-0004",
+                    "FRAG": "High-quality graphics and animations, often considered among the best in the industry. ",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777168245,
+                        "cUID": "crate.8751E198D0E1FF53",
+                        "TAGS": {
+                            "betsoft": {
+                                "strengths": [
+                                    "graphics",
+                                    "animations",
+                                    "best-graphics"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "weaknesses": {
+            "LABEL": "Weaknesses",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "weaknesses-0001",
+                    "FRAG": "Limited differentiation from top-tier competitors.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777164450,
+                        "cUID": "crate.CD4CC52F15A1FD59",
+                        "TAGS": {
+                            "betsoft": {
+                                "weaknesses": [
+                                    "limited-identity",
+                                    "derivative"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "weaknesses-0002",
+                    "FRAG": "Marketing and brand awareness lag behind major players.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777164495,
+                        "cUID": "crate.615126237D2A85B2",
+                        "TAGS": {
+                            "betsoft": {
+                                "weaknesses": [
+                                    "low-brand-awareness",
+                                    "low-marketing-awareness"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "opportunities": {
+            "LABEL": "Opportunities",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "opportunities-0001",
+                    "FRAG": "Expanding into new regulated markets.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777165742,
+                        "cUID": "crate.FF1ECCA8A3639C82",
+                        "TAGS": {
+                            "betsoft": {
+                                "opportunities": [
+                                    "expanding-markets"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "opportunities-0002",
+                    "FRAG": "Innovating with unique game mechanics or technologies",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777165772,
+                        "cUID": "crate.026D035C666FC4CA",
+                        "TAGS": {
+                            "betsoft": {
+                                "opportunities": [
+                                    "innovation",
+                                    "unique-mechanics",
+                                    "unique-tech"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "opportunities-0003",
+                    "FRAG": "strengthening partnerships with tier-one operators.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777165817,
+                        "cUID": "crate.F82FC5DD79FD0226",
+                        "TAGS": {
+                            "betsoft": {
+                                "opportunities": [
+                                    "partnerships",
+                                    "relationships",
+                                    "tier-one-connections"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "threats": {
+            "LABEL": "Threats",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "threats-0001",
+                    "FRAG": "Increasing competition from emerging studios and major brands.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777165860,
+                        "cUID": "crate.6BF0A99C8206B4C3",
+                        "TAGS": {
+                            "betsoft": {
+                                "threads": [
+                                    "competition",
+                                    "emerging-studios",
+                                    "major-brands"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "threats-0002",
+                    "FRAG": "Regulatory changes impacting existing and potential markets.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777165880,
+                        "cUID": "crate.73AF3E740CE181A4",
+                        "TAGS": {
+                            "betsoft": {
+                                "threads": [
+                                    "regulations"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "threats-0003",
+                    "FRAG": "Shifting player preferences requiring constant adaptation.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777165954,
+                        "cUID": "crate.422B9B7EA6623B95",
+                        "TAGS": {
+                            "betsoft": {
+                                "threats": [
+                                    "regulations",
+                                    "competition",
+                                    "emerging-studios",
+                                    "major-brands",
+                                    "player-preferences",
+                                    "constant-change"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "vision-&-goals": {
+            "LABEL": "Vision & Goals",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "vision-&-goals-0001",
+                    "FRAG": "Increase release cadence to match top-tier competitors.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777166064,
+                        "cUID": "crate.9E8ACD35C7D3774C",
+                        "TAGS": {
+                            "betsoft": {
+                                "goals": [
+                                    "increase-releases"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "vision-&-goals-0002",
+                    "FRAG": "Establish Betsoft as a top-tier provider in the industry",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777166301,
+                        "cUID": "crate.E0B6CD8DC6C80E20",
+                        "NOTES": "Amended section from master crate",
+                        "TAGS": {
+                            "betsoft": {
+                                "goals": [
+                                    "top-tier"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "vision-&-goals-0003",
+                    "FRAG": "Secure strategic partnerships with global industry leaders.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777166489,
+                        "cUID": "crate.9F066115C32E0E06",
+                        "TAGS": {
+                            "betsoft": {
+                                "goals": [
+                                    "partnerships",
+                                    "strategic-partnerships",
+                                    "global-connections"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "suggested-goals": {
+            "LABEL": "Suggested Goals",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "suggested-goals-0001",
+                    "FRAG": "Improve marketing strategies and brand positioning.",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777166124,
+                        "cUID": "crate.B571DEB3A3046186",
+                        "TAGS": {
+                            "betsoft": {
+                                "suggested-goals": [
+                                    "improve-marketing"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "suggested-goals-0002",
+                    "FRAG": "Strengthen relationships with existing operators",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777166140,
+                        "cUID": "crate.AA323298057ACEDC",
+                        "TAGS": {
+                            "betsoft": {
+                                "suggested-goals": [
+                                    "better-relationships"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "suggested-goals-0003",
+                    "FRAG": "Develop innovative game mechanics to differentiate offerings",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777166185,
+                        "cUID": "crate.A7C1371E7C314CE6",
+                        "TAGS": {
+                            "betsoft": {
+                                "suggested-goals": [
+                                    "innovation",
+                                    "innovative-mechanics",
+                                    "unique-mechanics"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "suggested-goals-0004",
+                    "FRAG": "Expand into additional regulated markets",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777166213,
+                        "cUID": "crate.C713DE85615D0995",
+                        "TAGS": {
+                            "betsoft": {
+                                "suggested-goals": [
+                                    "market-expansion"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "suggested-goals-0005",
+                    "FRAG": "Enhance user engagement through gamification and loyalty features",
+                    "AGENT": "ADM-DW-ASSISTANT",
+                    "METADATA": {
+                        "ADDED": 1777166248,
+                        "cUID": "crate.7B2D441FB29F498B",
+                        "TAGS": {
+                            "betsoft": {
+                                "suggested-goals": [
+                                    "gamification"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

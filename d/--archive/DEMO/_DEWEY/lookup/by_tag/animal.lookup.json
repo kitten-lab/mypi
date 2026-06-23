@@ -1,0 +1,86 @@
+{
+    "CABINET": {
+        "animal": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1778126967,
+                    "LAST": 1778126967
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1778126967": [
+                        "omen",
+                        "omen"
+                    ]
+                }
+            },
+            "SHELF": {
+                "omen": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1778126967,
+                            "LAST": 1778126967
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1778126967": [
+                                "cat",
+                                "mouse"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "cat": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1778126967,
+                                    "LAST": 1778126967
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778126967": {
+                                    "RECORDER": [
+                                        "crate.FD99C7711F9971D0"
+                                    ]
+                                }
+                            }
+                        },
+                        "mouse": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1778126967,
+                                    "LAST": 1778126967
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778126967": {
+                                    "RECORDER": [
+                                        "crate.FD99C7711F9971D0"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

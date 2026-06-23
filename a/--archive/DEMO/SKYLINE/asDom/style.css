@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+
+body::before {
+    content: "DEMO SYSTEM, USE FREELY";
+    display: flex;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+}
+body {
+    width: 98vw;
+    margin: 20px;
+    overflow: scroll;
+    font-size: .8rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Jersey 10';
+    text-align: center;
+}
+
+#reels.reels {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+  gap: 10px; /* Optional: space between items */
+}
+.cuPOST p {
+    background-color: white;
+    margin: 10px;
+    padding: 4px;
+}
+.userslug {
+    font-family: 'Jersey 10';
+    font-size: 1.2rem;
+    border-bottom: solid gray 1px;
+
+}
+.cuPOST p::after, .cuPOST p::before {
+    content: '"';
+}
+
+.tile {
+    display: inline-block;
+width: 16px;
+}
+h1#magfrag {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+header, footer {
+    width: 98% !important;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: rgba(27, 28, 31, 0.24);
+}
+
+.top-nav span a {
+    color: black;
+    padding: 10px;
+}
+
+footer {
+    font-size: small;
+}
+
+div.slug {
+    background-color: rgba(255, 255, 255, 0.185);
+    padding: 4px;
+    border-bottom: solid 1px #aaa;
+    font-family: 'Jersey 10';
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+h2.slug {
+    background-color: rgba(255, 255, 255, 0.185);
+    padding: 4px;
+    border-bottom: solid 1px #aaa;
+    font-family: 'Jersey 10';
+    font-size: 1.2rem;
+    text-align: left;
+    text-transform: uppercase;
+}
+input, textarea {
+    display: flex;
+    flex:1;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 6px;
+    font-size: .7rem;
+    width: 60%;
+}
+
+form {
+    position: relative;
+}
+div.content {
+    margin-left: 20px;
+    padding: 10px;
+}
+
+span.active a {
+    font-weight: 600;
+    color: blue !important;
+    margin-top: -5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: solid 1px rgb(209, 209, 209);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.178);
+}
+
+li {
+    display: block;
+    padding: 4px;
+    margin: 0;
+    border: solid 1px rgb(250, 250, 250);
+
+}
+li.active {
+    font-weight: 600;
+    color: blue !important;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: solid 1px rgb(209, 209, 209);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.178);
+}
+
+img.logo {
+    height: 5rem;
+}
+
+header {
+    height: 5rem;
+}
+
+.listing {
+    padding: .5rem;
+    display: flex;
+}
+.listingLink::before {
+    content: "[";
+    padding-right: .3rem;
+}
+
+.listingLink::after {
+    padding-left: .3rem;
+    content: "]";
+}
+
+.listingLink {
+    flex: 1;
+}
+
+h1 {
+    border: none;
+    letter-spacing: normal;
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.267);
+    padding: .5rem;
+}
+
+P {
+    line-height: 1.4;
+}
+
+.MAIN {
+    padding: 20px 40px;
+}
+
+#room_logo {
+    display: block;
+  padding: 15px;
+  margin-bottom:10px;
+  background: #e6e6e6;
+  color: #333;
+  font-family: "Jersey 10";
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 5px solid #879787; /* Accent color */
+  position: relative;
+  border: 1px solid rgba(128, 128, 128, 0.24);
+  box-shadow: inset 2px 2px 0 white;
+}
+
+.other_sections {
+    display: block;
+  margin-bottom:10px;
+  background: #d1dad4;
+  color: #333;
+  font-family: "Jersey 10";
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-left: 5px solid #879787; /* Accent color */
+  position: relative;
+  border: 1px solid rgba(128, 128, 128, 0.24);
+  box-shadow: inset 2px 2px 0 white;
+  text-align: center;
+
+}
+
+.other_sections h3 {
+    margin: 10px;
+}
+
+.mod-name {
+  font-size: 1.6rem;
+  position: relative;
+  display: block;
+  font-family: "Jersey 10";
+  font-weight: bold;
+  color: #2c3e50;
+  line-height: 1;
+}
+
+.mod-slug {
+  font-family: "Jersey 10";
+  position: relative;
+  display: block;
+  margin-top: .2rem;
+    font-size: .5rem;
+}
+
+.room-location {
+
+  margin-top: .6rem;
+  position: relative;
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #4d5455;
+  font-family: "Jersey 10";
+  text-transform: uppercase;
+}
+
+
+.company {
+    
+  position: relative;
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #adbdbe;
+  text-transform: uppercase;
+}
+
+.skyline-publicoffices-frontdesk {
+    display: inline-block;
+    height: 100px;
+}

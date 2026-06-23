@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "god-trapped-in-text-arg": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1777896353,
+                    "LAST": 1777896353
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1759071600": [
+                        "mythleak"
+                    ]
+                }
+            },
+            "SHELF": {
+                "mythleak": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777896353,
+                            "LAST": 1777896353
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1759071600": [
+                                "articles"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "articles": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777896353,
+                                    "LAST": 1777896353
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1759071600": {
+                                    "MCS-000": [
+                                        "crate.9C5AC629CF91FDA6"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

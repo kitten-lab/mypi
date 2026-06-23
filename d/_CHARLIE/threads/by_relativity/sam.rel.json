@@ -1,0 +1,19 @@
+{
+    "VEN": "sam",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "chesters-imports": {
+            "GRAVITY": 1,
+            "BIN": {
+                "messages": 1
+            }
+        },
+        "terminal": {
+            "GRAVITY": 1,
+            "BIN": {
+                "mentions": 1
+            }
+        }
+    }
+}

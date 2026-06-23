@@ -1,0 +1,15 @@
+{
+    "VEN": "jason",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "secret": {
+            "GRAVITY": 3,
+            "BIN": {
+                "jace": 1,
+                "glenshadow": 1,
+                "casey": 1
+            }
+        }
+    }
+}

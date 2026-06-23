@@ -1,0 +1,712 @@
+{
+    "SECTION": {
+        "intentions": {
+            "LABEL": "Intentions",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "intentions-0001",
+                    "FRAG": "Create a slot with a self-feeding narrative loop.",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777220840,
+                        "cUID": "crate.EA963F17404DE936",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "intentions",
+                                    "main_game"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "intentions-0002",
+                    "FRAG": "Theme approach Classic detective-for-hire base game",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777220904,
+                        "cUID": "crate.8E618B2BA9A19953",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "intentions",
+                                    "theme",
+                                    "detective-for-hire"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "intentions-0003",
+                    "FRAG": "**A two-act investigation arc**. 1- anticipation\r\n2- resolution",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221072,
+                        "cUID": "crate.BC71A9AF2276FD5D",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "intentions",
+                                    "anticipation",
+                                    "resolution",
+                                    "two-act",
+                                    "investigation"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "intentions-0004",
+                    "FRAG": "Each beat becomes a series of story phases.",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221105,
+                        "cUID": "crate.B7C1AD281172231F",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "intentions",
+                                    "story-phases"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "intentions-0005",
+                    "FRAG": "Classic detective in the office set up",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221142,
+                        "cUID": "crate.604C840E3575303D",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "intentions",
+                                    "trope_detective",
+                                    "office"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "intentions-0006",
+                    "FRAG": "We do not see the detective because \r\n### they are you.",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221361,
+                        "cUID": "crate.34D634CA0791552D",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "intentions"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "detective": [
+                                    "self-insert"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "intentions-0007",
+                    "FRAG": "the reels feel like evidence gathering.",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221876,
+                        "cUID": "crate.CBCE440A5ECA98E1",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "intentions"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "intentions": [
+                                    "evidence_gathering",
+                                    "reels"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "intentions-0008",
+                    "FRAG": "every reset is: _a new case_",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777222185,
+                        "cUID": "crate.CADFAE54D347DC37",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "intentions"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "intentions": [
+                                    "new-every-time"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "intentions-0009",
+                    "FRAG": "the same trick used by:\r\n\r\n   - detective shows\r\n\r\n   - medical dramas\r\n\r\n   - police procedurals\r\n\r\nEach episode = new problem.",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777222204,
+                        "cUID": "crate.ECE355EF15366BAB",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "intentions"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "intentions": [
+                                    "new-every-time"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "core-functionality": {
+            "LABEL": "Core Functionality",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "core-functionality-0001",
+                    "FRAG": "1 free spin feature or 1 hold-and-win feature",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777220741,
+                        "cUID": "crate.7E8D72047395CF31",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "functionality",
+                                    "main_game"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "core-functionality-0002",
+                    "FRAG": "Flow: client arrives ->\r\nfree spins = learning the case ->\r\nnew reel environment (investigation) ->\r\ntrigger again ->\r\nfree spins = solving the case ->\r\nreturn to office",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777220990,
+                        "cUID": "crate.C7CF63054FE4B7EF",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "intentions",
+                                    "theme",
+                                    "detective-for-hire"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "core-functionality-0003",
+                    "FRAG": "Base game is reels over the detective's office space. We can see the office door closed with the inverted detective gold label over the glass. The atmosphere is dark, the glass itself seems tinted.",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221279,
+                        "cUID": "crate.DACE7DDA54F7AF36",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "functionality",
+                                    "detective-for-hire",
+                                    "office"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "atmosphere": [
+                                    "dark"
+                                ],
+                                "location": [
+                                    "office",
+                                    "detective_office"
+                                ],
+                                "door": [
+                                    "tinted-glass"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "core-functionality-0004",
+                    "FRAG": "Trigger event: Cash coin event A shadowy figure enters thought the door:",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221518,
+                        "cUID": "crate.D3450BE4E10A4C90",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "functionality"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "feature": [
+                                    "event_trigger",
+                                    "customer",
+                                    "case"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "core-functionality-0005",
+                    "FRAG": "Player is awarded n free spins. This is the case discovery phase.",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221535,
+                        "cUID": "crate.29138ED2B15944A2",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "functionality"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "feature": [
+                                    "event_trigger",
+                                    "customer",
+                                    "case_discovery"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "core-functionality-0006",
+                    "FRAG": "Symbols on the reels are replaced by clues cards representing different artifacts related to a detective inquiry:\r\n\r\n   - cheating spouse\r\n   - stolen inheritance\r\n   - missing person\r\n   - lost item\r\n   - bad business",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221709,
+                        "cUID": "crate.EF1D6F178D919EBB",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "functionality"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "feature": [
+                                    "case",
+                                    "case_discovery"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "illustrations": {
+            "LABEL": "Illustrations",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "illustrations-0001",
+                    "FRAG": "Main game loop: Waiting for a new case Symbol set is generic theme to classic detective aesthetic and time period.\r\n\r\n```__________________________________________________\r\n|           -------------------------------------    |\r\n|  +-----+  |                                    |   |\r\n|  |     |  |                                    |   |\r\n|  |     |  |                                    |   |\r\n|  |     |  |                                    |   |\r\n|  |    o|  |            R E E L S               |   |\r\n|  |     |  |                                    |   |\r\n|  |     |  |                                    |   |\r\n|-----------|                                    |   |\r\n|           |                                    |   |\r\n|           -------------------------------------    |\r\n|____________________________________________________|\r\n```",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777220645,
+                        "cUID": "crate.B5B97192F802011D",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "illustrations",
+                                    "main_game"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "illustrations-0002",
+                    "FRAG": "Trigger event: Cash coin event A shadowy figure enters thought the door:\r\n```\r\n____________________________________________________\r\n|           -------------------------------------    |\r\n|  +-----+  |                                    |   |\r\n|  | ___ |  |                                    |   |\r\n|  | \\ \/ |  |                                    |   |\r\n|  |0---0|  |                                    |   |\r\n|  || _ ||  |            R E E L S               |   |\r\n|  | | | |  |                                    |   |\r\n|  | | | |  |                                    |   |\r\n|-----------|                                    |   |\r\n|           |                                    |   |\r\n|           -------------------------------------    |\r\n|____________________________________________________|\r\n                         |\r\n_________________________V____________________________\r\n|    ___    -------------------------------------    |\r\n|  +\/   \\+  |                                    |   |\r\n|   |   |   |                                    |   |\r\n|    \\ \/    |                                    |   |\r\n| 0-------0 |                                    |   |\r\n| |       | |            R E E L S               |   |\r\n| |       | |                                    |   |\r\n| |------ | |                                    |   |\r\n|-----------|                                    |   |\r\n|           |                                    |   |\r\n|           -------------------------------------    |\r\n|____________________________________________________|\r\n```\r\nThis represents the customer. Random silhouette or full-designed characters, AI-pipeline makes producing new customers trivial. ",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221449,
+                        "cUID": "crate.078A4AC0EDACFADC",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "illustrations"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "feature": [
+                                    "event_trigger",
+                                    "customer",
+                                    "case"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "symbols": {
+            "LABEL": "Symbols",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "symbols-0001",
+                    "FRAG": "magnifying glass\r\nrevolver\r\nfedora\r\nnewspaper\r\nsafe\r\n\r\nCase symbols might become:\r\n\r\nphotograph\r\nletter\r\nknife\r\nfootprint\r\ntrain ticket",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221805,
+                        "cUID": "crate.2A2552B8908F9A3F",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "symbols"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "symbols": [
+                                    "photograph",
+                                    "letter",
+                                    "knife",
+                                    "footprint",
+                                    "train-ticket",
+                                    "safe",
+                                    "newspaper",
+                                    "fedora",
+                                    "revolver",
+                                    "magnifying-glass"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "solutions": {
+            "LABEL": "Solutions",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "solutions-0001",
+                    "FRAG": "silhouette client is secretly doing a lot of work\r\nBecause it creates infinite case seeds.",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777221950,
+                        "cUID": "crate.C93E48358996BB4B",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "solutions"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "solutions": [
+                                    "simple-silhouette",
+                                    "generated-cases"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "solutions-0002",
+                    "FRAG": "narrative reset problem\r\nMany narrative slots fail because they don?t explain why the story resets.  \r\n\r\nSolution is elegant:\r\n\r\nDetective office\r\nwaiting for next client",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777222139,
+                        "cUID": "crate.3958D86EE9A79A1E",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "solutions"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "solutions": [
+                                    "repeating",
+                                    "waiting",
+                                    "loop"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "client-cases": {
+            "LABEL": "Client Cases",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "client-cases-0001",
+                    "FRAG": "You can vary:\r\n\r\nclient personality\r\nclient urgency\r\nclient wealth\r\nclient tone",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777222020,
+                        "cUID": "crate.F55763B9EB031CF4",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "client-cases"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "client-cases": [
+                                    "personality",
+                                    "urgency",
+                                    "wealth",
+                                    "tone"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "client-cases-0002",
+                    "FRAG": "Examples:\r\n\r\n   - nervous widow\r\n\r\n   - rich businessman\r\n\r\n   - desperate teenager\r\n\r\n   - shady gangster\r\n\r\nYou instantly get tone variation.",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777222065,
+                        "cUID": "crate.AE32969FEFEE5CAD",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "client-cases"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "client-cases": [
+                                    "nervous-widow",
+                                    "rich-businessman",
+                                    "desperate-teenager",
+                                    "shady-gangster",
+                                    "tone-variation"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "environment": {
+            "LABEL": "Environment",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "environment-0001",
+                    "FRAG": "the look of the environment is unique to the case and the symbol pack is changed",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777222305,
+                        "cUID": "crate.85D41CD6F6CA7D2B",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "environment"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "environment": [
+                                    "per-case",
+                                    "unique",
+                                    "rotating",
+                                    "matches"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "environment-0002",
+                    "FRAG": "extremely effective because it creates the illusion of progress without changing the math",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777222321,
+                        "cUID": "crate.8E236949231DA94B",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "environment"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "environment": [
+                                    "per-case",
+                                    "unique",
+                                    "rotating",
+                                    "matches"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "environment-0003",
+                    "FRAG": "Structurally:\r\n\r\nOffice reels\r\n->\r\nCase environment reels\r\n->\r\nResolution event\r\n->\r\nOffice reset\r\n\r\nThe player feels like they moved somewhere, even though mechanically it's the same reels.\r\n\r\npseudo-progression design.",
+                    "AGENT": "ADM-GD-AssistantKEN",
+                    "METADATA": {
+                        "ADDED": 1777222375,
+                        "cUID": "crate.0C8963CC9B691D58",
+                        "TAGS": {
+                            "games": {
+                                "slots": [
+                                    "detective-case_work"
+                                ]
+                            },
+                            "slots": {
+                                "detective-case_work": [
+                                    "environment"
+                                ]
+                            },
+                            "detective-case_work": {
+                                "environment": [
+                                    "pseudo-progression"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,246 @@
+{
+    "CABINET": {
+        "posts": {
+            "METADATA": {
+                "GRAVITY": 13,
+                "INGEST": {
+                    "FIRST": 1778130092,
+                    "LAST": 1778163643
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1778163643": [
+                        "skyline",
+                        "skyline"
+                    ]
+                }
+            },
+            "SHELF": {
+                "skyline": {
+                    "METADATA": {
+                        "GRAVITY": 13,
+                        "INGEST": {
+                            "FIRST": 1778130092,
+                            "LAST": 1778163643
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1778163643": [
+                                "reception",
+                                "welcome-message1"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "report": {
+                            "METADATA": {
+                                "GRAVITY": 3,
+                                "INGEST": {
+                                    "FIRST": 1778130092,
+                                    "LAST": 1778130351
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778130092": {
+                                    "WELCOME-AGENT": [
+                                        "crate.34985DC092DA6124"
+                                    ]
+                                },
+                                "1778130154": {
+                                    "WELCOME-AGENT": [
+                                        "crate.BAF96AEF05F7F010"
+                                    ]
+                                },
+                                "1778130351": {
+                                    "WELCOME-AGENT": [
+                                        "crate.8D50085BC4361EA4"
+                                    ]
+                                }
+                            }
+                        },
+                        "welcome": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1778130092,
+                                    "LAST": 1778130092
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778130092": {
+                                    "WELCOME-AGENT": [
+                                        "crate.34985DC092DA6124"
+                                    ]
+                                }
+                            }
+                        },
+                        "map": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1778130154,
+                                    "LAST": 1778130351
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778130154": {
+                                    "WELCOME-AGENT": [
+                                        "crate.BAF96AEF05F7F010"
+                                    ]
+                                },
+                                "1778130351": {
+                                    "WELCOME-AGENT": [
+                                        "crate.8D50085BC4361EA4"
+                                    ]
+                                }
+                            }
+                        },
+                        "offices": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1778130154,
+                                    "LAST": 1778130351
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778130154": {
+                                    "WELCOME-AGENT": [
+                                        "crate.BAF96AEF05F7F010"
+                                    ]
+                                },
+                                "1778130351": {
+                                    "WELCOME-AGENT": [
+                                        "crate.8D50085BC4361EA4"
+                                    ]
+                                }
+                            }
+                        },
+                        "final-note": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1778130525,
+                                    "LAST": 1778130525
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778130525": {
+                                    "WELCOME-AGENT": [
+                                        "crate.2F522D804955B75F"
+                                    ]
+                                }
+                            }
+                        },
+                        "signature": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1778130525,
+                                    "LAST": 1778130525
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778130525": {
+                                    "WELCOME-AGENT": [
+                                        "crate.2F522D804955B75F"
+                                    ]
+                                }
+                            }
+                        },
+                        "sky": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1778130525,
+                                    "LAST": 1778130525
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778130525": {
+                                    "WELCOME-AGENT": [
+                                        "crate.2F522D804955B75F"
+                                    ]
+                                }
+                            }
+                        },
+                        "reception": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1778163643,
+                                    "LAST": 1778163643
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778163643": {
+                                    "WELCOME-AGENT": [
+                                        "crate.1C37CCEFF33C7616"
+                                    ]
+                                }
+                            }
+                        },
+                        "welcome-message1": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1778163643,
+                                    "LAST": 1778163643
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778163643": {
+                                    "WELCOME-AGENT": [
+                                        "crate.1C37CCEFF33C7616"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

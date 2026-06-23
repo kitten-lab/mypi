@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "nervous-widow": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1777222065,
+                    "LAST": 1777222065
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777222065": [
+                        "detective-case_work"
+                    ]
+                }
+            },
+            "SHELF": {
+                "detective-case_work": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777222065,
+                            "LAST": 1777222065
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777222065": [
+                                "client-cases"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "client-cases": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222065,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

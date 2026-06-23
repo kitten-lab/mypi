@@ -1,0 +1,151 @@
+{
+    "crate.34985DC092DA6124": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "WELCOME MESSAGE",
+                "content": "## Hi! My VEN is WAR-002. You can call me Rhea Porta!\r\n## I am happy to help direct you to the best report location for your material!\r\n\r\nThe REPORT DEPARTMENT of THE SKYLINE is a fully-functional archiver for keeping track of moments that matter. Don't have time to sit down and write an entire journal entry about that song that really felt like hymn? Want to track the frequency of seeing the same red bird for the 4th time this week? Well the REPORT DEPARTMENT Is your place to be!"
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "posts": [
+                    "report",
+                    "welcome"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*posts>report,welcome",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTS DEPARTMENT",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA PORTA"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778130092.tps",
+            "ingest_unix": 1778130092,
+            "event_unix": 1778130092,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8D50085BC4361EA4": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "MAP TO REPORT OFFICES",
+                "content": "You may explore the REPORT OFFICES by the NAV to your LEFT or by the links below:\r\n\r\n[Oman's Omens](omansOmens)\r\n\r\n[Song of Songs](songOfSongs)\r\n\r\n[Secrets Known](teeHeeSecrets)\r\n"
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "posts": [
+                    "map",
+                    "report",
+                    "offices"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*posts>map,report,offices",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTS DEPARTMENT",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA PORTA"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778130351.tps",
+            "ingest_unix": 1778130351,
+            "event_unix": 1778130351,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.2F522D804955B75F": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "FINAL NOTES",
+                "content": "Feel free to check in below, and enjoy your stay!\r\n\nRhea Porter, Welcome-Agent\r\n\n-THE SKYLINE-"
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "posts": [
+                    "final-note",
+                    "signature",
+                    "sky"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*posts>final-note,signature,sky",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTS DEPARTMENT",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA PORTA"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778130525.tps",
+            "ingest_unix": 1778130525,
+            "event_unix": 1778130525,
+            "timezone": "America\/New_York"
+        }
+    }
+}

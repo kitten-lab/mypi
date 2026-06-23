@@ -1,0 +1,206 @@
+{
+    "crate.AA8A60AEF9E768F4": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "o.k.",
+                "topic": "YOU ARE ONLINE. THAT IS NICE TO SEE."
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "o.k."
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "offices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781911080.tps",
+            "ingest_unix": 1781911080,
+            "event_unix": 1781911080,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.FA1655AFB3B30E1E": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "the cu",
+                "topic": "skyline reports back online. proceed with joy, please, for once "
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "the cu"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "offices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781911215.tps",
+            "ingest_unix": 1781911215,
+            "event_unix": 1781911215,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.949B481DF0E429CE": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "clem",
+                "topic": "hey man i keep trying to find you but you never answer the door"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "clem"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "offices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781911397.tps",
+            "ingest_unix": 1781911397,
+            "event_unix": 1781911397,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D7B38922FC2FC02A": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "interesting",
+                "topic": "there is sometimes problems, and sometimes solutions, but why doesn't book work?"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "interesting"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "offices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781922722.tps",
+            "ingest_unix": 1781922722,
+            "event_unix": 1781922722,
+            "timezone": "America\/New_York"
+        }
+    }
+}

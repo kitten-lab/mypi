@@ -1,0 +1,16 @@
+{
+    "VEN": "chesters-imports",
+    "GRAVITY": 2,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "messages": {
+            "GRAVITY": 2,
+            "BIN": {
+                "welcome": 1,
+                "sam": 1
+            }
+        }
+    }
+}

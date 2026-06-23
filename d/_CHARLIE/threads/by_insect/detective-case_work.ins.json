@@ -1,0 +1,29 @@
+{
+    "VEN": "detective-case_work",
+    "GRAVITY": 41,
+    "METADATA": [],
+    "SHELF": {
+        "slots": {
+            "GRAVITY": 41,
+            "BIN": {
+                "illustrations": 2,
+                "main_game": 3,
+                "functionality": 5,
+                "intentions": 10,
+                "theme": 2,
+                "detective-for-hire": 3,
+                "anticipation": 1,
+                "resolution": 1,
+                "two-act": 1,
+                "investigation": 1,
+                "story-phases": 1,
+                "trope_detective": 1,
+                "office": 2,
+                "symbols": 1,
+                "solutions": 2,
+                "client-cases": 2,
+                "environment": 3
+            }
+        }
+    }
+}

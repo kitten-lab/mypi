@@ -1,0 +1,14 @@
+{
+    "VEN": "regulated-market-presence",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 3,
+            "BIN": {
+                "strengths": 2,
+                "weaknesses": 1
+            }
+        }
+    }
+}

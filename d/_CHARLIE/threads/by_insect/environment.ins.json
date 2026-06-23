@@ -1,0 +1,17 @@
+{
+    "VEN": "environment",
+    "GRAVITY": 9,
+    "METADATA": [],
+    "SHELF": {
+        "detective-case_work": {
+            "GRAVITY": 9,
+            "BIN": {
+                "per-case": 2,
+                "unique": 2,
+                "rotating": 2,
+                "matches": 2,
+                "pseudo-progression": 1
+            }
+        }
+    }
+}

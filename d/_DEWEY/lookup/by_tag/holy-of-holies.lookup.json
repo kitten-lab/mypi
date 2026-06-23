@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "holy-of-holies": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1777896353,
+                    "LAST": 1777896353
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1759071600": [
+                        "mythleak"
+                    ]
+                }
+            },
+            "SHELF": {
+                "mythleak": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777896353,
+                            "LAST": 1777896353
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1759071600": [
+                                "mentions"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "mentions": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777896353,
+                                    "LAST": 1777896353
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1759071600": {
+                                    "MCS-000": [
+                                        "crate.9C5AC629CF91FDA6"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

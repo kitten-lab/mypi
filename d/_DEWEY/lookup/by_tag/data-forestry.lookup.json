@@ -1,0 +1,203 @@
+{
+    "CABINET": {
+        "data-forestry": {
+            "METADATA": {
+                "GRAVITY": 8,
+                "INGEST": {
+                    "FIRST": 1777248732,
+                    "LAST": 1777248798
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777248798": [
+                        "purpose",
+                        "purpose",
+                        "purpose",
+                        "purpose",
+                        "sopr",
+                        "sopr"
+                    ]
+                }
+            },
+            "SHELF": {
+                "sopr": {
+                    "METADATA": {
+                        "GRAVITY": 4,
+                        "INGEST": {
+                            "FIRST": 1777248732,
+                            "LAST": 1777248798
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777248798": [
+                                "nim",
+                                "docs"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "nim": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777248732,
+                                    "LAST": 1777248798
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777248732": {
+                                    "1-MIRA-1": [
+                                        "crate.3F6C628C882AF653"
+                                    ]
+                                },
+                                "1777248798": {
+                                    "1-MIRA-1": [
+                                        "crate.8860A24BA6AA4C1B"
+                                    ]
+                                }
+                            }
+                        },
+                        "docs": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777248732,
+                                    "LAST": 1777248798
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777248732": {
+                                    "1-MIRA-1": [
+                                        "crate.3F6C628C882AF653"
+                                    ]
+                                },
+                                "1777248798": {
+                                    "1-MIRA-1": [
+                                        "crate.8860A24BA6AA4C1B"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "purpose": {
+                    "METADATA": {
+                        "GRAVITY": 4,
+                        "INGEST": {
+                            "FIRST": 1777248798,
+                            "LAST": 1777248798
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777248798": [
+                                "ingest-material",
+                                "searchable",
+                                "storage",
+                                "silo"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "ingest-material": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777248798,
+                                    "LAST": 1777248798
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777248798": {
+                                    "1-MIRA-1": [
+                                        "crate.8860A24BA6AA4C1B"
+                                    ]
+                                }
+                            }
+                        },
+                        "searchable": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777248798,
+                                    "LAST": 1777248798
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777248798": {
+                                    "1-MIRA-1": [
+                                        "crate.8860A24BA6AA4C1B"
+                                    ]
+                                }
+                            }
+                        },
+                        "storage": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777248798,
+                                    "LAST": 1777248798
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777248798": {
+                                    "1-MIRA-1": [
+                                        "crate.8860A24BA6AA4C1B"
+                                    ]
+                                }
+                            }
+                        },
+                        "silo": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777248798,
+                                    "LAST": 1777248798
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777248798": {
+                                    "1-MIRA-1": [
+                                        "crate.8860A24BA6AA4C1B"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

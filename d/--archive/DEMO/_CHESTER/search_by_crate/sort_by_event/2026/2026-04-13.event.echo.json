@@ -1,0 +1,59 @@
+{
+    "crate.4CB0C32905AC31CF": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "CONFIRMING THAT REPORTING WORKS ON LIVE",
+                "content": "This is an official report of merging context in echo and tps for data entries across tools. Pray for us all."
+            }
+        },
+        "route": [],
+        "tags": {
+            "media": {
+                "news": [
+                    "skyline-news"
+                ]
+            },
+            "skyline-news": {
+                "reports": [
+                    "merging",
+                    "echoes",
+                    "tps",
+                    "data",
+                    "tools"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "media*news>skyline-news;skyline-news*reports>merging,echoes,tps,data,tools",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE DEMO",
+            "dom_slug": "public",
+            "dom_display": "SKYLINE IS ON INTERA",
+            "room_slug": "news",
+            "room_display": "SKYLINE NEWS",
+            "mod_slug": "DRL-SDK",
+            "mod_display": "dani-leve"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1776106506.tps",
+            "ingest_unix": 1778108102,
+            "event_unix": 1776106506,
+            "timezone": "America\/New_York"
+        }
+    }
+}

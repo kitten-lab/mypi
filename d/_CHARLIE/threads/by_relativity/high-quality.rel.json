@@ -1,0 +1,13 @@
+{
+    "VEN": "high-quality",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 2,
+            "BIN": {
+                "strengths": 2
+            }
+        }
+    }
+}

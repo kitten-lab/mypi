@@ -1,0 +1,126 @@
+{
+    "VEN": "betsoft",
+    "GRAVITY": 64,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "tier": {
+            "GRAVITY": 1,
+            "BIN": {
+                "mid": 1
+            }
+        },
+        "specialty": {
+            "GRAVITY": 3,
+            "BIN": {
+                "online-slots": 2,
+                "slots": 1
+            }
+        },
+        "industry": {
+            "GRAVITY": 1,
+            "BIN": {
+                "igaming": 1
+            }
+        },
+        "presence": {
+            "GRAVITY": 2,
+            "BIN": {
+                "strong": 1,
+                "established": 1
+            }
+        },
+        "strengths": {
+            "GRAVITY": 17,
+            "BIN": {
+                "established-brand": 2,
+                "high-quality": 2,
+                "large-portfolio": 1,
+                "relationships-with-operators": 2,
+                "regulated-market-presence": 2,
+                "proven-game-mechanics": 2,
+                "visual-identity": 2,
+                "slots": 1,
+                "graphics": 1,
+                "animations": 1,
+                "best-graphics": 1
+            }
+        },
+        "provider_insights": {
+            "GRAVITY": 3,
+            "BIN": {
+                "mid-tier": 1,
+                "igaming": 1,
+                "slots": 1
+            }
+        },
+        "weaknesses": {
+            "GRAVITY": 8,
+            "BIN": {
+                "limited-identity": 1,
+                "derivative": 1,
+                "low-brand-awareness": 1,
+                "low-marketing-awareness": 1,
+                "regulated-market-presence": 1,
+                "innovation": 1,
+                "unique-mechanics": 1,
+                "unique-tech": 1
+            }
+        },
+        "opportunities": {
+            "GRAVITY": 7,
+            "BIN": {
+                "expanding-markets": 1,
+                "innovation": 1,
+                "unique-mechanics": 1,
+                "unique-tech": 1,
+                "partnerships": 1,
+                "relationships": 1,
+                "tier-one-connections": 1
+            }
+        },
+        "threads": {
+            "GRAVITY": 4,
+            "BIN": {
+                "competition": 1,
+                "emerging-studios": 1,
+                "major-brands": 1,
+                "regulations": 1
+            }
+        },
+        "threats": {
+            "GRAVITY": 6,
+            "BIN": {
+                "regulations": 1,
+                "competition": 1,
+                "emerging-studios": 1,
+                "major-brands": 1,
+                "player-preferences": 1,
+                "constant-change": 1
+            }
+        },
+        "goals": {
+            "GRAVITY": 5,
+            "BIN": {
+                "increase-releases": 1,
+                "top-tier": 1,
+                "partnerships": 1,
+                "strategic-partnerships": 1,
+                "global-connections": 1
+            }
+        },
+        "suggested-goals": {
+            "GRAVITY": 7,
+            "BIN": {
+                "improve-marketing": 1,
+                "better-relationships": 1,
+                "innovation": 1,
+                "innovative-mechanics": 1,
+                "unique-mechanics": 1,
+                "market-expansion": 1,
+                "gamification": 1
+            }
+        }
+    }
+}

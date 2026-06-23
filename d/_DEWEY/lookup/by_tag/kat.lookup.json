@@ -1,0 +1,104 @@
+{
+    "CABINET": {
+        "kat": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1782078797,
+                    "LAST": 1782079396
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1782079396": [
+                        "dislikes"
+                    ]
+                }
+            },
+            "SHELF": {
+                "rejected": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782078797,
+                            "LAST": 1782078797
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782078797": [
+                                "elion"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "elion": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782078797,
+                                    "LAST": 1782078797
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782078797": {
+                                    "km": [
+                                        "crate.BC068C99CD9E2309"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "dislikes": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782079396,
+                            "LAST": 1782079396
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782079396": [
+                                "elion"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "elion": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782079396,
+                                    "LAST": 1782079396
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782079396": {
+                                    "km": [
+                                        "crate.98BA009DA3D9BA6D"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

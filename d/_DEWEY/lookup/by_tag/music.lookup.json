@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "music": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1777416958,
+                    "LAST": 1777416958
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1758046781": [
+                        "sdk-808"
+                    ]
+                }
+            },
+            "SHELF": {
+                "sdk-808": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777416958,
+                            "LAST": 1777416958
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758046781": [
+                                "listening-to"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "listening-to": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777416958,
+                                    "LAST": 1777416958
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758046781": {
+                                    "SDK-808": [
+                                        "crate.3AE7599373BA8D42"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,79 @@
+{
+    "CABINET": {
+        "loves": {
+            "METADATA": {
+                "GRAVITY": 4,
+                "INGEST": {
+                    "FIRST": 1782215394,
+                    "LAST": 1782215794
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1782215794": [
+                        "oriel"
+                    ]
+                }
+            },
+            "SHELF": {
+                "oriel": {
+                    "METADATA": {
+                        "GRAVITY": 4,
+                        "INGEST": {
+                            "FIRST": 1782215394,
+                            "LAST": 1782215794
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782215794": [
+                                "elion"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "elion": {
+                            "METADATA": {
+                                "GRAVITY": 4,
+                                "INGEST": {
+                                    "FIRST": 1782215394,
+                                    "LAST": 1782215794
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782215394": {
+                                    "km": [
+                                        "crate.0EB1773876FB00DD"
+                                    ]
+                                },
+                                "1782215548": {
+                                    "km": [
+                                        "crate.916EAA2FA188B6F8"
+                                    ]
+                                },
+                                "1782215764": {
+                                    "km": [
+                                        "crate.A607170F8CE70501"
+                                    ]
+                                },
+                                "1782215794": {
+                                    "km": [
+                                        "crate.269B67BBA4CB7F69"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

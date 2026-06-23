@@ -1,0 +1,22 @@
+{
+    "VEN": "symbols",
+    "GRAVITY": 10,
+    "METADATA": [],
+    "SHELF": {
+        "detective-case_work": {
+            "GRAVITY": 10,
+            "BIN": {
+                "photograph": 1,
+                "letter": 1,
+                "knife": 1,
+                "footprint": 1,
+                "train-ticket": 1,
+                "safe": 1,
+                "newspaper": 1,
+                "fedora": 1,
+                "revolver": 1,
+                "magnifying-glass": 1
+            }
+        }
+    }
+}

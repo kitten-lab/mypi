@@ -1,0 +1,14 @@
+{
+    "VEN": "specialty",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 3,
+            "BIN": {
+                "online-slots": 2,
+                "slots": 1
+            }
+        }
+    }
+}

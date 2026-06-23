@@ -1,0 +1,13 @@
+{
+    "VEN": "letter-board",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "projects": {
+            "GRAVITY": 1,
+            "BIN": {
+                "aleph": 1
+            }
+        }
+    }
+}

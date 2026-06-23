@@ -1,0 +1,13 @@
+{
+    "VEN": "system",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "dani": {
+            "GRAVITY": 2,
+            "BIN": {
+                "materials": 2
+            }
+        }
+    }
+}

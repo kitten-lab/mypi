@@ -1,0 +1,14 @@
+{
+    "VEN": "partnerships",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 2,
+            "BIN": {
+                "opportunities": 1,
+                "goals": 1
+            }
+        }
+    }
+}

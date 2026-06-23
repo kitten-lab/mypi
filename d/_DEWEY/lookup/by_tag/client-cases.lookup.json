@@ -1,0 +1,278 @@
+{
+    "CABINET": {
+        "client-cases": {
+            "METADATA": {
+                "GRAVITY": 11,
+                "INGEST": {
+                    "FIRST": 1777222020,
+                    "LAST": 1777222065
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777222065": [
+                        "detective-case_work",
+                        "detective-case_work",
+                        "detective-case_work",
+                        "detective-case_work",
+                        "detective-case_work",
+                        "slots"
+                    ]
+                }
+            },
+            "SHELF": {
+                "detective-case_work": {
+                    "METADATA": {
+                        "GRAVITY": 9,
+                        "INGEST": {
+                            "FIRST": 1777222020,
+                            "LAST": 1777222065
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777222065": [
+                                "nervous-widow",
+                                "rich-businessman",
+                                "desperate-teenager",
+                                "shady-gangster",
+                                "tone-variation"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "personality": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222020,
+                                    "LAST": 1777222020
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222020": {
+                                    "DW": [
+                                        "crate.F55763B9EB031CF4"
+                                    ]
+                                }
+                            }
+                        },
+                        "urgency": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222020,
+                                    "LAST": 1777222020
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222020": {
+                                    "DW": [
+                                        "crate.F55763B9EB031CF4"
+                                    ]
+                                }
+                            }
+                        },
+                        "wealth": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222020,
+                                    "LAST": 1777222020
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222020": {
+                                    "DW": [
+                                        "crate.F55763B9EB031CF4"
+                                    ]
+                                }
+                            }
+                        },
+                        "tone": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222020,
+                                    "LAST": 1777222020
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222020": {
+                                    "DW": [
+                                        "crate.F55763B9EB031CF4"
+                                    ]
+                                }
+                            }
+                        },
+                        "nervous-widow": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222065,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        },
+                        "rich-businessman": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222065,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        },
+                        "desperate-teenager": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222065,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        },
+                        "shady-gangster": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222065,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        },
+                        "tone-variation": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222065,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "slots": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777222020,
+                            "LAST": 1777222065
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777222065": [
+                                "detective-case_work"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "detective-case_work": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777222020,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222020": {
+                                    "DW": [
+                                        "crate.F55763B9EB031CF4"
+                                    ]
+                                },
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

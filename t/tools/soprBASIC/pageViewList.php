@@ -1,0 +1,49 @@
+<?php $SITE = $GLOBALS['SITE'];
+
+require_once ROUTE_TO_TOOLS . '/parsedown/Parsedown.php'; 
+
+require_once __DIR__ . '/-SIG-soprBASIC.php'; // ASSISTANT SETTINGS
+require_once __DIR__ . '/-CRATE-soprBASIC.php'; // CRATE FILLER SETTINGS
+require_once ROUTE_TO_SYSTEMS . 'shadowENVO.php';
+
+
+// SHADOW ENVIRONMENT SETTINGS AND OVERLAY
+$IS_IT = SHADOW_TOGGLE;
+
+if ($IS_IT == true) {
+  echo "<div class='sha_env'>shadow mode on</div>";
+}
+
+$CHEST = ROUTE_TO_LOCALSTORE . DOM_SLUG . '-' . ROOM_SLUG . '.sopr.frags.json';    
+  
+
+
+if(file_exists($CHEST)) {
+    $CHEST_THINGS = json_decode(file_get_contents($CHEST), true);
+        $Parsedown = new Parsedown();
+
+foreach ($CHEST_THINGS as $CRATE) {
+  foreach ($CRATE as $TIMBER) {
+            echo "<h3>" . $TIMBER['LABEL'] . "</h3>";
+    foreach ($TIMBER['SOPERS'] as $SOPR){
+        echo "<div class='soper_frag'>";
+        echo "<div class='slug'>" . $SOPR['ID'] . "<br>" . $SOPR['METADATA']['ADDED'];
+        echo "</div>"; 
+        echo "<div class='content'>" . $Parsedown->text($SOPR['FRAG']);
+                
+            foreach ($SOPR['METADATA']['TAGS'] as $TAG => $SUBTAG){
+              foreach ($SUBTAG as $TAG2 => $TAG3) {
+                foreach ($TAG3 as $T3) {
+                echo "<pre>" . $TAG . " > " . $TAG2 . " > " . $T3 . "</pre>";
+                }
+              }
+            }
+
+        echo "</div>"; 
+        echo "</div>"; 
+    }          
+  } 
+}
+} else { 
+    echo "No fragments found."; 
+    }

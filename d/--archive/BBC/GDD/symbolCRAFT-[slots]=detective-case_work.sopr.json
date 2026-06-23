@@ -1,0 +1,1868 @@
+{
+    "crate.B5B97192F802011D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Illustrations",
+                "sec_slug": "illustrations",
+                "supr_slug": "illustrations-0001",
+                "content": "Main game loop: Waiting for a new case Symbol set is generic theme to classic detective aesthetic and time period.\r\n\r\n```__________________________________________________\r\n|           -------------------------------------    |\r\n|  +-----+  |                                    |   |\r\n|  |     |  |                                    |   |\r\n|  |     |  |                                    |   |\r\n|  |     |  |                                    |   |\r\n|  |    o|  |            R E E L S               |   |\r\n|  |     |  |                                    |   |\r\n|  |     |  |                                    |   |\r\n|-----------|                                    |   |\r\n|           |                                    |   |\r\n|           -------------------------------------    |\r\n|____________________________________________________|\r\n```"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "illustrations",
+                    "main_game"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>illustrations,main_game",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777220645.tps",
+            "ingest_unix": 1777220645,
+            "event_unix": 1777220645,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.7E8D72047395CF31": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Core Functionality",
+                "sec_slug": "core-functionality",
+                "supr_slug": "core-functionality-0001",
+                "content": "1 free spin feature or 1 hold-and-win feature"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "functionality",
+                    "main_game"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>functionality,main_game",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777220741.tps",
+            "ingest_unix": 1777220741,
+            "event_unix": 1777220741,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.EA963F17404DE936": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Intentions",
+                "sec_slug": "intentions",
+                "supr_slug": "intentions-0001",
+                "content": "Create a slot with a self-feeding narrative loop."
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "intentions",
+                    "main_game"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>intentions,main_game",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777220840.tps",
+            "ingest_unix": 1777220840,
+            "event_unix": 1777220840,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8E618B2BA9A19953": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Intentions",
+                "sec_slug": "intentions",
+                "supr_slug": "intentions-0002",
+                "content": "Theme approach Classic detective-for-hire base game"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "intentions",
+                    "theme",
+                    "detective-for-hire"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>intentions,theme,detective-for-hire",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777220904.tps",
+            "ingest_unix": 1777220904,
+            "event_unix": 1777220904,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.C7CF63054FE4B7EF": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Core Functionality",
+                "sec_slug": "core-functionality",
+                "supr_slug": "core-functionality-0002",
+                "content": "Flow: client arrives ->\r\nfree spins = learning the case ->\r\nnew reel environment (investigation) ->\r\ntrigger again ->\r\nfree spins = solving the case ->\r\nreturn to office"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "intentions",
+                    "theme",
+                    "detective-for-hire"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>intentions,theme,detective-for-hire",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777220990.tps",
+            "ingest_unix": 1777220990,
+            "event_unix": 1777220990,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.BC71A9AF2276FD5D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Intentions",
+                "sec_slug": "intentions",
+                "supr_slug": "intentions-0003",
+                "content": "**A two-act investigation arc**.\r\n\r\n1- anticipation\r\n2- resolution"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "intentions",
+                    "anticipation",
+                    "resolution",
+                    "two-act",
+                    "investigation"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>intentions,anticipation,resolution,two-act,investigation",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221072.tps",
+            "ingest_unix": 1777221072,
+            "event_unix": 1777221072,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.B7C1AD281172231F": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Intentions",
+                "sec_slug": "intentions",
+                "supr_slug": "intentions-0004",
+                "content": "Each beat becomes a series of story phases."
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "intentions",
+                    "story-phases"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>intentions,story-phases",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221105.tps",
+            "ingest_unix": 1777221105,
+            "event_unix": 1777221105,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.604C840E3575303D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Intentions",
+                "sec_slug": "intentions",
+                "supr_slug": "intentions-0005",
+                "content": "Classic detective in the office set up"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "intentions",
+                    "trope_detective",
+                    "office"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>intentions,trope_detective,office",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221142.tps",
+            "ingest_unix": 1777221142,
+            "event_unix": 1777221142,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.DACE7DDA54F7AF36": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Core Functionality",
+                "sec_slug": "core-functionality",
+                "supr_slug": "core-functionality-0003",
+                "content": "Base game is reels over the detective's office space. We can see the office door closed with the inverted detective gold label over the glass. The atmosphere is dark, the glass itself seems tinted."
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "functionality",
+                    "detective-for-hire",
+                    "office"
+                ]
+            },
+            "detective-case_work": {
+                "atmosphere": [
+                    "dark"
+                ],
+                "location": [
+                    "office",
+                    "detective_office"
+                ],
+                "door": [
+                    "tinted-glass"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>functionality,detective-for-hire,office;detective-case_work*atmosphere>dark&location>office,detective_office&door>tinted-glass",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221279.tps",
+            "ingest_unix": 1777221279,
+            "event_unix": 1777221279,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.34D634CA0791552D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Intentions",
+                "sec_slug": "intentions",
+                "supr_slug": "intentions-0006",
+                "content": "We do not see the detective because \r\n### they are you."
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "intentions"
+                ]
+            },
+            "detective-case_work": {
+                "detective": [
+                    "self-insert"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>intentions;detective-case_work*detective>self-insert",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221361.tps",
+            "ingest_unix": 1777221361,
+            "event_unix": 1777221361,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.078A4AC0EDACFADC": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Illustrations",
+                "sec_slug": "illustrations",
+                "supr_slug": "illustrations-0002",
+                "content": "Trigger event: Cash coin event A shadowy figure enters thought the door:\r\n```\r\n____________________________________________________\r\n|           -------------------------------------    |\r\n|  +-----+  |                                    |   |\r\n|  | ___ |  |                                    |   |\r\n|  | \\ \/ |  |                                    |   |\r\n|  |0---0|  |                                    |   |\r\n|  || _ ||  |            R E E L S               |   |\r\n|  | | | |  |                                    |   |\r\n|  | | | |  |                                    |   |\r\n|-----------|                                    |   |\r\n|           |                                    |   |\r\n|           -------------------------------------    |\r\n|____________________________________________________|\r\n                         |\r\n_________________________V____________________________\r\n|    ___    -------------------------------------    |\r\n|  +\/   \\+  |                                    |   |\r\n|   |   |   |                                    |   |\r\n|    \\ \/    |                                    |   |\r\n| 0-------0 |                                    |   |\r\n| |       | |            R E E L S               |   |\r\n| |       | |                                    |   |\r\n| |------ | |                                    |   |\r\n|-----------|                                    |   |\r\n|           |                                    |   |\r\n|           -------------------------------------    |\r\n|____________________________________________________|\r\n```\r\nThis represents the customer. Random silhouette or full-designed characters, AI-pipeline makes producing new customers trivial. "
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "illustrations"
+                ]
+            },
+            "detective-case_work": {
+                "feature": [
+                    "event_trigger",
+                    "customer",
+                    "case"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>illustrations;detective-case_work*feature>event_trigger,customer,case",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221449.tps",
+            "ingest_unix": 1777221449,
+            "event_unix": 1777221449,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D3450BE4E10A4C90": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Core Functionality",
+                "sec_slug": "core-functionality",
+                "supr_slug": "core-functionality-0004",
+                "content": "Trigger event: Cash coin event A shadowy figure enters thought the door:"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "functionality"
+                ]
+            },
+            "detective-case_work": {
+                "feature": [
+                    "event_trigger",
+                    "customer",
+                    "case"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>functionality;detective-case_work*feature>event_trigger,customer,case",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221518.tps",
+            "ingest_unix": 1777221518,
+            "event_unix": 1777221518,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.29138ED2B15944A2": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Core Functionality",
+                "sec_slug": "core-functionality",
+                "supr_slug": "core-functionality-0005",
+                "content": "Player is awarded n free spins. This is the case discovery phase."
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "functionality"
+                ]
+            },
+            "detective-case_work": {
+                "feature": [
+                    "event_trigger",
+                    "customer",
+                    "case_discovery"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>functionality;detective-case_work*feature>event_trigger,customer,case_discovery",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221535.tps",
+            "ingest_unix": 1777221535,
+            "event_unix": 1777221535,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.EF1D6F178D919EBB": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Core Functionality",
+                "sec_slug": "core-functionality",
+                "supr_slug": "core-functionality-0006",
+                "content": "Symbols on the reels are replaced by clues cards representing different artifacts related to a detective inquiry:\r\n\r\n    cheating spouse\r\n    stolen inheritance\r\n    missing person\r\n    lost item\r\n    bad business"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "functionality"
+                ]
+            },
+            "detective-case_work": {
+                "feature": [
+                    "case",
+                    "case_discovery"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>functionality;detective-case_work*feature>case,case_discovery",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221709.tps",
+            "ingest_unix": 1777221709,
+            "event_unix": 1777221709,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.2A2552B8908F9A3F": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Symbols",
+                "sec_slug": "symbols",
+                "supr_slug": "symbols-0001",
+                "content": "magnifying glass\r\nrevolver\r\nfedora\r\nnewspaper\r\nsafe\r\n\r\nCase symbols might become:\r\n\r\nphotograph\r\nletter\r\nknife\r\nfootprint\r\ntrain ticket"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "symbols"
+                ]
+            },
+            "detective-case_work": {
+                "symbols": [
+                    "photograph",
+                    "letter",
+                    "knife",
+                    "footprint",
+                    "train-ticket",
+                    "safe",
+                    "newspaper",
+                    "fedora",
+                    "revolver",
+                    "magnifying-glass"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>symbols;detective-case_work*symbols>photograph,letter,knife,footprint,train-ticket,safe,newspaper,fedora,revolver,magnifying-glass",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221804.tps",
+            "ingest_unix": 1777221804,
+            "event_unix": 1777221804,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.CBCE440A5ECA98E1": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Intentions",
+                "sec_slug": "intentions",
+                "supr_slug": "intentions-0007",
+                "content": "the reels feel like evidence gathering."
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "intentions"
+                ]
+            },
+            "detective-case_work": {
+                "intentions": [
+                    "evidence_gathering",
+                    "reels"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>intentions;detective-case_work*intentions>evidence_gathering,reels",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221876.tps",
+            "ingest_unix": 1777221876,
+            "event_unix": 1777221876,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.C93E48358996BB4B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Solutions",
+                "sec_slug": "solutions",
+                "supr_slug": "solutions-0001",
+                "content": "silhouette client is secretly doing a lot of work\r\nBecause it creates infinite case seeds."
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "solutions"
+                ]
+            },
+            "detective-case_work": {
+                "solutions": [
+                    "simple-silhouette",
+                    "generated-cases"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>solutions;detective-case_work*solutions>simple-silhouette,generated-cases",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777221950.tps",
+            "ingest_unix": 1777221950,
+            "event_unix": 1777221950,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.F55763B9EB031CF4": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Client Cases",
+                "sec_slug": "client-cases",
+                "supr_slug": "client-cases-0001",
+                "content": "You can vary:\r\n\r\nclient personality\r\nclient urgency\r\nclient wealth\r\nclient tone"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "client-cases"
+                ]
+            },
+            "detective-case_work": {
+                "client-cases": [
+                    "personality",
+                    "urgency",
+                    "wealth",
+                    "tone"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>client-cases;detective-case_work*client-cases>personality,urgency,wealth,tone",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777222020.tps",
+            "ingest_unix": 1777222020,
+            "event_unix": 1777222020,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.AE32969FEFEE5CAD": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Client Cases",
+                "sec_slug": "client-cases",
+                "supr_slug": "client-cases-0002",
+                "content": "Examples:\r\n\r\n    nervous widow\r\n\r\n    rich businessman\r\n\r\n    desperate teenager\r\n\r\n    shady gangster\r\n\r\nYou instantly get tone variation."
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "client-cases"
+                ]
+            },
+            "detective-case_work": {
+                "client-cases": [
+                    "nervous-widow",
+                    "rich-businessman",
+                    "desperate-teenager",
+                    "shady-gangster",
+                    "tone-variation"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>client-cases;detective-case_work*client-cases>nervous-widow,rich-businessman,desperate-teenager,shady-gangster,tone-variation",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777222065.tps",
+            "ingest_unix": 1777222065,
+            "event_unix": 1777222065,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.3958D86EE9A79A1E": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Solutions",
+                "sec_slug": "solutions",
+                "supr_slug": "solutions-0002",
+                "content": "narrative reset problem\r\nMany narrative slots fail because they don?t explain why the story resets.  \r\n\r\nSolution is elegant:\r\n\r\nDetective office\r\nwaiting for next client"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "solutions"
+                ]
+            },
+            "detective-case_work": {
+                "solutions": [
+                    "repeating",
+                    "waiting",
+                    "loop"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>solutions;detective-case_work*solutions>repeating,waiting,loop",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777222139.tps",
+            "ingest_unix": 1777222139,
+            "event_unix": 1777222139,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.CADFAE54D347DC37": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Intentions",
+                "sec_slug": "intentions",
+                "supr_slug": "intentions-0008",
+                "content": "every reset is:\r\n\r\n_a new case_"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "intentions"
+                ]
+            },
+            "detective-case_work": {
+                "intentions": [
+                    "new-every-time"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>intentions;detective-case_work*intentions>new-every-time",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777222185.tps",
+            "ingest_unix": 1777222185,
+            "event_unix": 1777222185,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.ECE355EF15366BAB": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Intentions",
+                "sec_slug": "intentions",
+                "supr_slug": "intentions-0009",
+                "content": "the same trick used by:\r\n\r\n    detective shows\r\n\r\n    medical dramas\r\n\r\n    police procedurals\r\n\r\nEach episode = new problem."
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "intentions"
+                ]
+            },
+            "detective-case_work": {
+                "intentions": [
+                    "new-every-time"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>intentions;detective-case_work*intentions>new-every-time",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777222204.tps",
+            "ingest_unix": 1777222204,
+            "event_unix": 1777222204,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.85D41CD6F6CA7D2B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Environment",
+                "sec_slug": "environment",
+                "supr_slug": "environment-0001",
+                "content": "the look of the environment is unique to the case and the symbol pack is changed"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "environment"
+                ]
+            },
+            "detective-case_work": {
+                "environment": [
+                    "per-case",
+                    "unique",
+                    "rotating",
+                    "matches"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>environment;detective-case_work*environment>per-case,unique,rotating,matches",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777222305.tps",
+            "ingest_unix": 1777222305,
+            "event_unix": 1777222305,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8E236949231DA94B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Environment",
+                "sec_slug": "environment",
+                "supr_slug": "environment-0002",
+                "content": "extremely effective because it creates the illusion of progress without changing the math"
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "environment"
+                ]
+            },
+            "detective-case_work": {
+                "environment": [
+                    "per-case",
+                    "unique",
+                    "rotating",
+                    "matches"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>environment;detective-case_work*environment>per-case,unique,rotating,matches",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777222321.tps",
+            "ingest_unix": 1777222321,
+            "event_unix": 1777222321,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.0C8963CC9B691D58": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-GD-AssistantKEN",
+                "sec_display": "Environment",
+                "sec_slug": "environment",
+                "supr_slug": "environment-0003",
+                "content": "Structurally:\r\n\r\nOffice reels\r\n->\r\nCase environment reels\r\n->\r\nResolution event\r\n->\r\nOffice reset\r\n\r\nThe player feels like they moved somewhere, even though mechanically it's the same reels.\r\n\r\npseudo-progression design."
+            }
+        },
+        "route": [],
+        "tags": {
+            "games": {
+                "slots": [
+                    "detective-case_work"
+                ]
+            },
+            "slots": {
+                "detective-case_work": [
+                    "environment"
+                ]
+            },
+            "detective-case_work": {
+                "environment": [
+                    "pseudo-progression"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "games*slots>detective-case_work;slots*detective-case_work>environment;detective-case_work*environment>pseudo-progression",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "[slots]=detective-case_work",
+            "room_display": "slots > detective > case work",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "kitten-lab",
+                    "id": "design-ideas\/game-design-ideas\/slot-ideas\/detective-mystery-slot",
+                    "created_on": 1773318609,
+                    "last_modified": 1773326109
+                },
+                "links": {
+                    "ORIGIN_SOURCE": "Imported to Vault from Glass_Chats"
+                },
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777222375.tps",
+            "ingest_unix": 1777222375,
+            "event_unix": 1777222375,
+            "timezone": "America\/New_York"
+        }
+    }
+}

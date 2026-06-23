@@ -1,0 +1,13 @@
+{
+    "VEN": "player-preferences",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "threats": 1
+            }
+        }
+    }
+}

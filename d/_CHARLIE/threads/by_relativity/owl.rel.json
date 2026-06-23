@@ -1,0 +1,19 @@
+{
+    "VEN": "owl",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "omen": {
+            "GRAVITY": 1,
+            "BIN": {
+                "animal": 1
+            }
+        },
+        "symbol": {
+            "GRAVITY": 1,
+            "BIN": {
+                "animal": 1
+            }
+        }
+    }
+}

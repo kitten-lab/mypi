@@ -1,0 +1,21 @@
+{
+    "VEN": "innovation",
+    "GRAVITY": 4,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "executive-summary": 1
+            }
+        },
+        "betsoft": {
+            "GRAVITY": 3,
+            "BIN": {
+                "weaknesses": 1,
+                "opportunities": 1,
+                "suggested-goals": 1
+            }
+        }
+    }
+}

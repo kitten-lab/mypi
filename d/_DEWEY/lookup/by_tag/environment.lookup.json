@@ -1,0 +1,215 @@
+{
+    "CABINET": {
+        "environment": {
+            "METADATA": {
+                "GRAVITY": 12,
+                "INGEST": {
+                    "FIRST": 1777222305,
+                    "LAST": 1777222375
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777222375": [
+                        "detective-case_work",
+                        "slots"
+                    ]
+                }
+            },
+            "SHELF": {
+                "detective-case_work": {
+                    "METADATA": {
+                        "GRAVITY": 9,
+                        "INGEST": {
+                            "FIRST": 1777222305,
+                            "LAST": 1777222375
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777222375": [
+                                "pseudo-progression"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "per-case": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777222305,
+                                    "LAST": 1777222321
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222305": {
+                                    "DW": [
+                                        "crate.85D41CD6F6CA7D2B"
+                                    ]
+                                },
+                                "1777222321": {
+                                    "DW": [
+                                        "crate.8E236949231DA94B"
+                                    ]
+                                }
+                            }
+                        },
+                        "unique": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777222305,
+                                    "LAST": 1777222321
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222305": {
+                                    "DW": [
+                                        "crate.85D41CD6F6CA7D2B"
+                                    ]
+                                },
+                                "1777222321": {
+                                    "DW": [
+                                        "crate.8E236949231DA94B"
+                                    ]
+                                }
+                            }
+                        },
+                        "rotating": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777222305,
+                                    "LAST": 1777222321
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222305": {
+                                    "DW": [
+                                        "crate.85D41CD6F6CA7D2B"
+                                    ]
+                                },
+                                "1777222321": {
+                                    "DW": [
+                                        "crate.8E236949231DA94B"
+                                    ]
+                                }
+                            }
+                        },
+                        "matches": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777222305,
+                                    "LAST": 1777222321
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222305": {
+                                    "DW": [
+                                        "crate.85D41CD6F6CA7D2B"
+                                    ]
+                                },
+                                "1777222321": {
+                                    "DW": [
+                                        "crate.8E236949231DA94B"
+                                    ]
+                                }
+                            }
+                        },
+                        "pseudo-progression": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222375,
+                                    "LAST": 1777222375
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222375": {
+                                    "DW": [
+                                        "crate.0C8963CC9B691D58"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "slots": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1777222305,
+                            "LAST": 1777222375
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777222375": [
+                                "detective-case_work"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "detective-case_work": {
+                            "METADATA": {
+                                "GRAVITY": 3,
+                                "INGEST": {
+                                    "FIRST": 1777222305,
+                                    "LAST": 1777222375
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222305": {
+                                    "DW": [
+                                        "crate.85D41CD6F6CA7D2B"
+                                    ]
+                                },
+                                "1777222321": {
+                                    "DW": [
+                                        "crate.8E236949231DA94B"
+                                    ]
+                                },
+                                "1777222375": {
+                                    "DW": [
+                                        "crate.0C8963CC9B691D58"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

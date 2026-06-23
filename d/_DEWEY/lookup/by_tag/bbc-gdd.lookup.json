@@ -1,0 +1,122 @@
+{
+    "CABINET": {
+        "bbc-gdd": {
+            "METADATA": {
+                "GRAVITY": 14,
+                "INGEST": {
+                    "FIRST": 1777157704,
+                    "LAST": 1777159009
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984014": [
+                        "sopr",
+                        "sopr",
+                        "sopr",
+                        "sopr",
+                        "sopr",
+                        "sopr",
+                        "sopr",
+                        "sopr",
+                        "sopr",
+                        "sopr",
+                        "sopr",
+                        "sopr",
+                        "sopr",
+                        "sopr"
+                    ]
+                }
+            },
+            "SHELF": {
+                "sopr": {
+                    "METADATA": {
+                        "GRAVITY": 14,
+                        "INGEST": {
+                            "FIRST": 1777157704,
+                            "LAST": 1777159009
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984014": [
+                                "symbolcraft",
+                                "bbc",
+                                "symbolcraft",
+                                "bbc",
+                                "symbolcraft",
+                                "bbc",
+                                "symbolcraft",
+                                "bbc",
+                                "symbolcraft",
+                                "bbc",
+                                "symbolcraft",
+                                "bbc",
+                                "symbolcraft",
+                                "bbc"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "symbolcraft": {
+                            "METADATA": {
+                                "GRAVITY": 7,
+                                "INGEST": {
+                                    "FIRST": 1777157704,
+                                    "LAST": 1777159009
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984014": {
+                                    "DW": [
+                                        "crate.24CE2832C69D7BC7",
+                                        "crate.78940B5234D29364",
+                                        "crate.C78775B1DE023BD0",
+                                        "crate.709D87CD7FDFEAFC",
+                                        "crate.3E3DA2432AD6FBF1",
+                                        "crate.E219DA26BBBA4650",
+                                        "crate.26570475582EB59D"
+                                    ]
+                                }
+                            }
+                        },
+                        "bbc": {
+                            "METADATA": {
+                                "GRAVITY": 7,
+                                "INGEST": {
+                                    "FIRST": 1777157704,
+                                    "LAST": 1777159009
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984014": {
+                                    "DW": [
+                                        "crate.24CE2832C69D7BC7",
+                                        "crate.78940B5234D29364",
+                                        "crate.C78775B1DE023BD0",
+                                        "crate.709D87CD7FDFEAFC",
+                                        "crate.3E3DA2432AD6FBF1",
+                                        "crate.E219DA26BBBA4650",
+                                        "crate.26570475582EB59D"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "the-great-self",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 1,
+            "BIN": {
+                "relatesto": 1
+            }
+        }
+    }
+}

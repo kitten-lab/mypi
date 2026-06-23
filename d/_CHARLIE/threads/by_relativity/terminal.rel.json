@@ -1,0 +1,13 @@
+{
+    "VEN": "terminal",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 2,
+            "BIN": {
+                "finds": 2
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "storage",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "data-forestry": {
+            "GRAVITY": 1,
+            "BIN": {
+                "purpose": 1
+            }
+        }
+    }
+}

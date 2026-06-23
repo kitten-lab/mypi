@@ -1,0 +1,13 @@
+{
+    "VEN": "cybertruck",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "omen": {
+            "GRAVITY": 1,
+            "BIN": {
+                "signs": 1
+            }
+        }
+    }
+}

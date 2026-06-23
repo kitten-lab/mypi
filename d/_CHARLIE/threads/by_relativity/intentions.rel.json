@@ -1,0 +1,13 @@
+{
+    "VEN": "intentions",
+    "GRAVITY": 10,
+    "METADATA": [],
+    "SHELF": {
+        "slots": {
+            "GRAVITY": 10,
+            "BIN": {
+                "detective-case_work": 10
+            }
+        }
+    }
+}

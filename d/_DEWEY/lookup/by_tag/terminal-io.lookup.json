@@ -1,0 +1,108 @@
+{
+    "CABINET": {
+        "terminal-io": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777416655,
+                    "LAST": 1777416655
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1758056547": [
+                        "daily-inventory",
+                        "daily-inventory",
+                        "daily-inventory"
+                    ]
+                }
+            },
+            "SHELF": {
+                "daily-inventory": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1777416655,
+                            "LAST": 1777416655
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758056547": [
+                                "casey",
+                                "signs",
+                                "angel-numbers"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "casey": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777416655,
+                                    "LAST": 1777416655
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758056547": {
+                                    "SDK-808": [
+                                        "crate.700CAE8753686057"
+                                    ]
+                                }
+                            }
+                        },
+                        "signs": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777416655,
+                                    "LAST": 1777416655
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758056547": {
+                                    "SDK-808": [
+                                        "crate.700CAE8753686057"
+                                    ]
+                                }
+                            }
+                        },
+                        "angel-numbers": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777416655,
+                                    "LAST": 1777416655
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758056547": {
+                                    "SDK-808": [
+                                        "crate.700CAE8753686057"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

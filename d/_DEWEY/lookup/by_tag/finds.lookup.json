@@ -1,0 +1,69 @@
+{
+    "CABINET": {
+        "finds": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1781978375,
+                    "LAST": 1781978424
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1781978424": [
+                        "oriel"
+                    ]
+                }
+            },
+            "SHELF": {
+                "oriel": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1781978375,
+                            "LAST": 1781978424
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1781978424": [
+                                "terminal"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "terminal": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1781978375,
+                                    "LAST": 1781978424
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1781978375": {
+                                    "km": [
+                                        "crate.81C04C10F0C7AD2B"
+                                    ]
+                                },
+                                "1781978424": {
+                                    "km": [
+                                        "crate.993D0B3FB056880B"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "gdd",
+    "GRAVITY": 7,
+    "METADATA": [],
+    "SHELF": {
+        "sopr": {
+            "GRAVITY": 7,
+            "BIN": {
+                "bbc": 7
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "innovative-mechanics",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "suggested-goals": 1
+            }
+        }
+    }
+}

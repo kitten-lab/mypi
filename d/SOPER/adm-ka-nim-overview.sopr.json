@@ -1,0 +1,142 @@
+{
+    "crate.3F6C628C882AF653": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-JackWEAK",
+                "sec_display": "Data Forestry",
+                "sec_slug": "data-forestry",
+                "supr_slug": "data-forestry-0001",
+                "content": "# what is data forestry?"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "nim": [
+                    "data-forestry",
+                    "docs"
+                ],
+                "docs": [
+                    "data-forestry"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*nim>data-forestry,docs&docs>data-forestry",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SOPER",
+            "sys_display": "SOPER",
+            "dom_slug": "adm-ka",
+            "dom_display": "adm-ka",
+            "room_slug": "nim-overview",
+            "room_display": "nim-overview",
+            "mod_slug": "1-MIRA-1",
+            "mod_display": "1-MIRA-1"
+        },
+        "ref_material": {
+            "material": {
+                "type": "",
+                "source": {
+                    "name": "",
+                    "id": "",
+                    "created_on": "",
+                    "last_modified": ""
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777248732.tps",
+            "ingest_unix": 1777248732,
+            "event_unix": 1777248732,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8860A24BA6AA4C1B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-JackWEAK",
+                "sec_display": "Data Forestry",
+                "sec_slug": "data-forestry",
+                "supr_slug": "data-forestry-0002",
+                "content": "the process of ingesting material and storing it in searchable fragments"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "nim": [
+                    "data-forestry",
+                    "docs"
+                ],
+                "docs": [
+                    "data-forestry"
+                ]
+            },
+            "data-forestry": {
+                "purpose": [
+                    "ingest-material",
+                    "searchable",
+                    "storage",
+                    "silo"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*nim>data-forestry,docs&docs>data-forestry;data-forestry*purpose>ingest-material,searchable,storage,silo",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SOPER",
+            "sys_display": "SOPER",
+            "dom_slug": "adm-ka",
+            "dom_display": "adm-ka",
+            "room_slug": "nim-overview",
+            "room_display": "nim-overview",
+            "mod_slug": "1-MIRA-1",
+            "mod_display": "1-MIRA-1"
+        },
+        "ref_material": {
+            "material": {
+                "type": "",
+                "source": {
+                    "name": "",
+                    "id": "",
+                    "created_on": "",
+                    "last_modified": ""
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777248798.tps",
+            "ingest_unix": 1777248798,
+            "event_unix": 1777248798,
+            "timezone": "America\/New_York"
+        }
+    }
+}

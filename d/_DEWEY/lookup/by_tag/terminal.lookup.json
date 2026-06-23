@@ -1,0 +1,109 @@
+{
+    "CABINET": {
+        "terminal": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777414623,
+                    "LAST": 1781978424
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1781978424": [
+                        "oriel"
+                    ]
+                }
+            },
+            "SHELF": {
+                "mentions": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777414623,
+                            "LAST": 1777414623
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "426510360": [
+                                "sam"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "sam": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777414623,
+                                    "LAST": 1777414623
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "426510360": {
+                                    "TERMINAL": [
+                                        "crate.C921FDC27207E662"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "oriel": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1781978375,
+                            "LAST": 1781978424
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1781978424": [
+                                "finds"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "finds": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1781978375,
+                                    "LAST": 1781978424
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1781978375": {
+                                    "km": [
+                                        "crate.81C04C10F0C7AD2B"
+                                    ]
+                                },
+                                "1781978424": {
+                                    "km": [
+                                        "crate.993D0B3FB056880B"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

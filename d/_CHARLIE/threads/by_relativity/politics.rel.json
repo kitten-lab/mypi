@@ -1,0 +1,13 @@
+{
+    "VEN": "politics",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 2,
+            "BIN": {
+                "confused": 2
+            }
+        }
+    }
+}

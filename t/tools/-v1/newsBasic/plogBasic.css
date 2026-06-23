@@ -1,0 +1,62 @@
+.plogBasic_commonBox {
+    width: 80vw;
+}
+
+.plogBasic_AddTopic {
+    display: inline-flex;
+    padding: .25rem;
+    width: 500px;
+}
+
+.plogBasic_AddBody {
+    display: inline-flex;
+    width: 500px;
+}
+
+.plogBasic_listItem {
+    display:flex;
+    border: 1px solid gray;
+    padding: .25rem;
+}
+
+.plogBasic_listItem::before {
+    content: ">| ";
+}
+
+.plogBasic_listItem a {
+    flex: 1;
+
+}
+.plogBasic_metaData {
+    display: flex;
+    padding: 0 1rem;
+    font-size: smaller;
+}
+/*
+input, textarea, select, button {
+    position: relative;
+    padding: .3rem;
+    margin: .1rem;
+    font-family:'Courier New', Courier, monospace;
+    border: darkblue solid 1px;
+    background-color: rgba(255, 255, 255, 0);
+    letter-spacing: .1rem;
+    font-size: .6rem;
+}
+
+.formLabel {
+    display: inline-block;
+    background-color: rgba(24, 75, 90, 0.36);
+    border-right: darkblue solid 1px;
+    color: darkblue;
+    font-family:'Courier New', Courier, monospace;
+    font-size: .8rem;
+    width: 6rem;
+    
+}
+
+.formLabel::after {
+    clear: left;
+}
+
+}

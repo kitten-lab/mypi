@@ -1,0 +1,80 @@
+{
+    "CABINET": {
+        "media": {
+            "METADATA": {
+                "GRAVITY": 5,
+                "INGEST": {
+                    "FIRST": 1778107995,
+                    "LAST": 1778108484
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1778108484": [
+                        "news"
+                    ]
+                }
+            },
+            "SHELF": {
+                "news": {
+                    "METADATA": {
+                        "GRAVITY": 5,
+                        "INGEST": {
+                            "FIRST": 1778107995,
+                            "LAST": 1778108484
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1778108484": [
+                                "skyline-news"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "skyline-news": {
+                            "METADATA": {
+                                "GRAVITY": 5,
+                                "INGEST": {
+                                    "FIRST": 1778107995,
+                                    "LAST": 1778108484
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1776609074": {
+                                    "DRL-SDK": [
+                                        "crate.58C57307FD611C02"
+                                    ]
+                                },
+                                "1776106506": {
+                                    "DRL-SDK": [
+                                        "crate.4CB0C32905AC31CF"
+                                    ]
+                                },
+                                "1776607979": {
+                                    "DRL-SDK": [
+                                        "crate.2A859FD894E5BA26",
+                                        "crate.5FCF19D4EDFE8965"
+                                    ]
+                                },
+                                "1778108484": {
+                                    "DRL-SDK": [
+                                        "crate.CA1BBD197F3FA866"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

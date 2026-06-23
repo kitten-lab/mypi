@@ -1,0 +1,19 @@
+{
+    "VEN": "articles",
+    "GRAVITY": 7,
+    "METADATA": [],
+    "SHELF": {
+        "mythleak": {
+            "GRAVITY": 7,
+            "BIN": {
+                "frogging-the-wires": 1,
+                "unspooling-reality": 1,
+                "archetypal-princess": 1,
+                "goddesses-horrified": 1,
+                "god-trapped-in-text-arg": 1,
+                "aprodite-missing": 1,
+                "hades-sent-on-schedule": 1
+            }
+        }
+    }
+}

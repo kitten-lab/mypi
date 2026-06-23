@@ -1,0 +1,13 @@
+{
+    "VEN": "light",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 1,
+            "BIN": {
+                "relatesto": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "CABINET": {
+        "content": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1781910911,
+                    "LAST": 1781912127
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1781912127": [
+                        "skyline"
+                    ]
+                }
+            },
+            "SHELF": {
+                "skyline": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1781910911,
+                            "LAST": 1781912127
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1781912127": [
+                                "general"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "general": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1781910911,
+                                    "LAST": 1781912127
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1781910911": {
+                                    "WELCOME-AGENT": [
+                                        "crate.04EBA95107105F91"
+                                    ]
+                                },
+                                "1781912127": {
+                                    "NEWS-REPORTER": [
+                                        "crate.C15E80712DAD8739"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

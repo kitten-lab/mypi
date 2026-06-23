@@ -1,0 +1,17 @@
+{
+    "VEN": "systems",
+    "GRAVITY": 3,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "letter-boards": {
+            "GRAVITY": 3,
+            "BIN": {
+                "ava": 1,
+                "lil": 1,
+                "vav": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "VEN": "media",
+    "GRAVITY": 5,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "news": {
+            "GRAVITY": 5,
+            "BIN": {
+                "skyline-news": 5
+            }
+        }
+    }
+}

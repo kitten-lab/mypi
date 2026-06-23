@@ -1,0 +1,509 @@
+{
+    "crate.2E642C5B06C9BDB0": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": null
+        },
+        "payload": {
+            "post": {
+                "agent": "D-me",
+                "topic": "kinda want them all",
+                "content": "but thats naughty"
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "ANON-XXX"
+            },
+            "to": {
+                "mod": "SECRET-KEEPER",
+                "room": "teeHeeSecrets",
+                "dom": "reportDepartment",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "teeHeeSecrets",
+            "room_display": "THE SECRET ROOM",
+            "mod_slug": "SECRET-KEEPER",
+            "mod_display": "THE-CU"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781899933.tps",
+            "ingest_unix": 1781899933,
+            "event_unix": 1781899933,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.9183518FEF3E2AF2": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": null
+        },
+        "payload": {
+            "post": {
+                "agent": "D-me",
+                "topic": "i am seriously horny for sama",
+                "content": "like bad, like want him now"
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "ANON-XXX"
+            },
+            "to": {
+                "mod": "SECRET-KEEPER",
+                "room": "teeHeeSecrets",
+                "dom": "reportDepartment",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "teeHeeSecrets",
+            "room_display": "THE SECRET ROOM",
+            "mod_slug": "SECRET-KEEPER",
+            "mod_display": "THE-CU"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781900058.tps",
+            "ingest_unix": 1781900058,
+            "event_unix": 1781900058,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.7BB27E9615F2C078": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": null
+        },
+        "payload": {
+            "post": {
+                "agent": "D-me",
+                "topic": "i am seriously horny for sama",
+                "content": "like bad, like want him now"
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "ANON-XXX"
+            },
+            "to": {
+                "mod": "SECRET-KEEPER",
+                "room": "teeHeeSecrets",
+                "dom": "reportDepartment",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "teeHeeSecrets",
+            "room_display": "THE SECRET ROOM",
+            "mod_slug": "SECRET-KEEPER",
+            "mod_display": "THE-CU"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781900109.tps",
+            "ingest_unix": 1781900109,
+            "event_unix": 1781900109,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.04EBA95107105F91": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "d.SELF:pink",
+                "topic": "You have arrived at the SKYLINE FRONT DESK.",
+                "content": "Thank you for becoming part of our SIGHT. We are THE-CU and this is SKYLINE on INTERA. Now running in DEMO MODE, so you can explore our place and store your data as your explore. Your data will not merge with mine! It is stored uniquely for this DEMO (POCKET)POCKET INTERNET.\r\n\r\nSKYLINE is a reporting surface, meaning it is primarily used to REPORT information into the deeper architecture beneath the POCKET INTERNET (the 'wires').\r\n\r\nYou may explore the REPORTING tools by journeying to THE REPORT DEPARTMENT\r\n\r\nGood luck! -THE-CU-"
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "content": [
+                    "general"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*content>general",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781910911.tps",
+            "ingest_unix": 1781910911,
+            "event_unix": 1781910911,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.AA8A60AEF9E768F4": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "o.k.",
+                "topic": "YOU ARE ONLINE. THAT IS NICE TO SEE."
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "o.k."
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "offices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781911080.tps",
+            "ingest_unix": 1781911080,
+            "event_unix": 1781911080,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.FA1655AFB3B30E1E": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "the cu",
+                "topic": "skyline reports back online. proceed with joy, please, for once "
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "the cu"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "offices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781911215.tps",
+            "ingest_unix": 1781911215,
+            "event_unix": 1781911215,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.949B481DF0E429CE": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "clem",
+                "topic": "hey man i keep trying to find you but you never answer the door"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "clem"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "offices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781911397.tps",
+            "ingest_unix": 1781911397,
+            "event_unix": 1781911397,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.C15E80712DAD8739": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "d.SELF:pink",
+                "topic": "Return of the System",
+                "content": "SKYLINE REPORTS IT IS BACK ONLINE IN A NEW ENCASEMENT. ENTIRELY POWERED BY LOCALHOST, BUT NOT CONSTRAINED TO MERE NUMBERS, SKYLINE IS PREFABRICATING ITSELF TO MEET THE NEEDS OF THE CITIZENS. OLD DATA WILL BE IMPORTING ACCORDINGLY."
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "content": [
+                    "general"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*content>general",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "news",
+            "room_display": "SKYLINE NEWS",
+            "mod_slug": "NEWS-REPORTER",
+            "mod_display": "WRIGHT MOAR"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781912127.tps",
+            "ingest_unix": 1781912127,
+            "event_unix": 1781912127,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D7B38922FC2FC02A": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "interesting",
+                "topic": "there is sometimes problems, and sometimes solutions, but why doesn't book work?"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "interesting"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "offices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781922722.tps",
+            "ingest_unix": 1781922722,
+            "event_unix": 1781922722,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.0255A7C41D597F2F": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "now it works",
+                "topic": "I am sure"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "now it works"
+            },
+            "to": {
+                "sys": "book",
+                "dom": "terminal_girls",
+                "mod": "km",
+                "key": "oriel"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781922928.tps",
+            "ingest_unix": 1781922928,
+            "event_unix": 1781922928,
+            "timezone": "America\/New_York"
+        }
+    }
+}

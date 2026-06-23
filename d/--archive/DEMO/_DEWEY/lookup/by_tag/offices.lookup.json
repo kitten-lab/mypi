@@ -1,0 +1,69 @@
+{
+    "CABINET": {
+        "offices": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1778130154,
+                    "LAST": 1778130351
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1778130351": [
+                        "skyline"
+                    ]
+                }
+            },
+            "SHELF": {
+                "skyline": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1778130154,
+                            "LAST": 1778130351
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1778130351": [
+                                "posts"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "posts": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1778130154,
+                                    "LAST": 1778130351
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778130154": {
+                                    "WELCOME-AGENT": [
+                                        "crate.BAF96AEF05F7F010"
+                                    ]
+                                },
+                                "1778130351": {
+                                    "WELCOME-AGENT": [
+                                        "crate.8D50085BC4361EA4"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

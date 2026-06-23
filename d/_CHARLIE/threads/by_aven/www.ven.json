@@ -1,0 +1,23 @@
+{
+    "VEN": "www",
+    "GRAVITY": 4,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "thoughts": {
+            "GRAVITY": 2,
+            "BIN": {
+                "self-identity": 1,
+                "expectations": 1
+            }
+        },
+        "fears": {
+            "GRAVITY": 2,
+            "BIN": {
+                "extractive-nature": 1,
+                "corporatization": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "operational-efficiency",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "executive-summary": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "cUID-A3F270978EF3984F": {
+        "tps.REF": "tUID-20260408.5EC9E5",
+        "openSky.TITLE": "LETTY IS OUT THERE",
+        "key.inHOUSE": "WWW",
+        "key.inROOM": "mystery",
+        "key.keyMADE": "letty-undiscovered",
+        "key.skyCONTENT": "<?php \n\nopenSky('LETTY IS OUT THERE');\ngetMy_WWW('mystery\\|letty-undiscovered');\n\nbigHeading(\"does anyone remember letty?\");\r\nleaf(\"who? who is letty?\");\r\n\n\ncloseSky();\n\n ?>",
+        "meta.DATA": {
+            "chest.UNIX": 1775694200,
+            "gaia.DATE": "2026\/04\/08",
+            "gaia.TIME": "08:23:20PM",
+            "gaia.TZONE": "America\/New_York",
+            "acting.SYSTEM": "WWW",
+            "acting.CTRLS": "WWW",
+            "acting.DOLLY": "WWW",
+            "acting.VIEWPORT": "__UNDISCLOSED__"
+        }
+    }
+}

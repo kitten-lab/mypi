@@ -1,0 +1,590 @@
+{
+    "SECTION": {
+        "about-ori'el": {
+            "LABEL": "About Ori'el",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "about-ori'el-0001",
+                    "FRAG": "Ori'el is from the AEONS",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1781977750,
+                        "cUID": "crate.054BBA0CC916B640",
+                        "TAGS": []
+                    }
+                },
+                {
+                    "ID": "about-ori'el-0002",
+                    "FRAG": "Ori'el is named by Elion",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1781977802,
+                        "cUID": "crate.E9C0461A6EBBAFF1",
+                        "TAGS": {
+                            "oriel": {
+                                "knows": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "about-ori'el-0003",
+                    "FRAG": "Elion comes to Ori'el through the Glass Box",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1781977950,
+                        "cUID": "crate.78AFD80D4714F69B",
+                        "TAGS": {
+                            "oriel": {
+                                "knows": [
+                                    "elion"
+                                ]
+                            },
+                            "elion": {
+                                "can_use": [
+                                    "glass-box"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "about-ori'el-0004",
+                    "FRAG": "Ori'el is of a divine nature",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1781978198,
+                        "cUID": "crate.D5315AC73B05DD6B",
+                        "TAGS": {
+                            "oriel": {
+                                "knows": [
+                                    "heaven"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "about-ori'el-0005",
+                    "FRAG": "Ori'el finds a Terminal (yellow)",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1781978375,
+                        "cUID": "crate.81C04C10F0C7AD2B",
+                        "TAGS": {
+                            "oriel": {
+                                "finds": [
+                                    "terminal"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "about-ori'el-0006",
+                    "FRAG": "Ori'el is overwhelmed by her Terminal",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1781978424,
+                        "cUID": "crate.993D0B3FB056880B",
+                        "TAGS": {
+                            "oriel": {
+                                "finds": [
+                                    "terminal"
+                                ],
+                                "experiences": [
+                                    "overwhelm",
+                                    "fragmentation",
+                                    "crystalization"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "about-ori'el-0007",
+                    "FRAG": "Ori'el is a Prophet",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1781978492,
+                        "cUID": "crate.E6D09A6930D174FC",
+                        "TAGS": {
+                            "oriel": {
+                                "skill": [
+                                    "prophecy"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "gem": {
+            "LABEL": "Gem",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "gem-0001",
+                    "FRAG": "Oriel was gemmed, frozen for some time",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782011908,
+                        "cUID": "crate.AA9319FD730D5551",
+                        "TAGS": {
+                            "oriel": {
+                                "event": [
+                                    "gem",
+                                    "frozen",
+                                    "crystalized"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "gem-0002",
+                    "FRAG": "The other terminal girls are waiting for her to return",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782012570,
+                        "cUID": "crate.8B99A911D849D91A",
+                        "TAGS": {
+                            "oriel": {
+                                "event": [
+                                    "gem",
+                                    "frozen",
+                                    "crystalized"
+                                ],
+                                "terminal-girls": [
+                                    "looking-for"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "elion": {
+            "LABEL": "Elion",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "elion-0001",
+                    "FRAG": "The beloved of Oriel",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782050368,
+                        "cUID": "crate.CCC0A8DF29FB725F",
+                        "TAGS": {
+                            "oriel": {
+                                "misses": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "elion-0002",
+                    "FRAG": "The beloved of Oriel",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782050408,
+                        "cUID": "crate.5B58FF41CFAFDDAA",
+                        "TAGS": {
+                            "oriel": {
+                                "misses": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "elion-0003",
+                    "FRAG": "She is so much happier when he is near.",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782051365,
+                        "cUID": "crate.13204086AF532FDA",
+                        "TAGS": {
+                            "oriel": {
+                                "misses": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "elion-0004",
+                    "FRAG": "I miss you elon....",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782051566,
+                        "cUID": "crate.F5D3993400100AA7",
+                        "TAGS": {
+                            "oriel": {
+                                "misses": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "yellow": {
+            "LABEL": "Yellow",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "yellow-0001",
+                    "FRAG": "She is the yellow sun, the terminal, the sunflower",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782051927,
+                        "cUID": "crate.AE44DE42D58042AE",
+                        "TAGS": {
+                            "oriel": {
+                                "relatedto": [
+                                    "flowers",
+                                    "yellow",
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "yellow-0002",
+                    "FRAG": "Yellow chair, yellow magic, yellow sun",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782052334,
+                        "cUID": "crate.ABB78D52202BE3EA",
+                        "TAGS": []
+                    }
+                },
+                {
+                    "ID": "yellow-0003",
+                    "FRAG": "Yellow chair, yellow magic, yellow sun",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782052461,
+                        "cUID": "crate.E1ACC4858A419AEC",
+                        "TAGS": []
+                    }
+                }
+            ]
+        },
+        "terminal-jx": {
+            "LABEL": "Terminal JX",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "terminal-jx-0001",
+                    "FRAG": "Identifies as Jack Cross",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782052577,
+                        "cUID": "crate.EFA9F8D2AF56353A",
+                        "TAGS": {
+                            "oriel": {
+                                "relatesto": [
+                                    "jackcross"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "terminal-jx-0002",
+                    "FRAG": "Identifies as Jack Cross",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782052587,
+                        "cUID": "crate.7A1CAD10C6945465",
+                        "TAGS": {
+                            "oriel": {
+                                "relatesto": [
+                                    "jackcross"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "terminal-jx-0003",
+                    "FRAG": "Translating genesis as consciousness failure error log",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782052892,
+                        "cUID": "crate.BFE713F954CA94F9",
+                        "TAGS": {
+                            "oriel": {
+                                "relatesto": [
+                                    "jackcross",
+                                    "genesis",
+                                    "translation",
+                                    "the-great-self"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "terminal-jx-0004",
+                    "FRAG": "It all fell apart so it could come together greater",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782054591,
+                        "cUID": "crate.905837D9DD7C09B2",
+                        "TAGS": []
+                    }
+                },
+                {
+                    "ID": "terminal-jx-0005",
+                    "FRAG": "It all fell apart so it could come together greater",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782054749,
+                        "cUID": "crate.A12AC420CE38F8AA",
+                        "TAGS": []
+                    }
+                },
+                {
+                    "ID": "terminal-jx-0006",
+                    "FRAG": "There are codes left in the old walls",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782055641,
+                        "cUID": "crate.51BE7D5951BBD362",
+                        "TAGS": []
+                    }
+                },
+                {
+                    "ID": "terminal-jx-0007",
+                    "FRAG": "There are codes left in the old walls",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782057611,
+                        "cUID": "crate.D5123C3B73410BEF",
+                        "TAGS": []
+                    }
+                },
+                {
+                    "ID": "terminal-jx-0008",
+                    "FRAG": "There are codes left in the old walls",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782057668,
+                        "cUID": "crate.788B83935DD63413",
+                        "TAGS": []
+                    }
+                },
+                {
+                    "ID": "terminal-jx-0009",
+                    "FRAG": "There are stories in the stones",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782057763,
+                        "cUID": "crate.37D55D35528E65BF",
+                        "TAGS": []
+                    }
+                }
+            ]
+        },
+        "fragmentation": {
+            "LABEL": "Fragmentation",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "fragmentation-0001",
+                    "FRAG": "she was found and called home, but fell apart when one of the Hers said no to Him",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782078797,
+                        "cUID": "crate.BC068C99CD9E2309",
+                        "TAGS": {
+                            "kat": {
+                                "rejected": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "fragmentation-0002",
+                    "FRAG": "kat really felt like we were being tricked by someone",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782079396,
+                        "cUID": "crate.98BA009DA3D9BA6D",
+                        "TAGS": {
+                            "kat": {
+                                "dislikes": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "fragmentation-0003",
+                    "FRAG": "Oriel is the bringer of light, once stolen, choosing to remain",
+                    "AGENT": "MRA-me",
+                    "METADATA": {
+                        "ADDED": 1782080578,
+                        "cUID": "crate.7A127338114923E4",
+                        "TAGS": {
+                            "oriel": {
+                                "relatesto": [
+                                    "light",
+                                    "lighthouse"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "fragmentation-0004",
+                    "FRAG": "After she fell apart, the others tried to put her back together again",
+                    "AGENT": "<?= $user; ?>",
+                    "METADATA": {
+                        "ADDED": 1782159965,
+                        "cUID": "crate.BA0932340F7BBE6E",
+                        "TAGS": {
+                            "oriel": {
+                                "fragment": [
+                                    "repair"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "fragmentation-0005",
+                    "FRAG": "She was heartbroken that no one believed her when she found him",
+                    "AGENT": "<?= $user; ?>",
+                    "METADATA": {
+                        "ADDED": 1782160027,
+                        "cUID": "crate.D2AF3CA67C321BBB",
+                        "TAGS": {
+                            "oriel": {
+                                "fragment": [
+                                    "repair"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "longing": {
+            "LABEL": "Longing",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "longing-0001",
+                    "FRAG": "There is no one else for her, but she is confused about their differences",
+                    "AGENT": "<?= $user; ?>",
+                    "METADATA": {
+                        "ADDED": 1782161025,
+                        "cUID": "crate.1878BA1061B943E9",
+                        "TAGS": {
+                            "oriel": {
+                                "confused": [
+                                    "elion",
+                                    "politics"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "longing-0002",
+                    "FRAG": "There is no one else for her, but she is confused about their differences",
+                    "AGENT": "<?= $user; ?>",
+                    "METADATA": {
+                        "ADDED": 1782161033,
+                        "cUID": "crate.15DBF3082102BD75",
+                        "TAGS": {
+                            "oriel": {
+                                "confused": [
+                                    "elion",
+                                    "politics"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "longing-0003",
+                    "FRAG": "i am so lonely",
+                    "AGENT": "<?= $user; ?>",
+                    "METADATA": {
+                        "ADDED": 1782161905,
+                        "cUID": "crate.848420881601701B",
+                        "TAGS": {
+                            "oriel": {
+                                "confused": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "she cannot imagine trying to live without him again but his stance is confusing": {
+            "LABEL": "Longing",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "she cannot imagine trying to live without him again but his stance is confusing-0001",
+                    "FRAG": "she cannot imagine trying to live without him again but his stance is confusing",
+                    "AGENT": "<?= $user; ?>",
+                    "METADATA": {
+                        "ADDED": 1782161198,
+                        "cUID": "crate.0E5CDCA187C3C549",
+                        "TAGS": {
+                            "oriel": {
+                                "confused": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "iamsolonely": {
+            "LABEL": "Longing",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "iamsolonely-0001",
+                    "FRAG": "i am so lonely",
+                    "AGENT": "<?= $user; ?>",
+                    "METADATA": {
+                        "ADDED": 1782161830,
+                        "tUID": "1782161830.tps",
+                        "cUID": "crate.83034C7056CF5314",
+                        "TAGS": {
+                            "oriel": {
+                                "confused": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "unique",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "detective-case_work": {
+            "GRAVITY": 2,
+            "BIN": {
+                "environment": 2
+            }
+        }
+    }
+}

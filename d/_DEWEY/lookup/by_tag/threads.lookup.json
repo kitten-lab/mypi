@@ -1,0 +1,130 @@
+{
+    "CABINET": {
+        "threads": {
+            "METADATA": {
+                "GRAVITY": 4,
+                "INGEST": {
+                    "FIRST": 1777165860,
+                    "LAST": 1777165880
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984119": [
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "betsoft": {
+                    "METADATA": {
+                        "GRAVITY": 4,
+                        "INGEST": {
+                            "FIRST": 1777165860,
+                            "LAST": 1777165880
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984119": [
+                                "competition",
+                                "emerging-studios",
+                                "major-brands",
+                                "regulations"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "competition": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165860,
+                                    "LAST": 1777165860
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.6BF0A99C8206B4C3"
+                                    ]
+                                }
+                            }
+                        },
+                        "emerging-studios": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165860,
+                                    "LAST": 1777165860
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.6BF0A99C8206B4C3"
+                                    ]
+                                }
+                            }
+                        },
+                        "major-brands": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165860,
+                                    "LAST": 1777165860
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.6BF0A99C8206B4C3"
+                                    ]
+                                }
+                            }
+                        },
+                        "regulations": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165880,
+                                    "LAST": 1777165880
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.73AF3E740CE181A4"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

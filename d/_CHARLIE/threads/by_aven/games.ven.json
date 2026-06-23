@@ -1,0 +1,15 @@
+{
+    "VEN": "games",
+    "GRAVITY": 25,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "slots": {
+            "GRAVITY": 25,
+            "BIN": {
+                "detective-case_work": 25
+            }
+        }
+    }
+}

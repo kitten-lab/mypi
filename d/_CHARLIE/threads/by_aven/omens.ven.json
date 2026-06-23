@@ -1,0 +1,23 @@
+{
+    "VEN": "omens",
+    "GRAVITY": 4,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "numbers": {
+            "GRAVITY": 3,
+            "BIN": {
+                "808": 1,
+                "2": 1,
+                "222": 1
+            }
+        },
+        "signs": {
+            "GRAVITY": 1,
+            "BIN": {
+                "angel-numbers": 1
+            }
+        }
+    }
+}

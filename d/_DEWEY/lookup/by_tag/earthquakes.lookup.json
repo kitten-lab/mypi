@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "earthquakes": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1777895832,
+                    "LAST": 1777895832
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1758812400": [
+                        "mythleak"
+                    ]
+                }
+            },
+            "SHELF": {
+                "mythleak": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777895832,
+                            "LAST": 1777895832
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758812400": [
+                                "mentions"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "mentions": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777895832,
+                                    "LAST": 1777895832
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758812400": {
+                                    "MCS-000": [
+                                        "crate.C524A478667B2186"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

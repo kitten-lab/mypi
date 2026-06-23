@@ -1,0 +1,54 @@
+{
+    "crate.C3A38AD2480DCC24": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": null
+        },
+        "payload": {
+            "post": {
+                "agent": "D-me",
+                "topic": "kinda want them all",
+                "content": "but thats naughty"
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "ANON-XXX"
+            },
+            "to": {
+                "mod": "SECRET-KEEPER",
+                "room": "teeHeeSecrets",
+                "dom": "reportDepartment",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "teeHeeSecrets",
+            "room_display": "THE SECRET ROOM",
+            "mod_slug": "SECRET-KEEPER",
+            "mod_display": "THE-CU"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781899879.tps",
+            "ingest_unix": 1781899879,
+            "event_unix": 1781899879,
+            "timezone": "America\/New_York"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "VEN": "media",
+    "GRAVITY": 4,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "news": {
+            "GRAVITY": 4,
+            "BIN": {
+                "mythleak": 4
+            }
+        }
+    }
+}

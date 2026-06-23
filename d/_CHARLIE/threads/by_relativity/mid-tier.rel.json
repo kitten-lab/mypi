@@ -1,0 +1,13 @@
+{
+    "VEN": "mid-tier",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "provider_insights": 1
+            }
+        }
+    }
+}

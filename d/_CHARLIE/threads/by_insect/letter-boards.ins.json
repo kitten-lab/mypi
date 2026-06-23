@@ -1,0 +1,15 @@
+{
+    "VEN": "letter-boards",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "systems": {
+            "GRAVITY": 3,
+            "BIN": {
+                "ava": 1,
+                "lil": 1,
+                "vav": 1
+            }
+        }
+    }
+}

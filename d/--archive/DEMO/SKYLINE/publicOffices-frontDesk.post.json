@@ -1,0 +1,51 @@
+{
+    "crate.1C37CCEFF33C7616": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "You have arrived at the SKYLINE FRONT DESK.",
+                "content": "Thank you for becoming part of our SIGHT. We are THE-CU and this is SKYLINE on INTERA.\r\nNow running in DEMO MODE, so you can explore our place and store your data as your explore.\r\nYour data will not merge with mine! It is stored uniquely for this DEMO (POCKET)POCKET INTERNET.\r\n\r\nSKYLINE is a reporting surface, meaning it is primarily used to REPORT information\r\ninto the deeper architecture beneath the POCKET INTERNET (the 'wires').\r\n\r\nYou may explore the REPORTING tools by journeying to THE REPORT DEPARTMENT\r\n\r\nGood luck!\r\n-THE-CU-"
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "posts": [
+                    "reception",
+                    "welcome-message1"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*posts>reception,welcome-message1",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "publicOffices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778163643.tps",
+            "ingest_unix": 1778163643,
+            "event_unix": 1778163643,
+            "timezone": "America\/New_York"
+        }
+    }
+}

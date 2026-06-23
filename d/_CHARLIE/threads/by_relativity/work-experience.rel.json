@@ -1,0 +1,13 @@
+{
+    "VEN": "work-experience",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "dani": {
+            "GRAVITY": 1,
+            "BIN": {
+                "materials": 1
+            }
+        }
+    }
+}

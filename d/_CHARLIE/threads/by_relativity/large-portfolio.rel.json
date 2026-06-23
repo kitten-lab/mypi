@@ -1,0 +1,13 @@
+{
+    "VEN": "large-portfolio",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "strengths": 1
+            }
+        }
+    }
+}

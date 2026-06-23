@@ -1,0 +1,126 @@
+{
+    "1781727675.tps": {
+        "tps_version": 3,
+        "cUID": [
+            "crate.15091B1F1BCDF091"
+        ],
+        "event_slug": [],
+        "import_unix": [
+            1781727675
+        ],
+        "time_certainty": [],
+        "event_timezone": "America\/New_York",
+        "tps_timzezone": "UTC",
+        "tps_unix": 1781727675,
+        "tps_report": {
+            "netLoop": 889,
+            "millennium": 2,
+            "century": 20,
+            "decade": 202,
+            "year": 2026,
+            "leap": 0,
+            "month": 6,
+            "week": 25,
+            "dayOfYear": 167,
+            "dayOfMonth": 17,
+            "dayOfWeek": 3,
+            "hour": 20,
+            "minute": 21,
+            "second": 15,
+            "ms": 347
+        }
+    },
+    "1781727875.tps": {
+        "tps_version": 3,
+        "cUID": [
+            "crate.060A9F83BAB140B0"
+        ],
+        "event_slug": [],
+        "import_unix": [
+            1781727875
+        ],
+        "time_certainty": [],
+        "event_timezone": "America\/New_York",
+        "tps_timzezone": "UTC",
+        "tps_unix": 1781727875,
+        "tps_report": {
+            "netLoop": 892,
+            "millennium": 2,
+            "century": 20,
+            "decade": 202,
+            "year": 2026,
+            "leap": 0,
+            "month": 6,
+            "week": 25,
+            "dayOfYear": 167,
+            "dayOfMonth": 17,
+            "dayOfWeek": 3,
+            "hour": 20,
+            "minute": 24,
+            "second": 35,
+            "ms": 627
+        }
+    },
+    "1781727957.tps": {
+        "tps_version": 3,
+        "cUID": [
+            "crate.0DB81CCCC95AE4FD"
+        ],
+        "event_slug": [],
+        "import_unix": [
+            1781727957
+        ],
+        "time_certainty": [],
+        "event_timezone": "America\/New_York",
+        "tps_timzezone": "UTC",
+        "tps_unix": 1781727957,
+        "tps_report": {
+            "netLoop": 893,
+            "millennium": 2,
+            "century": 20,
+            "decade": 202,
+            "year": 2026,
+            "leap": 0,
+            "month": 6,
+            "week": 25,
+            "dayOfYear": 167,
+            "dayOfMonth": 17,
+            "dayOfWeek": 3,
+            "hour": 20,
+            "minute": 25,
+            "second": 57,
+            "ms": 138
+        }
+    },
+    "1781728009.tps": {
+        "tps_version": 3,
+        "cUID": [
+            "crate.ABFE46A06304867F"
+        ],
+        "event_slug": [],
+        "import_unix": [
+            1781728009
+        ],
+        "time_certainty": [],
+        "event_timezone": "America\/New_York",
+        "tps_timzezone": "UTC",
+        "tps_unix": 1781728009,
+        "tps_report": {
+            "netLoop": 893,
+            "millennium": 2,
+            "century": 20,
+            "decade": 202,
+            "year": 2026,
+            "leap": 0,
+            "month": 6,
+            "week": 25,
+            "dayOfYear": 167,
+            "dayOfMonth": 17,
+            "dayOfWeek": 3,
+            "hour": 20,
+            "minute": 26,
+            "second": 49,
+            "ms": 244
+        }
+    }
+}

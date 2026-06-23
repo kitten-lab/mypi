@@ -1,0 +1,14 @@
+{
+    "VEN": "fears",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "www": {
+            "GRAVITY": 2,
+            "BIN": {
+                "extractive-nature": 1,
+                "corporatization": 1
+            }
+        }
+    }
+}

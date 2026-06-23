@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "errors": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1778108484,
+                    "LAST": 1778108484
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1778108484": [
+                        "skyline-news"
+                    ]
+                }
+            },
+            "SHELF": {
+                "skyline-news": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1778108484,
+                            "LAST": 1778108484
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1778108484": [
+                                "reports"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "reports": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1778108484,
+                                    "LAST": 1778108484
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1778108484": {
+                                    "DRL-SDK": [
+                                        "crate.CA1BBD197F3FA866"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

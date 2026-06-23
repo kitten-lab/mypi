@@ -1,0 +1,17 @@
+{
+    "VEN": "solutions",
+    "GRAVITY": 5,
+    "METADATA": [],
+    "SHELF": {
+        "detective-case_work": {
+            "GRAVITY": 5,
+            "BIN": {
+                "simple-silhouette": 1,
+                "generated-cases": 1,
+                "repeating": 1,
+                "waiting": 1,
+                "loop": 1
+            }
+        }
+    }
+}

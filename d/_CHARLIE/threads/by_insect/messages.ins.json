@@ -1,0 +1,14 @@
+{
+    "VEN": "messages",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "chesters-imports": {
+            "GRAVITY": 2,
+            "BIN": {
+                "welcome": 1,
+                "sam": 1
+            }
+        }
+    }
+}

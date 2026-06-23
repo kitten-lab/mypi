@@ -1,0 +1,69 @@
+{
+    "CABINET": {
+        "politics": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1782161025,
+                    "LAST": 1782161033
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1782161033": [
+                        "oriel"
+                    ]
+                }
+            },
+            "SHELF": {
+                "oriel": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1782161025,
+                            "LAST": 1782161033
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782161033": [
+                                "confused"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "confused": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1782161025,
+                                    "LAST": 1782161033
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782161025": {
+                                    "km": [
+                                        "crate.1878BA1061B943E9"
+                                    ]
+                                },
+                                "1782161033": {
+                                    "km": [
+                                        "crate.15DBF3082102BD75"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

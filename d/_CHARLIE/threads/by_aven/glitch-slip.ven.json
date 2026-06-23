@@ -1,0 +1,22 @@
+{
+    "VEN": "glitch-slip",
+    "GRAVITY": 3,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "dorn": {
+            "GRAVITY": 2,
+            "BIN": {
+                "dorm": 1,
+                "thorn": 1
+            }
+        },
+        "thorn": {
+            "GRAVITY": 1,
+            "BIN": {
+                "dorm": 1
+            }
+        }
+    }
+}

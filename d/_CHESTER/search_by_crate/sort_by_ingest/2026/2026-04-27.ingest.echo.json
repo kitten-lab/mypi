@@ -1,0 +1,192 @@
+{
+    "crate.E6E800E2FB89FBD2": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-JackWEAK",
+                "topic": "resume home",
+                "content": "# I build, lead, and scale game production systems.\r\n\r\nI started as an artist and grew into leading game design and owning the full production lifecycle\u2014design, pipelines, teams, and delivery\u2014inside a live iGaming environment.\r\n\r\nI\u2019ve overseen 200+ titles across slots, table games, and arcade systems, scaling production from 2 games per year to 28+ (and beyond), while improving time-to-market and release reliability under constant production pressure.\r\n\r\nI operate at the intersection of design, production, and systems\u2014often stepping in to rescue failing roadmaps and turning them into shipped products.\r\n\r\n---\r\n\r\n## Core Impact\r\n\r\n- Led game design and production across 200+ titles with final authority on release readiness, scope, and direction  \r\n- Directed cross-functional teams across art, animation, audio, math, product, marketing, and engineering  \r\n- Built and scaled production systems that increased output from 2 \u2192 28+ games\/year, with continued scaling beyond  \r\n- Reduced time-to-market by restructuring pipelines and delivery workflows  \r\n- Recovered failed or canceled projects under tight timelines, turning them into successful releases  \r\n- Drove a major revenue growth moment with *Take the Bank* after a multi-year plateau  \r\n- Delivered consistently under evolving and highly specific art direction, maintaining production velocity while helping standardize UI patterns over time  \r\n- Introduced structured workflows and helped transition production systems (e.g., into JIRA-based tracking)  \r\n- Designed feedback-driven production loops, including postmortems and long-term performance evaluation  \r\n- Identified and proposed emerging game mechanics and player trends ahead of market adoption  \r\n\r\n---\r\n\r\n## Scope\r\n\r\n- **Titles:** 200+ shipped across slots, table games, video poker, and experimental formats  \r\n- **Production Scale:** Up to 28+ games\/year, with multiple concurrent projects across a 6\u20139 month pipeline  \r\n- **Teams:** Cross-functional leadership spanning art, animation, audio, mathematics, product, QA, and engineering  \r\n- **Authority:** Final decision-maker on scope, release readiness, and production direction (reporting only to company owner)\r\n\r\n---\r\n\r\n## What I Do\r\n\r\n- Build production systems that scale output without collapsing quality  \r\n- Lead game design while maintaining full-lifecycle ownership  \r\n- Restructure teams and pipelines to reduce friction and increase velocity  \r\n- Step into unstable or failing production environments and stabilize them  \r\n- Translate abstract ideas and player behavior into shippable systems  "
+            }
+        },
+        "route": [],
+        "tags": {
+            "dani": {
+                "materials": [
+                    "resume",
+                    "portfolio",
+                    "work-experience"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "dani*materials>resume,portfolio,work-experience",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "dani-leve",
+            "sys_display": "Dani Leve",
+            "dom_slug": "resume",
+            "dom_display": "resume",
+            "room_slug": "home",
+            "room_display": "resume home",
+            "mod_slug": "DRL",
+            "mod_display": "Danielle Leve (Rudolph)"
+        },
+        "ref_material": {
+            "material": {
+                "type": "",
+                "source": {
+                    "name": "",
+                    "id": "",
+                    "created_on": "",
+                    "last_modified": ""
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777333024.tps",
+            "ingest_unix": 1777333024,
+            "event_unix": 1777333024,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8A58E94F22F81B9D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-JackWEAK",
+                "topic": "System",
+                "content": "# Production System\r\n\r\nI designed and iterated a full-cycle production system to scale game development across multiple concurrent projects.\r\n\r\nThis system supported the growth of output from 2 games per year to 28+ (and beyond), while maintaining delivery under tight timelines and shifting production constraints.\r\n\r\n---\r\n\r\n## Overview\r\n\r\nThe system organizes development into structured phases:\r\n\r\n- Conception\r\n- Pre-Production\r\n- Production\r\n- Development & Integration\r\n- Testing & Release\r\n- Post-Launch Evaluation\r\n\r\nEach phase includes defined ownership, gated approvals, and cross-functional coordination.\r\n\r\n---\r\n\r\n## Core Principles\r\n\r\n- **Clarity of Ownership**  \r\n  Every phase has explicit responsibility across design, art, math, audio, and development.\r\n\r\n- **Gated Progression**  \r\n  Work does not advance without meeting defined criteria, reducing downstream failure.\r\n\r\n- **Parallel Production**  \r\n  Multiple games move through different phases simultaneously across a 6\u20139 month pipeline.\r\n\r\n- **Adaptation Under Constraint**  \r\n  The system supports rapid iteration and recovery when direction shifts or assets fail.\r\n\r\n- **Feedback Loops**  \r\n  Postmortems and scheduled reviews (1, 3, 12 months) feed performance insights back into future production.\r\n\r\n---\r\n\r\n## Scaling Impact\r\n\r\n- Increased output from 2 \u2192 28+ games per year  \r\n- Supported 200+ shipped titles across multiple formats  \r\n- Enabled consistent delivery across overlapping production cycles  \r\n- Reduced rework through structured phase validation  \r\n- Maintained velocity under changing art direction and production pressure  \r\n\r\n---\r\n\r\n## Example Pipeline\r\n\r\n![Infographic Pipeline](..\/m\/rooms\/dani-leve\/resume\/pipeline-info.png)\r\n\r\n*Infographic of phased production structure with cross-team coordination and gated progression.*\r\n\r\n---\r\n\r\n## What This Enables\r\n\r\n- Predictable delivery at scale  \r\n- Faster iteration without loss of control  \r\n- Clear communication across disciplines  \r\n- Recovery from failed or unstable production states  \r\n- Continuous improvement across releases  "
+            }
+        },
+        "route": [],
+        "tags": {
+            "dani": {
+                "materials": [
+                    "resume",
+                    "portfolio",
+                    "system",
+                    "infographic",
+                    "skills"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "dani*materials>resume,portfolio,system,infographic,skills",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "dani-leve",
+            "sys_display": "Dani Leve",
+            "dom_slug": "resume",
+            "dom_display": "resume",
+            "room_slug": "system",
+            "room_display": "resume system",
+            "mod_slug": "DRL",
+            "mod_display": "Danielle Leve (Rudolph)"
+        },
+        "ref_material": {
+            "material": {
+                "type": "",
+                "source": {
+                    "name": "",
+                    "id": "",
+                    "created_on": "",
+                    "last_modified": ""
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777336953.tps",
+            "ingest_unix": 1777336953,
+            "event_unix": 1777336953,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E5E351D738AA5A94": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-JackWEAK",
+                "topic": "Experience",
+                "content": "# Experience\r\n\r\nI grew from an individual contributor into leading game design and full production systems across a live iGaming environment.\r\n\r\nOver 24 years, I moved from execution into ownership\u2014designing games, building teams, and scaling production pipelines that supported hundreds of releases.\r\n\r\n---\r\n\r\n## Evolution\r\n\r\n### Early \u2014 Foundations (Art & Implementation)\r\n\r\nStarted as a designer and artist, working directly on game assets, animation, and implementation.\r\n\r\n- Built early understanding of production constraints and pipelines  \r\n- Worked hands-on across asset creation and delivery  \r\n- Developed sensitivity to how design translates into production reality  \r\n\r\n---\r\n\r\n### Mid \u2014 Game Design & Production Ownership\r\n\r\nTransitioned into game design while taking on increasing responsibility for production flow and delivery.\r\n\r\n- Designed and shipped multiple titles across slot and arcade formats  \r\n- Managed timelines, delivery pipelines, and cross-team coordination  \r\n- Began structuring production workflows to handle growing complexity  \r\n\r\n---\r\n\r\n### Scale \u2014 Systems & Team Leadership\r\n\r\nExpanded into full production ownership, building and scaling systems to support higher output.\r\n\r\n- Built and led cross-functional teams across art, animation, audio, and design  \r\n- Scaled production from 2 \u2192 28+ games per year  \r\n- Introduced structured pipelines, approvals, and feedback loops  \r\n- Maintained delivery under shifting direction and production pressure  \r\n\r\n---\r\n\r\n### Executive \u2014 System Ownership & Recovery\r\n\r\nOperated as the highest-level production and design authority below ownership.\r\n\r\n- Final decision-maker on scope, release readiness, and direction  \r\n- Led game design while owning full production lifecycle  \r\n- Recovered failing or blocked projects and delivered under constraint  \r\n- Drove key product successes, including revenue growth moments  \r\n\r\n---\r\n\r\n## Scope\r\n\r\n- 200+ shipped titles across slots, table games, and arcade formats  \r\n- Cross-functional leadership across art, math, development, product, and marketing  \r\n- Multi-project pipeline across 6\u20139 month production cycles  \r\n- End-to-end ownership from concept through post-launch evaluation  \r\n\r\n---\r\n\r\n## Selected Highlights\r\n\r\n- Scaled production output from 2 \u2192 28+ games\/year  \r\n- Delivered 200+ titles across multiple formats  \r\n- Built full-cycle production system with gated phases  \r\n- Recovered and shipped multiple at-risk projects under tight timelines  "
+            }
+        },
+        "route": [],
+        "tags": {
+            "dani": {
+                "materials": [
+                    "resume",
+                    "portfolio",
+                    "system",
+                    "infographic",
+                    "skills"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "dani*materials>resume,portfolio,system,infographic,skills",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "dani-leve",
+            "sys_display": "Dani Leve",
+            "dom_slug": "resume",
+            "dom_display": "resume",
+            "room_slug": "experience",
+            "room_display": "resume experience",
+            "mod_slug": "DRL",
+            "mod_display": "Danielle Leve (Rudolph)"
+        },
+        "ref_material": {
+            "material": {
+                "type": "",
+                "source": {
+                    "name": "",
+                    "id": "",
+                    "created_on": "",
+                    "last_modified": ""
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777337956.tps",
+            "ingest_unix": 1777337956,
+            "event_unix": 1777337956,
+            "timezone": "America\/New_York"
+        }
+    }
+}

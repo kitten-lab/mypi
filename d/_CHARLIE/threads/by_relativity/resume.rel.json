@@ -1,0 +1,13 @@
+{
+    "VEN": "resume",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "dani": {
+            "GRAVITY": 3,
+            "BIN": {
+                "materials": 3
+            }
+        }
+    }
+}

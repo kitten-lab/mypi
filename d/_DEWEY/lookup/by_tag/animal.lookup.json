@@ -1,0 +1,127 @@
+{
+    "CABINET": {
+        "animal": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777209023,
+                    "LAST": 1777209023
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777209023": [
+                        "omen",
+                        "symbol",
+                        "symbol"
+                    ]
+                }
+            },
+            "SHELF": {
+                "omen": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777209023,
+                            "LAST": 1777209023
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777209023": [
+                                "owl"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "owl": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777209023,
+                                    "LAST": 1777209023
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777209023": {
+                                    "OM": [
+                                        "crate.91EE24AE1C223ADC"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "symbol": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777209023,
+                            "LAST": 1777209023
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777209023": [
+                                "owl",
+                                "who"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "owl": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777209023,
+                                    "LAST": 1777209023
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777209023": {
+                                    "OM": [
+                                        "crate.91EE24AE1C223ADC"
+                                    ]
+                                }
+                            }
+                        },
+                        "who": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777209023,
+                                    "LAST": 1777209023
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777209023": {
+                                    "OM": [
+                                        "crate.91EE24AE1C223ADC"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

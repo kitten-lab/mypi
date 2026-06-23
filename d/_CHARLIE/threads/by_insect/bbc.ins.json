@@ -1,0 +1,14 @@
+{
+    "VEN": "bbc",
+    "GRAVITY": 14,
+    "METADATA": [],
+    "SHELF": {
+        "sopr": {
+            "GRAVITY": 14,
+            "BIN": {
+                "gdd": 7,
+                "bbc-gdd": 7
+            }
+        }
+    }
+}

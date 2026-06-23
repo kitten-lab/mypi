@@ -1,0 +1,13 @@
+{
+    "VEN": "report",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "skyline": {
+            "GRAVITY": 3,
+            "BIN": {
+                "posts": 3
+            }
+        }
+    }
+}

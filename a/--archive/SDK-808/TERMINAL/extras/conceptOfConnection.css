@@ -1,0 +1,108 @@
+
+/* MAKE A concept of connection ======================================================= */
+.monitor-container {
+    position: relative;
+  height: 60dvh;
+  aspect-ratio: 12 / 7;  
+  background-color: var(--my-fav-colorInvis); /* Bezel color */
+  border: 0.4vh solid var(--my-fav-color); /* Outer bezel */
+  border-radius: 4vh;
+  margin: auto;
+  margin-top:2dvh;
+  padding: 40px 20px; /* Space between bezel and content */
+  padding-bottom: 80px;
+  box-shadow: inset 0 0 13px var(--my-fav-color), 0 0 100px var(--my-fav-color);
+  overflow: hidden; /* Keeps screen content inside */
+}
+
+.monitor-container::before {
+    content: "IOX";
+    color: var(--my-fav-color);
+    font-family: 'Sixtyfour';
+    font-size: 1.2rem;
+    margin: auto;
+    align-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1dvh;
+}
+
+.monitor-interior {
+  width: 90%;
+  height: 88%;
+  background-color: var(--my-fav-colorInvis); /* Bezel color */
+  border: 0.1vh solid var(--my-fav-color); /* Outer bezel */
+  border-radius: 2vh;
+  margin: auto;
+  padding: 20px; /* Space between bezel and content */
+  box-shadow: inset 0 0 5px var(--my-fav-color), 0 0 20px var(--my-fav-color);
+  padding-bottom: 50px;
+  overflow: hidden; /* Keeps screen content inside */
+}
+
+.screen-content {
+  width: 97%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.575); /* Page color */
+  color: var(--my-fav-color);
+  border-radius: 1vh;
+  padding: 10px;
+  border: 0.1rem solid var(--my-fav-color);
+  box-shadow: inset 0 0 13px var(--my-fav-color), 0 0 20px var(--my-fav-color);
+  overflow-y: scroll; /* Scrollable content inside monitor */
+    font-family: "VT323";
+}
+
+.computer_scene {
+  width: 88dvh;
+  height: 34dvh;
+  margin:auto;
+  perspective: 3000px; /* Establishes the 3D viewing distance */
+}
+
+.computer_cube {
+  width: 100%;
+  height: 50%;
+  position: relative;
+  margin: auto;
+  transform-style: preserve-3d; /* Allows children to be in 3D space */
+  transform: rotateX(-6deg) rotateY(0deg) translateZ(0px) translateY(2rem); /* Initial rotation for static view */
+}
+
+.computer_face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: var(--my-fav-color);
+  justify-content: center;
+  background-color: var(--my-fav-colorInvis);
+    border: 3px solid var(--my-fav-color);
+  box-shadow: inset 0 0 13px var(--my-fav-color), 0 0 20px var(--my-fav-color);
+}
+
+.front::before {
+    position: absolute;
+    content: "|<>|";
+    font-family: "Sixtyfour";
+}
+
+.front::after {
+    position: absolute;
+    content: "CONCEPT OF CONNECTION";
+    font-family: "Sixtyfour";
+    margin-top: -6dvh;
+    padding: 3px;
+}
+
+/* Positioning each face with transforms */
+.front  { transform: translateZ(3vh); 
+  border-radius: 0 0 3rem 3rem;} /* 100px is half the width/height */
+.top    { transform: rotateX(90deg) rotateY(0deg) translateZ(9vh) translateY(-2.5vh); 
+  border-radius: 3rem 3rem 0 0;}
+.pole {transform: translateY(-10vh) rotateZ(65deg); width: 10px;
+  border-radius: 0 0 3rem 3rem;} 
+.pole2 {transform: translateY(-10vh) translateX(88dvh) rotateZ(-65deg); width: 10px;
+  border-radius: 0 0 3rem 3rem;} 

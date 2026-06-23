@@ -1,0 +1,487 @@
+{
+    "crate.24CE2832C69D7BC7": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Executive Summary",
+                "sec_slug": "executive-summary",
+                "supr_slug": "executive-summary-0001",
+                "content": "A high-level overview of [the] business, goals, and key milestones"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "executive-summary"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,executive-summary",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777157704,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.78940B5234D29364": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Current State Analysis",
+                "sec_slug": "current-state-analysis",
+                "supr_slug": "current-state-analysis-0001",
+                "content": "Where [we] are now, including strengths, weaknesses, and key metrics"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "current-state",
+                    "analysis"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,current-state,analysis",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777158812,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.C78775B1DE023BD0": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Vision & Goals",
+                "sec_slug": "vision-&-goals",
+                "supr_slug": "vision-&-goals-0001",
+                "content": "Where [we] want to be, both short-term and long-term"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "current-state",
+                    "analysis"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,current-state,analysis",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777158837,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.709D87CD7FDFEAFC": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Projects & Initiatives",
+                "sec_slug": "projects-&-initiatives",
+                "supr_slug": "projects-&-initiatives-0001",
+                "content": "The key tasks and projects needed to reach [our] goals"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "projects",
+                    "initiaties"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,projects,initiaties",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777158897,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.3E3DA2432AD6FBF1": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Blockers & Challenges",
+                "sec_slug": "blockers-&-challenges",
+                "supr_slug": "blockers-&-challenges-0001",
+                "content": "What\u2019s standing in [our] way and potential solutions."
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "blockers",
+                    "challenges"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,blockers,challenges",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777158928,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E219DA26BBBA4650": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Roadmap & Timeline",
+                "sec_slug": "roadmap-&-timeline",
+                "supr_slug": "roadmap-&-timeline-0001",
+                "content": "A structured timeline showing how [we'll] get from here to there."
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "roadmap",
+                    "timeline",
+                    "schedule"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,roadmap,timeline,schedule",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777158964,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.26570475582EB59D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Financial Plan & Resources",
+                "sec_slug": "financial-plan-&-resources",
+                "supr_slug": "financial-plan-&-resources-0001",
+                "content": "Budget, funding, and resource allocation to support [our] roadmap"
+            }
+        },
+        "route": [],
+        "tags": {
+            "sopr": {
+                "bbc": [
+                    "gdd",
+                    "bbc-gdd"
+                ],
+                "bbc-gdd": [
+                    "symbolcraft"
+                ]
+            },
+            "symbolcraft": {
+                "docs": [
+                    "business-plan",
+                    "budget",
+                    "financial-plan",
+                    "resources",
+                    "funding",
+                    "allocation"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "sopr*bbc>gdd,bbc-gdd&bbc-gdd>symbolCRAFT;symbolCRAFT*docs>business-plan,budget,financial-plan,resources,funding,allocation",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984014.tps",
+            "ingest_unix": 1777159009,
+            "event_unix": 1739984014,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D195C9EF5FB1EC2E": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Executive Summary",
+                "sec_slug": "executive-summary",
+                "supr_slug": "executive-summary-0002",
+                "content": "breaking into the top tier requires a strategic focus on innovation, market expansion, and operational efficiency"
+            }
+        },
+        "route": [],
+        "tags": {
+            "symbolcraft": {
+                "executive-summary": [
+                    "innovation",
+                    "market-expansion",
+                    "operational-efficiency"
+                ],
+                "goal": [
+                    "top-tier"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbolcraft*executive-summary>innovation,market-expansion,operational-efficiency;symbolcraft*goal>top-tier",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "business-plan",
+            "room_display": "business-plan",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777162819,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    }
+}

@@ -1,0 +1,415 @@
+{
+    "crate.FD99C7711F9971D0": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "reportBASIC",
+            "function": "IntakeReport",
+            "type": "report",
+            "version": 2
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-GOLD",
+                "topic": "The return of the Mouse",
+                "content": "The mouse has returned.\r\nThe cat tries to catch it, but she has no teeth.\r\nShe tries anyways."
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "Daniel Wake"
+            },
+            "to": {
+                "mod": "RECORDER",
+                "room": "omansOmens",
+                "dom": "reportDepartment",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": {
+            "omen": {
+                "animal": [
+                    "cat",
+                    "mouse"
+                ],
+                "pattern": [
+                    "hunt",
+                    "cat-and-mouse"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "omen*animal>cat,mouse&pattern>hunt,cat-and-mouse",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "omansOmens",
+            "room_display": "OMAN'S OMENS",
+            "mod_slug": "RECORDER",
+            "mod_display": "OMAN O'MENTE"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778126967.tps",
+            "ingest_unix": 1778126967,
+            "event_unix": 1778126967,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.34985DC092DA6124": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "WELCOME MESSAGE",
+                "content": "## Hi! My VEN is WAR-002. You can call me Rhea Porta!\r\n## I am happy to help direct you to the best report location for your material!\r\n\r\nThe REPORT DEPARTMENT of THE SKYLINE is a fully-functional archiver for keeping track of moments that matter. Don't have time to sit down and write an entire journal entry about that song that really felt like hymn? Want to track the frequency of seeing the same red bird for the 4th time this week? Well the REPORT DEPARTMENT Is your place to be!"
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "posts": [
+                    "report",
+                    "welcome"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*posts>report,welcome",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTS DEPARTMENT",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA PORTA"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778130092.tps",
+            "ingest_unix": 1778130092,
+            "event_unix": 1778130092,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.BAF96AEF05F7F010": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "MAP TO REPORT OFFICES",
+                "content": "You may explore the REPORT OFFICES by the NAV to your LEFT or by the links below:\r\n\r\n- <a href='\" . b_root . '\/' . $GLOBALS[$SITE]['URI'] . \"?reportDepartment=omansOmens'>REPORT AN OMEN<\/a>\r\n- <a href='\" . b_root . '\/' . $GLOBALS[$SITE]['URI'] . \"?reportDepartment=songOfSongs'>REPORT SENSE OF HYMN<\/a>\r\n- <a href='\" . b_root . '\/' . $GLOBALS[$SITE]['URI'] . \"?reportDepartment=teeHeeSecrets'>REPORT A SECRET KNOWN<\/a>\r\n\r\n\r\nFeel free to check in below, and enjoy your stay!\r\nRhea Porter, Welcome-Agent\r\n-THE SKYLINE-"
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "posts": [
+                    "map",
+                    "report",
+                    "offices"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*posts>map,report,offices",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTS DEPARTMENT",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA PORTA"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778130154.tps",
+            "ingest_unix": 1778130154,
+            "event_unix": 1778130154,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8D50085BC4361EA4": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "MAP TO REPORT OFFICES",
+                "content": "You may explore the REPORT OFFICES by the NAV to your LEFT or by the links below:\r\n\r\n[Oman's Omens](?reportDepartment=omansOmens)\r\n\r\n[Song of Songs](?reportDepartment=songOfSongs)\r\n\r\n[Secrets Known](?reportDepartment=teeHeeSecrets)\r\n"
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "posts": [
+                    "map",
+                    "report",
+                    "offices"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*posts>map,report,offices",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTS DEPARTMENT",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA PORTA"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778130351.tps",
+            "ingest_unix": 1778130351,
+            "event_unix": 1778130351,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.2F522D804955B75F": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "FINAL NOTES",
+                "content": "Feel free to check in below, and enjoy your stay!\r\nRhea Porter, Welcome-Agent\r\n-THE SKYLINE-"
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "posts": [
+                    "final-note",
+                    "signature",
+                    "sky"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*posts>final-note,signature,sky",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTS DEPARTMENT",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA PORTA"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778130525.tps",
+            "ingest_unix": 1778130525,
+            "event_unix": 1778130525,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.1C37CCEFF33C7616": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "You have arrived at the SKYLINE FRONT DESK.",
+                "content": "Thank you for becoming part of our SIGHT. We are THE-CU and this is SKYLINE on INTERA.\r\nNow running in DEMO MODE, so you can explore our place and store your data as your explore.\r\nYour data will not merge with mine! It is stored uniquely for this DEMO (POCKET)POCKET INTERNET.\r\n\r\nSKYLINE is a reporting surface, meaning it is primarily used to REPORT information\r\ninto the deeper architecture beneath the POCKET INTERNET (the 'wires').\r\n\r\nYou may explore the REPORTING tools by journeying to THE REPORT DEPARTMENT\r\n\r\nGood luck!\r\n-THE-CU-"
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "posts": [
+                    "reception",
+                    "welcome-message1"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*posts>reception,welcome-message1",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "publicOffices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778163643.tps",
+            "ingest_unix": 1778163643,
+            "event_unix": 1778163643,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.20778E94F73E9EE1": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "KDE",
+                "topic": "LOVE YOU SITE! REALLY COOL IDEA! (It's me, the maker, posting to myself for an example!)"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "KDE"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "publicOffices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "publicOffices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778201620.tps",
+            "ingest_unix": 1778201620,
+            "event_unix": 1778201620,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D290A9E35E30825B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "SDK-909",
+                "topic": "I got to say, I didn't originally know how the end product would be when you imagined it, but I love how it is all coming together!"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "SDK-909"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "publicOffices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(Demo)",
+            "dom_slug": "publicOffices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778202170.tps",
+            "ingest_unix": 1778202170,
+            "event_unix": 1778202170,
+            "timezone": "America\/New_York"
+        }
+    }
+}

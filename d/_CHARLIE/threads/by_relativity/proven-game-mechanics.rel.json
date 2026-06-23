@@ -1,0 +1,13 @@
+{
+    "VEN": "proven-game-mechanics",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 2,
+            "BIN": {
+                "strengths": 2
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "corporatization",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "www": {
+            "GRAVITY": 1,
+            "BIN": {
+                "fears": 1
+            }
+        }
+    }
+}

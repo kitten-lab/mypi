@@ -1,0 +1,13 @@
+{
+    "VEN": "prophecy",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 1,
+            "BIN": {
+                "skill": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,109 @@
+{
+    "CABINET": {
+        "skyline": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777383911,
+                    "LAST": 1777896353
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1759071600": [
+                        "mythleak"
+                    ]
+                }
+            },
+            "SHELF": {
+                "sdk-808": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777383911,
+                            "LAST": 1777383911
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777383911": [
+                                "checkin"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "checkin": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777383911,
+                                    "LAST": 1777383911
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777383911": {
+                                    "SKYLINE-AGENT": [
+                                        "crate.F3B28EED692EE40A"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "mythleak": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777896231,
+                            "LAST": 1777896353
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1759071600": [
+                                "mentions"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "mentions": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777896231,
+                                    "LAST": 1777896353
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1759081200": {
+                                    "MCS-000": [
+                                        "crate.C05568A757A22870"
+                                    ]
+                                },
+                                "1759071600": {
+                                    "MCS-000": [
+                                        "crate.9C5AC629CF91FDA6"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

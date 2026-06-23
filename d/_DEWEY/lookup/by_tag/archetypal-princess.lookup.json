@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "archetypal-princess": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1777896231,
+                    "LAST": 1777896231
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1759081200": [
+                        "mythleak"
+                    ]
+                }
+            },
+            "SHELF": {
+                "mythleak": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777896231,
+                            "LAST": 1777896231
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1759081200": [
+                                "articles"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "articles": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777896231,
+                                    "LAST": 1777896231
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1759081200": {
+                                    "MCS-000": [
+                                        "crate.C05568A757A22870"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

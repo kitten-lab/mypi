@@ -1,0 +1,14 @@
+{
+    "VEN": "knows",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 3,
+            "BIN": {
+                "elion": 2,
+                "heaven": 1
+            }
+        }
+    }
+}

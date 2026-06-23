@@ -1,0 +1,53 @@
+{
+    "crate.2CB7B767BB2BCC20": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "happiness",
+                "topic": "its mine, i hope...."
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "happiness"
+            },
+            "to": {
+                "sys": "WWW",
+                "dom": "danyi",
+                "mod": "DRL-SDK",
+                "key": "index"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW DEMO",
+            "dom_slug": "danyi",
+            "dom_display": "danyi",
+            "room_slug": "index",
+            "room_display": "danyi's demo of the pocket internet",
+            "mod_slug": "DRL-SDK",
+            "mod_display": "danyi"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778628352.tps",
+            "ingest_unix": 1778628352,
+            "event_unix": 1778628352,
+            "timezone": "America\/New_York"
+        }
+    }
+}

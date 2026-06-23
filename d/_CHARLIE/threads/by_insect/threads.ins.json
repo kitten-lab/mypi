@@ -1,0 +1,16 @@
+{
+    "VEN": "threads",
+    "GRAVITY": 4,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 4,
+            "BIN": {
+                "competition": 1,
+                "emerging-studios": 1,
+                "major-brands": 1,
+                "regulations": 1
+            }
+        }
+    }
+}

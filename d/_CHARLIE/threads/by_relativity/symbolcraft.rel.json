@@ -1,0 +1,13 @@
+{
+    "VEN": "symbolcraft",
+    "GRAVITY": 7,
+    "METADATA": [],
+    "SHELF": {
+        "sopr": {
+            "GRAVITY": 7,
+            "BIN": {
+                "bbc-gdd": 7
+            }
+        }
+    }
+}

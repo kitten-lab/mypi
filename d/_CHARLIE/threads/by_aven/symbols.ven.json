@@ -1,0 +1,18 @@
+{
+    "VEN": "symbols",
+    "GRAVITY": 4,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "numbers": {
+            "GRAVITY": 4,
+            "BIN": {
+                "808": 1,
+                "555": 1,
+                "101": 1,
+                "100001": 1
+            }
+        }
+    }
+}

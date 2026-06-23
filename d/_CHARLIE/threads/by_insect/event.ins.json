@@ -1,0 +1,15 @@
+{
+    "VEN": "event",
+    "GRAVITY": 6,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 6,
+            "BIN": {
+                "gem": 2,
+                "frozen": 2,
+                "crystalized": 2
+            }
+        }
+    }
+}

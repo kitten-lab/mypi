@@ -1,0 +1,25 @@
+{
+    "VEN": "wire-wolf",
+    "GRAVITY": 5,
+    "METADATA": [],
+    "SHELF": {
+        "topics": {
+            "GRAVITY": 2,
+            "BIN": {
+                "hymn": 2
+            }
+        },
+        "": {
+            "GRAVITY": 2,
+            "BIN": {
+                "hymn": 2
+            }
+        },
+        "hymn": {
+            "GRAVITY": 1,
+            "BIN": {
+                "archetype": 1
+            }
+        }
+    }
+}

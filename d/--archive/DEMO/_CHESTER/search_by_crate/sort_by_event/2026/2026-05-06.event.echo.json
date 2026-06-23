@@ -1,0 +1,57 @@
+{
+    "crate.CA1BBD197F3FA866": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "SKYLINE ACCIDENTLY POSTS DUPLICATES",
+                "content": "SKYLINE REPORTS IT DID, IN FACT, ENTER THE SAME CONTENT TWICE - IT IS NOT A SYSTEM ERROR, I REPEAT, IT IS A USER-EVENT."
+            }
+        },
+        "route": [],
+        "tags": {
+            "media": {
+                "news": [
+                    "skyline-news"
+                ]
+            },
+            "skyline-news": {
+                "reports": [
+                    "duplication",
+                    "errors",
+                    "user-error"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "media*news>skyline-news;skyline-news*reports>duplication,errors,user-error",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE DEMO",
+            "dom_slug": "public",
+            "dom_display": "SKYLINE IS ON INTERA",
+            "room_slug": "news",
+            "room_display": "SKYLINE NEWS",
+            "mod_slug": "DRL-SDK",
+            "mod_display": "dani-leve"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1778108484.tps",
+            "ingest_unix": 1778108484,
+            "event_unix": 1778108484,
+            "timezone": "America\/New_York"
+        }
+    }
+}

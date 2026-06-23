@@ -1,0 +1,13 @@
+{
+    "VEN": "yellow",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 1,
+            "BIN": {
+                "relatedto": 1
+            }
+        }
+    }
+}

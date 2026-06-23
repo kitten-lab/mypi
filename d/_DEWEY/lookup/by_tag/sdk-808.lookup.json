@@ -1,0 +1,210 @@
+{
+    "CABINET": {
+        "sdk-808": {
+            "METADATA": {
+                "GRAVITY": 6,
+                "INGEST": {
+                    "FIRST": 1777383911,
+                    "LAST": 1777477577
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1744767843": [
+                        "thoughts"
+                    ]
+                }
+            },
+            "SHELF": {
+                "checkin": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777383911,
+                            "LAST": 1777383911
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777383911": [
+                                "skyline",
+                                "live-updates"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "skyline": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777383911,
+                                    "LAST": 1777383911
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777383911": {
+                                    "SKYLINE-AGENT": [
+                                        "crate.F3B28EED692EE40A"
+                                    ]
+                                }
+                            }
+                        },
+                        "live-updates": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777383911,
+                                    "LAST": 1777383911
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777383911": {
+                                    "SKYLINE-AGENT": [
+                                        "crate.F3B28EED692EE40A"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "listening-to": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777416958,
+                            "LAST": 1777416958
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758046781": [
+                                "music"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "music": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777416958,
+                                    "LAST": 1777416958
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758046781": {
+                                    "SDK-808": [
+                                        "crate.3AE7599373BA8D42"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "set-up": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777417138,
+                            "LAST": 1777417251
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1758005533": [
+                                "song-records"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "song-records": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777417138,
+                                    "LAST": 1777417251
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758042042": {
+                                    "SDK-808": [
+                                        "crate.D6F9B0993D381D82"
+                                    ]
+                                },
+                                "1758005533": {
+                                    "SDK-808": [
+                                        "crate.028373DD3C4C6B97"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "thoughts": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777477577,
+                            "LAST": 1777477577
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1744767843": [
+                                "chester"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "chester": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777477577,
+                                    "LAST": 1777477577
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1744767843": {
+                                    "SDK-808": [
+                                        "crate.E0BD1B135E50FC5E"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

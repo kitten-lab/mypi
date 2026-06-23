@@ -1,0 +1,108 @@
+{
+    "CABINET": {
+        "coa": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777392246,
+                    "LAST": 1777392246
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777392246": [
+                        "secret",
+                        "secret",
+                        "secret"
+                    ]
+                }
+            },
+            "SHELF": {
+                "secret": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1777392246,
+                            "LAST": 1777392246
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777392246": [
+                                "remember",
+                                "remember-me",
+                                "jobs"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "remember": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777392246,
+                                    "LAST": 1777392246
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777392246": {
+                                    "THE-CU": [
+                                        "crate.50F7C172738E3C73"
+                                    ]
+                                }
+                            }
+                        },
+                        "remember-me": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777392246,
+                                    "LAST": 1777392246
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777392246": {
+                                    "THE-CU": [
+                                        "crate.50F7C172738E3C73"
+                                    ]
+                                }
+                            }
+                        },
+                        "jobs": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777392246,
+                                    "LAST": 1777392246
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777392246": {
+                                    "THE-CU": [
+                                        "crate.50F7C172738E3C73"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "VEN": "presence",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 2,
+            "BIN": {
+                "strong": 1,
+                "established": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "relationships",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 1,
+            "BIN": {
+                "opportunities": 1
+            }
+        }
+    }
+}

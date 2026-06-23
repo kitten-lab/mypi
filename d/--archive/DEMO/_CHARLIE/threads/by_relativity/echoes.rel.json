@@ -1,0 +1,13 @@
+{
+    "VEN": "echoes",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "skyline-news": {
+            "GRAVITY": 1,
+            "BIN": {
+                "reports": 1
+            }
+        }
+    }
+}

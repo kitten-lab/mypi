@@ -1,0 +1,18 @@
+{
+    "VEN": "data-forestry",
+    "GRAVITY": 4,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "purpose": {
+            "GRAVITY": 4,
+            "BIN": {
+                "ingest-material": 1,
+                "searchable": 1,
+                "storage": 1,
+                "silo": 1
+            }
+        }
+    }
+}

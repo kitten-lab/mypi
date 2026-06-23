@@ -1,0 +1,24 @@
+<?php
+SKY__AUTH(
+    /*MOD_SLUG*/     "NEWS-REPORTER",
+    /*MOD_DISPLAY*/  "WRIGHT MOAR", 
+    
+    /*DOM_SLUG*/     "publicOffices", 
+    /*DOM_DISPLAY*/  "PUBLIC OFFICES",
+
+    /*ROOM_SLUG*/    "news", 
+    /*ROOM_DISPLAY*/  "SKYLINE NEWS",
+
+    /*ROOM_FLAVOR*/  "skyline-standard"
+);
+openSky("SKYLINE NEWS");
+
+
+title("Skyline News Desk", "header", 1);
+medHeading("RECENT NEWS FROM THE SILO");
+getTool("postBASIC","ViewList");
+
+leaf("--
+Content on this page was ingested with postBASIC and is being displayed in ViewList linking to ViewPost");
+closeSky();
+?>

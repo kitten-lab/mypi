@@ -1,0 +1,80 @@
+{
+    "crate.294FCC2F01F150F6": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-KAT",
+                "topic": "APHRODITE MISSING SINCE SPRING",
+                "content": "REPORTS STATE HADES \u201cSENT HER BACK ON SCHEDULE\u201d\r\n\r\nDespite her scheduled arrival, Aphrodite still has not returned to any location within the Holy Above and Below since before Easter. Multiple sources reported to MYTHLEAK\u2019s tip line sightings throughout The Skyline. MYTHLEAK was unable to corroborate the reports.\r\n\r\nThe Wire Web\u2019s Dark Lattice Network sent a striking claim:\r\n\u201cSHE HAS LEFT TO FORM HER OWN CYCLES,\u201d one poster on the imported.to Social Network site said.\r\n"
+            }
+        },
+        "route": [],
+        "tags": {
+            "media": {
+                "news": [
+                    "mythleak"
+                ]
+            },
+            "mythleak": {
+                "articles": [
+                    "aprodite-missing",
+                    "hades-sent-on-schedule"
+                ],
+                "mentions": [
+                    "aphrodite",
+                    "hades",
+                    "scheduled",
+                    "missing",
+                    "holy",
+                    "above-and-below",
+                    "easter",
+                    "wide-web-dln",
+                    "new-cycles",
+                    "social-network"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "media*news>mythleak;mythleak*articles>aprodite-missing,hades-sent-on-schedule&mentions>Aphrodite,hades,scheduled,missing,holy,above-and-below,easter,wide-web-dln,new-cycles,social-network",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "MYTHLEAK",
+            "sys_display": "MYTHLEAK: WE HAVE THE RECIEPTS",
+            "dom_slug": "NEWS",
+            "dom_display": "THE JUICE LINE",
+            "room_slug": "HEADLINES",
+            "room_display": "HEADLINES",
+            "mod_slug": "MCS-000",
+            "mod_display": "-MOUSE-"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Obsidian Vault",
+                "source": {
+                    "name": "TERMINAL IO",
+                    "id": "I AM MINE\/_Chesters Imports\/TERMINAL IO\/",
+                    "created_on": "check crate",
+                    "last_modified": "check crate"
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1757430000.tps",
+            "ingest_unix": 1777900262,
+            "event_unix": 1757430000,
+            "timezone": "America\/New_York"
+        }
+    }
+}

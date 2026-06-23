@@ -1,0 +1,35 @@
+{
+    "VEN": "sopr",
+    "GRAVITY": 27,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "bbc": {
+            "GRAVITY": 14,
+            "BIN": {
+                "gdd": 7,
+                "bbc-gdd": 7
+            }
+        },
+        "bbc-gdd": {
+            "GRAVITY": 7,
+            "BIN": {
+                "symbolcraft": 7
+            }
+        },
+        "nim": {
+            "GRAVITY": 4,
+            "BIN": {
+                "data-forestry": 2,
+                "docs": 2
+            }
+        },
+        "docs": {
+            "GRAVITY": 2,
+            "BIN": {
+                "data-forestry": 2
+            }
+        }
+    }
+}

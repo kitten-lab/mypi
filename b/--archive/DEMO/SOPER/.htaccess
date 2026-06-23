@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Prevent Apache from rewriting paths to existing files or folders
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route everything else to index.php
+RewriteRule ^(.*)$ index.php [L,QSA]

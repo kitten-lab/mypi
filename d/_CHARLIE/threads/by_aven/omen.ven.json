@@ -1,0 +1,29 @@
+{
+    "VEN": "omen",
+    "GRAVITY": 12,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "animal": {
+            "GRAVITY": 1,
+            "BIN": {
+                "owl": 1
+            }
+        },
+        "numbers": {
+            "GRAVITY": 11,
+            "BIN": {
+                "3": 2,
+                "333": 2,
+                "4": 1,
+                "444": 1,
+                "angel-numbers": 1,
+                "5": 1,
+                "555": 1,
+                "101": 1,
+                "100001": 1
+            }
+        }
+    }
+}

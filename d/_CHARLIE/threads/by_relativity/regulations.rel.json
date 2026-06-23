@@ -1,0 +1,14 @@
+{
+    "VEN": "regulations",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 2,
+            "BIN": {
+                "threads": 1,
+                "threats": 1
+            }
+        }
+    }
+}

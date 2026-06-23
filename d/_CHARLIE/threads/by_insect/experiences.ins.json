@@ -1,0 +1,15 @@
+{
+    "VEN": "experiences",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 3,
+            "BIN": {
+                "overwhelm": 1,
+                "fragmentation": 1,
+                "crystalization": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "VEN": "intentions",
+    "GRAVITY": 4,
+    "METADATA": [],
+    "SHELF": {
+        "detective-case_work": {
+            "GRAVITY": 4,
+            "BIN": {
+                "evidence_gathering": 1,
+                "reels": 1,
+                "new-every-time": 2
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "VEN": "suggested-goals",
+    "GRAVITY": 7,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 7,
+            "BIN": {
+                "improve-marketing": 1,
+                "better-relationships": 1,
+                "innovation": 1,
+                "innovative-mechanics": 1,
+                "unique-mechanics": 1,
+                "market-expansion": 1,
+                "gamification": 1
+            }
+        }
+    }
+}

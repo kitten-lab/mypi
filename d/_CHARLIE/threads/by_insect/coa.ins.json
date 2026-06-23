@@ -1,0 +1,15 @@
+{
+    "VEN": "coa",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "secret": {
+            "GRAVITY": 3,
+            "BIN": {
+                "remember": 1,
+                "remember-me": 1,
+                "jobs": 1
+            }
+        }
+    }
+}

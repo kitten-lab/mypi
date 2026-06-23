@@ -1,0 +1,13 @@
+{
+    "VEN": "insights-provider",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 2,
+            "BIN": {
+                "betsoft": 2
+            }
+        }
+    }
+}

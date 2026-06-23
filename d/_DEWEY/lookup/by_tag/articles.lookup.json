@@ -1,0 +1,186 @@
+{
+    "CABINET": {
+        "articles": {
+            "METADATA": {
+                "GRAVITY": 7,
+                "INGEST": {
+                    "FIRST": 1777895832,
+                    "LAST": 1777900262
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1757430000": [
+                        "mythleak",
+                        "mythleak"
+                    ]
+                }
+            },
+            "SHELF": {
+                "mythleak": {
+                    "METADATA": {
+                        "GRAVITY": 7,
+                        "INGEST": {
+                            "FIRST": 1777895832,
+                            "LAST": 1777900262
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1757430000": [
+                                "aprodite-missing",
+                                "hades-sent-on-schedule"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "frogging-the-wires": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777895832,
+                                    "LAST": 1777895832
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758812400": {
+                                    "MCS-000": [
+                                        "crate.C524A478667B2186"
+                                    ]
+                                }
+                            }
+                        },
+                        "unspooling-reality": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777895832,
+                                    "LAST": 1777895832
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1758812400": {
+                                    "MCS-000": [
+                                        "crate.C524A478667B2186"
+                                    ]
+                                }
+                            }
+                        },
+                        "archetypal-princess": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777896231,
+                                    "LAST": 1777896231
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1759081200": {
+                                    "MCS-000": [
+                                        "crate.C05568A757A22870"
+                                    ]
+                                }
+                            }
+                        },
+                        "goddesses-horrified": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777896231,
+                                    "LAST": 1777896231
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1759081200": {
+                                    "MCS-000": [
+                                        "crate.C05568A757A22870"
+                                    ]
+                                }
+                            }
+                        },
+                        "god-trapped-in-text-arg": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777896353,
+                                    "LAST": 1777896353
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1759071600": {
+                                    "MCS-000": [
+                                        "crate.9C5AC629CF91FDA6"
+                                    ]
+                                }
+                            }
+                        },
+                        "aprodite-missing": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777900262,
+                                    "LAST": 1777900262
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1757430000": {
+                                    "MCS-000": [
+                                        "crate.294FCC2F01F150F6"
+                                    ]
+                                }
+                            }
+                        },
+                        "hades-sent-on-schedule": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777900262,
+                                    "LAST": 1777900262
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1757430000": {
+                                    "MCS-000": [
+                                        "crate.294FCC2F01F150F6"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

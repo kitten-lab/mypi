@@ -1,0 +1,66 @@
+{
+    "crate.E5E351D738AA5A94": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "MRA-JackWEAK",
+                "topic": "Experience",
+                "content": "# Experience\r\n\r\nI grew from an individual contributor into leading game design and full production systems across a live iGaming environment.\r\n\r\nOver 24 years, I moved from execution into ownership\u2014designing games, building teams, and scaling production pipelines that supported hundreds of releases.\r\n\r\n---\r\n\r\n## Evolution\r\n\r\n### Early \u2014 Foundations (Art & Implementation)\r\n\r\nStarted as a designer and artist, working directly on game assets, animation, and implementation.\r\n\r\n- Built early understanding of production constraints and pipelines  \r\n- Worked hands-on across asset creation and delivery  \r\n- Developed sensitivity to how design translates into production reality  \r\n\r\n---\r\n\r\n### Mid \u2014 Game Design & Production Ownership\r\n\r\nTransitioned into game design while taking on increasing responsibility for production flow and delivery.\r\n\r\n- Designed and shipped multiple titles across slot and arcade formats  \r\n- Managed timelines, delivery pipelines, and cross-team coordination  \r\n- Began structuring production workflows to handle growing complexity  \r\n\r\n---\r\n\r\n### Scale \u2014 Systems & Team Leadership\r\n\r\nExpanded into full production ownership, building and scaling systems to support higher output.\r\n\r\n- Built and led cross-functional teams across art, animation, audio, and design  \r\n- Scaled production from 2 \u2192 28+ games per year  \r\n- Introduced structured pipelines, approvals, and feedback loops  \r\n- Maintained delivery under shifting direction and production pressure  \r\n\r\n---\r\n\r\n### Executive \u2014 System Ownership & Recovery\r\n\r\nOperated as the highest-level production and design authority below ownership.\r\n\r\n- Final decision-maker on scope, release readiness, and direction  \r\n- Led game design while owning full production lifecycle  \r\n- Recovered failing or blocked projects and delivered under constraint  \r\n- Drove key product successes, including revenue growth moments  \r\n\r\n---\r\n\r\n## Scope\r\n\r\n- 200+ shipped titles across slots, table games, and arcade formats  \r\n- Cross-functional leadership across art, math, development, product, and marketing  \r\n- Multi-project pipeline across 6\u20139 month production cycles  \r\n- End-to-end ownership from concept through post-launch evaluation  \r\n\r\n---\r\n\r\n## Selected Highlights\r\n\r\n- Scaled production output from 2 \u2192 28+ games\/year  \r\n- Delivered 200+ titles across multiple formats  \r\n- Built full-cycle production system with gated phases  \r\n- Recovered and shipped multiple at-risk projects under tight timelines  "
+            }
+        },
+        "route": [],
+        "tags": {
+            "dani": {
+                "materials": [
+                    "resume",
+                    "portfolio",
+                    "system",
+                    "infographic",
+                    "skills"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "dani*materials>resume,portfolio,system,infographic,skills",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "dani-leve",
+            "sys_display": "Dani Leve",
+            "dom_slug": "resume",
+            "dom_display": "resume",
+            "room_slug": "experience",
+            "room_display": "resume experience",
+            "mod_slug": "DRL",
+            "mod_display": "Danielle Leve (Rudolph)"
+        },
+        "ref_material": {
+            "material": {
+                "type": "",
+                "source": {
+                    "name": "",
+                    "id": "",
+                    "created_on": "",
+                    "last_modified": ""
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1777337956.tps",
+            "ingest_unix": 1777337956,
+            "event_unix": 1777337956,
+            "timezone": "America\/New_York"
+        }
+    }
+}

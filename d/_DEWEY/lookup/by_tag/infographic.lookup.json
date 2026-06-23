@@ -1,0 +1,69 @@
+{
+    "CABINET": {
+        "infographic": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1777336953,
+                    "LAST": 1777337956
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777337956": [
+                        "dani"
+                    ]
+                }
+            },
+            "SHELF": {
+                "dani": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777336953,
+                            "LAST": 1777337956
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777337956": [
+                                "materials"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "materials": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777336953,
+                                    "LAST": 1777337956
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777336953": {
+                                    "DRL": [
+                                        "crate.8A58E94F22F81B9D"
+                                    ]
+                                },
+                                "1777337956": {
+                                    "DRL": [
+                                        "crate.E5E351D738AA5A94"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

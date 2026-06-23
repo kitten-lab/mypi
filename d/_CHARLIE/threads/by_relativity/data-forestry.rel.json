@@ -1,0 +1,14 @@
+{
+    "VEN": "data-forestry",
+    "GRAVITY": 4,
+    "METADATA": [],
+    "SHELF": {
+        "sopr": {
+            "GRAVITY": 4,
+            "BIN": {
+                "nim": 2,
+                "docs": 2
+            }
+        }
+    }
+}

@@ -1,0 +1,1763 @@
+{
+    "CABINET": {
+        "detective-case_work": {
+            "METADATA": {
+                "GRAVITY": 119,
+                "INGEST": {
+                    "FIRST": 1777220645,
+                    "LAST": 1777222375
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777222375": [
+                        "environment",
+                        "slots",
+                        "games"
+                    ]
+                }
+            },
+            "SHELF": {
+                "slots": {
+                    "METADATA": {
+                        "GRAVITY": 41,
+                        "INGEST": {
+                            "FIRST": 1777220645,
+                            "LAST": 1777222375
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777222375": [
+                                "environment"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "illustrations": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777220645,
+                                    "LAST": 1777221449
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777220645": {
+                                    "DW": [
+                                        "crate.B5B97192F802011D"
+                                    ]
+                                },
+                                "1777221449": {
+                                    "DW": [
+                                        "crate.078A4AC0EDACFADC"
+                                    ]
+                                }
+                            }
+                        },
+                        "main_game": {
+                            "METADATA": {
+                                "GRAVITY": 3,
+                                "INGEST": {
+                                    "FIRST": 1777220645,
+                                    "LAST": 1777220840
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777220645": {
+                                    "DW": [
+                                        "crate.B5B97192F802011D"
+                                    ]
+                                },
+                                "1777220741": {
+                                    "DW": [
+                                        "crate.7E8D72047395CF31"
+                                    ]
+                                },
+                                "1777220840": {
+                                    "DW": [
+                                        "crate.EA963F17404DE936"
+                                    ]
+                                }
+                            }
+                        },
+                        "functionality": {
+                            "METADATA": {
+                                "GRAVITY": 5,
+                                "INGEST": {
+                                    "FIRST": 1777220741,
+                                    "LAST": 1777221709
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777220741": {
+                                    "DW": [
+                                        "crate.7E8D72047395CF31"
+                                    ]
+                                },
+                                "1777221279": {
+                                    "DW": [
+                                        "crate.DACE7DDA54F7AF36"
+                                    ]
+                                },
+                                "1777221518": {
+                                    "DW": [
+                                        "crate.D3450BE4E10A4C90"
+                                    ]
+                                },
+                                "1777221535": {
+                                    "DW": [
+                                        "crate.29138ED2B15944A2"
+                                    ]
+                                },
+                                "1777221709": {
+                                    "DW": [
+                                        "crate.EF1D6F178D919EBB"
+                                    ]
+                                }
+                            }
+                        },
+                        "intentions": {
+                            "METADATA": {
+                                "GRAVITY": 10,
+                                "INGEST": {
+                                    "FIRST": 1777220840,
+                                    "LAST": 1777222204
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777220840": {
+                                    "DW": [
+                                        "crate.EA963F17404DE936"
+                                    ]
+                                },
+                                "1777220904": {
+                                    "DW": [
+                                        "crate.8E618B2BA9A19953"
+                                    ]
+                                },
+                                "1777220990": {
+                                    "DW": [
+                                        "crate.C7CF63054FE4B7EF"
+                                    ]
+                                },
+                                "1777221072": {
+                                    "DW": [
+                                        "crate.BC71A9AF2276FD5D"
+                                    ]
+                                },
+                                "1777221105": {
+                                    "DW": [
+                                        "crate.B7C1AD281172231F"
+                                    ]
+                                },
+                                "1777221142": {
+                                    "DW": [
+                                        "crate.604C840E3575303D"
+                                    ]
+                                },
+                                "1777221361": {
+                                    "DW": [
+                                        "crate.34D634CA0791552D"
+                                    ]
+                                },
+                                "1777221876": {
+                                    "DW": [
+                                        "crate.CBCE440A5ECA98E1"
+                                    ]
+                                },
+                                "1777222185": {
+                                    "DW": [
+                                        "crate.CADFAE54D347DC37"
+                                    ]
+                                },
+                                "1777222204": {
+                                    "DW": [
+                                        "crate.ECE355EF15366BAB"
+                                    ]
+                                }
+                            }
+                        },
+                        "theme": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777220904,
+                                    "LAST": 1777220990
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777220904": {
+                                    "DW": [
+                                        "crate.8E618B2BA9A19953"
+                                    ]
+                                },
+                                "1777220990": {
+                                    "DW": [
+                                        "crate.C7CF63054FE4B7EF"
+                                    ]
+                                }
+                            }
+                        },
+                        "detective-for-hire": {
+                            "METADATA": {
+                                "GRAVITY": 3,
+                                "INGEST": {
+                                    "FIRST": 1777220904,
+                                    "LAST": 1777221279
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777220904": {
+                                    "DW": [
+                                        "crate.8E618B2BA9A19953"
+                                    ]
+                                },
+                                "1777220990": {
+                                    "DW": [
+                                        "crate.C7CF63054FE4B7EF"
+                                    ]
+                                },
+                                "1777221279": {
+                                    "DW": [
+                                        "crate.DACE7DDA54F7AF36"
+                                    ]
+                                }
+                            }
+                        },
+                        "anticipation": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221072,
+                                    "LAST": 1777221072
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221072": {
+                                    "DW": [
+                                        "crate.BC71A9AF2276FD5D"
+                                    ]
+                                }
+                            }
+                        },
+                        "resolution": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221072,
+                                    "LAST": 1777221072
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221072": {
+                                    "DW": [
+                                        "crate.BC71A9AF2276FD5D"
+                                    ]
+                                }
+                            }
+                        },
+                        "two-act": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221072,
+                                    "LAST": 1777221072
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221072": {
+                                    "DW": [
+                                        "crate.BC71A9AF2276FD5D"
+                                    ]
+                                }
+                            }
+                        },
+                        "investigation": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221072,
+                                    "LAST": 1777221072
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221072": {
+                                    "DW": [
+                                        "crate.BC71A9AF2276FD5D"
+                                    ]
+                                }
+                            }
+                        },
+                        "story-phases": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221105,
+                                    "LAST": 1777221105
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221105": {
+                                    "DW": [
+                                        "crate.B7C1AD281172231F"
+                                    ]
+                                }
+                            }
+                        },
+                        "trope_detective": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221142,
+                                    "LAST": 1777221142
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221142": {
+                                    "DW": [
+                                        "crate.604C840E3575303D"
+                                    ]
+                                }
+                            }
+                        },
+                        "office": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777221142,
+                                    "LAST": 1777221279
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221142": {
+                                    "DW": [
+                                        "crate.604C840E3575303D"
+                                    ]
+                                },
+                                "1777221279": {
+                                    "DW": [
+                                        "crate.DACE7DDA54F7AF36"
+                                    ]
+                                }
+                            }
+                        },
+                        "symbols": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221805,
+                                    "LAST": 1777221805
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                }
+                            }
+                        },
+                        "solutions": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777221950,
+                                    "LAST": 1777222139
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221950": {
+                                    "DW": [
+                                        "crate.C93E48358996BB4B"
+                                    ]
+                                },
+                                "1777222139": {
+                                    "DW": [
+                                        "crate.3958D86EE9A79A1E"
+                                    ]
+                                }
+                            }
+                        },
+                        "client-cases": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777222020,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222020": {
+                                    "DW": [
+                                        "crate.F55763B9EB031CF4"
+                                    ]
+                                },
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        },
+                        "environment": {
+                            "METADATA": {
+                                "GRAVITY": 3,
+                                "INGEST": {
+                                    "FIRST": 1777222305,
+                                    "LAST": 1777222375
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222305": {
+                                    "DW": [
+                                        "crate.85D41CD6F6CA7D2B"
+                                    ]
+                                },
+                                "1777222321": {
+                                    "DW": [
+                                        "crate.8E236949231DA94B"
+                                    ]
+                                },
+                                "1777222375": {
+                                    "DW": [
+                                        "crate.0C8963CC9B691D58"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "games": {
+                    "METADATA": {
+                        "GRAVITY": 25,
+                        "INGEST": {
+                            "FIRST": 1777220645,
+                            "LAST": 1777222375
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777222375": [
+                                "slots"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "slots": {
+                            "METADATA": {
+                                "GRAVITY": 25,
+                                "INGEST": {
+                                    "FIRST": 1777220645,
+                                    "LAST": 1777222375
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777220645": {
+                                    "DW": [
+                                        "crate.B5B97192F802011D"
+                                    ]
+                                },
+                                "1777220741": {
+                                    "DW": [
+                                        "crate.7E8D72047395CF31"
+                                    ]
+                                },
+                                "1777220840": {
+                                    "DW": [
+                                        "crate.EA963F17404DE936"
+                                    ]
+                                },
+                                "1777220904": {
+                                    "DW": [
+                                        "crate.8E618B2BA9A19953"
+                                    ]
+                                },
+                                "1777220990": {
+                                    "DW": [
+                                        "crate.C7CF63054FE4B7EF"
+                                    ]
+                                },
+                                "1777221072": {
+                                    "DW": [
+                                        "crate.BC71A9AF2276FD5D"
+                                    ]
+                                },
+                                "1777221105": {
+                                    "DW": [
+                                        "crate.B7C1AD281172231F"
+                                    ]
+                                },
+                                "1777221142": {
+                                    "DW": [
+                                        "crate.604C840E3575303D"
+                                    ]
+                                },
+                                "1777221279": {
+                                    "DW": [
+                                        "crate.DACE7DDA54F7AF36"
+                                    ]
+                                },
+                                "1777221361": {
+                                    "DW": [
+                                        "crate.34D634CA0791552D"
+                                    ]
+                                },
+                                "1777221449": {
+                                    "DW": [
+                                        "crate.078A4AC0EDACFADC"
+                                    ]
+                                },
+                                "1777221518": {
+                                    "DW": [
+                                        "crate.D3450BE4E10A4C90"
+                                    ]
+                                },
+                                "1777221535": {
+                                    "DW": [
+                                        "crate.29138ED2B15944A2"
+                                    ]
+                                },
+                                "1777221709": {
+                                    "DW": [
+                                        "crate.EF1D6F178D919EBB"
+                                    ]
+                                },
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                },
+                                "1777221876": {
+                                    "DW": [
+                                        "crate.CBCE440A5ECA98E1"
+                                    ]
+                                },
+                                "1777221950": {
+                                    "DW": [
+                                        "crate.C93E48358996BB4B"
+                                    ]
+                                },
+                                "1777222020": {
+                                    "DW": [
+                                        "crate.F55763B9EB031CF4"
+                                    ]
+                                },
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                },
+                                "1777222139": {
+                                    "DW": [
+                                        "crate.3958D86EE9A79A1E"
+                                    ]
+                                },
+                                "1777222185": {
+                                    "DW": [
+                                        "crate.CADFAE54D347DC37"
+                                    ]
+                                },
+                                "1777222204": {
+                                    "DW": [
+                                        "crate.ECE355EF15366BAB"
+                                    ]
+                                },
+                                "1777222305": {
+                                    "DW": [
+                                        "crate.85D41CD6F6CA7D2B"
+                                    ]
+                                },
+                                "1777222321": {
+                                    "DW": [
+                                        "crate.8E236949231DA94B"
+                                    ]
+                                },
+                                "1777222375": {
+                                    "DW": [
+                                        "crate.0C8963CC9B691D58"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "atmosphere": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777221279,
+                            "LAST": 1777221279
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777221279": [
+                                "dark"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "dark": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221279,
+                                    "LAST": 1777221279
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221279": {
+                                    "DW": [
+                                        "crate.DACE7DDA54F7AF36"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "location": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777221279,
+                            "LAST": 1777221279
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777221279": [
+                                "office",
+                                "detective_office"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "office": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221279,
+                                    "LAST": 1777221279
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221279": {
+                                    "DW": [
+                                        "crate.DACE7DDA54F7AF36"
+                                    ]
+                                }
+                            }
+                        },
+                        "detective_office": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221279,
+                                    "LAST": 1777221279
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221279": {
+                                    "DW": [
+                                        "crate.DACE7DDA54F7AF36"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "door": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777221279,
+                            "LAST": 1777221279
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777221279": [
+                                "tinted-glass"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "tinted-glass": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221279,
+                                    "LAST": 1777221279
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221279": {
+                                    "DW": [
+                                        "crate.DACE7DDA54F7AF36"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "detective": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777221361,
+                            "LAST": 1777221361
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777221361": [
+                                "self-insert"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "self-insert": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221361,
+                                    "LAST": 1777221361
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221361": {
+                                    "DW": [
+                                        "crate.34D634CA0791552D"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "feature": {
+                    "METADATA": {
+                        "GRAVITY": 11,
+                        "INGEST": {
+                            "FIRST": 1777221449,
+                            "LAST": 1777221709
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777221709": [
+                                "case",
+                                "case_discovery"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "event_trigger": {
+                            "METADATA": {
+                                "GRAVITY": 3,
+                                "INGEST": {
+                                    "FIRST": 1777221449,
+                                    "LAST": 1777221535
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221449": {
+                                    "DW": [
+                                        "crate.078A4AC0EDACFADC"
+                                    ]
+                                },
+                                "1777221518": {
+                                    "DW": [
+                                        "crate.D3450BE4E10A4C90"
+                                    ]
+                                },
+                                "1777221535": {
+                                    "DW": [
+                                        "crate.29138ED2B15944A2"
+                                    ]
+                                }
+                            }
+                        },
+                        "customer": {
+                            "METADATA": {
+                                "GRAVITY": 3,
+                                "INGEST": {
+                                    "FIRST": 1777221449,
+                                    "LAST": 1777221535
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221449": {
+                                    "DW": [
+                                        "crate.078A4AC0EDACFADC"
+                                    ]
+                                },
+                                "1777221518": {
+                                    "DW": [
+                                        "crate.D3450BE4E10A4C90"
+                                    ]
+                                },
+                                "1777221535": {
+                                    "DW": [
+                                        "crate.29138ED2B15944A2"
+                                    ]
+                                }
+                            }
+                        },
+                        "case": {
+                            "METADATA": {
+                                "GRAVITY": 3,
+                                "INGEST": {
+                                    "FIRST": 1777221449,
+                                    "LAST": 1777221709
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221449": {
+                                    "DW": [
+                                        "crate.078A4AC0EDACFADC"
+                                    ]
+                                },
+                                "1777221518": {
+                                    "DW": [
+                                        "crate.D3450BE4E10A4C90"
+                                    ]
+                                },
+                                "1777221709": {
+                                    "DW": [
+                                        "crate.EF1D6F178D919EBB"
+                                    ]
+                                }
+                            }
+                        },
+                        "case_discovery": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777221535,
+                                    "LAST": 1777221709
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221535": {
+                                    "DW": [
+                                        "crate.29138ED2B15944A2"
+                                    ]
+                                },
+                                "1777221709": {
+                                    "DW": [
+                                        "crate.EF1D6F178D919EBB"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "symbols": {
+                    "METADATA": {
+                        "GRAVITY": 10,
+                        "INGEST": {
+                            "FIRST": 1777221805,
+                            "LAST": 1777221805
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777221804": [
+                                "photograph",
+                                "letter",
+                                "knife",
+                                "footprint",
+                                "train-ticket",
+                                "safe",
+                                "newspaper",
+                                "fedora",
+                                "revolver",
+                                "magnifying-glass"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "photograph": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221805,
+                                    "LAST": 1777221805
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                }
+                            }
+                        },
+                        "letter": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221805,
+                                    "LAST": 1777221805
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                }
+                            }
+                        },
+                        "knife": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221805,
+                                    "LAST": 1777221805
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                }
+                            }
+                        },
+                        "footprint": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221805,
+                                    "LAST": 1777221805
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                }
+                            }
+                        },
+                        "train-ticket": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221805,
+                                    "LAST": 1777221805
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                }
+                            }
+                        },
+                        "safe": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221805,
+                                    "LAST": 1777221805
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                }
+                            }
+                        },
+                        "newspaper": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221805,
+                                    "LAST": 1777221805
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                }
+                            }
+                        },
+                        "fedora": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221805,
+                                    "LAST": 1777221805
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                }
+                            }
+                        },
+                        "revolver": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221805,
+                                    "LAST": 1777221805
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                }
+                            }
+                        },
+                        "magnifying-glass": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221805,
+                                    "LAST": 1777221805
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221804": {
+                                    "DW": [
+                                        "crate.2A2552B8908F9A3F"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "intentions": {
+                    "METADATA": {
+                        "GRAVITY": 4,
+                        "INGEST": {
+                            "FIRST": 1777221876,
+                            "LAST": 1777222204
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777222204": [
+                                "new-every-time"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "evidence_gathering": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221876,
+                                    "LAST": 1777221876
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221876": {
+                                    "DW": [
+                                        "crate.CBCE440A5ECA98E1"
+                                    ]
+                                }
+                            }
+                        },
+                        "reels": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221876,
+                                    "LAST": 1777221876
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221876": {
+                                    "DW": [
+                                        "crate.CBCE440A5ECA98E1"
+                                    ]
+                                }
+                            }
+                        },
+                        "new-every-time": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777222185,
+                                    "LAST": 1777222204
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222185": {
+                                    "DW": [
+                                        "crate.CADFAE54D347DC37"
+                                    ]
+                                },
+                                "1777222204": {
+                                    "DW": [
+                                        "crate.ECE355EF15366BAB"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "solutions": {
+                    "METADATA": {
+                        "GRAVITY": 5,
+                        "INGEST": {
+                            "FIRST": 1777221950,
+                            "LAST": 1777222139
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777222139": [
+                                "repeating",
+                                "waiting",
+                                "loop"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "simple-silhouette": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221950,
+                                    "LAST": 1777221950
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221950": {
+                                    "DW": [
+                                        "crate.C93E48358996BB4B"
+                                    ]
+                                }
+                            }
+                        },
+                        "generated-cases": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777221950,
+                                    "LAST": 1777221950
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777221950": {
+                                    "DW": [
+                                        "crate.C93E48358996BB4B"
+                                    ]
+                                }
+                            }
+                        },
+                        "repeating": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222139,
+                                    "LAST": 1777222139
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222139": {
+                                    "DW": [
+                                        "crate.3958D86EE9A79A1E"
+                                    ]
+                                }
+                            }
+                        },
+                        "waiting": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222139,
+                                    "LAST": 1777222139
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222139": {
+                                    "DW": [
+                                        "crate.3958D86EE9A79A1E"
+                                    ]
+                                }
+                            }
+                        },
+                        "loop": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222139,
+                                    "LAST": 1777222139
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222139": {
+                                    "DW": [
+                                        "crate.3958D86EE9A79A1E"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "client-cases": {
+                    "METADATA": {
+                        "GRAVITY": 9,
+                        "INGEST": {
+                            "FIRST": 1777222020,
+                            "LAST": 1777222065
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777222065": [
+                                "nervous-widow",
+                                "rich-businessman",
+                                "desperate-teenager",
+                                "shady-gangster",
+                                "tone-variation"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "personality": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222020,
+                                    "LAST": 1777222020
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222020": {
+                                    "DW": [
+                                        "crate.F55763B9EB031CF4"
+                                    ]
+                                }
+                            }
+                        },
+                        "urgency": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222020,
+                                    "LAST": 1777222020
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222020": {
+                                    "DW": [
+                                        "crate.F55763B9EB031CF4"
+                                    ]
+                                }
+                            }
+                        },
+                        "wealth": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222020,
+                                    "LAST": 1777222020
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222020": {
+                                    "DW": [
+                                        "crate.F55763B9EB031CF4"
+                                    ]
+                                }
+                            }
+                        },
+                        "tone": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222020,
+                                    "LAST": 1777222020
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222020": {
+                                    "DW": [
+                                        "crate.F55763B9EB031CF4"
+                                    ]
+                                }
+                            }
+                        },
+                        "nervous-widow": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222065,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        },
+                        "rich-businessman": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222065,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        },
+                        "desperate-teenager": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222065,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        },
+                        "shady-gangster": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222065,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        },
+                        "tone-variation": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222065,
+                                    "LAST": 1777222065
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222065": {
+                                    "DW": [
+                                        "crate.AE32969FEFEE5CAD"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "environment": {
+                    "METADATA": {
+                        "GRAVITY": 9,
+                        "INGEST": {
+                            "FIRST": 1777222305,
+                            "LAST": 1777222375
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777222375": [
+                                "pseudo-progression"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "per-case": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777222305,
+                                    "LAST": 1777222321
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222305": {
+                                    "DW": [
+                                        "crate.85D41CD6F6CA7D2B"
+                                    ]
+                                },
+                                "1777222321": {
+                                    "DW": [
+                                        "crate.8E236949231DA94B"
+                                    ]
+                                }
+                            }
+                        },
+                        "unique": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777222305,
+                                    "LAST": 1777222321
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222305": {
+                                    "DW": [
+                                        "crate.85D41CD6F6CA7D2B"
+                                    ]
+                                },
+                                "1777222321": {
+                                    "DW": [
+                                        "crate.8E236949231DA94B"
+                                    ]
+                                }
+                            }
+                        },
+                        "rotating": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777222305,
+                                    "LAST": 1777222321
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222305": {
+                                    "DW": [
+                                        "crate.85D41CD6F6CA7D2B"
+                                    ]
+                                },
+                                "1777222321": {
+                                    "DW": [
+                                        "crate.8E236949231DA94B"
+                                    ]
+                                }
+                            }
+                        },
+                        "matches": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777222305,
+                                    "LAST": 1777222321
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222305": {
+                                    "DW": [
+                                        "crate.85D41CD6F6CA7D2B"
+                                    ]
+                                },
+                                "1777222321": {
+                                    "DW": [
+                                        "crate.8E236949231DA94B"
+                                    ]
+                                }
+                            }
+                        },
+                        "pseudo-progression": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777222375,
+                                    "LAST": 1777222375
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777222375": {
+                                    "DW": [
+                                        "crate.0C8963CC9B691D58"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

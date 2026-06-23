@@ -1,0 +1,13 @@
+{
+    "VEN": "ingest-material",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "data-forestry": {
+            "GRAVITY": 1,
+            "BIN": {
+                "purpose": 1
+            }
+        }
+    }
+}

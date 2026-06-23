@@ -1,0 +1,34 @@
+{
+    "VEN": "sdk-808",
+    "GRAVITY": 6,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "checkin": {
+            "GRAVITY": 2,
+            "BIN": {
+                "skyline": 1,
+                "live-updates": 1
+            }
+        },
+        "listening-to": {
+            "GRAVITY": 1,
+            "BIN": {
+                "music": 1
+            }
+        },
+        "set-up": {
+            "GRAVITY": 2,
+            "BIN": {
+                "song-records": 2
+            }
+        },
+        "thoughts": {
+            "GRAVITY": 1,
+            "BIN": {
+                "chester": 1
+            }
+        }
+    }
+}

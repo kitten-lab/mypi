@@ -1,0 +1,17 @@
+{
+    "VEN": "terminal-io",
+    "GRAVITY": 3,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "daily-inventory": {
+            "GRAVITY": 3,
+            "BIN": {
+                "casey": 1,
+                "signs": 1,
+                "angel-numbers": 1
+            }
+        }
+    }
+}

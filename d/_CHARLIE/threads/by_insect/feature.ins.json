@@ -1,0 +1,16 @@
+{
+    "VEN": "feature",
+    "GRAVITY": 11,
+    "METADATA": [],
+    "SHELF": {
+        "detective-case_work": {
+            "GRAVITY": 11,
+            "BIN": {
+                "event_trigger": 3,
+                "customer": 3,
+                "case": 3,
+                "case_discovery": 2
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "memory",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "wondering": {
+            "GRAVITY": 1,
+            "BIN": {
+                "about": 1
+            }
+        }
+    }
+}

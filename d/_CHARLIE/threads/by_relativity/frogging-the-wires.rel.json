@@ -1,0 +1,13 @@
+{
+    "VEN": "frogging-the-wires",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "mythleak": {
+            "GRAVITY": 1,
+            "BIN": {
+                "articles": 1
+            }
+        }
+    }
+}

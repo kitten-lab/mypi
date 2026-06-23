@@ -1,0 +1,19 @@
+{
+    "VEN": "opportunities",
+    "GRAVITY": 7,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 7,
+            "BIN": {
+                "expanding-markets": 1,
+                "innovation": 1,
+                "unique-mechanics": 1,
+                "unique-tech": 1,
+                "partnerships": 1,
+                "relationships": 1,
+                "tier-one-connections": 1
+            }
+        }
+    }
+}

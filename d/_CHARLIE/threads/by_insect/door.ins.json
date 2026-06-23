@@ -1,0 +1,13 @@
+{
+    "VEN": "door",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "detective-case_work": {
+            "GRAVITY": 1,
+            "BIN": {
+                "tinted-glass": 1
+            }
+        }
+    }
+}

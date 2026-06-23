@@ -1,0 +1,196 @@
+{
+    "CABINET": {
+        "suggested-goals": {
+            "METADATA": {
+                "GRAVITY": 7,
+                "INGEST": {
+                    "FIRST": 1777166124,
+                    "LAST": 1777166248
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984119": [
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "betsoft": {
+                    "METADATA": {
+                        "GRAVITY": 7,
+                        "INGEST": {
+                            "FIRST": 1777166124,
+                            "LAST": 1777166248
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984119": [
+                                "improve-marketing",
+                                "better-relationships",
+                                "innovation",
+                                "innovative-mechanics",
+                                "unique-mechanics",
+                                "market-expansion",
+                                "gamification"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "improve-marketing": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166124,
+                                    "LAST": 1777166124
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.B571DEB3A3046186"
+                                    ]
+                                }
+                            }
+                        },
+                        "better-relationships": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166140,
+                                    "LAST": 1777166140
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.AA323298057ACEDC"
+                                    ]
+                                }
+                            }
+                        },
+                        "innovation": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166185,
+                                    "LAST": 1777166185
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.A7C1371E7C314CE6"
+                                    ]
+                                }
+                            }
+                        },
+                        "innovative-mechanics": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166185,
+                                    "LAST": 1777166185
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.A7C1371E7C314CE6"
+                                    ]
+                                }
+                            }
+                        },
+                        "unique-mechanics": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166185,
+                                    "LAST": 1777166185
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.A7C1371E7C314CE6"
+                                    ]
+                                }
+                            }
+                        },
+                        "market-expansion": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166213,
+                                    "LAST": 1777166213
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.C713DE85615D0995"
+                                    ]
+                                }
+                            }
+                        },
+                        "gamification": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777166248,
+                                    "LAST": 1777166248
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.7B2D441FB29F498B"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

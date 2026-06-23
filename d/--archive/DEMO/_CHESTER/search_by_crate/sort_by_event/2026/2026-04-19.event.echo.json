@@ -1,0 +1,172 @@
+{
+    "crate.58C57307FD611C02": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "SKYLINE REPORTS IMPROVED LAYOUT FOR POST TOOL",
+                "content": "REMARKS THAT THE LARGER TEXT AREA FOR THE CHARLIE THREADS IS MEANINGFUL AND WILL GREATLY BENEFIT THE STORAGE OF THE WORLDS INTO A STRUCTURE THAT CAN BECOME A DATABASE."
+            }
+        },
+        "route": [],
+        "tags": {
+            "media": {
+                "news": [
+                    "skyline-news"
+                ]
+            },
+            "skyline-news": {
+                "reports": [
+                    "larger-text-area",
+                    "charliethreads",
+                    "storage",
+                    "world-storage"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "media*news>skyline-news;skyline-news*reports>larger-text-area,charliethreads,storage,world-storage",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE DEMO",
+            "dom_slug": "public",
+            "dom_display": "SKYLINE IS ON INTERA",
+            "room_slug": "news",
+            "room_display": "SKYLINE NEWS",
+            "mod_slug": "DRL-SDK",
+            "mod_display": "dani-leve"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1776609074.tps",
+            "ingest_unix": 1778107995,
+            "event_unix": 1776609074,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.2A859FD894E5BA26": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "SKYLINE EXPRESSED TAG CHECK, LONG FORM TAG-BOX",
+                "content": "SKYLINE REPORTING NEW TAGGING EYES ARE EYEVERYTWHERE.\r\n\r\nROOT.CHARLIE"
+            }
+        },
+        "route": [],
+        "tags": {
+            "media": {
+                "news": [
+                    "skyline-news"
+                ]
+            },
+            "skyline-news": {
+                "reports": [
+                    "charlie",
+                    "eyes",
+                    "reporting"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "media*news>skyline-news;skyline-news*reports>charlie,eyes,reporting",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE DEMO",
+            "dom_slug": "public",
+            "dom_display": "SKYLINE IS ON INTERA",
+            "room_slug": "news",
+            "room_display": "SKYLINE NEWS",
+            "mod_slug": "DRL-SDK",
+            "mod_display": "dani-leve"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1776607979.tps",
+            "ingest_unix": 1778108171,
+            "event_unix": 1776607979,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.5FCF19D4EDFE8965": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "DEMO-PURPLE",
+                "topic": "SKYLINE REPORTS IMPROVED LAYOUT FOR POST TOOL",
+                "content": "REMARKS THAT THE LARGER TEXT AREA FOR THE CHARLIE THREADS IS MEANINGFUL AND WILL GREATLY BENEFIT THE STORAGE OF THE WORLDS INTO A STRUCTURE THAT CAN BECOME A DATABASE."
+            }
+        },
+        "route": [],
+        "tags": {
+            "media": {
+                "news": [
+                    "skyline-news"
+                ]
+            },
+            "skyline-news": {
+                "reports": [
+                    "layout",
+                    "post",
+                    "tool",
+                    "charliethreads",
+                    "database",
+                    "storage",
+                    "worlds"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "media*news>skyline-news;skyline-news*reports>layout,post,tool,charliethreads,database,storage,worlds",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE DEMO",
+            "dom_slug": "public",
+            "dom_display": "SKYLINE IS ON INTERA",
+            "room_slug": "news",
+            "room_display": "SKYLINE NEWS",
+            "mod_slug": "DRL-SDK",
+            "mod_display": "dani-leve"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1776607979.tps",
+            "ingest_unix": 1778108221,
+            "event_unix": 1776607979,
+            "timezone": "America\/New_York"
+        }
+    }
+}

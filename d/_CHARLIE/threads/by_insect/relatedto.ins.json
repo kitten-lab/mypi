@@ -1,0 +1,15 @@
+{
+    "VEN": "relatedto",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 3,
+            "BIN": {
+                "flowers": 1,
+                "yellow": 1,
+                "elion": 1
+            }
+        }
+    }
+}

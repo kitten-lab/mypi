@@ -1,0 +1,67 @@
+{
+    "CABINET": {
+        "insights-provider": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1777162426,
+                    "LAST": 1777162591
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984119": [
+                        "symbolcraft",
+                        "symbolcraft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "symbolcraft": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777162426,
+                            "LAST": 1777162591
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984119": [
+                                "betsoft",
+                                "betsoft"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "betsoft": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1777162426,
+                                    "LAST": 1777162591
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.8D54B3700F9EB092",
+                                        "crate.7AE36D58F30422AF"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

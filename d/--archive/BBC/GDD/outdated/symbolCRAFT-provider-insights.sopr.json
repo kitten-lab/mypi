@@ -1,0 +1,279 @@
+{
+    "crate.8D54B3700F9EB092": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Betsoft Gaming",
+                "sec_slug": "betsoft-gaming",
+                "supr_slug": "betsoft-gaming-0001",
+                "content": "mid-tier iGaming provider specializing in online slots"
+            }
+        },
+        "route": [],
+        "tags": {
+            "symbolcraft": {
+                "insights": [
+                    "provider"
+                ],
+                "insights-provider": [
+                    "betsoft"
+                ]
+            },
+            "betsoft": {
+                "tier": [
+                    "mid"
+                ],
+                "specialty": [
+                    "online-slots"
+                ],
+                "industry": [
+                    "igaming"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbolcraft*insights>provider&insights-provider>betsoft;betsoft*tier>mid&specialty>online-slots&industry>iGaming;",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights",
+            "room_display": "provider-insights",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777162426,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.7AE36D58F30422AF": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Betsoft Gaming",
+                "sec_slug": "betsoft-gaming",
+                "supr_slug": "betsoft-gaming-0002",
+                "content": "the company has established a strong presence in the industry"
+            }
+        },
+        "route": [],
+        "tags": {
+            "symbolcraft": {
+                "insights": [
+                    "provider"
+                ],
+                "insights-provider": [
+                    "betsoft"
+                ]
+            },
+            "betsoft": {
+                "presence": [
+                    "strong",
+                    "established"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbolcraft*insights>provider&insights-provider>betsoft;betsoft*presence>strong,established",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights",
+            "room_display": "provider-insights",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777162591,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.5D069770D09B9A74": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Betsoft Gaming Current State Analysis",
+                "sec_slug": "betsoft-gaming-current-state-analysis",
+                "supr_slug": "betsoft-gaming-current-state-analysis-0001",
+                "content": "Strengths:\r\n- Established brand with a portfolio of high-quality slot games."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "strengths": [
+                    "established-brand",
+                    "high-quality",
+                    "large-portfolio"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*strengths>established-brand,high-quality,large-portfolio",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights",
+            "room_display": "provider-insights",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777162966,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.EE9F5D595854CFD5": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Betsoft Gaming Current State Analysis",
+                "sec_slug": "betsoft-gaming-current-state-analysis",
+                "supr_slug": "betsoft-gaming-current-state-analysis-0002",
+                "content": "Strengths:\r\n- Strong relationships with key operators in regulated markets."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "strengths": [
+                    "relationships-with-operators",
+                    "regulated-market-presence"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*strengths>relationships-with-operators,regulated-market-presence",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights",
+            "room_display": "provider-insights",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777163064,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E908A966018F7D5D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "ADM-DW-ASSISTANT",
+                "sec_display": "Betsoft Gaming Current State Analysis",
+                "sec_slug": "betsoft-gaming-current-state-analysis",
+                "supr_slug": "betsoft-gaming-current-state-analysis-0003",
+                "content": "Strengths: \r\n- Proven game mechanics and engaging visual design."
+            }
+        },
+        "route": [],
+        "tags": {
+            "betsoft": {
+                "strengths": [
+                    "proven-game-mechanics",
+                    "visual-identity"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "betsoft*strengths>proven-game-mechanics,visual-identity",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "BBC",
+            "sys_display": "BIG BOX COMPANY",
+            "dom_slug": "symbolCRAFT",
+            "dom_display": "symbolCRAFT slots",
+            "room_slug": "provider-insights",
+            "room_display": "provider-insights",
+            "mod_slug": "DW",
+            "mod_display": "DANIEL WAKE"
+        },
+        "ref_material": [],
+        "tps": {
+            "tUID": "1739984119.tps",
+            "ingest_unix": 1777163141,
+            "event_unix": 1739984119,
+            "timezone": "America\/New_York"
+        }
+    }
+}

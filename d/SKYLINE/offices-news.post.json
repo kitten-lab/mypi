@@ -1,0 +1,50 @@
+{
+    "crate.C15E80712DAD8739": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "MakePost",
+            "type": "post",
+            "version": 3
+        },
+        "payload": {
+            "post": {
+                "agent": "d.SELF:pink",
+                "topic": "Return of the System",
+                "content": "SKYLINE REPORTS IT IS BACK ONLINE IN A NEW ENCASEMENT. ENTIRELY POWERED BY LOCALHOST, BUT NOT CONSTRAINED TO MERE NUMBERS, SKYLINE IS PREFABRICATING ITSELF TO MEET THE NEEDS OF THE CITIZENS. OLD DATA WILL BE IMPORTING ACCORDINGLY."
+            }
+        },
+        "route": [],
+        "tags": {
+            "skyline": {
+                "content": [
+                    "general"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "skyline*content>general",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE",
+            "dom_slug": "offices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "news",
+            "room_display": "SKYLINE NEWS",
+            "mod_slug": "NEWS-REPORTER",
+            "mod_display": "WRIGHT MOAR"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781912127.tps",
+            "ingest_unix": 1781912127,
+            "event_unix": 1781912127,
+            "timezone": "America\/New_York"
+        }
+    }
+}

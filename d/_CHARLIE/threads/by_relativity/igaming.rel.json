@@ -1,0 +1,14 @@
+{
+    "VEN": "igaming",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 2,
+            "BIN": {
+                "industry": 1,
+                "provider_insights": 1
+            }
+        }
+    }
+}

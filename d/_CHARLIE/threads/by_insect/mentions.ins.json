@@ -1,0 +1,53 @@
+{
+    "VEN": "mentions",
+    "GRAVITY": 37,
+    "METADATA": [],
+    "SHELF": {
+        "terminal": {
+            "GRAVITY": 1,
+            "BIN": {
+                "sam": 1
+            }
+        },
+        "mythleak": {
+            "GRAVITY": 36,
+            "BIN": {
+                "frogs": 1,
+                "mechanics": 1,
+                "reality": 1,
+                "mix-up": 1,
+                "loom": 1,
+                "rip-it": 1,
+                "volcanic-euptions": 1,
+                "earthquakes": 1,
+                "insurance": 1,
+                "acts-of-god": 1,
+                "local-agent": 1,
+                "princess": 1,
+                "goddess": 1,
+                "stockholm-syndrome": 1,
+                "skyline": 2,
+                "self-blame-rituals": 1,
+                "stuck": 1,
+                "arg": 1,
+                "text-base-game": 1,
+                "obsidian.md": 1,
+                "holy-denizens": 1,
+                "apollos": 1,
+                "apollo": 1,
+                "holy-of-holies": 1,
+                "new-world": 1,
+                "aphrodite": 1,
+                "hades": 1,
+                "scheduled": 1,
+                "missing": 1,
+                "holy": 1,
+                "above-and-below": 1,
+                "easter": 1,
+                "wide-web-dln": 1,
+                "new-cycles": 1,
+                "social-network": 1
+            }
+        }
+    }
+}

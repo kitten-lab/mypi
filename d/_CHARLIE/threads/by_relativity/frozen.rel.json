@@ -1,0 +1,13 @@
+{
+    "VEN": "frozen",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "oriel": {
+            "GRAVITY": 2,
+            "BIN": {
+                "event": 2
+            }
+        }
+    }
+}

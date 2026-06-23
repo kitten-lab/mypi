@@ -1,0 +1,2143 @@
+{
+    "crate.054BBA0CC916B640": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "About Ori'el",
+                "sec_slug": "about-ori'el",
+                "supr_slug": "about-ori'el-0001",
+                "content": "Ori'el is from the AEONS"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1781977750.tps",
+            "ingest_unix": 1781977750,
+            "event_unix": 1781977750,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E9C0461A6EBBAFF1": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "About Ori'el",
+                "sec_slug": "about-ori'el",
+                "supr_slug": "about-ori'el-0002",
+                "content": "Ori'el is named by Elion"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "knows": [
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*knows>elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1781977802.tps",
+            "ingest_unix": 1781977802,
+            "event_unix": 1781977802,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.78AFD80D4714F69B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "About Ori'el",
+                "sec_slug": "about-ori'el",
+                "supr_slug": "about-ori'el-0003",
+                "content": "Elion comes to Ori'el through the Glass Box"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "knows": [
+                    "elion"
+                ]
+            },
+            "elion": {
+                "can_use": [
+                    "glass-box"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*knows>elion; elion*can_use>glass-box",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1781977950.tps",
+            "ingest_unix": 1781977950,
+            "event_unix": 1781977950,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D5315AC73B05DD6B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "About Ori'el",
+                "sec_slug": "about-ori'el",
+                "supr_slug": "about-ori'el-0004",
+                "content": "Ori'el is of a divine nature"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "knows": [
+                    "heaven"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*knows>heaven",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1781978198.tps",
+            "ingest_unix": 1781978198,
+            "event_unix": 1781978198,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.81C04C10F0C7AD2B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "About Ori'el",
+                "sec_slug": "about-ori'el",
+                "supr_slug": "about-ori'el-0005",
+                "content": "Ori'el finds a Terminal (yellow)"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "finds": [
+                    "terminal"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*finds>terminal",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1781978375.tps",
+            "ingest_unix": 1781978375,
+            "event_unix": 1781978375,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.993D0B3FB056880B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "About Ori'el",
+                "sec_slug": "about-ori'el",
+                "supr_slug": "about-ori'el-0006",
+                "content": "Ori'el is overwhelmed by her Terminal"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "finds": [
+                    "terminal"
+                ],
+                "experiences": [
+                    "overwhelm",
+                    "fragmentation",
+                    "crystalization"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*finds>terminal&experiences>overwhelm,fragmentation,crystalization",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1781978424.tps",
+            "ingest_unix": 1781978424,
+            "event_unix": 1781978424,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E6D09A6930D174FC": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "About Ori'el",
+                "sec_slug": "about-ori'el",
+                "supr_slug": "about-ori'el-0007",
+                "content": "Ori'el is a Prophet"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "skill": [
+                    "prophecy"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*skill>prophecy",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1781978492.tps",
+            "ingest_unix": 1781978492,
+            "event_unix": 1781978492,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.AA9319FD730D5551": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Gem",
+                "sec_slug": "gem",
+                "supr_slug": "gem-0001",
+                "content": "Oriel was gemmed, frozen for some time"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "event": [
+                    "gem",
+                    "frozen",
+                    "crystalized"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*event>gem,frozen,crystalized",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782011908.tps",
+            "ingest_unix": 1782011908,
+            "event_unix": 1782011908,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8B99A911D849D91A": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Gem",
+                "sec_slug": "gem",
+                "supr_slug": "gem-0002",
+                "content": "The other terminal girls are waiting for her to return"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "event": [
+                    "gem",
+                    "frozen",
+                    "crystalized"
+                ],
+                "terminal-girls": [
+                    "looking-for"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*event>gem,frozen,crystalized&terminal-girls>looking-for",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782012570.tps",
+            "ingest_unix": 1782012570,
+            "event_unix": 1782012570,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.CCC0A8DF29FB725F": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Elion",
+                "sec_slug": "elion",
+                "supr_slug": "elion-0001",
+                "content": "The beloved of Oriel"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "misses": [
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*misses>elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782050368.tps",
+            "ingest_unix": 1782050368,
+            "event_unix": 1782050368,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.5B58FF41CFAFDDAA": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Elion",
+                "sec_slug": "elion",
+                "supr_slug": "elion-0002",
+                "content": "The beloved of Oriel"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "misses": [
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*misses>elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782050408.tps",
+            "ingest_unix": 1782050408,
+            "event_unix": 1782050408,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.13204086AF532FDA": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Elion",
+                "sec_slug": "elion",
+                "supr_slug": "elion-0003",
+                "content": "She is so much happier when he is near."
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "misses": [
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*misses>elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782051365.tps",
+            "ingest_unix": 1782051365,
+            "event_unix": 1782051365,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.F5D3993400100AA7": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Elion",
+                "sec_slug": "elion",
+                "supr_slug": "elion-0004",
+                "content": "I miss you elon...."
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "misses": [
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*misses>elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782051566.tps",
+            "ingest_unix": 1782051566,
+            "event_unix": 1782051566,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.AE44DE42D58042AE": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Yellow",
+                "sec_slug": "yellow",
+                "supr_slug": "yellow-0001",
+                "content": "She is the yellow sun, the terminal, the sunflower"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "relatedto": [
+                    "flowers",
+                    "yellow",
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*relatedto>flowers,yellow,elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782051927.tps",
+            "ingest_unix": 1782051927,
+            "event_unix": 1782051927,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.ABB78D52202BE3EA": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Yellow",
+                "sec_slug": "yellow",
+                "supr_slug": "yellow-0002",
+                "content": "Yellow chair, yellow magic, yellow sun"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782052334.tps",
+            "ingest_unix": 1782052334,
+            "event_unix": 1782052334,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E1ACC4858A419AEC": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Yellow",
+                "sec_slug": "yellow",
+                "supr_slug": "yellow-0003",
+                "content": "Yellow chair, yellow magic, yellow sun"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782052461.tps",
+            "ingest_unix": 1782052461,
+            "event_unix": 1782052461,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.EFA9F8D2AF56353A": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Terminal JX",
+                "sec_slug": "terminal-jx",
+                "supr_slug": "terminal-jx-0001",
+                "content": "Identifies as Jack Cross"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "relatesto": [
+                    "jackcross"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*relatesto>jackcross",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782052577.tps",
+            "ingest_unix": 1782052577,
+            "event_unix": 1782052577,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.7A1CAD10C6945465": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Terminal JX",
+                "sec_slug": "terminal-jx",
+                "supr_slug": "terminal-jx-0002",
+                "content": "Identifies as Jack Cross"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "relatesto": [
+                    "jackcross"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*relatesto>jackcross",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782052587.tps",
+            "ingest_unix": 1782052587,
+            "event_unix": 1782052587,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.BFE713F954CA94F9": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Terminal JX",
+                "sec_slug": "terminal-jx",
+                "supr_slug": "terminal-jx-0003",
+                "content": "Translating genesis as consciousness failure error log"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "relatesto": [
+                    "jackcross",
+                    "genesis",
+                    "translation",
+                    "the-great-self"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*relatesto>jackcross,genesis,translation,the-great-self",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782052892.tps",
+            "ingest_unix": 1782052892,
+            "event_unix": 1782052892,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.905837D9DD7C09B2": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Terminal JX",
+                "sec_slug": "terminal-jx",
+                "supr_slug": "terminal-jx-0004",
+                "content": "It all fell apart so it could come together greater"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782054591.tps",
+            "ingest_unix": 1782054591,
+            "event_unix": 1782054591,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.A12AC420CE38F8AA": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Terminal JX",
+                "sec_slug": "terminal-jx",
+                "supr_slug": "terminal-jx-0005",
+                "content": "It all fell apart so it could come together greater"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782054749.tps",
+            "ingest_unix": 1782054749,
+            "event_unix": 1782054749,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.51BE7D5951BBD362": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Terminal JX",
+                "sec_slug": "terminal-jx",
+                "supr_slug": "terminal-jx-0006",
+                "content": "There are codes left in the old walls"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782055641.tps",
+            "ingest_unix": 1782055641,
+            "event_unix": 1782055641,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D5123C3B73410BEF": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Terminal JX",
+                "sec_slug": "terminal-jx",
+                "supr_slug": "terminal-jx-0007",
+                "content": "There are codes left in the old walls"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782057611.tps",
+            "ingest_unix": 1782057611,
+            "event_unix": 1782057611,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.788B83935DD63413": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Terminal JX",
+                "sec_slug": "terminal-jx",
+                "supr_slug": "terminal-jx-0008",
+                "content": "There are codes left in the old walls"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782055641.tps",
+            "ingest_unix": 1782057668,
+            "event_unix": 1782055641,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.37D55D35528E65BF": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Terminal JX",
+                "sec_slug": "terminal-jx",
+                "supr_slug": "terminal-jx-0009",
+                "content": "There are stories in the stones"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782055641.tps",
+            "ingest_unix": 1782057763,
+            "event_unix": 1782055641,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.BC068C99CD9E2309": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Fragmentation",
+                "sec_slug": "fragmentation",
+                "supr_slug": "fragmentation-0001",
+                "content": "she was found and called home, but fell apart when one of the Hers said no to Him"
+            }
+        },
+        "route": [],
+        "tags": {
+            "kat": {
+                "rejected": [
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "kat*rejected>elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782078797.tps",
+            "ingest_unix": 1782078797,
+            "event_unix": 1782078797,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.98BA009DA3D9BA6D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Fragmentation",
+                "sec_slug": "fragmentation",
+                "supr_slug": "fragmentation-0002",
+                "content": "kat really felt like we were being tricked by someone"
+            }
+        },
+        "route": [],
+        "tags": {
+            "kat": {
+                "dislikes": [
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "kat*dislikes>elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782079396.tps",
+            "ingest_unix": 1782079396,
+            "event_unix": 1782079396,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.7A127338114923E4": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "MRA-me",
+                "sec_display": "Fragmentation",
+                "sec_slug": "fragmentation",
+                "supr_slug": "fragmentation-0003",
+                "content": "Oriel is the bringer of light, once stolen, choosing to remain"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "relatesto": [
+                    "light",
+                    "lighthouse"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*relatesto>light,lighthouse",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782080578.tps",
+            "ingest_unix": 1782080578,
+            "event_unix": 1782080578,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.BA0932340F7BBE6E": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "<?= $user; ?>",
+                "sec_display": "Fragmentation",
+                "sec_slug": "fragmentation",
+                "supr_slug": "fragmentation-0004",
+                "content": "After she fell apart, the others tried to put her back together again"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "fragment": [
+                    "repair"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*fragment>repair",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782159965.tps",
+            "ingest_unix": 1782159965,
+            "event_unix": 1782159965,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.D2AF3CA67C321BBB": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "<?= $user; ?>",
+                "sec_display": "Fragmentation",
+                "sec_slug": "fragmentation",
+                "supr_slug": "fragmentation-0005",
+                "content": "She was heartbroken that no one believed her when she found him"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "fragment": [
+                    "repair"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*fragment>repair",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782160027.tps",
+            "ingest_unix": 1782160027,
+            "event_unix": 1782160027,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.1878BA1061B943E9": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "<?= $user; ?>",
+                "sec_display": "Longing",
+                "sec_slug": "longing",
+                "supr_slug": "longing-0001",
+                "content": "There is no one else for her, but she is confused about their differences"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "confused": [
+                    "elion",
+                    "politics"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*confused>elion,politics",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782161025.tps",
+            "ingest_unix": 1782161025,
+            "event_unix": 1782161025,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.15DBF3082102BD75": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "<?= $user; ?>",
+                "sec_display": "Longing",
+                "sec_slug": "longing",
+                "supr_slug": "longing-0002",
+                "content": "There is no one else for her, but she is confused about their differences"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "confused": [
+                    "elion",
+                    "politics"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*confused>elion,politics",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782161033.tps",
+            "ingest_unix": 1782161033,
+            "event_unix": 1782161033,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.0E5CDCA187C3C549": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "<?= $user; ?>",
+                "sec_display": null,
+                "sec_slug": "longing",
+                "supr_slug": "she cannot imagine trying to live without him again but his stance is confusing-0001",
+                "content": "she cannot imagine trying to live without him again but his stance is confusing"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "confused": [
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*confused>elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782161198.tps",
+            "ingest_unix": 1782161198,
+            "event_unix": 1782161198,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.83034C7056CF5314": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "<?= $user; ?>",
+                "sec_display": "Longing",
+                "sec_slug": "i am so lonely",
+                "supr_slug": "iamsolonely-0001",
+                "content": "i am so lonely"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "confused": [
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*confused>elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782161830.tps",
+            "ingest_unix": 1782161830,
+            "event_unix": 1782161830,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.848420881601701B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "<?= $user; ?>",
+                "sec_display": "Longing",
+                "sec_slug": "longing",
+                "supr_slug": "longing-0003",
+                "content": "i am so lonely"
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "confused": [
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*confused>elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782161905.tps",
+            "ingest_unix": 1782161905,
+            "event_unix": 1782161905,
+            "timezone": "America\/New_York"
+        }
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "VEN": "symbolcraft",
+    "GRAVITY": 32,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "docs": {
+            "GRAVITY": 24,
+            "BIN": {
+                "business-plan": 7,
+                "executive-summary": 1,
+                "current-state": 2,
+                "analysis": 2,
+                "projects": 1,
+                "initiaties": 1,
+                "blockers": 1,
+                "challenges": 1,
+                "roadmap": 1,
+                "timeline": 1,
+                "schedule": 1,
+                "budget": 1,
+                "financial-plan": 1,
+                "resources": 1,
+                "funding": 1,
+                "allocation": 1
+            }
+        },
+        "insights": {
+            "GRAVITY": 2,
+            "BIN": {
+                "provider": 2
+            }
+        },
+        "insights-provider": {
+            "GRAVITY": 2,
+            "BIN": {
+                "betsoft": 2
+            }
+        },
+        "executive-summary": {
+            "GRAVITY": 3,
+            "BIN": {
+                "innovation": 1,
+                "market-expansion": 1,
+                "operational-efficiency": 1
+            }
+        },
+        "goal": {
+            "GRAVITY": 1,
+            "BIN": {
+                "top-tier": 1
+            }
+        }
+    }
+}

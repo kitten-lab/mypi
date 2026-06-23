@@ -1,0 +1,94 @@
+{
+    "VEN": "oriel",
+    "GRAVITY": 44,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "knows": {
+            "GRAVITY": 3,
+            "BIN": {
+                "elion": 2,
+                "heaven": 1
+            }
+        },
+        "finds": {
+            "GRAVITY": 2,
+            "BIN": {
+                "terminal": 2
+            }
+        },
+        "experiences": {
+            "GRAVITY": 3,
+            "BIN": {
+                "overwhelm": 1,
+                "fragmentation": 1,
+                "crystalization": 1
+            }
+        },
+        "skill": {
+            "GRAVITY": 1,
+            "BIN": {
+                "prophecy": 1
+            }
+        },
+        "event": {
+            "GRAVITY": 6,
+            "BIN": {
+                "gem": 2,
+                "frozen": 2,
+                "crystalized": 2
+            }
+        },
+        "terminal-girls": {
+            "GRAVITY": 1,
+            "BIN": {
+                "looking-for": 1
+            }
+        },
+        "misses": {
+            "GRAVITY": 4,
+            "BIN": {
+                "elion": 4
+            }
+        },
+        "relatedto": {
+            "GRAVITY": 3,
+            "BIN": {
+                "flowers": 1,
+                "yellow": 1,
+                "elion": 1
+            }
+        },
+        "relatesto": {
+            "GRAVITY": 8,
+            "BIN": {
+                "jackcross": 3,
+                "genesis": 1,
+                "translation": 1,
+                "the-great-self": 1,
+                "light": 1,
+                "lighthouse": 1
+            }
+        },
+        "fragment": {
+            "GRAVITY": 2,
+            "BIN": {
+                "repair": 2
+            }
+        },
+        "confused": {
+            "GRAVITY": 7,
+            "BIN": {
+                "elion": 5,
+                "politics": 2
+            }
+        },
+        "loves": {
+            "GRAVITY": 4,
+            "BIN": {
+                "elion": 4
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "VEN": "unique-tech",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "betsoft": {
+            "GRAVITY": 2,
+            "BIN": {
+                "weaknesses": 1,
+                "opportunities": 1
+            }
+        }
+    }
+}

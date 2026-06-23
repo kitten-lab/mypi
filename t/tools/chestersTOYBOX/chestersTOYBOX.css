@@ -1,0 +1,87 @@
+
+    /* PAGE */
+.AB {
+    --my-fav-color: #ff3333;
+    --my-dark-colors: #ff3333;
+    --my-dark-color: #2b0000;
+    --my-fav-colorInvis: #ff333313;
+}
+.CU {
+    --my-fav-color: #ffa600;
+    --my-dark-color: #302f2c;
+    --my-dark-colors: #655b4c66;
+    --my-mid-color: #655b4c66;
+    --my-fav-colorInvis: #ffa60033;
+    --color-black: #00000066;
+}
+.IO {
+    --my-fav-color: #33FF33;
+    --my-dark-color: #002b00;
+    --my-fav-colorInvis: #33ff3313;
+}
+
+.print-look, .cmd-look {
+    color: yellow;
+}
+
+
+.print-think, .cmd-think {
+    color: rgb(153, 255, 0);
+}
+
+
+body.IO .monitor-container::before {
+    content: ">|IO";
+}
+
+
+body.AB .monitor-container::before {
+    content: ">|AB";
+}
+
+
+body.CU .monitor-container::before {
+    content: ">|CU";
+}
+
+app {
+    background: black;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    font-family: monospace;
+    color: var(--my-fav-color);
+}
+
+/* viewport AREA */
+
+  #viewport {
+    height: 50vh;
+    white-space: break-spaces;
+    display: block;
+    flex-direction: column-reverse;
+    overflow-y: auto;
+    letter-spacing: .15em;
+    animation: typewriter 4s steps(40, end), blink-caret .75s step-end infinite;
+
+    position: fixed;
+    top: 0;
+    left: 250px;
+    right: 0;
+  }
+
+
+  #input {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-top: 1px solid var(--my-fav-color);
+  }

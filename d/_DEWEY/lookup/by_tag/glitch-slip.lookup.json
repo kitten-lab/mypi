@@ -1,0 +1,127 @@
+{
+    "CABINET": {
+        "glitch-slip": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1777468266,
+                    "LAST": 1777468266
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777468266": [
+                        "dorn",
+                        "dorn",
+                        "thorn"
+                    ]
+                }
+            },
+            "SHELF": {
+                "dorn": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777468266,
+                            "LAST": 1777468266
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777468266": [
+                                "dorm",
+                                "thorn"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "dorm": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777468266,
+                                    "LAST": 1777468266
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777468266": {
+                                    "SDK-808": [
+                                        "crate.DE16492FC5916F9B"
+                                    ]
+                                }
+                            }
+                        },
+                        "thorn": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777468266,
+                                    "LAST": 1777468266
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777468266": {
+                                    "SDK-808": [
+                                        "crate.DE16492FC5916F9B"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "thorn": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1777468266,
+                            "LAST": 1777468266
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777468266": [
+                                "dorm"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "dorm": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777468266,
+                                    "LAST": 1777468266
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777468266": {
+                                    "SDK-808": [
+                                        "crate.DE16492FC5916F9B"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

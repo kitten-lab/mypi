@@ -1,0 +1,89 @@
+{
+    "CABINET": {
+        "knows": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1781977802,
+                    "LAST": 1781978198
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1781978198": [
+                        "oriel"
+                    ]
+                }
+            },
+            "SHELF": {
+                "oriel": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1781977802,
+                            "LAST": 1781978198
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1781978198": [
+                                "heaven"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "elion": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1781977802,
+                                    "LAST": 1781977950
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1781977802": {
+                                    "km": [
+                                        "crate.E9C0461A6EBBAFF1"
+                                    ]
+                                },
+                                "1781977950": {
+                                    "km": [
+                                        "crate.78AFD80D4714F69B"
+                                    ]
+                                }
+                            }
+                        },
+                        "heaven": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1781978198,
+                                    "LAST": 1781978198
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1781978198": {
+                                    "km": [
+                                        "crate.D5315AC73B05DD6B"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

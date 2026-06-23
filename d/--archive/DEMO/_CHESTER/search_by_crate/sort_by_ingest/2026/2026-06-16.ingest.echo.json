@@ -1,0 +1,162 @@
+{
+    "crate.CA4959FEF63FE04A": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "queen sah",
+                "topic": "I FOUND YOUR SITE HERE NICE WORK SKYLINE HOPE YOU FIX THINGS SOON"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "queen sah"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "publicOffices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(demo)",
+            "dom_slug": "publicOffices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781614265.tps",
+            "ingest_unix": 1781614265,
+            "event_unix": 1781614265,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8E06586D9297B443": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "cuBOOK",
+            "function": "GuestPOST",
+            "type": "guestcu",
+            "version": 3
+        },
+        "payload": {
+            "guestCU": {
+                "agent": "queen sah",
+                "topic": "I FOUND YOUR SITE HERE NICE WORK SKYLINE HOPE YOU FIX THINGS SOON"
+            }
+        },
+        "route": {
+            "from": {
+                "agent": "queen sah"
+            },
+            "to": {
+                "sys": "SKYLINE",
+                "dom": "publicOffices",
+                "mod": "WELCOME-AGENT",
+                "key": "frontDesk"
+            }
+        },
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(demo)",
+            "dom_slug": "publicOffices",
+            "dom_display": "PUBLIC OFFICES",
+            "room_slug": "frontDesk",
+            "room_display": "RECEPTION DESK",
+            "mod_slug": "WELCOME-AGENT",
+            "mod_display": "RHEA CEPCIAN"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781614745.tps",
+            "ingest_unix": 1781614745,
+            "event_unix": 1781614745,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.DFEBBA05F318DECC": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": null,
+            "function": null,
+            "type": null,
+            "version": null
+        },
+        "payload": {
+            "post": {
+                "agent": "D-me",
+                "topic": "MISSING YOU",
+                "content": "ENDLESSLY"
+            }
+        },
+        "route": {
+            "from": {
+                "mod": "DANIEL WAKE"
+            },
+            "to": {
+                "mod": "PRINCESS",
+                "room": "songOfSongs",
+                "dom": "reportDepartment",
+                "sys": "SKYLINE"
+            }
+        },
+        "tags": {
+            "kitten": {
+                "misses": [
+                    "sam"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "kitten*misses>sam",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "SKYLINE",
+            "sys_display": "SKYLINE(demo)",
+            "dom_slug": "reportDepartment",
+            "dom_display": "REPORTING DEPARTMENT",
+            "room_slug": "songOfSongs",
+            "room_display": "SONG OF SONGS",
+            "mod_slug": "PRINCESS",
+            "mod_display": "JASMINE"
+        },
+        "ref_material": "HIDDEN ON DEMO",
+        "tps": {
+            "tUID": "1781636275.tps",
+            "ingest_unix": 1781636275,
+            "event_unix": 1781636275,
+            "timezone": "America\/New_York"
+        }
+    }
+}

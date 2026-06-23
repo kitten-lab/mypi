@@ -1,0 +1,86 @@
+{
+    "CABINET": {
+        "fears": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1777249480,
+                    "LAST": 1777249480
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1777249480": [
+                        "www",
+                        "www"
+                    ]
+                }
+            },
+            "SHELF": {
+                "www": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1777249480,
+                            "LAST": 1777249480
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1777249480": [
+                                "extractive-nature",
+                                "corporatization"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "extractive-nature": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777249480,
+                                    "LAST": 1777249480
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777249480": {
+                                    "www": [
+                                        "crate.4B13E46A627D966F"
+                                    ]
+                                }
+                            }
+                        },
+                        "corporatization": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777249480,
+                                    "LAST": 1777249480
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1777249480": {
+                                    "www": [
+                                        "crate.4B13E46A627D966F"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

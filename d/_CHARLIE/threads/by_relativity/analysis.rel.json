@@ -1,0 +1,13 @@
+{
+    "VEN": "analysis",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "symbolcraft": {
+            "GRAVITY": 2,
+            "BIN": {
+                "docs": 2
+            }
+        }
+    }
+}

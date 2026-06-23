@@ -1,0 +1,450 @@
+{
+    "crate.492152A329689544": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": null,
+                "sec_display": "GAME DESIGNER ASSIGNMENTS",
+                "sec_slug": "game-designer-assignments",
+                "supr_slug": "game-designer-assignments-0001",
+                "content": "## complete the mechanic details for the Pots features of each game:\r\n\r\nDani: Playtech, Microgaming, Ainsworth \u2014 45 games\r\n\r\nhttps:\/\/docs.google.com\/spreadsheets\/d\/1L55kP4Z0cEIJ5AJRDqqc19uJ5RkYuq6D\/edit?usp=sharing&ouid=103770798965029165150&rtpof=true&sd=true\u00a0(edited)"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW(demo)",
+            "dom_slug": "private",
+            "dom_display": "privateSPACE",
+            "room_slug": "betsoft-todo",
+            "room_display": "My To Dos",
+            "mod_slug": "modbsg",
+            "mod_display": "daniel wake"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1779807810.tps",
+            "ingest_unix": 1779807810,
+            "event_unix": 1779807810,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.BC006A877B395B55": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": null,
+                "sec_display": "GAME DESIGNER ASSIGNMENTS",
+                "sec_slug": "game-designer-assignments",
+                "supr_slug": "game-designer-assignments-0002",
+                "content": "ETA ABOVE JUNE 9"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW(demo)",
+            "dom_slug": "private",
+            "dom_display": "privateSPACE",
+            "room_slug": "betsoft-todo",
+            "room_display": "My To Dos",
+            "mod_slug": "modbsg",
+            "mod_display": "daniel wake"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1779807883.tps",
+            "ingest_unix": 1779807883,
+            "event_unix": 1779807883,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.B9D1A987C186E0B6": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": null,
+                "sec_display": "2027 Q1 GDD ASSIGNMENTS",
+                "sec_slug": "2027-q1-gdd-assignments",
+                "supr_slug": "2027-q1-gdd-assignments-0001",
+                "content": "# WINNERS OF OZ\r\nBased on Huff'N'Lots of Puff"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW(demo)",
+            "dom_slug": "private",
+            "dom_display": "privateSPACE",
+            "room_slug": "betsoft-todo",
+            "room_display": "My To Dos",
+            "mod_slug": "modbsg",
+            "mod_display": "daniel wake"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1779808104.tps",
+            "ingest_unix": 1779808104,
+            "event_unix": 1779808104,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.EDAEA8C59C6F91E5": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": null,
+                "sec_display": "2027 Q1 GDD ASSIGNMENTS",
+                "sec_slug": "2027-q1-gdd-assignments",
+                "supr_slug": "2027-q1-gdd-assignments-0002",
+                "content": "# Unselected Theme\r\nLe Pharaoh 1:2"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW(demo)",
+            "dom_slug": "private",
+            "dom_display": "privateSPACE",
+            "room_slug": "betsoft-todo",
+            "room_display": "My To Dos",
+            "mod_slug": "modbsg",
+            "mod_display": "daniel wake"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1779808137.tps",
+            "ingest_unix": 1779808137,
+            "event_unix": 1779808137,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.0FF629D2DDDB6EF8": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": null,
+                "sec_display": "2027 Q1 GDD ASSIGNMENTS",
+                "sec_slug": "2027-q1-gdd-assignments",
+                "supr_slug": "2027-q1-gdd-assignments-0003",
+                "content": "# The Medusa\r\nNew Big Catch (Big Catch Baby)"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW(demo)",
+            "dom_slug": "private",
+            "dom_display": "privateSPACE",
+            "room_slug": "betsoft-todo",
+            "room_display": "My To Dos",
+            "mod_slug": "modbsg",
+            "mod_display": "daniel wake"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1779808164.tps",
+            "ingest_unix": 1779808164,
+            "event_unix": 1779808164,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.292A1AEABFEE59CB": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": null,
+                "sec_display": "GAME DESIGNER ASSIGNMENTS",
+                "sec_slug": "game-designer-assignments",
+                "supr_slug": "game-designer-assignments-0003",
+                "content": "3 Pot Mechanics selections for GDDs for NG product expansion (related to 0001)"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW(demo)",
+            "dom_slug": "private",
+            "dom_display": "privateSPACE",
+            "room_slug": "betsoft-todo",
+            "room_display": "My To Dos",
+            "mod_slug": "modbsg",
+            "mod_display": "daniel wake"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1779808228.tps",
+            "ingest_unix": 1779808228,
+            "event_unix": 1779808228,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.82D9D6FE9334063C": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": null,
+                "sec_display": "2027 Q1 GDD ASSIGNMENTS",
+                "sec_slug": "2027-q1-gdd-assignments",
+                "supr_slug": "2027-q1-gdd-assignments-0004",
+                "content": "ref link for huff n lots of puff\r\nhttps:\/\/igaming.lnw.com\/games\/huff-n-lots-of-puff\/"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW(demo)",
+            "dom_slug": "private",
+            "dom_display": "privateSPACE",
+            "room_slug": "betsoft-todo",
+            "room_display": "My To Dos",
+            "mod_slug": "modbsg",
+            "mod_display": "daniel wake"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1779808799.tps",
+            "ingest_unix": 1779808799,
+            "event_unix": 1779808799,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.F0D709C2992CEDAD": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "sopr",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": null,
+                "sec_display": "2027 Q1 GDD ASSIGNMENTS",
+                "sec_slug": "2027-q1-gdd-assignments",
+                "supr_slug": "2027-q1-gdd-assignments-0005",
+                "content": "ref link for confluence for winners of oz\r\nhttps:\/\/betsoft.atlassian.net\/wiki\/spaces\/GDD\/pages\/1601568889\/WIP+Game+Title+-+Huff+n+Lots+of+Puff+-+Replica+Q1G4Y2027"
+            }
+        },
+        "route": [],
+        "tags": [],
+        "tags_metadata": {
+            "raw_tags": "",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "WWW",
+            "sys_display": "WWW(demo)",
+            "dom_slug": "private",
+            "dom_display": "privateSPACE",
+            "room_slug": "betsoft-todo",
+            "room_display": "My To Dos",
+            "mod_slug": "modbsg",
+            "mod_display": "daniel wake"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1779809356.tps",
+            "ingest_unix": 1779809356,
+            "event_unix": 1779809356,
+            "timezone": "America\/New_York"
+        }
+    }
+}

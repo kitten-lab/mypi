@@ -1,0 +1,122 @@
+
+body {
+    height: 98vh;
+    color: white;
+    font-family: VT323;
+    font-size: 2vh;
+overflow: hidden; /* Keeps screen content inside */
+
+    }
+.wwwExplorer_mainShell {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: gray;
+overflow: hidden; /* Keeps screen content inside */
+}
+
+
+.wwwExplorer_windowTitleBar {
+position: fixed;
+top: 1vh;
+left: .5vh;
+right: .5vh;
+height: 4vh;
+background-image: linear-gradient(to top, blue);
+overflow: hidden; /* Keeps screen content inside */
+box-shadow: 
+    inset -.50vh -.50vh 0 #00000033, 
+    inset .50vh .50vh 0 #FFFFFF66,
+    .1vh .1vh 0 #FFFFFF66,
+    -.1vh -.1vh 0 #00000066;
+border: .15vh solid blue;
+padding: 1vh 1vh;
+text-transform: uppercase;
+
+    font-size: 4.5vh;
+    font-weight: 700;
+}
+
+.wwwExplorer_windowTitleBar::before {
+    content: "<|> ";
+}
+.wwwExplorer_windowToolBar {
+position: fixed;
+top: 8vh;
+left: 1vh;
+right: 1vh;
+height: 410vh;
+overflow: hidden; /* Keeps screen content inside */
+}
+
+.wwwExplorer_linkBar {
+    position: fixed;
+    display: flex;
+    left: 1vh;
+    right: 1vh;
+    
+}
+
+.linkSlug {
+    height: 2vh;
+    padding: 1vh 1vh 1.5vh 1vh;
+    flex: 1;
+    background-color: white;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    color: black;
+    font-size: 2.5vh;
+    font-weight: 700;
+box-shadow: 
+
+    .1vh .1vh 0 #FFFFFF66,
+    -.1vh -.1vh 0 #00000066;
+}
+
+.wwwExplorer_linkBar a {
+    display: flex;
+    width: 7vw;
+    height: 2vh;
+    padding: 1vh;
+    border: .1vh solid rgba(0, 0, 0, 0.634);
+    box-shadow: 
+    inset -.50vh -.50vh 0 #00000033, 
+    inset .50vh .50vh 0 #FFFFFF66,
+    .1vh .1vh 0 #FFFFFF66,
+    -.1vh -.1vh 0 #00000066;
+    text-decoration: none;
+}
+
+.wwwExplorer_innerShell {
+position: fixed;
+top: 13vh;
+left: 1vh;
+right: 1vh;
+bottom: 4vh;
+font-size: 5vh;
+background: black;
+overflow-x: scroll; /* Keeps screen content inside */
+scrollbar-width: 5vw;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 4vh;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f145; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: gray; 
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "skyline-news",
+    "GRAVITY": 5,
+    "METADATA": [],
+    "SHELF": {
+        "media": {
+            "GRAVITY": 5,
+            "BIN": {
+                "news": 5
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "glass",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "hymn": {
+            "GRAVITY": 1,
+            "BIN": {
+                "archetype": 1
+            }
+        }
+    }
+}

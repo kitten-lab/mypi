@@ -1,0 +1,174 @@
+{
+    "CABINET": {
+        "threats": {
+            "METADATA": {
+                "GRAVITY": 6,
+                "INGEST": {
+                    "FIRST": 1777165954,
+                    "LAST": 1777165954
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739984119": [
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft",
+                        "betsoft"
+                    ]
+                }
+            },
+            "SHELF": {
+                "betsoft": {
+                    "METADATA": {
+                        "GRAVITY": 6,
+                        "INGEST": {
+                            "FIRST": 1777165954,
+                            "LAST": 1777165954
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739984119": [
+                                "regulations",
+                                "competition",
+                                "emerging-studios",
+                                "major-brands",
+                                "player-preferences",
+                                "constant-change"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "regulations": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165954,
+                                    "LAST": 1777165954
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.422B9B7EA6623B95"
+                                    ]
+                                }
+                            }
+                        },
+                        "competition": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165954,
+                                    "LAST": 1777165954
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.422B9B7EA6623B95"
+                                    ]
+                                }
+                            }
+                        },
+                        "emerging-studios": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165954,
+                                    "LAST": 1777165954
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.422B9B7EA6623B95"
+                                    ]
+                                }
+                            }
+                        },
+                        "major-brands": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165954,
+                                    "LAST": 1777165954
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.422B9B7EA6623B95"
+                                    ]
+                                }
+                            }
+                        },
+                        "player-preferences": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165954,
+                                    "LAST": 1777165954
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.422B9B7EA6623B95"
+                                    ]
+                                }
+                            }
+                        },
+                        "constant-change": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1777165954,
+                                    "LAST": 1777165954
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739984119": {
+                                    "DW": [
+                                        "crate.422B9B7EA6623B95"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

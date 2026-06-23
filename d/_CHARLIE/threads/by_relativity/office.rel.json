@@ -1,0 +1,19 @@
+{
+    "VEN": "office",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "slots": {
+            "GRAVITY": 2,
+            "BIN": {
+                "detective-case_work": 2
+            }
+        },
+        "detective-case_work": {
+            "GRAVITY": 1,
+            "BIN": {
+                "location": 1
+            }
+        }
+    }
+}
