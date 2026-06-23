@@ -12,6 +12,7 @@ if ($IS_IT == true) {
 }
 
 echo "<H1>" . ROOM_SLUG . ": " . ROOM_DISPLAY . "</H1>";
+    echo '<button type="button" onclick="window.location = window.location.href">Refresh Page</button>';
 $CRATE = ROUTE_TO_LOCALSTORE . DOM_SLUG . '-' . ROOM_SLUG . '.chat.log.json';    
 
 if(file_exists($CRATE)) {
@@ -27,7 +28,6 @@ if(file_exists($CRATE)) {
         echo "</div>";
 
     } 
-    echo '<button type="button" onclick="location.reload()">Refresh Page</button>';
 } else { 
     echo "No fragments found."; 
     }
