@@ -1,3 +1,3 @@
 <header>
-    <h1><?= $SITE ?>: <?= $GLOBALS[$SITE]['DOM_DISPLAY'] ?><h1>
+    <h1><?= BLOCK_TAG ?>: <?= DOM_DISPLAY ?><h1>
 </header>
