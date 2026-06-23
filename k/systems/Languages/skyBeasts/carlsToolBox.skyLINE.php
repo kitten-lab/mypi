@@ -30,10 +30,10 @@ function getToolNIM($tool, $set, $function){
 
 
 function loadTool_Style($tool) {
-    $path = "/tools/" . $tool . '/' . $tool . ".css";
+    $path = $tool . '/' . $tool . ".css";
     $full = $GLOBALS['SONAR'] . "t" . $path;
     if (is_file($full)) {
-         echo '<link rel="stylesheet" type="text/css" href="' . t_root . $path . '">';
+         echo '<link rel="stylesheet" type="text/css" href="' . T_ROUTE . $path . '">';
          } else {
             Console_Log_Warning($tool . " MINOR ERROR: Style MISSING FROM: " . $tool . " " . $path );
          }
@@ -45,6 +45,6 @@ function loadTool_Style($tool) {
         if (is_file($result)) {
             include $result;
         } else {
-            error_log("KDE! Tool file not found. " . $result);
+            KDE_Error_Logger("KDE! Tool file not found. " . $result);
         }  
     }

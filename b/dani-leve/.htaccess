@@ -1,4 +1,5 @@
 RewriteEngine On
+RewriteBase /
 
 # Prevent Apache from rewriting paths to existing files or folders
 RewriteCond %{REQUEST_FILENAME} !-f

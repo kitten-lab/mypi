@@ -42,3 +42,25 @@ nav.bookNav {
 nav.bookNav a {
   color: white;
 }
+
+.chat-slug {
+  border: 1px solid rgb(214, 214, 214);
+  padding: 4px;
+  margin: 4px;
+}
+
+.chat-time {
+  font-size: xx-small;
+  opacity: 0.4;
+}
+
+.user-display {
+  font-weight: 600;
+  font-size: larger;
+}
+
+.chat-content {
+  font-size: small;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-style: italic;
+}

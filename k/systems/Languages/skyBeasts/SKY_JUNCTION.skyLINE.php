@@ -12,8 +12,8 @@ function SKY_JUNCTION($letter){
 
   } else {
 
-    define($letter . '_root', 'https://$letter.$globalJUNCTION');
-    define(strtoupper($letter) . '_ROUTE', 'https://$letter.$globalJUNCTION');
+    define($letter . '_root', 'https://' . $letter . "." . $globalJUNCTION);
+    define(strtoupper($letter) . '_ROUTE', 'https://' . $letter . "." . $globalJUNCTION);
 
   }
 }
