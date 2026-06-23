@@ -427,3 +427,23 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+z/.htaccess
+z/conversations.json
+z/json-sawmill.py
+z/kven-registry-structure.md
+z/ECHO/2026-04/2026-04-10_dailyechos.json
+z/ECHO/2026-04/2026-04-11_dailyechos.json
+z/ECHO/2026-04/2026-04-12_dailyechos.json
+z/KDE/2026-04_error.json
+z/KDE/2026-04-09 10_08_25AM_error.json
+z/KDE/2026-04-09 10_09_12AM_error.json
+z/TPS/tpsReport_2026-04-10_data.json
+z/TPS/tpsReport_2026-04-11_data.json
+z/TPS/tpsReport_2026-04-12_data.json
+z/TPS/trackerKeeper/tpsReport_2026-04-06_data.json
+z/TPS/trackerKeeper/tpsReport_2026-04-07_data.json
+z/TPS/trackerKeeper/tpsReport_2026-04-08_data.json
+z/TPS/trackerKeeper/tpsReport_2026-04-09_data.json
+z/TPS/trackerKeeper/BOOTUPERRORED/tpsReport_2026-04-06_data.json
+z/import/detective-mystery-slot.md
+z/venRegistrar/registry.json
