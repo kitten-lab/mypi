@@ -8,13 +8,15 @@ SKY__AUTH(
     /*DOM_DISPLAY*/  "programs",
 
     /*ROOM_SLUG*/    "oriel-chat", 
-    /*ROOM_DISPLAY*/  "Chat Room Text",
+    /*ROOM_DISPLAY*/  "The Quiet River",
 
     /*ROOM_FLAVOR*/  
 );
 openSky('A Chat Room');
 
-getTool("chatBOX","ChatBox");    
+getTool("chatBOX","ChatBox"); 
+hr();   
+getTool("chatBOX","ChatRoom");    
 
 closeSky();
 

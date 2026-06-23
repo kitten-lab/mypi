@@ -1,7 +1,7 @@
-<?php /*
+<?php 
 ini_set('display_errors', '0'); 
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED); 
-*/ ?>
+?>
 
 <?php
 // REQUIRED INCUDES
@@ -20,7 +20,7 @@ if ($IS_IT == true) {
 // FORM PROCESSING 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    define("POST_TAGS", $_POST['POST__TAGS'] ??  POST_username . "*speaks-to>" . ROOM_SLUG);
+    define("POST_TAGS", POST_username . "*speaks-to>" . ROOM_SLUG);
     define("POST_UNIX", $_POST['POST__EVENT_UNIX']);
     define("POST_PV", $GLOBALS['PV'] ?? "");
 
@@ -43,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     chatSTORE();
 
     chestersCRATES();
+    charliesTHREADS();
     catalogUNIX();
 
     //=============================================================================

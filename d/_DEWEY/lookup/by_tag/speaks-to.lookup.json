@@ -1,0 +1,119 @@
+{
+    "CABINET": {
+        "speaks-to": {
+            "METADATA": {
+                "GRAVITY": 5,
+                "INGEST": {
+                    "FIRST": 1782239969,
+                    "LAST": 1782242097
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1782242097": [
+                        "gideon"
+                    ]
+                }
+            },
+            "SHELF": {
+                "remir": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1782239969,
+                            "LAST": 1782242005
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782242005": [
+                                "oriel-chat"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "oriel-chat": {
+                            "METADATA": {
+                                "GRAVITY": 3,
+                                "INGEST": {
+                                    "FIRST": 1782239969,
+                                    "LAST": 1782242005
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782239969": {
+                                    "www": [
+                                        "crate.0522C81101A6D881"
+                                    ]
+                                },
+                                "1782240446": {
+                                    "www": [
+                                        "crate.A2E64C27C0100EC7"
+                                    ]
+                                },
+                                "1782242005": {
+                                    "www": [
+                                        "crate.44CC701E8EDB6E2C"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "gideon": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1782240797,
+                            "LAST": 1782242097
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782242097": [
+                                "oriel-chat"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "oriel-chat": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1782240797,
+                                    "LAST": 1782242097
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782240797": {
+                                    "www": [
+                                        "crate.203B5F898942791C"
+                                    ]
+                                },
+                                "1782242097": {
+                                    "www": [
+                                        "crate.16D06D304DD8E6CE"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

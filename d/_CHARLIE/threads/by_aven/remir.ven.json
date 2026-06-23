@@ -1,0 +1,15 @@
+{
+    "VEN": "remir",
+    "GRAVITY": 3,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "speaks-to": {
+            "GRAVITY": 3,
+            "BIN": {
+                "oriel-chat": 3
+            }
+        }
+    }
+}

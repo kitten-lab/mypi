@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const pagekey = window.location.pathname;
   const PERSIST_FIELDS = [
+    "username",
     "soper_section",
     "POST__TAGS",
     "POST__EVENT_UNIX",

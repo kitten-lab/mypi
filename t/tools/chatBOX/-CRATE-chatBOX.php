@@ -35,7 +35,8 @@ function chatSTORE(){
             $chatSTORE[POST_time] = [
                 'USER' => POST_username,
                 'MESSAGE' => POST_message,
-                  'cUID' => cUID,
+                'cUID' => cUID,
+                'TIME' => time(),
             ];
         }
 

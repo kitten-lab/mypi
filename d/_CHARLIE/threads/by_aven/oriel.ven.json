@@ -1,6 +1,6 @@
 {
     "VEN": "oriel",
-    "GRAVITY": 44,
+    "GRAVITY": 45,
     "ALIAS": [],
     "NOTES": [],
     "METADATA": [],
@@ -85,9 +85,9 @@
             }
         },
         "loves": {
-            "GRAVITY": 4,
+            "GRAVITY": 5,
             "BIN": {
-                "elion": 4
+                "elion": 5
             }
         }
     }

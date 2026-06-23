@@ -1,5 +1,5 @@
 {
-    "count": 423,
+    "count": 429,
     "a-node": {
         "sopr": 27,
         "symbolcraft": 32,
@@ -30,8 +30,10 @@
         "media": 4,
         "mythleak": 43,
         "skyline": 2,
-        "oriel": 44,
+        "oriel": 45,
         "elion": 1,
-        "kat": 1
+        "kat": 1,
+        "remir": 3,
+        "gideon": 2
     }
 }

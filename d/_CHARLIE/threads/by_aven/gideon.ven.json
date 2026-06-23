@@ -1,0 +1,15 @@
+{
+    "VEN": "gideon",
+    "GRAVITY": 2,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "speaks-to": {
+            "GRAVITY": 2,
+            "BIN": {
+                "oriel-chat": 2
+            }
+        }
+    }
+}

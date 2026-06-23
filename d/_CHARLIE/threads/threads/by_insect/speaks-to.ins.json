@@ -1,0 +1,19 @@
+{
+    "VEN": "speaks-to",
+    "GRAVITY": 5,
+    "METADATA": [],
+    "SHELF": {
+        "remir": {
+            "GRAVITY": 3,
+            "BIN": {
+                "oriel-chat": 3
+            }
+        },
+        "gideon": {
+            "GRAVITY": 2,
+            "BIN": {
+                "oriel-chat": 2
+            }
+        }
+    }
+}

@@ -2,17 +2,17 @@
     "CABINET": {
         "oriel": {
             "METADATA": {
-                "GRAVITY": 44,
+                "GRAVITY": 45,
                 "INGEST": {
                     "FIRST": 1781977802,
-                    "LAST": 1782215794
+                    "LAST": 1782239753
                 },
                 "EVENT": {
                     "FIRST": [],
                     "LAST": []
                 },
                 "LAST_USAGE": {
-                    "1782215794": [
+                    "1782239753": [
                         "loves"
                     ]
                 }
@@ -807,17 +807,17 @@
                 },
                 "loves": {
                     "METADATA": {
-                        "GRAVITY": 4,
+                        "GRAVITY": 5,
                         "INGEST": {
                             "FIRST": 1782215394,
-                            "LAST": 1782215794
+                            "LAST": 1782239753
                         },
                         "EVENT": {
                             "FIRST": [],
                             "LAST": []
                         },
                         "LAST_USAGE": {
-                            "1782215794": [
+                            "1782239753": [
                                 "elion"
                             ]
                         }
@@ -825,10 +825,10 @@
                     "BIN": {
                         "elion": {
                             "METADATA": {
-                                "GRAVITY": 4,
+                                "GRAVITY": 5,
                                 "INGEST": {
                                     "FIRST": 1782215394,
-                                    "LAST": 1782215794
+                                    "LAST": 1782239753
                                 },
                                 "EVENT": {
                                     "FIRST": [],
@@ -854,6 +854,11 @@
                                 "1782215794": {
                                     "km": [
                                         "crate.269B67BBA4CB7F69"
+                                    ]
+                                },
+                                "1782239753": {
+                                    "www": [
+                                        "crate.4B657DDA1CBA8199"
                                     ]
                                 }
                             }

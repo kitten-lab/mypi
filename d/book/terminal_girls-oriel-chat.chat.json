@@ -1,5 +1,5 @@
 {
-    "crate.D48CCA7430BE09B0": {
+    "crate.A2E64C27C0100EC7": {
         "c_version": 4,
         "viewport": "",
         "assistant": {
@@ -11,8 +11,8 @@
         "payload": {
             "chat": {
                 "username": "Remir",
-                "message": "She wanted him, mind body and soul. Carnally. She waited for lifetimes.",
-                "time": 1782238927
+                "message": "She wandered forever to find him. Her home. Her savior.",
+                "time": 1782240446
             }
         },
         "route": [],
@@ -53,9 +53,189 @@
             }
         },
         "tps": {
-            "tUID": "1782238927.tps",
-            "ingest_unix": 1782238927,
-            "event_unix": 1782238927,
+            "tUID": "1782240446.tps",
+            "ingest_unix": 1782240446,
+            "event_unix": 1782240446,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.203B5F898942791C": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "chatBOX",
+            "function": "chatroom",
+            "type": "chat",
+            "version": 4
+        },
+        "payload": {
+            "chat": {
+                "username": "Gideon",
+                "message": "He stood far back, deep in the woods. He knew she was looking for him, but he wasn't sure how he could come out after all this time.",
+                "time": 1782240797
+            }
+        },
+        "route": [],
+        "tags": {
+            "gideon": {
+                "speaks-to": [
+                    "oriel-chat"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "Gideon*speaks-to>oriel-chat",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "programs",
+            "room_slug": "oriel-chat",
+            "room_display": "Chat Room Text",
+            "mod_slug": "www",
+            "mod_display": "Mira Mobile Media"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782240797.tps",
+            "ingest_unix": 1782240797,
+            "event_unix": 1782240797,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.44CC701E8EDB6E2C": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "chatBOX",
+            "function": "chatroom",
+            "type": "chat",
+            "version": 4
+        },
+        "payload": {
+            "chat": {
+                "username": "Remir",
+                "message": "She smells him. she always does, he smells like dark moonlight and the core of everything right in the world.",
+                "time": 1782242005
+            }
+        },
+        "route": [],
+        "tags": {
+            "remir": {
+                "speaks-to": [
+                    "oriel-chat"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "Remir*speaks-to>oriel-chat",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "programs",
+            "room_slug": "oriel-chat",
+            "room_display": "The Quiet River",
+            "mod_slug": "www",
+            "mod_display": "Mira Mobile Media"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782242005.tps",
+            "ingest_unix": 1782242005,
+            "event_unix": 1782242005,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.16D06D304DD8E6CE": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "chatBOX",
+            "function": "chatroom",
+            "type": "chat",
+            "version": 4
+        },
+        "payload": {
+            "chat": {
+                "username": "Gideon",
+                "message": "He stares, he cannot believe she is actually returning to him. He believed he would have to go alone.",
+                "time": 1782242097
+            }
+        },
+        "route": [],
+        "tags": {
+            "gideon": {
+                "speaks-to": [
+                    "oriel-chat"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "Gideon*speaks-to>oriel-chat",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "programs",
+            "room_slug": "oriel-chat",
+            "room_display": "The Quiet River",
+            "mod_slug": "www",
+            "mod_display": "Mira Mobile Media"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1782242097.tps",
+            "ingest_unix": 1782242097,
+            "event_unix": 1782242097,
             "timezone": "America\/New_York"
         }
     }
