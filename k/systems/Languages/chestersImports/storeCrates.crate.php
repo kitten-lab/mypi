@@ -70,7 +70,7 @@ function buildCHEST(){
         "route" => json_route(),
         "tags" => $TAGS,
         "tags_metadata" => [
-            "raw_tags" => $RAW_TAGS,
+            "raw_tags" => POST_TAGS,
             "tag_parser" => 'charlieTHREADS',
             "parser_version" => 1
         ],

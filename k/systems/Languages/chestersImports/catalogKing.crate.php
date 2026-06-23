@@ -25,7 +25,7 @@ function catalogUNIX(){
 }
 
 //==============================================================================================
-function charlieCATALOG($group, $add, $level){
+function charlieCATALOG(string $group, array $add, string $level){
   $catalog_rt = ROUTE_TO_DEWEY_CATALOG_D;
     aleph($catalog_rt);
 
@@ -234,13 +234,13 @@ function tagSPLICER(){
                         $kid = [trim($c)];
                     }
 
-                    foreach ($kid as $c){
+                    foreach ($kid as $ch){
 
                     if (!is_array($add[$type][$v])){
-                        $add[$type][$v][] = trim($c);
+                        $add[$type][$v][] = trim($ch);
                     }
-                    if (!in_array($c, $add[$type][$v])){
-                        $add[$type][$v][] = trim($c);
+                    if (!in_array($ch, $add[$type][$v])){
+                        $add[$type][$v][] = trim($ch);
                     } 
                     }
 

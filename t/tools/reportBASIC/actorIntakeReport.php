@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // OKAY LETS CATALOG AND CRATE THIS BIT OF STUFFS! 
     //=============================================================================
 
-    chestersCRATES($sha_env, $tpstime, $unix, $timezone);
+    chestersCRATES();
     charliesTHREADS($sha_env, $tpstime);
     catalogUNIX($sha_env, $tpstime);
 

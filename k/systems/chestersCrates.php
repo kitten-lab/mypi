@@ -6,7 +6,7 @@ require __DIR__ . '/Languages/chestersImports/storeCrates.crate.php';
 require __DIR__ . '/Languages/chestersImports/getJuked.crate.php';
 require __DIR__ . '/Languages/chestersImports/catalogKing.crate.php';
 
-function aleph($ROUTE){
+function aleph(string $ROUTE){
     // aleph is the ox. it plow the field if there is no directory, so space can exist //
     if (!is_dir($ROUTE)) { mkdir($ROUTE, 0775, true); }
 }

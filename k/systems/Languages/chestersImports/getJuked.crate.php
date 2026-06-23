@@ -1,22 +1,15 @@
 <?php
 //==============================================================================================
-function catalogJUKEBOX($sha_env, $link, $artist, $song){
+function catalogJUKEBOX(string $link, string $artist, string $song){
     //GET YOUR COMMONS! 
     $RAW_TAGS = $_POST['POST__TAGS'] ?? '';
-    $tUID = $GLOBALS['tUID'];
-    $cUID = $GLOBALS['cUID'];
-    $SITE = $GLOBALS['SITE'];
     $id = $GLOBALS['JUKEID']; 
     $ACTOR = $GLOBALS['TOOL']['ACTOR'];
 
+        $ROUTE = ROUTE_TO_DEWEY_CATALOG_D;
+        aleph($ROUTE);
 
-  //--## router settings ------- ##
-    $ROUTE__LINE = ROUTE('d', $sha_env);
-
-        $ROUTE = $ROUTE__LINE . '/_DEWEY/catalog/';
-        if (!is_dir($ROUTE)) { mkdir($ROUTE, 0775, true); }   
-
-        $TAG_CHEST = $ROUTE . $SITE['SYS_SLUG'] . '-' . $SITE['DOM_SLUG'] . '-songs.catalog.json';
+        $TAG_CHEST = $ROUTE . BLOCK_ID . '-' . DOM_SLUG . '-songs.catalog.json';
         $json = file_get_contents($TAG_CHEST);
         $TAGS = json_decode($json, true);
 
@@ -47,8 +40,8 @@ function catalogJUKEBOX($sha_env, $link, $artist, $song){
             ];
         }
 
-    if (!in_array($cUID, $TAGS[$artist][$id]['heard_by'][$ACTOR]['played_in'])){
-        $TAGS[$artist][$id]['heard_by'][$ACTOR]['played_in'][$cUID] = 'no';
+    if (!in_array(cUID, $TAGS[$artist][$id]['heard_by'][$ACTOR]['played_in'])){
+        $TAGS[$artist][$id]['heard_by'][$ACTOR]['played_in'][cUID] = 'no';
         $TAGS[$artist][$id]['total_plays']++;
         $TAGS[$artist][$id]['heard_by'][$ACTOR]['count']++;
     }
@@ -58,7 +51,7 @@ function catalogJUKEBOX($sha_env, $link, $artist, $song){
 }
 
 
-function getJUKED($string){
+function getJUKED(string $string){
     $string = strtolower($string);
     $string = trim($string);
     $string = preg_replace('/\s+/', '-', $string);
