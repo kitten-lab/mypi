@@ -1,6 +1,5 @@
 <?php 
 require __DIR__ . '/NIM/charlieLOOKUP.php';
-require __DIR__ . '/NIM/demoLOOKUP.php';
 require __DIR__ . '/Languages/chestersImports/tpsReports.crate.php';
 require __DIR__ . '/Languages/chestersImports/storeCrates.crate.php';
 require __DIR__ . '/Languages/chestersImports/getJuked.crate.php';

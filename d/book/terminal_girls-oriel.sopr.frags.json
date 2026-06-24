@@ -538,6 +538,22 @@
                             }
                         }
                     }
+                },
+                {
+                    "ID": "longing-0004",
+                    "FRAG": "",
+                    "AGENT": null,
+                    "METADATA": {
+                        "ADDED": 1782296240,
+                        "cUID": "crate.84DAD1BEF1E2EEFB",
+                        "TAGS": {
+                            "oriel": {
+                                "loves": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
                 }
             ]
         },

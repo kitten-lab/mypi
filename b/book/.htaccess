@@ -1,5 +1,4 @@
 RewriteEngine On
-RewriteBase /
 
 # Do not rewrite if the requested path is an actual existing file or folder
 RewriteCond %{REQUEST_FILENAME} !-f

@@ -1,12 +1,12 @@
 {
     "VEN": "loves",
-    "GRAVITY": 5,
+    "GRAVITY": 6,
     "METADATA": [],
     "SHELF": {
         "oriel": {
-            "GRAVITY": 5,
+            "GRAVITY": 6,
             "BIN": {
-                "elion": 5
+                "elion": 6
             }
         }
     }

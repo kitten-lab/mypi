@@ -1,10 +1,9 @@
-<?php $SITE = $GLOBALS['SITE'];
-
-require_once ROUTE_TO_TOOLS . '/parsedown/Parsedown.php'; 
+<?php 
+require_once ROUTE_TO_SYSTEMS . 'Borrows/parsedown/Parsedown.php'; 
+require_once ROUTE_TO_SYSTEMS . 'shadowENVO.php';
 
 require_once __DIR__ . '/-SIG-soprBASIC.php'; // ASSISTANT SETTINGS
 require_once __DIR__ . '/-CRATE-soprBASIC.php'; // CRATE FILLER SETTINGS
-require_once ROUTE_TO_SYSTEMS . 'shadowENVO.php';
 
 
 // SHADOW ENVIRONMENT SETTINGS AND OVERLAY

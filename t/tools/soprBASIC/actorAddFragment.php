@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     define("POST_UNIX", $_POST['POST__EVENT_UNIX']);
     define("POST_PV", $GLOBALS['PV'] ?? "::the.woman.on.K.st::");
 
-    require __DIR__ . '/../tpsMACHINE.php';  // THE TPS MACHINE 
+    require ROUTE_TO_SYSTEMS . 'tpsMACHINE.php';  // THE TPS MACHINE 
 
     define("TPS_TPSTIME", $tpstime);
     define("TPS_EVENTTIME", $event_time);
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // ============================================================================
     // OKAY LETS CATALOG AND CRATE THIS BIT OF STUFFS! 
     //=============================================================================
-    soperSTORE($sha_env);
+    soperSTORE();
 
     chestersCRATES();
     charliesTHREADS();

@@ -1,5 +1,5 @@
 {
-    "count": 429,
+    "count": 430,
     "b-node": {
         "bbc": 14,
         "bbc-gdd": 7,
@@ -73,7 +73,7 @@
         "dislikes": 1,
         "fragment": 2,
         "confused": 7,
-        "loves": 5,
+        "loves": 6,
         "speaks-to": 5
     }
 }
