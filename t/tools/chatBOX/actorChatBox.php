@@ -19,6 +19,7 @@ if ($IS_IT == true) {
 
 // FORM PROCESSING 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+$chattag = POST_username . "*chat-to>" . ROOM_SLUG;
 
     define("POST_TAGS", POST_username . "*speaks-to>" . ROOM_SLUG);
     define("POST_UNIX", $_POST['POST__EVENT_UNIX']);

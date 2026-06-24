@@ -5,7 +5,6 @@ require_once __DIR__ . '/-SIG-chatBOX.php'; // ASSISTANT SETTINGS
 getFIG("chatBOX", "ChatBox");
 global $mySIGFIG; 
 
-$chattag = POST_username . "*chat-to>" . ROOM_SLUG;
 ?>
 
 <!-- Load jQuery and jQuery UI -->

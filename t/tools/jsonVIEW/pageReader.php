@@ -1,8 +1,8 @@
 <?php
 global $SONAR;
 
-require_once $SONAR . 't/tools/parsedown/Parsedown.php'; 
-$json = file_get_contents(__DIR__ . '/../../../z/logs/2025-08-17__Build_entry_levels__663msgs.json');
+require_once $SONAR . 'k/systems/Borrows/parsedown/Parsedown.php'; 
+$json = file_get_contents(__DIR__ . '/../../../z/logs/2025-02-10__Oyzis_ritual__46msgs.json');
 $data = json_decode($json, true);
 
 $mapping = $data['mapping'];
@@ -23,6 +23,7 @@ while ($current) {
         $messages[] = [
             'create_time' => $current['message']['create_time'],
             'role' => $current['message']['author']['role'],
+            'id' => $current['id'],
             'text' => $current['message']['content']['parts'][0]
         ];
     }
@@ -37,9 +38,14 @@ while ($current) {
 foreach ($messages as $msg) {
         $Parsedown = new Parsedown();
     echo "<div class='msg {$msg['role']}'>";
-    echo "<div>{$msg['create_time']}</div>";
+    echo "<input type='checkbox' id='checked' value='yes'>";
     echo "<strong>" . strtoupper($msg['role']) . ":</strong><br>";
     echo $Parsedown->text($msg['text']);
+    echo "<pre>";
+    echo "UNIX TIME: {$msg['create_time']}";
+    echo " - GPT-UID: {$msg['id']}";
+    echo "</pre>";
+    echo "<hr>";
     echo "</div><br>";
 }
 ?>

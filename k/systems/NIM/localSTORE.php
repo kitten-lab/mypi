@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "soper_section",
     "POST__TAGS",
     "POST__EVENT_UNIX",
-    "agent"
+    "agent",
+    "checked"
   ];
 
   // LOAD saved values
