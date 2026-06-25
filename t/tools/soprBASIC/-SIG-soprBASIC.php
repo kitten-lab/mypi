@@ -6,8 +6,8 @@ $GLOBALS['TOOL'] = [
     "SHADOWENVO" => SHADOW_TOGGLE,
     "NAME" => "soprBASIC",
     "FUNCTION" => "AddFragment",
-    "CATALOG_SLUG" => "soprBASIC fragment",
-    "TYPE" => "sopr",
+    "CATALOG_SLUG" => "sopr fragment",
+    "TYPE" => "fragment",
     "VERSION" => 3,
     ];
 
@@ -44,8 +44,8 @@ $SIGFIG['soprBASIC'] = [
                 "Submit_Button"     => "Store Fragment",
         ],
         "classic" => [
-                "user"              => $GLOBALS['MATERIAL']['USER'],
-                "assistant"         => $GLOBALS['MATERIAL']['ASSISTANT'],
+                "user"              => "JACK",
+                "assistant"         => "WIRES",
                 "soper_section"     => "Section Heading",
                 "soper_section_pl"  => "test",
                 "soper_leaf"        => "Fragment Content",

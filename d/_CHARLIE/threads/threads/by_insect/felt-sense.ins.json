@@ -1,0 +1,15 @@
+{
+    "VEN": "felt-sense",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "freedom": {
+            "GRAVITY": 3,
+            "BIN": {
+                "romance": 1,
+                "alive": 1,
+                "love": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "VEN": "wire-wolf",
+    "GRAVITY": 15,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "memories": {
+            "GRAVITY": 15,
+            "BIN": {
+                "breakthrough": 1,
+                "freedom": 1,
+                "lighter": 1,
+                "romance": 1,
+                "creation": 1,
+                "live": 1,
+                "heart": 1,
+                "interconnection": 1,
+                "healing": 1,
+                "trauma": 1,
+                "break-pattern": 1,
+                "misery": 1,
+                "identity": 1,
+                "self-love": 1,
+                "sacred-mission": 1
+            }
+        }
+    }
+}

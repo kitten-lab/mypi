@@ -1,0 +1,61 @@
+{
+    "VEN": "misery",
+    "GRAVITY": 17,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "alias": {
+            "GRAVITY": 3,
+            "BIN": {
+                "oyzis": 1,
+                "demon": 1,
+                "erysichthon": 1
+            }
+        },
+        "metadata": {
+            "GRAVITY": 2,
+            "BIN": {
+                "primal-force": 1,
+                "godhead": 1
+            }
+        },
+        "goddess": {
+            "GRAVITY": 3,
+            "BIN": {
+                "misery": 1,
+                "grief": 1,
+                "suffering": 1
+            }
+        },
+        "represents": {
+            "GRAVITY": 3,
+            "BIN": {
+                "emotional-torment": 1,
+                "struggle": 1,
+                "human-condition": 1
+            }
+        },
+        "causes": {
+            "GRAVITY": 2,
+            "BIN": {
+                "sorrow": 1,
+                "despair": 1
+            }
+        },
+        "role": {
+            "GRAVITY": 3,
+            "BIN": {
+                "heavy-emotions": 1,
+                "suffering": 1,
+                "human-condition": 1
+            }
+        },
+        "mythology": {
+            "GRAVITY": 1,
+            "BIN": {
+                "greek": 1
+            }
+        }
+    }
+}

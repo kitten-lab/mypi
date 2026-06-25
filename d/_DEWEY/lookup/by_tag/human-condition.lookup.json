@@ -1,0 +1,86 @@
+{
+    "CABINET": {
+        "human-condition": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1782306295,
+                    "LAST": 1782306353
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739217602": [
+                        "misery",
+                        "misery"
+                    ]
+                }
+            },
+            "SHELF": {
+                "misery": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1782306295,
+                            "LAST": 1782306353
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "represents",
+                                "role"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "represents": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306295,
+                                    "LAST": 1782306295
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.A9074A36FED8BA5E"
+                                    ]
+                                }
+                            }
+                        },
+                        "role": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306353,
+                                    "LAST": 1782306353
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.92D4B71D54DECC3D"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

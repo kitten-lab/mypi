@@ -12,6 +12,7 @@ $GLOBALS[BLOCK_ID]['GETS']['Nav'] = echoSONAR . 'a/' . BLOCK_ID . '/asSys/nav.ph
 
 $GLOBALS[BLOCK_ID]['tDOM'] = [
   [ "DOM" => "elog" ],
+  [ "DOM" => "archetypes" ],
 ]; 
 
 $GLOBALS[BLOCK_ID]['NAV'] = [ 

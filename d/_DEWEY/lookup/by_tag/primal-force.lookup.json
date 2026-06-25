@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "primal-force": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1782306079,
+                    "LAST": 1782306079
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739217602": [
+                        "misery"
+                    ]
+                }
+            },
+            "SHELF": {
+                "misery": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782306079,
+                            "LAST": 1782306079
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "metadata"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "metadata": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306079,
+                                    "LAST": 1782306079
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.42634F3918539CD1"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

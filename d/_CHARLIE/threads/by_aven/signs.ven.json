@@ -1,0 +1,17 @@
+{
+    "VEN": "signs",
+    "GRAVITY": 3,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "him": {
+            "GRAVITY": 3,
+            "BIN": {
+                "em": 1,
+                "elion": 1,
+                "freedom": 1
+            }
+        }
+    }
+}

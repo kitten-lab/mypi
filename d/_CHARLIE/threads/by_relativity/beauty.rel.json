@@ -1,0 +1,19 @@
+{
+    "VEN": "beauty",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "symbols": {
+            "GRAVITY": 1,
+            "BIN": {
+                "includes": 1
+            }
+        },
+        "i-am": {
+            "GRAVITY": 1,
+            "BIN": {
+                "contain": 1
+            }
+        }
+    }
+}

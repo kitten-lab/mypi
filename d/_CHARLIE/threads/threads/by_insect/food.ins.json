@@ -1,0 +1,13 @@
+{
+    "VEN": "food",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "symbols": {
+            "GRAVITY": 1,
+            "BIN": {
+                "bean": 1
+            }
+        }
+    }
+}

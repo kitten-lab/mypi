@@ -1,0 +1,25 @@
+{
+    "VEN": "alias",
+    "GRAVITY": 8,
+    "METADATA": [],
+    "SHELF": {
+        "misery": {
+            "GRAVITY": 3,
+            "BIN": {
+                "oyzis": 1,
+                "demon": 1,
+                "erysichthon": 1
+            }
+        },
+        "universe": {
+            "GRAVITY": 5,
+            "BIN": {
+                "source": 1,
+                "mirror": 1,
+                "god": 1,
+                "all-thing": 1,
+                "no-thing": 1
+            }
+        }
+    }
+}

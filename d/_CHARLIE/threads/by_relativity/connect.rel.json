@@ -1,0 +1,13 @@
+{
+    "VEN": "connect",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "goals": {
+            "GRAVITY": 1,
+            "BIN": {
+                "story": 1
+            }
+        }
+    }
+}

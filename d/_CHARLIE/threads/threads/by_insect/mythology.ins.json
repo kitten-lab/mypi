@@ -1,0 +1,13 @@
+{
+    "VEN": "mythology",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "misery": {
+            "GRAVITY": 1,
+            "BIN": {
+                "greek": 1
+            }
+        }
+    }
+}

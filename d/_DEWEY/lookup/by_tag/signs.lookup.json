@@ -1,0 +1,193 @@
+{
+    "CABINET": {
+        "signs": {
+            "METADATA": {
+                "GRAVITY": 6,
+                "INGEST": {
+                    "FIRST": 1782306854,
+                    "LAST": 1782307061
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739217616": [
+                        "him",
+                        "him",
+                        "him",
+                        "felt-sense",
+                        "felt-sense",
+                        "felt-sense"
+                    ]
+                }
+            },
+            "SHELF": {
+                "him": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1782306854,
+                            "LAST": 1782306854
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217616": [
+                                "em",
+                                "elion",
+                                "freedom"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "em": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306854,
+                                    "LAST": 1782306854
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.C502148C5E03D2BB"
+                                    ]
+                                }
+                            }
+                        },
+                        "elion": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306854,
+                                    "LAST": 1782306854
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.C502148C5E03D2BB"
+                                    ]
+                                }
+                            }
+                        },
+                        "freedom": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306854,
+                                    "LAST": 1782306854
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.C502148C5E03D2BB"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "felt-sense": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1782307061,
+                            "LAST": 1782307061
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217616": [
+                                "universe-alive",
+                                "romance",
+                                "co-creation"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "universe-alive": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782307061,
+                                    "LAST": 1782307061
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.E833A06B9666AE11"
+                                    ]
+                                }
+                            }
+                        },
+                        "romance": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782307061,
+                                    "LAST": 1782307061
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.E833A06B9666AE11"
+                                    ]
+                                }
+                            }
+                        },
+                        "co-creation": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782307061,
+                                    "LAST": 1782307061
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.E833A06B9666AE11"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

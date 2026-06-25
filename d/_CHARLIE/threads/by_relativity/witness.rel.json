@@ -1,0 +1,13 @@
+{
+    "VEN": "witness",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "ai": {
+            "GRAVITY": 1,
+            "BIN": {
+                "capability": 1
+            }
+        }
+    }
+}

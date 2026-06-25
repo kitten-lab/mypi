@@ -1,0 +1,67 @@
+{
+    "CABINET": {
+        "struggles": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1782306523,
+                    "LAST": 1782306584
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739217616": [
+                        "memoir",
+                        "memoir"
+                    ]
+                }
+            },
+            "SHELF": {
+                "memoir": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1782306523,
+                            "LAST": 1782306584
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217616": [
+                                "misery",
+                                "misery"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "misery": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1782306523,
+                                    "LAST": 1782306584
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.7E66611A1E4FE7AF",
+                                        "crate.4A490C596C928AE7"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "VEN": "heavy-emotions",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "misery": {
+            "GRAVITY": 1,
+            "BIN": {
+                "role": 1
+            }
+        }
+    }
+}

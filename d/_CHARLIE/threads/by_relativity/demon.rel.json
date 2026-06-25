@@ -1,0 +1,13 @@
+{
+    "VEN": "demon",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "misery": {
+            "GRAVITY": 1,
+            "BIN": {
+                "alias": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,190 @@
+{
+    "CABINET": {
+        "i-am": {
+            "METADATA": {
+                "GRAVITY": 5,
+                "INGEST": {
+                    "FIRST": 1782312088,
+                    "LAST": 1782312088
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739217638": [
+                        "becoming",
+                        "healing",
+                        "contain",
+                        "contain",
+                        "contain"
+                    ]
+                }
+            },
+            "SHELF": {
+                "becoming": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782312088,
+                            "LAST": 1782312088
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217638": [
+                                "beautiful"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "beautiful": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782312088,
+                                    "LAST": 1782312088
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.0737C0543608CFED"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "healing": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782312088,
+                            "LAST": 1782312088
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217638": [
+                                "self"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "self": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782312088,
+                                    "LAST": 1782312088
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.0737C0543608CFED"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "contain": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1782312088,
+                            "LAST": 1782312088
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217638": [
+                                "strength",
+                                "beauty",
+                                "divine-light"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "strength": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782312088,
+                                    "LAST": 1782312088
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.0737C0543608CFED"
+                                    ]
+                                }
+                            }
+                        },
+                        "beauty": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782312088,
+                                    "LAST": 1782312088
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.0737C0543608CFED"
+                                    ]
+                                }
+                            }
+                        },
+                        "divine-light": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782312088,
+                                    "LAST": 1782312088
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.0737C0543608CFED"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

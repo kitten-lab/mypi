@@ -1,0 +1,13 @@
+{
+    "VEN": "universe",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "mirror": {
+            "GRAVITY": 1,
+            "BIN": {
+                "role": 1
+            }
+        }
+    }
+}

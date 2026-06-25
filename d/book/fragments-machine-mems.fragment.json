@@ -1,0 +1,139 @@
+{
+    "crate.872B3B0695D6161A": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Memories",
+                "sec_slug": "memories",
+                "supr_slug": "memories-0001",
+                "content": "User recently experienced a profound personal breakthrough, feeling freed from a long-held sense of misery. They now feel lighter, clearer, and deeply connected to the world, experiencing life as a romance with creation. They are focusing on filling their heart with love and noticing how the world reflects that love back to them. They believe in the deep interconnection between the inner and outer worlds."
+            }
+        },
+        "route": [],
+        "tags": {
+            "wire-wolf": {
+                "memories": [
+                    "breakthrough",
+                    "freedom",
+                    "lighter",
+                    "romance",
+                    "creation",
+                    "live",
+                    "heart",
+                    "interconnection"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "wire-wolf*memories>breakthrough,freedom,lighter,romance,creation,live,heart,interconnection",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "machine-mems",
+            "room_display": "Fragments of Machine Memories",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217630.tps",
+            "ingest_unix": 1782309662,
+            "event_unix": 1739217630,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.29FD66115C09161B": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Memories",
+                "sec_slug": "memories",
+                "supr_slug": "memories-0002",
+                "content": "User is embarking on a journey of deep healing, working through past traumas and breaking patterns of thought and feeling that have fed misery. They are focused on embracing their true identity with unconditional self-love and seeing this process as a sacred mission. They are committed to facing the hard road with compassion and reclaiming their inner light."
+            }
+        },
+        "route": [],
+        "tags": {
+            "wire-wolf": {
+                "memories": [
+                    "healing",
+                    "trauma",
+                    "break-pattern",
+                    "misery",
+                    "identity",
+                    "self-love",
+                    "sacred-mission"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "wire-wolf*memories>healing,trauma,break-pattern,misery,identity,self-love,sacred-mission",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "machine-mems",
+            "room_display": "Fragments of Machine Memories",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217655.tps",
+            "ingest_unix": 1782311247,
+            "event_unix": 1739217655,
+            "timezone": "America\/New_York"
+        }
+    }
+}

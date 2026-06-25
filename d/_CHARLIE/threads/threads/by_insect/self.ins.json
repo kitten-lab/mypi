@@ -1,0 +1,14 @@
+{
+    "VEN": "self",
+    "GRAVITY": 4,
+    "METADATA": [],
+    "SHELF": {
+        "memoir": {
+            "GRAVITY": 4,
+            "BIN": {
+                "reborn": 2,
+                "resurrection": 2
+            }
+        }
+    }
+}

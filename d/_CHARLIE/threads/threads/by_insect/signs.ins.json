@@ -1,0 +1,15 @@
+{
+    "VEN": "signs",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "felt-sense": {
+            "GRAVITY": 3,
+            "BIN": {
+                "universe-alive": 1,
+                "romance": 1,
+                "co-creation": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "VEN": "human-condition",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "misery": {
+            "GRAVITY": 2,
+            "BIN": {
+                "represents": 1,
+                "role": 1
+            }
+        }
+    }
+}

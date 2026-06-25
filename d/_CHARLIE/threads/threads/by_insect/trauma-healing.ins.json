@@ -1,0 +1,16 @@
+{
+    "VEN": "trauma-healing",
+    "GRAVITY": 4,
+    "METADATA": [],
+    "SHELF": {
+        "goals": {
+            "GRAVITY": 4,
+            "BIN": {
+                "thought-patterns": 1,
+                "misery": 1,
+                "heal": 1,
+                "memory-recovery": 1
+            }
+        }
+    }
+}

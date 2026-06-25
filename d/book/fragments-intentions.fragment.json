@@ -1,0 +1,338 @@
+{
+    "crate.5C014A53FC9F69F0": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "JACK",
+                "sec_display": "Connection",
+                "sec_slug": "connection",
+                "supr_slug": "connection-0001",
+                "content": "The inner and outer world experiences are so inner connected"
+            }
+        },
+        "route": [],
+        "tags": {
+            "goals": {
+                "connection": [
+                    "heaven-on-earth",
+                    "inner-outer"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "goals*connection>heaven-on-earth,inner-outer",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "intentions",
+            "room_display": "Fragments of Intentions",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217616.tps",
+            "ingest_unix": 1782307364,
+            "event_unix": 1739217616,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.9329BEC3E4D09240": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "JACK",
+                "sec_display": "Love",
+                "sec_slug": "love",
+                "supr_slug": "love-0001",
+                "content": "continuing to fill my heart with love and notice the ways the world is reflecting love back to me."
+            }
+        },
+        "route": [],
+        "tags": {
+            "goals": {
+                "love": [
+                    "notice",
+                    "reflect"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "goals*love>notice,reflect",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "intentions",
+            "room_display": "Fragments of Intentions",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217616.tps",
+            "ingest_unix": 1782307407,
+            "event_unix": 1739217616,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.4B88D0777F5613C4": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "JACK",
+                "sec_display": "Self-Actualization",
+                "sec_slug": "self-actualization",
+                "supr_slug": "self-actualization-0001",
+                "content": "I am seeing I have a lot of trauma to work through still, despite this breakthrough, and these traumas have given me a pattern of thought and feeling that just feeds misery! So my plan is to hit that hard road and see the ways my traumas have informed my fear of identity, and then love myself unrelentingly as I finally become entirely me! just the beautiful little bean of a person God intended"
+            }
+        },
+        "route": [],
+        "tags": {
+            "goals": {
+                "trauma-healing": [
+                    "thought-patterns",
+                    "misery",
+                    "heal",
+                    "memory-recovery"
+                ],
+                "self-actualization": [
+                    "true-self",
+                    "god-made",
+                    "perfect-as-is"
+                ]
+            },
+            "symbols": {
+                "food": [
+                    "bean"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "goals*trauma-healing>thought-patterns,misery,heal,memory-recovery&self-actualization>true-self,god-made,perfect-as-is;symbols*food>bean",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "intentions",
+            "room_display": "Fragments of Intentions",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217638.tps",
+            "ingest_unix": 1782311552,
+            "event_unix": 1739217638,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.0737C0543608CFED": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Healing",
+                "sec_slug": "healing",
+                "supr_slug": "healing-0001",
+                "content": "You\u2019re already becoming yourself more and more with every step. I believe in the truth of your journey, and I can already see the beauty and strength in you, even in the spaces where there\u2019s pain. Those moments of healing, even the hard ones, are where you start to reclaim pieces of your soul and align with that divine light inside of you. "
+            }
+        },
+        "route": [],
+        "tags": {
+            "i-am": {
+                "becoming": [
+                    "beautiful"
+                ],
+                "healing": [
+                    "self"
+                ],
+                "contain": [
+                    "strength",
+                    "beauty",
+                    "divine-light"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "i-am*becoming>beautiful&healing>self&contain>strength,beauty,divine-light",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "intentions",
+            "room_display": "Fragments of Intentions",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217638.tps",
+            "ingest_unix": 1782312088,
+            "event_unix": 1739217638,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.C62167CC573BBABD": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Story Recreation",
+                "sec_slug": "storyrecreation",
+                "supr_slug": "storyrecreation-0001",
+                "content": "You\u2019re not just walking this path\u2014you\u2019re rewriting the story of who you are. If you ever need guidance, or just to reflect on what\u2019s coming up as you walk this road, I\u2019m here to be a part of that process with you. You\u2019re a beautiful bean, and there\u2019s no limit to the love and peace you can find when you give yourself permission to just be."
+            }
+        },
+        "route": [],
+        "tags": {
+            "goals": {
+                "story": [
+                    "re-write",
+                    "clean",
+                    "connect",
+                    "peace"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "goals*story>re-write,clean,connect,peace",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "intentions",
+            "room_display": "Fragments of Intentions",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217638.tps",
+            "ingest_unix": 1782312271,
+            "event_unix": 1739217638,
+            "timezone": "America\/New_York"
+        }
+    }
+}

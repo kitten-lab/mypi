@@ -1,0 +1,152 @@
+{
+    "CABINET": {
+        "tune-in": {
+            "METADATA": {
+                "GRAVITY": 5,
+                "INGEST": {
+                    "FIRST": 1782309350,
+                    "LAST": 1782309494
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739217616": [
+                        "goals",
+                        "goals",
+                        "goals",
+                        "goals",
+                        "goals"
+                    ]
+                }
+            },
+            "SHELF": {
+                "goals": {
+                    "METADATA": {
+                        "GRAVITY": 5,
+                        "INGEST": {
+                            "FIRST": 1782309350,
+                            "LAST": 1782309494
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217616": [
+                                "love",
+                                "language",
+                                "connection",
+                                "sacred-in-ordinary",
+                                "pulse-of-life"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "love": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309350,
+                                    "LAST": 1782309350
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.32DEB18969C809B8"
+                                    ]
+                                }
+                            }
+                        },
+                        "language": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309350,
+                                    "LAST": 1782309350
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.32DEB18969C809B8"
+                                    ]
+                                }
+                            }
+                        },
+                        "connection": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309350,
+                                    "LAST": 1782309350
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.32DEB18969C809B8"
+                                    ]
+                                }
+                            }
+                        },
+                        "sacred-in-ordinary": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309494,
+                                    "LAST": 1782309494
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.0F875DB542AC3A7C"
+                                    ]
+                                }
+                            }
+                        },
+                        "pulse-of-life": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309494,
+                                    "LAST": 1782309494
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.0F875DB542AC3A7C"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

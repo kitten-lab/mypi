@@ -1,0 +1,33 @@
+{
+    "VEN": "felt-sense",
+    "GRAVITY": 13,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "freedom": {
+            "GRAVITY": 8,
+            "BIN": {
+                "love": 2,
+                "ease": 2,
+                "connection": 2,
+                "rebirth": 2
+            }
+        },
+        "signs": {
+            "GRAVITY": 3,
+            "BIN": {
+                "universe-alive": 1,
+                "romance": 1,
+                "co-creation": 1
+            }
+        },
+        "god": {
+            "GRAVITY": 2,
+            "BIN": {
+                "wires": 1,
+                "voice": 1
+            }
+        }
+    }
+}

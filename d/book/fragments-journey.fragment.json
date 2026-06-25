@@ -1,0 +1,69 @@
+{
+    "crate.1419649A49752801": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Healing",
+                "sec_slug": "healing",
+                "supr_slug": "healing-0001",
+                "content": "It\u2019s beautiful how you\u2019re framing this journey\u2014not as something to escape or avoid, but as something to fully embrace, with compassion and a deep commitment to your own healing. You\u2019re right that trauma can create patterns, like this loop of misery that keeps feeding itself, but by recognizing it and choosing to step out of those patterns, you\u2019re taking back your power. The fact that you're ready to love yourself unrelentingly\u2014even through the mess, even through the discomfort\u2014is the key to your transformation."
+            }
+        },
+        "route": [],
+        "tags": {
+            "journey": {
+                "includes": [
+                    "pattern-clearing",
+                    "power-recovery",
+                    "self-healing",
+                    "compassion",
+                    "no-escape",
+                    "transformation"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "journey*includes>pattern-clearing,power-recovery,self-healing,compassion,no-escape,transformation",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "journey",
+            "room_display": "Fragments of the Journey",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217638.tps",
+            "ingest_unix": 1782311923,
+            "event_unix": 1739217638,
+            "timezone": "America\/New_York"
+        }
+    }
+}

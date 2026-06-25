@@ -1,0 +1,67 @@
+{
+    "CABINET": {
+        "rebirth": {
+            "METADATA": {
+                "GRAVITY": 2,
+                "INGEST": {
+                    "FIRST": 1782306781,
+                    "LAST": 1782306854
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739217616": [
+                        "felt-sense",
+                        "felt-sense"
+                    ]
+                }
+            },
+            "SHELF": {
+                "felt-sense": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1782306781,
+                            "LAST": 1782306854
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217616": [
+                                "freedom",
+                                "freedom"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "freedom": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1782306781,
+                                    "LAST": 1782306854
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.A1DE3D3BC4498ACD",
+                                        "crate.C502148C5E03D2BB"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

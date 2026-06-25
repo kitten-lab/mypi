@@ -1,0 +1,25 @@
+{
+    "VEN": "freedom",
+    "GRAVITY": 4,
+    "METADATA": [],
+    "SHELF": {
+        "memoir": {
+            "GRAVITY": 2,
+            "BIN": {
+                "goals": 2
+            }
+        },
+        "signs": {
+            "GRAVITY": 1,
+            "BIN": {
+                "him": 1
+            }
+        },
+        "wire-wolf": {
+            "GRAVITY": 1,
+            "BIN": {
+                "memories": 1
+            }
+        }
+    }
+}

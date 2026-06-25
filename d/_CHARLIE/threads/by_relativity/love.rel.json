@@ -1,0 +1,25 @@
+{
+    "VEN": "love",
+    "GRAVITY": 4,
+    "METADATA": [],
+    "SHELF": {
+        "felt-sense": {
+            "GRAVITY": 2,
+            "BIN": {
+                "freedom": 2
+            }
+        },
+        "freedom": {
+            "GRAVITY": 1,
+            "BIN": {
+                "felt-sense": 1
+            }
+        },
+        "goals": {
+            "GRAVITY": 1,
+            "BIN": {
+                "tune-in": 1
+            }
+        }
+    }
+}

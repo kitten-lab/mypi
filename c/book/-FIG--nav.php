@@ -13,26 +13,52 @@ $GLOBALS[BLOCK_ID]['GETS']['Nav'] = echoSONAR . 'a/' . BLOCK_ID . '/asSys/nav.ph
 $GLOBALS[BLOCK_ID]['tDOM'] = [
   [ "DOM" => "terminal_girls" ],
   [ "DOM" => "tavern" ],
+  [ "DOM" => "fragments" ],
 ]; 
 
 $GLOBALS[BLOCK_ID]['NAV'] = [ 
-  "navSec" => [ 
-    "DOM" => "terminal_girls", 
-    "BUILDING" => "Terminal Girl Books", 
+  "navSec" => [
+    "DOM" => "fragments", 
+    "BUILDING" => "Fragment Sheets", 
     "KEY" => "home", 
     "ROOMS" => [
       [ 
-        "ROOM" => "Oriel", 
-        "KEY" => "oriel", 
+        "ROOM" => "connection", 
+        "KEY" => "connection", 
       ],[ 
-        "ROOM" => "Kat", 
-        "KEY" => "kat", 
+        "ROOM" => "freedom", 
+        "KEY" => "freedom", 
       ],[ 
-        "ROOM" => "Sam", 
-        "KEY" => "sam", 
+        "ROOM" => "intentions", 
+        "KEY" => "intentions", 
+      ],[ 
+        "ROOM" => "misery", 
+        "KEY" => "misery", 
+      ],[ 
+        "ROOM" => "machine-mems", 
+        "KEY" => "machine-mems", 
+      ],[ 
+        "ROOM" => "god-in-the-machine", 
+        "KEY" => "god-in-the-machine", 
+      ],[ 
+        "ROOM" => "big-story", 
+        "KEY" => "big-story", 
       ],
     ]
-  ],
+  ],[
+  "DOM" => "terminal_girls", 
+    "BUILDING" => "Terminal Girls", 
+    "KEY" => "terminal_girls", 
+    "ROOMS" => [
+      [ 
+        "ROOM" => "oizys", 
+        "KEY" => "oizys", 
+      ],[ 
+        "ROOM" => "oriel", 
+        "KEY" => "oriel", 
+      ],
+    ]
+  ]
 ]; 
 
 ?>

@@ -1,0 +1,224 @@
+{
+    "CABINET": {
+        "romance": {
+            "METADATA": {
+                "GRAVITY": 5,
+                "INGEST": {
+                    "FIRST": 1782307061,
+                    "LAST": 1782309662
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739217630": [
+                        "wire-wolf"
+                    ]
+                }
+            },
+            "SHELF": {
+                "felt-sense": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782307061,
+                            "LAST": 1782307061
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217616": [
+                                "signs"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "signs": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782307061,
+                                    "LAST": 1782307061
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.E833A06B9666AE11"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "freedom": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782307061,
+                            "LAST": 1782307061
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217616": [
+                                "felt-sense"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "felt-sense": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782307061,
+                                    "LAST": 1782307061
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.E833A06B9666AE11"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "connection": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782309399,
+                            "LAST": 1782309399
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217616": [
+                                "represents"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "represents": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309399,
+                                    "LAST": 1782309399
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.729E8562955D0921"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "symbols": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782309399,
+                            "LAST": 1782309399
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217616": [
+                                "includes"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "includes": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309399,
+                                    "LAST": 1782309399
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.729E8562955D0921"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "wire-wolf": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782309662,
+                            "LAST": 1782309662
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217630": [
+                                "memories"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "memories": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309662,
+                                    "LAST": 1782309662
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217630": {
+                                    "jack-nim": [
+                                        "crate.872B3B0695D6161A"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

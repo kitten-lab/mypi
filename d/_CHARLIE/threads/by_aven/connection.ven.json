@@ -1,0 +1,18 @@
+{
+    "VEN": "connection",
+    "GRAVITY": 2,
+    "ALIAS": {
+        "note": "Empty"
+    },
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "represents": {
+            "GRAVITY": 2,
+            "BIN": {
+                "dance": 1,
+                "romance": 1
+            }
+        }
+    }
+}

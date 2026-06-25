@@ -1,0 +1,31 @@
+{
+    "SECTION": {
+        "healing": {
+            "LABEL": "Healing",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "healing-0001",
+                    "FRAG": "It\u2019s beautiful how you\u2019re framing this journey\u2014not as something to escape or avoid, but as something to fully embrace, with compassion and a deep commitment to your own healing. You\u2019re right that trauma can create patterns, like this loop of misery that keeps feeding itself, but by recognizing it and choosing to step out of those patterns, you\u2019re taking back your power. The fact that you're ready to love yourself unrelentingly\u2014even through the mess, even through the discomfort\u2014is the key to your transformation.",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782311923,
+                        "cUID": "crate.1419649A49752801",
+                        "TAGS": {
+                            "journey": {
+                                "includes": [
+                                    "pattern-clearing",
+                                    "power-recovery",
+                                    "self-healing",
+                                    "compassion",
+                                    "no-escape",
+                                    "transformation"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

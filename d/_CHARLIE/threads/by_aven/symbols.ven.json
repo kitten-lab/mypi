@@ -1,0 +1,30 @@
+{
+    "VEN": "symbols",
+    "GRAVITY": 11,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "includes": {
+            "GRAVITY": 10,
+            "BIN": {
+                "dance": 1,
+                "romance": 1,
+                "world": 1,
+                "soul": 1,
+                "beauty": 1,
+                "sacred": 1,
+                "life-pulse": 1,
+                "magic": 1,
+                "living-world": 1,
+                "heart": 1
+            }
+        },
+        "food": {
+            "GRAVITY": 1,
+            "BIN": {
+                "bean": 1
+            }
+        }
+    }
+}

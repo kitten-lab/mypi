@@ -1,0 +1,15 @@
+{
+    "VEN": "goddess",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "misery": {
+            "GRAVITY": 3,
+            "BIN": {
+                "misery": 1,
+                "grief": 1,
+                "suffering": 1
+            }
+        }
+    }
+}

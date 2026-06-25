@@ -1,0 +1,15 @@
+{
+    "VEN": "goddess",
+    "GRAVITY": 1,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "dark": {
+            "GRAVITY": 1,
+            "BIN": {
+                "misery": 1
+            }
+        }
+    }
+}

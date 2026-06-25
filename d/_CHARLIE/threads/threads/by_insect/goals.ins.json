@@ -1,0 +1,13 @@
+{
+    "VEN": "goals",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "memoir": {
+            "GRAVITY": 2,
+            "BIN": {
+                "freedom": 2
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "VEN": "role",
+    "GRAVITY": 5,
+    "METADATA": [],
+    "SHELF": {
+        "misery": {
+            "GRAVITY": 3,
+            "BIN": {
+                "heavy-emotions": 1,
+                "suffering": 1,
+                "human-condition": 1
+            }
+        },
+        "mirror": {
+            "GRAVITY": 2,
+            "BIN": {
+                "universe": 1,
+                "reflection": 1
+            }
+        }
+    }
+}

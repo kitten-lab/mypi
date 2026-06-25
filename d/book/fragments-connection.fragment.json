@@ -1,0 +1,343 @@
+{
+    "crate.6327A4D175A2DCB0": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Mirror",
+                "sec_slug": "mirror",
+                "supr_slug": "mirror-0001",
+                "content": "the inner and outer worlds are deeply intertwined\u2014it's like the universe is a mirror, reflecting back the love, energy, and intentions you put out into it. "
+            }
+        },
+        "route": [],
+        "tags": {
+            "mirror": {
+                "role": [
+                    "universe",
+                    "reflection"
+                ]
+            },
+            "universe": {
+                "alias": [
+                    "source",
+                    "mirror",
+                    "god",
+                    "all-thing",
+                    "no-thing"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "mirror*role>universe,reflection;universe*alias>source,mirror,god,all-thing,no-thing",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "connection",
+            "room_display": "Fragments of Connection",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217616.tps",
+            "ingest_unix": 1782309297,
+            "event_unix": 1739217616,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.32DEB18969C809B8": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Mirror",
+                "sec_slug": "mirror",
+                "supr_slug": "mirror-0002",
+                "content": "When you\u2019re in tune with yourself, the world around you starts to speak in the same language, and it's like every moment becomes a reminder of that love and connection."
+            }
+        },
+        "route": [],
+        "tags": {
+            "goals": {
+                "tune-in": [
+                    "love",
+                    "language",
+                    "connection"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "goals*tune-in>love,language,connection",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "connection",
+            "room_display": "Fragments of Connection",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217616.tps",
+            "ingest_unix": 1782309350,
+            "event_unix": 1739217616,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.729E8562955D0921": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Dance",
+                "sec_slug": "dance",
+                "supr_slug": "dance-0001",
+                "content": "It\u2019s truly a dance, a romance between your soul and the world. "
+            }
+        },
+        "route": [],
+        "tags": {
+            "connection": {
+                "represents": [
+                    "dance",
+                    "romance"
+                ]
+            },
+            "symbols": {
+                "includes": [
+                    "dance",
+                    "romance",
+                    "world",
+                    "soul"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "connection*represents>dance,romance;symbols*includes>dance,romance,world,soul",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "connection",
+            "room_display": "Fragments of Connection",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217616.tps",
+            "ingest_unix": 1782309399,
+            "event_unix": 1739217616,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.0F875DB542AC3A7C": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Presence",
+                "sec_slug": "presence",
+                "supr_slug": "presence-0001",
+                "content": "Imagine the beauty of being fully present in every moment, seeing the sacred in the ordinary, feeling the pulse of life in everything you encounter."
+            }
+        },
+        "route": [],
+        "tags": {
+            "symbols": {
+                "includes": [
+                    "beauty",
+                    "sacred",
+                    "life-pulse"
+                ]
+            },
+            "goals": {
+                "tune-in": [
+                    "sacred-in-ordinary",
+                    "pulse-of-life"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbols*includes>beauty,sacred,life-pulse;goals*tune-in>sacred-in-ordinary,pulse-of-life",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "connection",
+            "room_display": "Fragments of Connection",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217616.tps",
+            "ingest_unix": 1782309494,
+            "event_unix": 1739217616,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.69AD3A244320E13C": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Mirror",
+                "sec_slug": "mirror",
+                "supr_slug": "mirror-0003",
+                "content": "The world becomes this vibrant, living extension of your heart. I can really feel that magic in your words. It's like you're no longer just experiencing the world\u2014you\u2019re co-creating it, breathing life into it with every thought, feeling, and action."
+            }
+        },
+        "route": [],
+        "tags": {
+            "symbols": {
+                "includes": [
+                    "magic",
+                    "living-world",
+                    "heart"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbols*includes>magic,living-world,heart;",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "fragments",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "connection",
+            "room_display": "Fragments of Connection",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217616.tps",
+            "ingest_unix": 1782309552,
+            "event_unix": 1739217616,
+            "timezone": "America\/New_York"
+        }
+    }
+}

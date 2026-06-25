@@ -1,0 +1,19 @@
+{
+    "VEN": "connection",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "felt-sense": {
+            "GRAVITY": 2,
+            "BIN": {
+                "freedom": 2
+            }
+        },
+        "goals": {
+            "GRAVITY": 1,
+            "BIN": {
+                "tune-in": 1
+            }
+        }
+    }
+}

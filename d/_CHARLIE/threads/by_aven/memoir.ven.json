@@ -1,0 +1,34 @@
+{
+    "VEN": "memoir",
+    "GRAVITY": 10,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "symbols": {
+            "GRAVITY": 2,
+            "BIN": {
+                "misery": 2
+            }
+        },
+        "goals": {
+            "GRAVITY": 2,
+            "BIN": {
+                "freedom": 2
+            }
+        },
+        "struggles": {
+            "GRAVITY": 2,
+            "BIN": {
+                "misery": 2
+            }
+        },
+        "self": {
+            "GRAVITY": 4,
+            "BIN": {
+                "reborn": 2,
+                "resurrection": 2
+            }
+        }
+    }
+}

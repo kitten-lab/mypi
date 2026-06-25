@@ -1,0 +1,13 @@
+{
+    "VEN": "divine-light",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "i-am": {
+            "GRAVITY": 1,
+            "BIN": {
+                "contain": 1
+            }
+        }
+    }
+}

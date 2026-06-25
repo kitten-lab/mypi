@@ -4,8 +4,8 @@ require_once ROUTE_TO_SYSTEMS . 'wireWORDS.php'; // CHEST CRATING SYSTEM
 
 getFIG("soprBASIC", "AddFragment");
 global $mySIGFIG; 
-  $user = 'MRA-' . $mySIGFIG['user'];
-  $assistant = 'ADM-' . $mySIGFIG['assistant'];
+  $user = $mySIGFIG['user'];
+  $assistant = $mySIGFIG['assistant'];
 ?>
 
 <!-- Load jQuery and jQuery UI -->

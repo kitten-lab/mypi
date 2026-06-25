@@ -1,0 +1,14 @@
+{
+    "VEN": "love",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "goals": {
+            "GRAVITY": 2,
+            "BIN": {
+                "notice": 1,
+                "reflect": 1
+            }
+        }
+    }
+}

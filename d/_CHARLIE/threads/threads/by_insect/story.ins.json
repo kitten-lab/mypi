@@ -1,0 +1,16 @@
+{
+    "VEN": "story",
+    "GRAVITY": 4,
+    "METADATA": [],
+    "SHELF": {
+        "goals": {
+            "GRAVITY": 4,
+            "BIN": {
+                "re-write": 1,
+                "clean": 1,
+                "connect": 1,
+                "peace": 1
+            }
+        }
+    }
+}

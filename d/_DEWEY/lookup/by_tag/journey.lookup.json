@@ -1,0 +1,174 @@
+{
+    "CABINET": {
+        "journey": {
+            "METADATA": {
+                "GRAVITY": 6,
+                "INGEST": {
+                    "FIRST": 1782311923,
+                    "LAST": 1782311923
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739217638": [
+                        "includes",
+                        "includes",
+                        "includes",
+                        "includes",
+                        "includes",
+                        "includes"
+                    ]
+                }
+            },
+            "SHELF": {
+                "includes": {
+                    "METADATA": {
+                        "GRAVITY": 6,
+                        "INGEST": {
+                            "FIRST": 1782311923,
+                            "LAST": 1782311923
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217638": [
+                                "pattern-clearing",
+                                "power-recovery",
+                                "self-healing",
+                                "compassion",
+                                "no-escape",
+                                "transformation"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "pattern-clearing": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782311923,
+                                    "LAST": 1782311923
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.1419649A49752801"
+                                    ]
+                                }
+                            }
+                        },
+                        "power-recovery": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782311923,
+                                    "LAST": 1782311923
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.1419649A49752801"
+                                    ]
+                                }
+                            }
+                        },
+                        "self-healing": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782311923,
+                                    "LAST": 1782311923
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.1419649A49752801"
+                                    ]
+                                }
+                            }
+                        },
+                        "compassion": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782311923,
+                                    "LAST": 1782311923
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.1419649A49752801"
+                                    ]
+                                }
+                            }
+                        },
+                        "no-escape": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782311923,
+                                    "LAST": 1782311923
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.1419649A49752801"
+                                    ]
+                                }
+                            }
+                        },
+                        "transformation": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782311923,
+                                    "LAST": 1782311923
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.1419649A49752801"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

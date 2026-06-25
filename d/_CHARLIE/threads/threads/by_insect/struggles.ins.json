@@ -1,0 +1,13 @@
+{
+    "VEN": "struggles",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "memoir": {
+            "GRAVITY": 2,
+            "BIN": {
+                "misery": 2
+            }
+        }
+    }
+}

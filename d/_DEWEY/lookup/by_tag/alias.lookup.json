@@ -1,0 +1,234 @@
+{
+    "CABINET": {
+        "alias": {
+            "METADATA": {
+                "GRAVITY": 8,
+                "INGEST": {
+                    "FIRST": 1782306079,
+                    "LAST": 1782309297
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739217616": [
+                        "universe",
+                        "universe",
+                        "universe",
+                        "universe",
+                        "universe"
+                    ]
+                }
+            },
+            "SHELF": {
+                "misery": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1782306079,
+                            "LAST": 1782306131
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "oyzis",
+                                "demon",
+                                "erysichthon"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "oyzis": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306079,
+                                    "LAST": 1782306079
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.42634F3918539CD1"
+                                    ]
+                                }
+                            }
+                        },
+                        "demon": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306079,
+                                    "LAST": 1782306079
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.42634F3918539CD1"
+                                    ]
+                                }
+                            }
+                        },
+                        "erysichthon": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306131,
+                                    "LAST": 1782306131
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.20D0E5A68B774A7E"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "universe": {
+                    "METADATA": {
+                        "GRAVITY": 5,
+                        "INGEST": {
+                            "FIRST": 1782309297,
+                            "LAST": 1782309297
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217616": [
+                                "source",
+                                "mirror",
+                                "god",
+                                "all-thing",
+                                "no-thing"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "source": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309297,
+                                    "LAST": 1782309297
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.6327A4D175A2DCB0"
+                                    ]
+                                }
+                            }
+                        },
+                        "mirror": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309297,
+                                    "LAST": 1782309297
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.6327A4D175A2DCB0"
+                                    ]
+                                }
+                            }
+                        },
+                        "god": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309297,
+                                    "LAST": 1782309297
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.6327A4D175A2DCB0"
+                                    ]
+                                }
+                            }
+                        },
+                        "all-thing": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309297,
+                                    "LAST": 1782309297
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.6327A4D175A2DCB0"
+                                    ]
+                                }
+                            }
+                        },
+                        "no-thing": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782309297,
+                                    "LAST": 1782309297
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.6327A4D175A2DCB0"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

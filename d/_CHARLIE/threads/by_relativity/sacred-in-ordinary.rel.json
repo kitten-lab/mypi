@@ -1,0 +1,13 @@
+{
+    "VEN": "sacred-in-ordinary",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "goals": {
+            "GRAVITY": 1,
+            "BIN": {
+                "tune-in": 1
+            }
+        }
+    }
+}

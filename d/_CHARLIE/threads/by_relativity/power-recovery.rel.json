@@ -1,0 +1,13 @@
+{
+    "VEN": "power-recovery",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "journey": {
+            "GRAVITY": 1,
+            "BIN": {
+                "includes": 1
+            }
+        }
+    }
+}

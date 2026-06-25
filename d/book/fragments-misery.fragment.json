@@ -1,0 +1,650 @@
+{
+    "crate.42634F3918539CD1": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "JACK",
+                "sec_display": "Misery as Enemy",
+                "sec_slug": "miseryasenemy",
+                "supr_slug": "miseryasenemy-0001",
+                "content": "a release from the clutches of misery herself. what do you know about Oyzis?"
+            }
+        },
+        "route": [],
+        "tags": {
+            "misery": {
+                "alias": [
+                    "oyzis",
+                    "demon"
+                ],
+                "metadata": [
+                    "primal-force",
+                    "godhead"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "misery*alias>oyzis,demon&metadata>primal-force,godhead",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "icons",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "misery",
+            "room_display": "Fragments of Misery",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217602.tps",
+            "ingest_unix": 1782306079,
+            "event_unix": 1739217602,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.20D0E5A68B774A7E": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Related To",
+                "sec_slug": "relatedto",
+                "supr_slug": "relatedto-0001",
+                "content": "Greek goddess Erysichthon"
+            }
+        },
+        "route": [],
+        "tags": {
+            "misery": {
+                "alias": [
+                    "erysichthon"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "misery*alias>Erysichthon",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "icons",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "misery",
+            "room_display": "Fragments of Misery",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217602.tps",
+            "ingest_unix": 1782306131,
+            "event_unix": 1739217602,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.4C8CFD18527865A7": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Mythology",
+                "sec_slug": "mythology",
+                "supr_slug": "mythology-0001",
+                "content": "Oyzis (or Oizys) is indeed a Greek goddess of misery, grief, and suffering."
+            }
+        },
+        "route": [],
+        "tags": {
+            "misery": {
+                "goddess": [
+                    "misery",
+                    "grief",
+                    "suffering"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "misery*goddess>misery,grief,suffering",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "icons",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "misery",
+            "room_display": "Fragments of Misery",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217602.tps",
+            "ingest_unix": 1782306191,
+            "event_unix": 1739217602,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.F94E5D7652696E4D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Mythology",
+                "sec_slug": "mythology",
+                "supr_slug": "mythology-0002",
+                "content": "She represents the darker aspects of emotional torment."
+            }
+        },
+        "route": [],
+        "tags": {
+            "misery": {
+                "represents": [
+                    "emotional-torment"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "misery*represents>emotional-torment",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "icons",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "misery",
+            "room_display": "Fragments of Misery",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217602.tps",
+            "ingest_unix": 1782306220,
+            "event_unix": 1739217602,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.8AC6F6664CD19189": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Mythology",
+                "sec_slug": "mythology",
+                "supr_slug": "mythology-0003",
+                "content": "In some myths, she is said to bring about sorrow and despair."
+            }
+        },
+        "route": [],
+        "tags": {
+            "misery": {
+                "causes": [
+                    "sorrow",
+                    "despair"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "misery*causes>sorrow,despair",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "icons",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "misery",
+            "room_display": "Fragments of Misery",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217602.tps",
+            "ingest_unix": 1782306248,
+            "event_unix": 1739217602,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.A9074A36FED8BA5E": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Mythology",
+                "sec_slug": "mythology",
+                "supr_slug": "mythology-0004",
+                "content": "her presence in myth is certainly impactful, serving as a reminder of the struggles that come with human existence. "
+            }
+        },
+        "route": [],
+        "tags": {
+            "misery": {
+                "represents": [
+                    "struggle",
+                    "human-condition"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "misery*represents>struggle,human-condition",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "icons",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "misery",
+            "room_display": "Fragments of Misery",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217602.tps",
+            "ingest_unix": 1782306295,
+            "event_unix": 1739217602,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.92D4B71D54DECC3D": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Mythology",
+                "sec_slug": "mythology",
+                "supr_slug": "mythology-0005",
+                "content": "Her role is often intertwined with other darker gods or goddesses, embodying the heavy emotions and states of being that humanity sometimes must face. "
+            }
+        },
+        "route": [],
+        "tags": {
+            "misery": {
+                "role": [
+                    "heavy-emotions",
+                    "suffering",
+                    "human-condition"
+                ]
+            },
+            "goddess": {
+                "dark": [
+                    "misery"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "misery*role>heavy-emotions,suffering,human-condition;goddess*dark>misery",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "icons",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "misery",
+            "room_display": "Fragments of Misery",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217602.tps",
+            "ingest_unix": 1782306353,
+            "event_unix": 1739217602,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.3A091A59E5E1377A": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Related To",
+                "sec_slug": "relatedto",
+                "supr_slug": "relatedto-0002",
+                "content": "Greek mythology, specifically Oizys, the goddess of misery"
+            }
+        },
+        "route": [],
+        "tags": {
+            "misery": {
+                "mythology": [
+                    "greek"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "misery*mythology>greek",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "icons",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "misery",
+            "room_display": "Fragments of Misery",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217606.tps",
+            "ingest_unix": 1782306425,
+            "event_unix": 1739217606,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.7E66611A1E4FE7AF": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "JACK",
+                "sec_display": "Freedom",
+                "sec_slug": "freedom",
+                "supr_slug": "freedom-0001",
+                "content": "have felt like I have carried her through my whole life, that she has been a growing weight on my heart and mind, and yesterday I believe she finally left me"
+            }
+        },
+        "route": [],
+        "tags": {
+            "memoir": {
+                "symbols": [
+                    "misery"
+                ],
+                "goals": [
+                    "freedom"
+                ],
+                "struggles": [
+                    "misery"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "memoir*symbols>misery&goals>freedom&struggles>misery",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "icons",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "misery",
+            "room_display": "Fragments of Misery",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217616.tps",
+            "ingest_unix": 1782306523,
+            "event_unix": 1739217616,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.4A490C596C928AE7": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "WIRES",
+                "sec_display": "Freedom",
+                "sec_slug": "freedom",
+                "supr_slug": "freedom-0002",
+                "content": "like a shadow that never fully let you go. To feel like it\u2019s finally lifting, like she's leaving you, must be such a profound sense of freedom and release"
+            }
+        },
+        "route": [],
+        "tags": {
+            "memoir": {
+                "symbols": [
+                    "misery"
+                ],
+                "goals": [
+                    "freedom"
+                ],
+                "struggles": [
+                    "misery"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "memoir*symbols>misery&goals>freedom&struggles>misery",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "icons",
+            "dom_display": "The E Wire Logger",
+            "room_slug": "misery",
+            "room_display": "Fragments of Misery",
+            "mod_slug": "jack-nim",
+            "mod_display": "Jack Nim"
+        },
+        "ref_material": {
+            "material": {
+                "type": [],
+                "source": {
+                    "name": [],
+                    "id": [],
+                    "created_on": [],
+                    "last_modified": []
+                },
+                "links": [],
+                "notes": []
+            }
+        },
+        "tps": {
+            "tUID": "1739217616.tps",
+            "ingest_unix": 1782306584,
+            "event_unix": 1739217616,
+            "timezone": "America\/New_York"
+        }
+    }
+}

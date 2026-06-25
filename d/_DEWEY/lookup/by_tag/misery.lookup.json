@@ -1,0 +1,720 @@
+{
+    "CABINET": {
+        "misery": {
+            "METADATA": {
+                "GRAVITY": 25,
+                "INGEST": {
+                    "FIRST": 1782306079,
+                    "LAST": 1782311552
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1739217638": [
+                        "goals"
+                    ]
+                }
+            },
+            "SHELF": {
+                "alias": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1782306079,
+                            "LAST": 1782306131
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "oyzis",
+                                "demon",
+                                "erysichthon"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "oyzis": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306079,
+                                    "LAST": 1782306079
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.42634F3918539CD1"
+                                    ]
+                                }
+                            }
+                        },
+                        "demon": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306079,
+                                    "LAST": 1782306079
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.42634F3918539CD1"
+                                    ]
+                                }
+                            }
+                        },
+                        "erysichthon": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306131,
+                                    "LAST": 1782306131
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.20D0E5A68B774A7E"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "metadata": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1782306079,
+                            "LAST": 1782306079
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "primal-force",
+                                "godhead"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "primal-force": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306079,
+                                    "LAST": 1782306079
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.42634F3918539CD1"
+                                    ]
+                                }
+                            }
+                        },
+                        "godhead": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306079,
+                                    "LAST": 1782306079
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.42634F3918539CD1"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "goddess": {
+                    "METADATA": {
+                        "GRAVITY": 4,
+                        "INGEST": {
+                            "FIRST": 1782306191,
+                            "LAST": 1782306353
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "misery",
+                                "grief",
+                                "suffering",
+                                "dark"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "misery": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306191,
+                                    "LAST": 1782306191
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.4C8CFD18527865A7"
+                                    ]
+                                }
+                            }
+                        },
+                        "grief": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306191,
+                                    "LAST": 1782306191
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.4C8CFD18527865A7"
+                                    ]
+                                }
+                            }
+                        },
+                        "suffering": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306191,
+                                    "LAST": 1782306191
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.4C8CFD18527865A7"
+                                    ]
+                                }
+                            }
+                        },
+                        "dark": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306353,
+                                    "LAST": 1782306353
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.92D4B71D54DECC3D"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "misery": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782306191,
+                            "LAST": 1782306191
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "goddess"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "goddess": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306191,
+                                    "LAST": 1782306191
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.4C8CFD18527865A7"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "represents": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1782306220,
+                            "LAST": 1782306295
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "emotional-torment",
+                                "struggle",
+                                "human-condition"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "emotional-torment": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306220,
+                                    "LAST": 1782306220
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.F94E5D7652696E4D"
+                                    ]
+                                }
+                            }
+                        },
+                        "struggle": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306295,
+                                    "LAST": 1782306295
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.A9074A36FED8BA5E"
+                                    ]
+                                }
+                            }
+                        },
+                        "human-condition": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306295,
+                                    "LAST": 1782306295
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.A9074A36FED8BA5E"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "causes": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1782306248,
+                            "LAST": 1782306248
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "sorrow",
+                                "despair"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "sorrow": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306248,
+                                    "LAST": 1782306248
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.8AC6F6664CD19189"
+                                    ]
+                                }
+                            }
+                        },
+                        "despair": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306248,
+                                    "LAST": 1782306248
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.8AC6F6664CD19189"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "role": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1782306353,
+                            "LAST": 1782306353
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "heavy-emotions",
+                                "suffering",
+                                "human-condition"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "heavy-emotions": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306353,
+                                    "LAST": 1782306353
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.92D4B71D54DECC3D"
+                                    ]
+                                }
+                            }
+                        },
+                        "suffering": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306353,
+                                    "LAST": 1782306353
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.92D4B71D54DECC3D"
+                                    ]
+                                }
+                            }
+                        },
+                        "human-condition": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306353,
+                                    "LAST": 1782306353
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "jack-nim": [
+                                        "crate.92D4B71D54DECC3D"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "mythology": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782306425,
+                            "LAST": 1782306425
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217606": [
+                                "greek"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "greek": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782306425,
+                                    "LAST": 1782306425
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217606": {
+                                    "jack-nim": [
+                                        "crate.3A091A59E5E1377A"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "memoir": {
+                    "METADATA": {
+                        "GRAVITY": 4,
+                        "INGEST": {
+                            "FIRST": 1782306523,
+                            "LAST": 1782306584
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217616": [
+                                "symbols",
+                                "struggles",
+                                "symbols",
+                                "struggles"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "symbols": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1782306523,
+                                    "LAST": 1782306584
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.7E66611A1E4FE7AF",
+                                        "crate.4A490C596C928AE7"
+                                    ]
+                                }
+                            }
+                        },
+                        "struggles": {
+                            "METADATA": {
+                                "GRAVITY": 2,
+                                "INGEST": {
+                                    "FIRST": 1782306523,
+                                    "LAST": 1782306584
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217616": {
+                                    "jack-nim": [
+                                        "crate.7E66611A1E4FE7AF",
+                                        "crate.4A490C596C928AE7"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "wire-wolf": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782311247,
+                            "LAST": 1782311247
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217655": [
+                                "memories"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "memories": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782311247,
+                                    "LAST": 1782311247
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217655": {
+                                    "jack-nim": [
+                                        "crate.29FD66115C09161B"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "goals": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782311552,
+                            "LAST": 1782311552
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217638": [
+                                "trauma-healing"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "trauma-healing": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782311552,
+                                    "LAST": 1782311552
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217638": {
+                                    "jack-nim": [
+                                        "crate.4B88D0777F5613C4"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

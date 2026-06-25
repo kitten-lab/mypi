@@ -1,0 +1,22 @@
+{
+    "VEN": "represents",
+    "GRAVITY": 5,
+    "METADATA": [],
+    "SHELF": {
+        "misery": {
+            "GRAVITY": 3,
+            "BIN": {
+                "emotional-torment": 1,
+                "struggle": 1,
+                "human-condition": 1
+            }
+        },
+        "connection": {
+            "GRAVITY": 2,
+            "BIN": {
+                "dance": 1,
+                "romance": 1
+            }
+        }
+    }
+}

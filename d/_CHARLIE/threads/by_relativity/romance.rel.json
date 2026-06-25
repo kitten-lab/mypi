@@ -1,0 +1,37 @@
+{
+    "VEN": "romance",
+    "GRAVITY": 5,
+    "METADATA": [],
+    "SHELF": {
+        "felt-sense": {
+            "GRAVITY": 1,
+            "BIN": {
+                "signs": 1
+            }
+        },
+        "freedom": {
+            "GRAVITY": 1,
+            "BIN": {
+                "felt-sense": 1
+            }
+        },
+        "connection": {
+            "GRAVITY": 1,
+            "BIN": {
+                "represents": 1
+            }
+        },
+        "symbols": {
+            "GRAVITY": 1,
+            "BIN": {
+                "includes": 1
+            }
+        },
+        "wire-wolf": {
+            "GRAVITY": 1,
+            "BIN": {
+                "memories": 1
+            }
+        }
+    }
+}

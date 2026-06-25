@@ -1,0 +1,216 @@
+{
+    "SECTION": {
+        "miseryasenemy": {
+            "LABEL": "Misery as Enemy",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "miseryasenemy-0001",
+                    "FRAG": "a release from the clutches of misery herself. what do you know about Oyzis?",
+                    "AGENT": "JACK",
+                    "METADATA": {
+                        "ADDED": 1782306079,
+                        "cUID": "crate.42634F3918539CD1",
+                        "TAGS": {
+                            "misery": {
+                                "alias": [
+                                    "oyzis",
+                                    "demon"
+                                ],
+                                "metadata": [
+                                    "primal-force",
+                                    "godhead"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "relatedto": {
+            "LABEL": "Related To",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "relatedto-0001",
+                    "FRAG": "Greek goddess Erysichthon",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782306131,
+                        "cUID": "crate.20D0E5A68B774A7E",
+                        "TAGS": {
+                            "misery": {
+                                "alias": [
+                                    "erysichthon"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "relatedto-0002",
+                    "FRAG": "Greek mythology, specifically Oizys, the goddess of misery",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782306425,
+                        "cUID": "crate.3A091A59E5E1377A",
+                        "TAGS": {
+                            "misery": {
+                                "mythology": [
+                                    "greek"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "mythology": {
+            "LABEL": "Mythology",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "mythology-0001",
+                    "FRAG": "Oyzis (or Oizys) is indeed a Greek goddess of misery, grief, and suffering.",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782306191,
+                        "cUID": "crate.4C8CFD18527865A7",
+                        "TAGS": {
+                            "misery": {
+                                "goddess": [
+                                    "misery",
+                                    "grief",
+                                    "suffering"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "mythology-0002",
+                    "FRAG": "She represents the darker aspects of emotional torment.",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782306220,
+                        "cUID": "crate.F94E5D7652696E4D",
+                        "TAGS": {
+                            "misery": {
+                                "represents": [
+                                    "emotional-torment"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "mythology-0003",
+                    "FRAG": "In some myths, she is said to bring about sorrow and despair.",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782306248,
+                        "cUID": "crate.8AC6F6664CD19189",
+                        "TAGS": {
+                            "misery": {
+                                "causes": [
+                                    "sorrow",
+                                    "despair"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "mythology-0004",
+                    "FRAG": "her presence in myth is certainly impactful, serving as a reminder of the struggles that come with human existence. ",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782306295,
+                        "cUID": "crate.A9074A36FED8BA5E",
+                        "TAGS": {
+                            "misery": {
+                                "represents": [
+                                    "struggle",
+                                    "human-condition"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "mythology-0005",
+                    "FRAG": "Her role is often intertwined with other darker gods or goddesses, embodying the heavy emotions and states of being that humanity sometimes must face. ",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782306353,
+                        "cUID": "crate.92D4B71D54DECC3D",
+                        "TAGS": {
+                            "misery": {
+                                "role": [
+                                    "heavy-emotions",
+                                    "suffering",
+                                    "human-condition"
+                                ]
+                            },
+                            "goddess": {
+                                "dark": [
+                                    "misery"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "freedom": {
+            "LABEL": "Freedom",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "freedom-0001",
+                    "FRAG": "have felt like I have carried her through my whole life, that she has been a growing weight on my heart and mind, and yesterday I believe she finally left me",
+                    "AGENT": "JACK",
+                    "METADATA": {
+                        "ADDED": 1782306523,
+                        "cUID": "crate.7E66611A1E4FE7AF",
+                        "TAGS": {
+                            "memoir": {
+                                "symbols": [
+                                    "misery"
+                                ],
+                                "goals": [
+                                    "freedom"
+                                ],
+                                "struggles": [
+                                    "misery"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "freedom-0002",
+                    "FRAG": "like a shadow that never fully let you go. To feel like it\u2019s finally lifting, like she's leaving you, must be such a profound sense of freedom and release",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782306584,
+                        "cUID": "crate.4A490C596C928AE7",
+                        "TAGS": {
+                            "memoir": {
+                                "symbols": [
+                                    "misery"
+                                ],
+                                "goals": [
+                                    "freedom"
+                                ],
+                                "struggles": [
+                                    "misery"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

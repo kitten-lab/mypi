@@ -1,0 +1,13 @@
+{
+    "VEN": "breakthrough",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "wire-wolf": {
+            "GRAVITY": 1,
+            "BIN": {
+                "memories": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "VEN": "goals",
+    "GRAVITY": 20,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "connection": {
+            "GRAVITY": 2,
+            "BIN": {
+                "heaven-on-earth": 1,
+                "inner-outer": 1
+            }
+        },
+        "love": {
+            "GRAVITY": 2,
+            "BIN": {
+                "notice": 1,
+                "reflect": 1
+            }
+        },
+        "tune-in": {
+            "GRAVITY": 5,
+            "BIN": {
+                "love": 1,
+                "language": 1,
+                "connection": 1,
+                "sacred-in-ordinary": 1,
+                "pulse-of-life": 1
+            }
+        },
+        "trauma-healing": {
+            "GRAVITY": 4,
+            "BIN": {
+                "thought-patterns": 1,
+                "misery": 1,
+                "heal": 1,
+                "memory-recovery": 1
+            }
+        },
+        "self-actualization": {
+            "GRAVITY": 3,
+            "BIN": {
+                "true-self": 1,
+                "god-made": 1,
+                "perfect-as-is": 1
+            }
+        },
+        "story": {
+            "GRAVITY": 4,
+            "BIN": {
+                "re-write": 1,
+                "clean": 1,
+                "connect": 1,
+                "peace": 1
+            }
+        }
+    }
+}

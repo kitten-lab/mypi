@@ -1,0 +1,14 @@
+{
+    "VEN": "metadata",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "misery": {
+            "GRAVITY": 2,
+            "BIN": {
+                "primal-force": 1,
+                "godhead": 1
+            }
+        }
+    }
+}

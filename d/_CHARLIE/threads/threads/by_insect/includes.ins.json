@@ -1,0 +1,33 @@
+{
+    "VEN": "includes",
+    "GRAVITY": 16,
+    "METADATA": [],
+    "SHELF": {
+        "symbols": {
+            "GRAVITY": 10,
+            "BIN": {
+                "dance": 1,
+                "romance": 1,
+                "world": 1,
+                "soul": 1,
+                "beauty": 1,
+                "sacred": 1,
+                "life-pulse": 1,
+                "magic": 1,
+                "living-world": 1,
+                "heart": 1
+            }
+        },
+        "journey": {
+            "GRAVITY": 6,
+            "BIN": {
+                "pattern-clearing": 1,
+                "power-recovery": 1,
+                "self-healing": 1,
+                "compassion": 1,
+                "no-escape": 1,
+                "transformation": 1
+            }
+        }
+    }
+}

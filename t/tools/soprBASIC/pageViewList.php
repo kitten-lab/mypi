@@ -32,9 +32,11 @@ foreach ($CHEST_THINGS as $CRATE) {
                 
             foreach ($SOPR['METADATA']['TAGS'] as $TAG => $SUBTAG){
               foreach ($SUBTAG as $TAG2 => $TAG3) {
+                echo "<pre>" . $TAG . " > " . $TAG2 . " > ";
                 foreach ($TAG3 as $T3) {
-                echo "<pre>" . $TAG . " > " . $TAG2 . " > " . $T3 . "</pre>";
+                echo $T3 . "; ";
                 }
+                echo "</pre>";
               }
             }
 

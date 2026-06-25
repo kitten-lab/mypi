@@ -1,0 +1,29 @@
+{
+    "VEN": "i-am",
+    "GRAVITY": 5,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "becoming": {
+            "GRAVITY": 1,
+            "BIN": {
+                "beautiful": 1
+            }
+        },
+        "healing": {
+            "GRAVITY": 1,
+            "BIN": {
+                "self": 1
+            }
+        },
+        "contain": {
+            "GRAVITY": 3,
+            "BIN": {
+                "strength": 1,
+                "beauty": 1,
+                "divine-light": 1
+            }
+        }
+    }
+}

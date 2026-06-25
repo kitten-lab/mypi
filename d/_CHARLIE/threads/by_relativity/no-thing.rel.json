@@ -1,0 +1,13 @@
+{
+    "VEN": "no-thing",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "universe": {
+            "GRAVITY": 1,
+            "BIN": {
+                "alias": 1
+            }
+        }
+    }
+}

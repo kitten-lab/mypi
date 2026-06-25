@@ -1,0 +1,14 @@
+{
+    "VEN": "connection",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "goals": {
+            "GRAVITY": 2,
+            "BIN": {
+                "heaven-on-earth": 1,
+                "inner-outer": 1
+            }
+        }
+    }
+}

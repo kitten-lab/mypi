@@ -1,0 +1,38 @@
+{
+    "VEN": "misery",
+    "GRAVITY": 8,
+    "METADATA": [],
+    "SHELF": {
+        "misery": {
+            "GRAVITY": 1,
+            "BIN": {
+                "goddess": 1
+            }
+        },
+        "goddess": {
+            "GRAVITY": 1,
+            "BIN": {
+                "dark": 1
+            }
+        },
+        "memoir": {
+            "GRAVITY": 4,
+            "BIN": {
+                "symbols": 2,
+                "struggles": 2
+            }
+        },
+        "wire-wolf": {
+            "GRAVITY": 1,
+            "BIN": {
+                "memories": 1
+            }
+        },
+        "goals": {
+            "GRAVITY": 1,
+            "BIN": {
+                "trauma-healing": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "VEN": "mirror",
+    "GRAVITY": 2,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "role": {
+            "GRAVITY": 2,
+            "BIN": {
+                "universe": 1,
+                "reflection": 1
+            }
+        }
+    }
+}

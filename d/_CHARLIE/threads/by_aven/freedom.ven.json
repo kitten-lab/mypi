@@ -1,0 +1,17 @@
+{
+    "VEN": "freedom",
+    "GRAVITY": 3,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "felt-sense": {
+            "GRAVITY": 3,
+            "BIN": {
+                "romance": 1,
+                "alive": 1,
+                "love": 1
+            }
+        }
+    }
+}

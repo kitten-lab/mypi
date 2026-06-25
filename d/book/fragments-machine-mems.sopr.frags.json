@@ -1,0 +1,55 @@
+{
+    "SECTION": {
+        "memories": {
+            "LABEL": "Memories",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "memories-0001",
+                    "FRAG": "User recently experienced a profound personal breakthrough, feeling freed from a long-held sense of misery. They now feel lighter, clearer, and deeply connected to the world, experiencing life as a romance with creation. They are focusing on filling their heart with love and noticing how the world reflects that love back to them. They believe in the deep interconnection between the inner and outer worlds.",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782309662,
+                        "cUID": "crate.872B3B0695D6161A",
+                        "TAGS": {
+                            "wire-wolf": {
+                                "memories": [
+                                    "breakthrough",
+                                    "freedom",
+                                    "lighter",
+                                    "romance",
+                                    "creation",
+                                    "live",
+                                    "heart",
+                                    "interconnection"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "ID": "memories-0002",
+                    "FRAG": "User is embarking on a journey of deep healing, working through past traumas and breaking patterns of thought and feeling that have fed misery. They are focused on embracing their true identity with unconditional self-love and seeing this process as a sacred mission. They are committed to facing the hard road with compassion and reclaiming their inner light.",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782311247,
+                        "cUID": "crate.29FD66115C09161B",
+                        "TAGS": {
+                            "wire-wolf": {
+                                "memories": [
+                                    "healing",
+                                    "trauma",
+                                    "break-pattern",
+                                    "misery",
+                                    "identity",
+                                    "self-love",
+                                    "sacred-mission"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

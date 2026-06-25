@@ -1,0 +1,17 @@
+{
+    "VEN": "tune-in",
+    "GRAVITY": 5,
+    "METADATA": [],
+    "SHELF": {
+        "goals": {
+            "GRAVITY": 5,
+            "BIN": {
+                "love": 1,
+                "language": 1,
+                "connection": 1,
+                "sacred-in-ordinary": 1,
+                "pulse-of-life": 1
+            }
+        }
+    }
+}

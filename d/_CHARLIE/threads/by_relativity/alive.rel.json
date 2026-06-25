@@ -1,0 +1,13 @@
+{
+    "VEN": "alive",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "freedom": {
+            "GRAVITY": 1,
+            "BIN": {
+                "felt-sense": 1
+            }
+        }
+    }
+}

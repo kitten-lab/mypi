@@ -1,0 +1,15 @@
+{
+    "VEN": "self-actualization",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "goals": {
+            "GRAVITY": 3,
+            "BIN": {
+                "true-self": 1,
+                "god-made": 1,
+                "perfect-as-is": 1
+            }
+        }
+    }
+}

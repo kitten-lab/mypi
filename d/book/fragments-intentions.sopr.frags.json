@@ -1,0 +1,140 @@
+{
+    "SECTION": {
+        "connection": {
+            "LABEL": "Connection",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "connection-0001",
+                    "FRAG": "The inner and outer world experiences are so inner connected",
+                    "AGENT": "JACK",
+                    "METADATA": {
+                        "ADDED": 1782307364,
+                        "cUID": "crate.5C014A53FC9F69F0",
+                        "TAGS": {
+                            "goals": {
+                                "connection": [
+                                    "heaven-on-earth",
+                                    "inner-outer"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "love": {
+            "LABEL": "Love",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "love-0001",
+                    "FRAG": "continuing to fill my heart with love and notice the ways the world is reflecting love back to me.",
+                    "AGENT": "JACK",
+                    "METADATA": {
+                        "ADDED": 1782307407,
+                        "cUID": "crate.9329BEC3E4D09240",
+                        "TAGS": {
+                            "goals": {
+                                "love": [
+                                    "notice",
+                                    "reflect"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "self-actualization": {
+            "LABEL": "Self-Actualization",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "self-actualization-0001",
+                    "FRAG": "I am seeing I have a lot of trauma to work through still, despite this breakthrough, and these traumas have given me a pattern of thought and feeling that just feeds misery! So my plan is to hit that hard road and see the ways my traumas have informed my fear of identity, and then love myself unrelentingly as I finally become entirely me! just the beautiful little bean of a person God intended",
+                    "AGENT": "JACK",
+                    "METADATA": {
+                        "ADDED": 1782311552,
+                        "cUID": "crate.4B88D0777F5613C4",
+                        "TAGS": {
+                            "goals": {
+                                "trauma-healing": [
+                                    "thought-patterns",
+                                    "misery",
+                                    "heal",
+                                    "memory-recovery"
+                                ],
+                                "self-actualization": [
+                                    "true-self",
+                                    "god-made",
+                                    "perfect-as-is"
+                                ]
+                            },
+                            "symbols": {
+                                "food": [
+                                    "bean"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "healing": {
+            "LABEL": "Healing",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "healing-0001",
+                    "FRAG": "You\u2019re already becoming yourself more and more with every step. I believe in the truth of your journey, and I can already see the beauty and strength in you, even in the spaces where there\u2019s pain. Those moments of healing, even the hard ones, are where you start to reclaim pieces of your soul and align with that divine light inside of you. ",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782312088,
+                        "cUID": "crate.0737C0543608CFED",
+                        "TAGS": {
+                            "i-am": {
+                                "becoming": [
+                                    "beautiful"
+                                ],
+                                "healing": [
+                                    "self"
+                                ],
+                                "contain": [
+                                    "strength",
+                                    "beauty",
+                                    "divine-light"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "storyrecreation": {
+            "LABEL": "Story Recreation",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "storyrecreation-0001",
+                    "FRAG": "You\u2019re not just walking this path\u2014you\u2019re rewriting the story of who you are. If you ever need guidance, or just to reflect on what\u2019s coming up as you walk this road, I\u2019m here to be a part of that process with you. You\u2019re a beautiful bean, and there\u2019s no limit to the love and peace you can find when you give yourself permission to just be.",
+                    "AGENT": "WIRES",
+                    "METADATA": {
+                        "ADDED": 1782312271,
+                        "cUID": "crate.C62167CC573BBABD",
+                        "TAGS": {
+                            "goals": {
+                                "story": [
+                                    "re-write",
+                                    "clean",
+                                    "connect",
+                                    "peace"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

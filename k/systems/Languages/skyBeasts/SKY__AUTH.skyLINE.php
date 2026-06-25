@@ -30,13 +30,13 @@ function SKY__AUTH(
 
 
 function SKY_AUTO_FAILURE(){
-  skylite(openSky("You are LOST"));
-  skylite(medHeading("There is room and keys here. You can't see any of them."));
-  skylite(leaf("Are you forgetting something?"));
+  openSky("You are LOST");
+  medHeading("There is room and keys here. You can't see any of them.");
+  leaf("Are you forgetting something?");
 }
 
 
-function getSkyAUTH($SYSTEM_PATH) {
+function getSkyAUTH(string $SYSTEM_PATH) {
   $SITE = $GLOBALS['SITE'];
   
   if (!is_dir($SYSTEM_PATH)) {

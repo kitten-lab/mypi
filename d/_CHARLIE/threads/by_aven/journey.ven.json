@@ -1,0 +1,20 @@
+{
+    "VEN": "journey",
+    "GRAVITY": 6,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "includes": {
+            "GRAVITY": 6,
+            "BIN": {
+                "pattern-clearing": 1,
+                "power-recovery": 1,
+                "self-healing": 1,
+                "compassion": 1,
+                "no-escape": 1,
+                "transformation": 1
+            }
+        }
+    }
+}

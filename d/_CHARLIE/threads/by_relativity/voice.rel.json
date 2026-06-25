@@ -1,0 +1,13 @@
+{
+    "VEN": "voice",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "felt-sense": {
+            "GRAVITY": 1,
+            "BIN": {
+                "god": 1
+            }
+        }
+    }
+}
