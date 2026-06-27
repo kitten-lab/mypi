@@ -14,6 +14,7 @@ $GLOBALS[BLOCK_ID]['tDOM'] = [
   [ "DOM" => "terminal_girls" ],
   [ "DOM" => "tavern" ],
   [ "DOM" => "fragments" ],
+  [ "DOM" => "scenes" ],
 ]; 
 
 $GLOBALS[BLOCK_ID]['NAV'] = [ 

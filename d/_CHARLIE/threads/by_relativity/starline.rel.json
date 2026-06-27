@@ -1,0 +1,13 @@
+{
+    "VEN": "starline",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "surfaces": {
+            "GRAVITY": 1,
+            "BIN": {
+                "star": 1
+            }
+        }
+    }
+}

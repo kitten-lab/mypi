@@ -1,5 +1,5 @@
 {
-    "count": 116,
+    "count": 255,
     "b-node": {
         "alias": 8,
         "metadata": 2,
@@ -9,7 +9,7 @@
         "role": 5,
         "dark": 1,
         "mythology": 1,
-        "symbols": 2,
+        "symbols": 78,
         "goals": 2,
         "struggles": 2,
         "freedom": 8,
@@ -20,7 +20,7 @@
         "connection": 2,
         "love": 2,
         "tune-in": 5,
-        "includes": 16,
+        "includes": 52,
         "memories": 15,
         "god": 2,
         "capability": 2,
@@ -31,6 +31,8 @@
         "healing": 1,
         "contain": 3,
         "story": 4,
-        "loves": 1
+        "loves": 1,
+        "star": 1,
+        "oyzis": 26
     }
 }

@@ -1,0 +1,14 @@
+{
+    "VEN": "her",
+    "GRAVITY": 24,
+    "METADATA": [],
+    "SHELF": {
+        "scenes": {
+            "GRAVITY": 24,
+            "BIN": {
+                "includes": 12,
+                "symbols": 12
+            }
+        }
+    }
+}

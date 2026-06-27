@@ -1,0 +1,13 @@
+{
+    "VEN": "001-flyover",
+    "GRAVITY": 13,
+    "METADATA": [],
+    "SHELF": {
+        "scenes": {
+            "GRAVITY": 13,
+            "BIN": {
+                "oyzis": 13
+            }
+        }
+    }
+}

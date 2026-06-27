@@ -13,32 +13,16 @@
       </style>
   </head>
 <body>
-  <div class="flex-container">
-<div class="flex-child">
+
   <?php 
-    
-function navINSERTER(?string $section = null){
-  // Define your directory path and file extension pattern
-  $directory = ROUTE_LETTER('m') . "/doors/" . BLOCK_URI . "/" . $section . '/*.php'; 
-
-  // Loop through all files matching the pattern
-  echo "<h3>" . $section . "</h3>";
-  echo "<ul>";
-  foreach (glob($directory) as $file) {
-    $fileName = basename($file, '.php'); // Strip extension
-    echo "<li><a href='/" . $section . "/" . $fileName . "'>" . $fileName . "</a></li>";
-  }
-  echo "</ul>";
-}
-navINSERTER("fragments");
-navINSERTER("terminal_girls");
-
+    $BLOCK = $GLOBALS[BLOCK_ID]['GETS'];
+    if (!empty($BLOCK['Nav']) 
+      && file_exists($BLOCK['Nav'])) {
+    require $BLOCK['Nav']; 
+    } 
   ?>
-</div>
-<div class="flex-child">
+
   <?php setGET("set"); ?>
-</div>
-  </div>
 
 </body>
 <?php setGET("script"); ?>

@@ -8,5 +8,6 @@ SKY__AUTH(
 );
 
 openSky(ROOM_DISPLAY);
-getTool("soprBASIC", "AddFragment");
+// getTool("postBASIC", "MakePost");
+getTool("postBASIC", "SoperView");
 closeSky();

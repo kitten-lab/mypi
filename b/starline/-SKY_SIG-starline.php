@@ -1,7 +1,7 @@
 <?php // new naming migration //
 
 define('WORLD_ID', 'starline');
-define('WORLD_TAG', "starline");
+define('WORLD_TAG', "THE BEYOND BEGINS HERE");
 define('BLOCK_ID', 'starline');
 define('BLOCK_URI', 'starline');
 

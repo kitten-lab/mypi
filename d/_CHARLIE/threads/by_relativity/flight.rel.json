@@ -1,0 +1,13 @@
+{
+    "VEN": "flight",
+    "GRAVITY": 12,
+    "METADATA": [],
+    "SHELF": {
+        "scenes": {
+            "GRAVITY": 12,
+            "BIN": {
+                "symbols": 12
+            }
+        }
+    }
+}

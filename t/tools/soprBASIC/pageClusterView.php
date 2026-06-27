@@ -25,20 +25,8 @@ foreach ($CHEST_THINGS as $CRATE) {
   foreach ($CRATE as $TIMBER) {
             echo "<h3>" . $TIMBER['LABEL'] . "</h3>";
     foreach ($TIMBER['SOPERS'] as $SOPR){
-        echo $Parsedown->text($SOPR['FRAG']) . " . ";
+        echo $Parsedown->text($SOPR['FRAG']);
                 
-            foreach ($SOPR['METADATA']['TAGS'] as $TAG => $SUBTAG){
-              foreach ($SUBTAG as $TAG2 => $TAG3) {
-                echo "<pre>" . $TAG . " > " . $TAG2 . " > ";
-                foreach ($TAG3 as $T3) {
-                echo $T3 . "; ";
-                }
-                echo "</pre>";
-              }
-            }
-
-        echo "</div>"; 
-        echo "</div>"; 
     }          
   } 
 }

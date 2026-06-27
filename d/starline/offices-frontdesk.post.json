@@ -1,0 +1,62 @@
+{
+    "crate.1A6A4D4189786996": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "Poster",
+            "type": "post",
+            "version": 4
+        },
+        "payload": {
+            "post": {
+                "agent": "user",
+                "post_topic": "Welcome to starLine! Your Guide to the Between!",
+                "post_leaf": "Welcome to STARLINE! We are so glad you have found SPACE here."
+            }
+        },
+        "route": [],
+        "tags": {
+            "surfaces": {
+                "star": [
+                    "starline"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "surfaces*star>starline",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "starline",
+            "sys_display": "starline",
+            "dom_slug": "offices",
+            "dom_display": "Moon Station Offices",
+            "room_slug": "frontdesk",
+            "room_display": "The Moon Station Front Desk",
+            "mod_slug": "rheaporter",
+            "mod_display": "Rhea Porter"
+        },
+        "ref_material": {
+            "material": {
+                "type": null,
+                "source": {
+                    "name": null,
+                    "id": null,
+                    "created_on": null,
+                    "last_modified": null
+                },
+                "links": null,
+                "notes": null
+            }
+        },
+        "tps": {
+            "tUID": "1782521397.tps",
+            "ingest_unix": 1782521397,
+            "event_unix": 1782521397,
+            "timezone": "America\/New_York"
+        }
+    }
+}

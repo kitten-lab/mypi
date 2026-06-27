@@ -1,0 +1,1 @@
+<h4>&copy; 1938 Backrooms. All rights reserved.</h4>

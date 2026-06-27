@@ -1,5 +1,5 @@
 {
-    "count": 116,
+    "count": 255,
     "a-node": {
         "misery": 17,
         "goddess": 1,
@@ -16,6 +16,8 @@
         "ai": 2,
         "journey": 6,
         "i-am": 5,
-        "oriel": 1
+        "oriel": 1,
+        "surfaces": 1,
+        "scenes": 138
     }
 }

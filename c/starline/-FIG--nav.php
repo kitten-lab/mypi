@@ -9,8 +9,12 @@
 --------------------------------------------------------------*/
 
 $GLOBALS[BLOCK_ID]['GETS']['Nav'] = echoSONAR . 'a/' . BLOCK_ID . '/asSys/nav.php'; 
+$GLOBALS[BLOCK_ID]['GETS']['topNav'] = echoSONAR . 'a/' . BLOCK_ID . '/asSys/top-nav.php'; 
 
 $GLOBALS[BLOCK_ID]['tDOM'] = [
+  [ "DOM" => "offices" ],
+  [ "DOM" => "offices" ],
+  [ "DOM" => "offices" ],
   [ "DOM" => "offices" ],
 ]; 
 

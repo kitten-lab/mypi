@@ -1,5 +1,5 @@
 {
-    "count": 116,
+    "count": 255,
     "c-node": {
         "oyzis": 1,
         "demon": 1,
@@ -20,8 +20,8 @@
         "love": 4,
         "ease": 2,
         "connection": 3,
-        "rebirth": 2,
-        "reborn": 2,
+        "rebirth": 4,
+        "reborn": 3,
         "resurrection": 2,
         "em": 1,
         "elion": 2,
@@ -87,6 +87,17 @@
         "re-write": 1,
         "clean": 1,
         "connect": 1,
-        "peace": 1
+        "peace": 1,
+        "starline": 1,
+        "flyover": 13,
+        "001-flyover": 13,
+        "her": 24,
+        "him": 24,
+        "us": 12,
+        "ocean": 12,
+        "sky": 12,
+        "flight": 12,
+        "glitter": 12,
+        "": 1
     }
 }

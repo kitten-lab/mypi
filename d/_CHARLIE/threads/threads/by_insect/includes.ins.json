@@ -1,6 +1,6 @@
 {
     "VEN": "includes",
-    "GRAVITY": 16,
+    "GRAVITY": 52,
     "METADATA": [],
     "SHELF": {
         "symbols": {
@@ -27,6 +27,14 @@
                 "compassion": 1,
                 "no-escape": 1,
                 "transformation": 1
+            }
+        },
+        "scenes": {
+            "GRAVITY": 36,
+            "BIN": {
+                "her": 12,
+                "him": 12,
+                "us": 12
             }
         }
     }

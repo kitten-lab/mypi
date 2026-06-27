@@ -2,19 +2,18 @@
     "CABINET": {
         "reborn": {
             "METADATA": {
-                "GRAVITY": 2,
+                "GRAVITY": 3,
                 "INGEST": {
                     "FIRST": 1782306781,
-                    "LAST": 1782306854
+                    "LAST": 1782562205
                 },
                 "EVENT": {
                     "FIRST": [],
                     "LAST": []
                 },
                 "LAST_USAGE": {
-                    "1739217616": [
-                        "memoir",
-                        "memoir"
+                    "1739217602": [
+                        "scenes"
                     ]
                 }
             },
@@ -55,6 +54,46 @@
                                     "jack-nim": [
                                         "crate.A1DE3D3BC4498ACD",
                                         "crate.C502148C5E03D2BB"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "scenes": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782562205,
+                            "LAST": 1782562205
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "symbols"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "symbols": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782562205,
+                                    "LAST": 1782562205
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1739217602": {
+                                    "HER": [
+                                        "crate.DEFABFE211904269"
                                     ]
                                 }
                             }

@@ -4,6 +4,8 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED);
 */ ?>
 
 <?php
+define("SHADOW_TOGGLE", false);
+
 // REQUIRED INCUDES
 require_once ROUTE_TO_SYSTEMS . 'chestersCrates.php'; // CHEST CRATING SYSTEM
 require_once __DIR__ . '/-SIG-soprBASIC.php'; // ASSISTANT SETTINGS

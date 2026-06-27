@@ -1,12 +1,18 @@
 {
     "VEN": "reborn",
-    "GRAVITY": 2,
+    "GRAVITY": 3,
     "METADATA": [],
     "SHELF": {
         "memoir": {
             "GRAVITY": 2,
             "BIN": {
                 "self": 2
+            }
+        },
+        "scenes": {
+            "GRAVITY": 1,
+            "BIN": {
+                "symbols": 1
             }
         }
     }

@@ -1,12 +1,26 @@
 {
     "VEN": "symbols",
-    "GRAVITY": 2,
+    "GRAVITY": 78,
     "METADATA": [],
     "SHELF": {
         "memoir": {
             "GRAVITY": 2,
             "BIN": {
                 "misery": 2
+            }
+        },
+        "scenes": {
+            "GRAVITY": 76,
+            "BIN": {
+                "ocean": 12,
+                "sky": 12,
+                "flight": 12,
+                "glitter": 12,
+                "her": 12,
+                "him": 12,
+                "rebirth": 2,
+                "reborn": 1,
+                "": 1
             }
         }
     }

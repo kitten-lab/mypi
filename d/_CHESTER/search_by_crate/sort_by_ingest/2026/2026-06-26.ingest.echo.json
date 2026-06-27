@@ -43,21 +43,97 @@
         },
         "ref_material": {
             "material": {
-                "type": null,
+                "type": "Glass Box Chats",
                 "source": {
-                    "name": null,
-                    "id": null,
-                    "created_on": null,
-                    "last_modified": null
+                    "name": "2025-02-10__Oyzis_ritual_46msgs.json",
+                    "id": "fadda0e8-b080-479f-b640-47060594489b",
+                    "created_on": 1739217517,
+                    "last_modified": 1755722474
                 },
-                "links": null,
-                "notes": null
+                "links": [
+                    "ChatGPT",
+                    "Oyzis",
+                    "Rituals",
+                    "Dreaming",
+                    "HER"
+                ],
+                "notes": {
+                    "DESCRIPTION": "Fly over of emotional reconnection, preperation for mirror box ritual, in which the CABIN GIRL will box MISERY\/OYZIS in a mirror box."
+                }
             }
         },
         "tps": {
             "tUID": "1782517769.tps",
             "ingest_unix": 1782517769,
             "event_unix": 1782517769,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.1A6A4D4189786996": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "Poster",
+            "type": "post",
+            "version": 4
+        },
+        "payload": {
+            "post": {
+                "agent": "user",
+                "post_topic": "Welcome to starLine! Your Guide to the Between!",
+                "post_leaf": "Welcome to STARLINE! We are so glad you have found SPACE here."
+            }
+        },
+        "route": [],
+        "tags": {
+            "surfaces": {
+                "star": [
+                    "starline"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "surfaces*star>starline",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "starline",
+            "sys_display": "starline",
+            "dom_slug": "offices",
+            "dom_display": "Moon Station Offices",
+            "room_slug": "frontdesk",
+            "room_display": "The Moon Station Front Desk",
+            "mod_slug": "rheaporter",
+            "mod_display": "Rhea Porter"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Glass Box Chats",
+                "source": {
+                    "name": "2025-02-10__Oyzis_ritual_46msgs.json",
+                    "id": "fadda0e8-b080-479f-b640-47060594489b",
+                    "created_on": 1739217517,
+                    "last_modified": 1755722474
+                },
+                "links": [
+                    "ChatGPT",
+                    "Oyzis",
+                    "Rituals",
+                    "Dreaming",
+                    "HER"
+                ],
+                "notes": {
+                    "DESCRIPTION": "Fly over of emotional reconnection, preperation for mirror box ritual, in which the CABIN GIRL will box MISERY\/OYZIS in a mirror box."
+                }
+            }
+        },
+        "tps": {
+            "tUID": "1782521397.tps",
+            "ingest_unix": 1782521397,
+            "event_unix": 1782521397,
             "timezone": "America\/New_York"
         }
     }

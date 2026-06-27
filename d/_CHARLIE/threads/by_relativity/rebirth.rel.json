@@ -1,12 +1,18 @@
 {
     "VEN": "rebirth",
-    "GRAVITY": 2,
+    "GRAVITY": 4,
     "METADATA": [],
     "SHELF": {
         "felt-sense": {
             "GRAVITY": 2,
             "BIN": {
                 "freedom": 2
+            }
+        },
+        "scenes": {
+            "GRAVITY": 2,
+            "BIN": {
+                "symbols": 2
             }
         }
     }

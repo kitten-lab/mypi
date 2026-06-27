@@ -1,0 +1,64 @@
+{
+    "CABINET": {
+        "surfaces": {
+            "METADATA": {
+                "GRAVITY": 1,
+                "INGEST": {
+                    "FIRST": 1782521397,
+                    "LAST": 1782521397
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1782521397": [
+                        "star"
+                    ]
+                }
+            },
+            "SHELF": {
+                "star": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782521397,
+                            "LAST": 1782521397
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782521397": [
+                                "starline"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "starline": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782521397,
+                                    "LAST": 1782521397
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782521397": {
+                                    "rheaporter": [
+                                        "crate.1A6A4D4189786996"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

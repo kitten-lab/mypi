@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Do not rewrite if the requested path is an actual existing file or folder
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Send everything else to index.php
+RewriteRule ^(.*)$ index.php [L,QSA]

@@ -1,7 +1,7 @@
 <?php
 // consoleNIMs are Nimble handles for console messages
 
-function Console_Log($message, ?string $color = null){
+function Console_Log(string $message, ?string $color = null){
     if ($color !== null){
   GetFILLER("<script>setTimeout(() => {console.log('%c" . $message . "','" . $color . "')  }, 500);</script>", "scripts");
 
@@ -11,16 +11,16 @@ function Console_Log($message, ?string $color = null){
     }
 }
 
-function Console_Log_Warning($message){
+function Console_Log_Warning(string $message){
   GetFILLER("<script>setTimeout(() => {console.warn('" . $message . "')  }, 1000);</script>", "scripts");
 }
 
 
-function Console_Log_Note($message){
+function Console_Log_Note(string $message){
   GetFILLER("<script>setTimeout(() => {console.log('%c" . $message . "', 'color:orange');  }, 1000);</script>", "scripts");
 }
 
-function KDE_Error_Logger($tool,$error){
+function KDE_Error_Logger(string $tool, string $error){
     GetFILLER("<script>console.error(`KDE_ERROR_LOG: " . $tool . " " . $error . "`);</script>", "scripts");
 }
 

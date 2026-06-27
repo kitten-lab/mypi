@@ -44,8 +44,8 @@ $SIGFIG['postBASIC'] = [
                 "Submit_Button"     => "Store Fragment",
         ],
         "classic" => [
-                "user"              => "user",
-                "assistant"         => "assistant",
+                "user"              => $GLOBALS['MATERIAL']['USER'] ?? 'user',
+                "assistant"         => $GLOBALS['MATERIAL']['ASSISTANT'] ?? 'assistant',
                 "post_topic"     => "Title",
                 "post_topic_pl"  => "",
                 "post_leaf"        => "Body",

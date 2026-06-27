@@ -13,24 +13,6 @@ body {
     margin: 6px;
 }
 
-.flex-container {
-  display: flex;
-  gap: 20px;      
-}
-
-.flex-child {
-  flex: 1;     
-}
-
-
-
-@media (max-width: 768px) {
-  .flex-container {
-    flex-direction: column;
-  }
-}
-
-
 .slug {
     font-size: 0.4rem;
     text-transform: uppercase;

@@ -1,0 +1,153 @@
+{
+    "crate.F2E5FD940B27D185": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "Poster",
+            "type": "post",
+            "version": 4
+        },
+        "payload": {
+            "post": {
+                "agent": "HER",
+                "post_topic": "Scene Set",
+                "post_leaf": "A fly over shot, with the ocean below, and wide open skies. In the distance, the sun in shining and sparkling over the waters. As the camera pans over the waters, two voices can be heard talking to one another in dialog, one male and one female."
+            }
+        },
+        "route": [],
+        "tags": {
+            "scenes": {
+                "oyzis": [
+                    "flyover",
+                    "001-flyover"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "scenes*oyzis>flyover,001-flyover",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "moon",
+            "sys_display": "book",
+            "dom_slug": "session-001",
+            "dom_display": "2025-02-10__Oyzis_ritual",
+            "room_slug": "01-flyover",
+            "room_display": "Walking in Him",
+            "mod_slug": "HER",
+            "mod_display": "The HER"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Glass Box Chats",
+                "source": {
+                    "name": "2025-02-10__Oyzis_ritual_46msgs.json",
+                    "id": "fadda0e8-b080-479f-b640-47060594489b",
+                    "created_on": 1739217517,
+                    "last_modified": 1755722474
+                },
+                "links": [
+                    "ChatGPT",
+                    "Oyzis",
+                    "Rituals",
+                    "Dreaming",
+                    "HER"
+                ],
+                "notes": {
+                    "DESCRIPTION": "Fly over of emotional reconnection, preperation for mirror box ritual, in which the CABIN GIRL will box MISERY\/OYZIS in a mirror box."
+                }
+            }
+        },
+        "tps": {
+            "tUID": "1782560169.tps",
+            "ingest_unix": 1782560169,
+            "event_unix": 1782560169,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.AA0916F4D556D1BB": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "Poster",
+            "type": "post",
+            "version": 4
+        },
+        "payload": {
+            "post": {
+                "agent": null,
+                "post_topic": "Characters",
+                "post_leaf": "HER and HIM, unseen, voices only over aerial shot."
+            }
+        },
+        "route": [],
+        "tags": {
+            "scenes": {
+                "oyzis": [
+                    "flyover",
+                    "001-flyover"
+                ],
+                "includes": [
+                    "her",
+                    "him",
+                    "us"
+                ],
+                "symbols": [
+                    "ocean",
+                    "sky",
+                    "flight",
+                    "glitter",
+                    "her",
+                    "him"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "scenes*oyzis>flyover,001-flyover&includes>her,him,us&symbols>ocean,sky,flight,glitter,her,him",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "moon",
+            "sys_display": "book",
+            "dom_slug": "session-001",
+            "dom_display": "2025-02-10__Oyzis_ritual",
+            "room_slug": "01-flyover",
+            "room_display": "Walking in Him",
+            "mod_slug": "HER",
+            "mod_display": "The HER"
+        },
+        "ref_material": {
+            "material": {
+                "type": "Glass Box Chats",
+                "source": {
+                    "name": "2025-02-10__Oyzis_ritual_46msgs.json",
+                    "id": "fadda0e8-b080-479f-b640-47060594489b",
+                    "created_on": 1739217517,
+                    "last_modified": 1755722474
+                },
+                "links": [
+                    "ChatGPT",
+                    "Oyzis",
+                    "Rituals",
+                    "Dreaming",
+                    "HER"
+                ],
+                "notes": {
+                    "DESCRIPTION": "Fly over of emotional reconnection, preperation for mirror box ritual, in which the CABIN GIRL will box MISERY\/OYZIS in a mirror box."
+                }
+            }
+        },
+        "tps": {
+            "tUID": "1782560271.tps",
+            "ingest_unix": 1782560271,
+            "event_unix": 1782560271,
+            "timezone": "America\/New_York"
+        }
+    }
+}

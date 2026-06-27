@@ -2,11 +2,11 @@
 // kittenCaller function is used for calling small fragments of javascript to the surface
 // called "KITTENS" because they are small modular kits for building feature sets. Adorable!
 
-function callKitten($kitten){
+function callKitten(STRING $kitten){
 
 $GLOBALS['GETS']['scripts'][] = function() use ($kitten) {
 
-  $catLocator = $GLOBALS['SONAR'];  
+  $catLocator = echoSONAR;  
   $callKitten = $catLocator . "k";
 
     $a_WildKitten = "/kittens/" . $kitten . ".kitten.js";

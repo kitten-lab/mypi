@@ -1,0 +1,15 @@
+{
+    "VEN": "surfaces",
+    "GRAVITY": 1,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "star": {
+            "GRAVITY": 1,
+            "BIN": {
+                "starline": 1
+            }
+        }
+    }
+}

@@ -8,14 +8,12 @@ function getDecor(
   /* optional */  ?string $shell = null, ?string $class = null, ?string $alt = null
 ){
   // hydrate:
-  global $SONAR;
-  global $SITE;
-  $URI = $GLOBALS[$SITE]['URI'];
+  $URI = BLOCK_URI;
 
 // handle Image Decorations
   if ($Type == "I"){
   // projection pathway:      
-    $SKY_Validate = $SONAR . "m/decor/" . $URI . "/" . $Projection;
+    $SKY_Validate = echoSONAR . "m/decor/" . $URI . "/" . $Projection;
 
     if(is_file($SKY_Validate)) {
       $hasClass = $class ? " class='$class'" : "";
@@ -38,7 +36,7 @@ function getDecor(
 
   if ($Type == "CSS"){
   // projection pathway:      
-    $SKY_Validate = $SONAR . "m/dressings/" . $URI . "/" . $Projection;
+    $SKY_Validate = echoSONAR . "m/dressings/" . $URI . "/" . $Projection;
     if(is_file($SKY_Validate)) {
       if ($shell == "wires") {
         getFILLER("<link rel='stylesheet'  type='text/css' href='" . M_ROUTE . "'/dressings/$URI/$Projection'>", "dressing");

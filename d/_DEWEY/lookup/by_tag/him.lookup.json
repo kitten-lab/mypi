@@ -2,20 +2,39 @@
     "CABINET": {
         "him": {
             "METADATA": {
-                "GRAVITY": 3,
+                "GRAVITY": 27,
                 "INGEST": {
                     "FIRST": 1782306854,
-                    "LAST": 1782306854
+                    "LAST": 1782562547
                 },
                 "EVENT": {
                     "FIRST": [],
                     "LAST": []
                 },
                 "LAST_USAGE": {
-                    "1739217616": [
-                        "signs",
-                        "signs",
-                        "signs"
+                    "1739217602": [
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes",
+                        "scenes"
                     ]
                 }
             },
@@ -96,6 +115,117 @@
                                 "1739217616": {
                                     "jack-nim": [
                                         "crate.C502148C5E03D2BB"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "scenes": {
+                    "METADATA": {
+                        "GRAVITY": 24,
+                        "INGEST": {
+                            "FIRST": 1782560271,
+                            "LAST": 1782562547
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1739217602": [
+                                "includes",
+                                "symbols",
+                                "includes",
+                                "symbols",
+                                "includes",
+                                "symbols",
+                                "includes",
+                                "symbols",
+                                "includes",
+                                "symbols",
+                                "includes",
+                                "symbols",
+                                "includes",
+                                "symbols",
+                                "includes",
+                                "symbols",
+                                "includes",
+                                "symbols",
+                                "includes",
+                                "symbols",
+                                "includes",
+                                "symbols"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "includes": {
+                            "METADATA": {
+                                "GRAVITY": 12,
+                                "INGEST": {
+                                    "FIRST": 1782560271,
+                                    "LAST": 1782562547
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782560271": {
+                                    "HER": [
+                                        "crate.AA0916F4D556D1BB"
+                                    ]
+                                },
+                                "1739217602": {
+                                    "HER": [
+                                        "crate.AE3F658EA3325CEA",
+                                        "crate.032236FDC5F4FD7B",
+                                        "crate.BF23962DB516CCB3",
+                                        "crate.AFBBF568A4439BFA",
+                                        "crate.F4998F4DE4420901",
+                                        "crate.AE2E4352479FE4D2",
+                                        "crate.1B43470E427BBDF7",
+                                        "crate.DEFABFE211904269",
+                                        "crate.DED0106D6CEC34CF",
+                                        "crate.91FA222745ED9FF3",
+                                        "crate.BDEFD34C48E0E753"
+                                    ]
+                                }
+                            }
+                        },
+                        "symbols": {
+                            "METADATA": {
+                                "GRAVITY": 12,
+                                "INGEST": {
+                                    "FIRST": 1782560271,
+                                    "LAST": 1782562547
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782560271": {
+                                    "HER": [
+                                        "crate.AA0916F4D556D1BB"
+                                    ]
+                                },
+                                "1739217602": {
+                                    "HER": [
+                                        "crate.AE3F658EA3325CEA",
+                                        "crate.032236FDC5F4FD7B",
+                                        "crate.BF23962DB516CCB3",
+                                        "crate.AFBBF568A4439BFA",
+                                        "crate.F4998F4DE4420901",
+                                        "crate.AE2E4352479FE4D2",
+                                        "crate.1B43470E427BBDF7",
+                                        "crate.DEFABFE211904269",
+                                        "crate.DED0106D6CEC34CF",
+                                        "crate.91FA222745ED9FF3",
+                                        "crate.BDEFD34C48E0E753"
                                     ]
                                 }
                             }

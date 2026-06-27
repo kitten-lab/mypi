@@ -1,5 +1,4 @@
 <?php 
-define("SHADOW_TOGGLE", false);
 
 
 $GLOBALS['TOOL'] = [
@@ -44,8 +43,8 @@ $SIGFIG['soprBASIC'] = [
                 "Submit_Button"     => "Store Fragment",
         ],
         "classic" => [
-                "user"              => "JACK",
-                "assistant"         => "WIRES",
+                "user"              => $GLOBALS['MATERIAL']['USER'] ?? 'user',
+                "assistant"         => $GLOBALS['MATERIAL']['ASSISTANT'] ?? 'assistant',
                 "soper_section"     => "Section Heading",
                 "soper_section_pl"  => "test",
                 "soper_leaf"        => "Fragment Content",

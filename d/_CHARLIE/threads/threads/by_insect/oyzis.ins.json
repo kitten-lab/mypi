@@ -1,0 +1,14 @@
+{
+    "VEN": "oyzis",
+    "GRAVITY": 26,
+    "METADATA": [],
+    "SHELF": {
+        "scenes": {
+            "GRAVITY": 26,
+            "BIN": {
+                "flyover": 13,
+                "001-flyover": 13
+            }
+        }
+    }
+}
