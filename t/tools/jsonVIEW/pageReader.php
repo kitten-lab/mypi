@@ -1,7 +1,7 @@
 <?php
 global $SONAR;
 
-require_once $SONAR . 'k/systems/Borrows/parsedown/Parsedown.php'; 
+require_once ROUTE_TO_SYSTEMS . 'Borrows/parsedown/Parsedown.php'; 
 $json = file_get_contents(__DIR__ . '/../../../z/logs/2025-02-10__Oyzis_ritual__46msgs.json');
 $data = json_decode($json, true);
 

@@ -1,0 +1,26 @@
+{
+    "SECTION": {
+        "elion": {
+            "LABEL": "Elion",
+            "NOTES": [],
+            "SOPERS": [
+                {
+                    "ID": "elion-0001",
+                    "FRAG": "Oriel is the lover of Elion.",
+                    "AGENT": "JACK",
+                    "METADATA": {
+                        "ADDED": 1782517769,
+                        "cUID": "crate.620B550C08FDDEB0",
+                        "TAGS": {
+                            "oriel": {
+                                "loves": [
+                                    "elion"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

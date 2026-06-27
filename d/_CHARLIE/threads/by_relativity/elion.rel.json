@@ -1,12 +1,18 @@
 {
     "VEN": "elion",
-    "GRAVITY": 1,
+    "GRAVITY": 2,
     "METADATA": [],
     "SHELF": {
         "signs": {
             "GRAVITY": 1,
             "BIN": {
                 "him": 1
+            }
+        },
+        "oriel": {
+            "GRAVITY": 1,
+            "BIN": {
+                "loves": 1
             }
         }
     }

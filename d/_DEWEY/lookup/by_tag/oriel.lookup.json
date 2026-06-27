@@ -1,10 +1,10 @@
 {
     "CABINET": {
-        "elion": {
+        "oriel": {
             "METADATA": {
-                "GRAVITY": 2,
+                "GRAVITY": 1,
                 "INGEST": {
-                    "FIRST": 1782306854,
+                    "FIRST": 1782517769,
                     "LAST": 1782517769
                 },
                 "EVENT": {
@@ -13,52 +13,12 @@
                 },
                 "LAST_USAGE": {
                     "1782517769": [
-                        "oriel"
+                        "loves"
                     ]
                 }
             },
             "SHELF": {
-                "signs": {
-                    "METADATA": {
-                        "GRAVITY": 1,
-                        "INGEST": {
-                            "FIRST": 1782306854,
-                            "LAST": 1782306854
-                        },
-                        "EVENT": {
-                            "FIRST": [],
-                            "LAST": []
-                        },
-                        "LAST_USAGE": {
-                            "1739217616": [
-                                "him"
-                            ]
-                        }
-                    },
-                    "BIN": {
-                        "him": {
-                            "METADATA": {
-                                "GRAVITY": 1,
-                                "INGEST": {
-                                    "FIRST": 1782306854,
-                                    "LAST": 1782306854
-                                },
-                                "EVENT": {
-                                    "FIRST": [],
-                                    "LAST": []
-                                }
-                            },
-                            "INSTANCES": {
-                                "1739217616": {
-                                    "jack-nim": [
-                                        "crate.C502148C5E03D2BB"
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                },
-                "oriel": {
+                "loves": {
                     "METADATA": {
                         "GRAVITY": 1,
                         "INGEST": {
@@ -71,12 +31,12 @@
                         },
                         "LAST_USAGE": {
                             "1782517769": [
-                                "loves"
+                                "elion"
                             ]
                         }
                     },
                     "BIN": {
-                        "loves": {
+                        "elion": {
                             "METADATA": {
                                 "GRAVITY": 1,
                                 "INGEST": {

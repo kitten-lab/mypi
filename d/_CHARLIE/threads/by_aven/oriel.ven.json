@@ -1,0 +1,15 @@
+{
+    "VEN": "oriel",
+    "GRAVITY": 1,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "loves": {
+            "GRAVITY": 1,
+            "BIN": {
+                "elion": 1
+            }
+        }
+    }
+}

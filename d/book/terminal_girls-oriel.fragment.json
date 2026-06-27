@@ -1,0 +1,64 @@
+{
+    "crate.620B550C08FDDEB0": {
+        "c_version": 4,
+        "viewport": "::the.woman.on.K.st::",
+        "assistant": {
+            "name": "soprBASIC",
+            "function": "AddFragment",
+            "type": "fragment",
+            "version": 3
+        },
+        "payload": {
+            "soper": {
+                "agent": "JACK",
+                "sec_display": "Elion",
+                "sec_slug": "elion",
+                "supr_slug": "elion-0001",
+                "content": "Oriel is the lover of Elion."
+            }
+        },
+        "route": [],
+        "tags": {
+            "oriel": {
+                "loves": [
+                    "elion"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "oriel*loves>elion",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "moon",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oriel",
+            "room_display": "Ori'el Lightbearer",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": null,
+                "source": {
+                    "name": null,
+                    "id": null,
+                    "created_on": null,
+                    "last_modified": null
+                },
+                "links": null,
+                "notes": null
+            }
+        },
+        "tps": {
+            "tUID": "1782517769.tps",
+            "ingest_unix": 1782517769,
+            "event_unix": 1782517769,
+            "timezone": "America\/New_York"
+        }
+    }
+}

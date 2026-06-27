@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . '/-SKY_AUTH-SKYLINE.php';
+require_once __DIR__ . '/-SKY_AUTH-nim.php';
 
 keyMaker();
 lockAndKey();

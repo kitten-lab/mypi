@@ -4,11 +4,11 @@
 
 
 
-function getA_Style($css, $folder, $function) {
+function getA_Style(string $css, string $folder, string $function) {
     $path = "/" . $folder . "/" . $function . "/" . $css . ".css";
-    $full = $GLOBALS['SONAR'] . "a" . $path;
+    $full = echoSONAR . "a" . $path;
     if (is_file($full)) {
-         echo '<link rel="stylesheet"  type="text/css" href="' . a_root . $path . '">';
+         echo '<link rel="stylesheet"  type="text/css" href="' . A_ROUTE . $path . '">';
          } else {
             error_log("PATH NOT FOUND getAStyle " . $path);
 
@@ -16,11 +16,11 @@ function getA_Style($css, $folder, $function) {
 }
 
 
-function invokeStyle($css, $function) {
+function invokeStyle(string $css, string $folder) {
     $path = "/" . $folder . "/" . $css . ".css";
-    $full = $GLOBALS['SONAR'] . "a" . $path;
+    $full = echoSONAR . "a" . $path;
     if (is_file($full)) {
-         echo '<link rel="stylesheet"  type="text/css" href="' . a_root . $path . '">';
+         echo '<link rel="stylesheet"  type="text/css" href="' . A_ROUTE . $path . '">';
          } else {
             error_log("PATH NOT FOUND invokeStyle" . $path);
 
@@ -38,7 +38,7 @@ function invokeStyle($css, $function) {
         $SITE = $GLOBALS['SITE'];
 
         $path = "/" . $GLOBALS[$SITE]['SYS_SLUG'] . '/' . $GLOBALS[$SITE]['DOM_SLUG'] . "/" . $img;
-        $result = $GLOBALS['SONAR'] . "/i/" . $path;
+        $result = echoSONAR . "/i/" . $path;
         if (is_file($result)) {
             $hasClass = $class ? " class='$class'" : "";
             $hasAlt = $alt ? " alt='$alt'" : "";
@@ -50,9 +50,9 @@ function invokeStyle($css, $function) {
             }
     }
 
-    function img($img, $folder, $prefix, ?string $alt = '', ?string $class = '') {
+    function img(string $img, string $folder, string $prefix, ?string $alt = '', ?string $class = '') {
         $path = "/" . $folder . "/" . $prefix . "_" . $img;
-        $result = $GLOBALS['SONAR'] . "/i/" . $path;
+        $result = echoSONAR . "/i/" . $path;
         if (is_file($result)) {
             $hasClass = $class ? " class='$class'" : "";
             $hasAlt = $alt ? " alt='$alt'" : "";

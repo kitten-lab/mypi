@@ -1,5 +1,5 @@
 {
-    "count": 115,
+    "count": 116,
     "a-node": {
         "misery": 17,
         "goddess": 1,
@@ -15,6 +15,7 @@
         "wire-wolf": 15,
         "ai": 2,
         "journey": 6,
-        "i-am": 5
+        "i-am": 5,
+        "oriel": 1
     }
 }

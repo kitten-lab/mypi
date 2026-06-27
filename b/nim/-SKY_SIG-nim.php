@@ -1,9 +1,9 @@
 <?php // new naming migration //
 
-define('WORLD_ID', 'moon');
-define('WORLD_TAG', "book");
-define('BLOCK_ID', 'book');
-define('BLOCK_URI', 'book');
+define('WORLD_ID', 'nim');
+define('WORLD_TAG', "NIM JACK LOGGER SYSTEM");
+define('BLOCK_ID', 'nim');
+define('BLOCK_URI', 'nim');
 
 global $SITE;
 // in-phase-out

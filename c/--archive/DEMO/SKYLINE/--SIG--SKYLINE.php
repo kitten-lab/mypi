@@ -2,17 +2,13 @@
 ==================== C O N F I G . f i l e  ==================== 
 ================================================================
 >| Do not forget me. */ $loversMark = "theSKY"; 
-
-    require __DIR__ . '/--SIG-FIGS--.php';
     include __DIR__ . '/-FIG--nav.php';
     include __DIR__ . "/-FIG--routeErrors.php"; 
     
     function getMy_Styles(){
-    $SITE = $GLOBALS['SITE'];
-        getA_Style("style", $GLOBALS[$SITE]['SYS'], "asSys");
-        getA_Style("sky",   $GLOBALS[$SITE]['SYS'], "asSys");
-        getA_Style("style", $GLOBALS[$SITE]['URI'], "asDom");
-
+        getA_Style("style", WORLD_ID, "asSys");
+        getA_Style("sky",   WORLD_ID, "asSys");
     }
+    
 ?>
 

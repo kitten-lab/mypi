@@ -1,5 +1,5 @@
 <?php
-require_once 'auth_check.php';
+
 $ENV = "ROSEWOOD8";
 date_default_timezone_set("America/New_York");
 
@@ -10,6 +10,7 @@ foreach ($skyJUNCTS as $skyJUNCT){
     SKY_JUNCTION($skyJUNCT);
 }
 
+/*
 $MATERIAL = [
     "TYPE" => [],
     "SOURCE" => [
@@ -28,5 +29,6 @@ $DEMO = [
     'USER' => "pink",
     'ASSISTANT' => "blue"
 ];
+*/
 
 ?>

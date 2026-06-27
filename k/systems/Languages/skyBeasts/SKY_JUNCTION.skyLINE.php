@@ -25,10 +25,10 @@ function ROUTE(
   $LETTER, 
   $SHADOW_PROD_TOGGLE
   ){
-    return $GLOBALS['SONAR'] . $SHADOW_PROD_TOGGLE . $LETTER . '/'; 
+    return echoSONAR . $SHADOW_PROD_TOGGLE . $LETTER . '/'; 
 }
 
 //  simple router without shadow_prod
 function ROUTE_LETTER($LETTER){
-  return $GLOBALS['SONAR'] . $LETTER . '/'; 
+  return echoSONAR . $LETTER . '/'; 
 }

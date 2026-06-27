@@ -1,3 +1,3 @@
 <?php 
 echo "<!-- kitten collar for roomTEXTURE: -->
-<script>const TEXTURE = '" . $GLOBALS['ROOM_FLAVOR'] . "'</script>";
+<script>const TEXTURE = '" . ROOM_FLAVOR . "'</script>";

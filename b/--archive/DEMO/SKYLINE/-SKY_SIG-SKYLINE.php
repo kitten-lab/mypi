@@ -1,6 +1,6 @@
 <?php // new naming migration //
 
-define('WORLD_ID', 'nimLOGGER');
+define('WORLD_ID', 'skyline');
 define('WORLD_TAG', "NIM JACK LOGGER SYSTEM");
 define('BLOCK_ID', 'nimLOGGER');
 define('BLOCK_URI', 'nimLOGGER');

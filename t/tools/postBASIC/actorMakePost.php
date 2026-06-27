@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     define("POST_UNIX", $_POST['POST__EVENT_UNIX']);
     define("POST_PV", $GLOBALS['PV'] ?? "");
 
-    require __DIR__ . '/../tpsMACHINE.php';  // THE TPS MACHINE 
+    require ROUTE_TO_SYSTEMS . 'tpsMACHINE.php';  // THE TPS MACHINE 
 
     define("TPS_TPSTIME", $tpstime);
     define("TPS_EVENTTIME", $event_time);

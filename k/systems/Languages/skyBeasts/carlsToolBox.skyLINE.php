@@ -22,7 +22,7 @@ function getTool(string $tool, string $function) {
 
 
 function getToolNIM(string $tool, string $set, string $function){
-    $file = $GLOBALS['SONAR'] . "t/tools/" . $tool . "/" . $set . $function . ".php";
+    $file = echoSONAR . "t/tools/" . $tool . "/" . $set . $function . ".php";
     if (is_file($file)) {
     loadTool($tool, $set, $function);
     } else {
@@ -34,7 +34,7 @@ function getToolNIM(string $tool, string $set, string $function){
 
 function loadTool_Style(string $tool) {
     $path = $tool . '/' . $tool . ".css";
-    $full = $GLOBALS['SONAR'] . "t" . $path;
+    $full = echoSONAR . "t" . $path;
     if (is_file($full)) {
          echo '<link rel="stylesheet" type="text/css" href="' . T_ROUTE . $path . '">';
          } else {
@@ -44,7 +44,7 @@ function loadTool_Style(string $tool) {
 
 
     function loadTool(string $tool, string $type, string $function) {
-        $result = $GLOBALS['SONAR'] . 't/tools/' . $tool . '/' . $type . $function . '.php';
+        $result = echoSONAR . 't/tools/' . $tool . '/' . $type . $function . '.php';
         if (is_file($result)) {
             include $result;
         } else {

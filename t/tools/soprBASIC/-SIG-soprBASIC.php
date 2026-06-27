@@ -16,8 +16,8 @@ global $SIGFIG;
 $SIGFIG['soprBASIC'] = [
     "AddFragment" => [
         "skyline-standard" => [
-                "user"              => $GLOBALS['MATERIAL']['USER'],
-                "assistant"         => $GLOBALS['MATERIAL']['ASSISTANT'],
+                "user"              => $GLOBALS['MATERIAL']['USER'] ?? 'user',
+                "assistant"         => $GLOBALS['MATERIAL']['ASSISTANT'] ?? 'assistant',
                 "soper_section"     => "Section Heading",
                 "soper_section_pl"  => "test",
                 "soper_leaf"        => "Fragment Content",
@@ -30,8 +30,8 @@ $SIGFIG['soprBASIC'] = [
                 "Submit_Button"     => "Store Fragment",
         ],
         "early-web" => [
-                "user"              => $GLOBALS['MATERIAL']['USER'],
-                "assistant"         => $GLOBALS['MATERIAL']['ASSISTANT'],
+                "user"              => $GLOBALS['MATERIAL']['USER'] ?? 'user',
+                "assistant"         => $GLOBALS['MATERIAL']['ASSISTANT'] ?? 'assistant',
                 "soper_section"     => "Section Heading",
                 "soper_section_pl"  => "test",
                 "soper_leaf"        => "Fragment Content",

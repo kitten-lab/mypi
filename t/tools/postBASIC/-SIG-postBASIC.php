@@ -16,8 +16,8 @@ global $SIGFIG;
 $SIGFIG['postBASIC'] = [
     "MakePost" => [
         "skyline-standard" => [
-                "user"              => $GLOBALS['MATERIAL']['USER'],
-                "assistant"         => $GLOBALS['MATERIAL']['ASSISTANT'],
+                "user"              => "user",
+                "assistant"         => "assistant",
                 "post_topic"     => "Section Heading",
                 "post_topic_pl"  => "test",
                 "post_leaf"        => "Fragment Content",
@@ -30,8 +30,8 @@ $SIGFIG['postBASIC'] = [
                 "Submit_Button"     => "Store Fragment",
         ],
         "early-web" => [
-                "user"              => $GLOBALS['MATERIAL']['USER'],
-                "assistant"         => $GLOBALS['MATERIAL']['ASSISTANT'],
+                "user"              => "user",
+                "assistant"         => "assistant",
                 "post_topic"     => "Section Heading",
                 "post_topic_pl"  => "test",
                 "post_leaf"        => "Fragment Content",
@@ -44,8 +44,8 @@ $SIGFIG['postBASIC'] = [
                 "Submit_Button"     => "Store Fragment",
         ],
         "classic" => [
-                "user"              => $GLOBALS['MATERIAL']['USER'],
-                "assistant"         => $GLOBALS['MATERIAL']['ASSISTANT'],
+                "user"              => "user",
+                "assistant"         => "assistant",
                 "post_topic"     => "Title",
                 "post_topic_pl"  => "",
                 "post_leaf"        => "Body",

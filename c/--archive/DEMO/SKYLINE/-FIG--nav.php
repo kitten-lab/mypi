@@ -12,15 +12,12 @@ don't lie. But sometimes, you will be confused by this nest.
 That's okay. Each time it WILL GET EASIER.  -abl 
 --------------------------------------------------------------*/
 
-$GLOBALS[$SITE]['GETS']['sideNav'] = $GLOBALS['SONAR'] . 'a/' . $SYS . '/asSys/nav.php'; 
-$GLOBALS[$SITE]['GETS']['topNav'] = $GLOBALS['SONAR'] . 'a/' . $SYS . '/asSys/top-nav.php'; 
+$GLOBALS[BLOCK_ID]['GETS']['Nav'] = echoSONAR . 'a/' . WORLD_ID . '/asSys/nav.php'; 
 
-$GLOBALS[$SITE]['tDOM'] = [
-                    ["DOM" => "publicOffices"],
-                    ["DOM" => "reportDepartment"],
-                    ["DOM" => "w"]
-                    ]; 
-$GLOBALS[$SITE]['key'] = "home"; 
+$GLOBALS[BLOCK_ID]['tDOM'] = [
+  [ "DOM" => "publicOffices" ],
+  [ "DOM" => "reportDepartment" ],
+]; 
 
 $nav = [ "navSec" => 
 
