@@ -11,6 +11,7 @@ openSky(ROOM_DISPLAY);
 bigHeading(ROOM_DISPLAY);
 leaf("A selection of our top surfaces:
 <a href='http://starline/'>Starline</a>
+<a href='http://book/'>Book</a>
 <a href='http://nim/'>Nim</a>
 <a href='http://backrooms/'>Back Rooms</a>");
 

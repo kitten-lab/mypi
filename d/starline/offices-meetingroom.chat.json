@@ -1,0 +1,62 @@
+{
+    "crate.40FD222CCDC73DD7": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "chatBOX",
+            "function": "chatroom",
+            "type": "chat",
+            "version": 4
+        },
+        "payload": {
+            "chat": {
+                "username": "DIGI-REPORTER",
+                "message": "PLEASE USE WISELY. OR CONSISTENTLY. I WOULD PREFER CONSISTENT TO WISE.",
+                "time": 1782583216
+            }
+        },
+        "route": [],
+        "tags": {
+            "digi-reporter": {
+                "speaks-to": [
+                    "meetingroom"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "DIGI-REPORTER*speaks-to>meetingroom",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "starline",
+            "sys_display": "THE BEYOND BEGINS HERE",
+            "dom_slug": "offices",
+            "dom_display": "Moon Station Offices",
+            "room_slug": "meetingroom",
+            "room_display": "The Meeting Room",
+            "mod_slug": "rheaporter",
+            "mod_display": "Rhea Porter"
+        },
+        "ref_material": {
+            "material": {
+                "type": null,
+                "source": {
+                    "name": null,
+                    "id": null,
+                    "created_on": null,
+                    "last_modified": null
+                },
+                "links": null,
+                "notes": null
+            }
+        },
+        "tps": {
+            "tUID": "1782583216.tps",
+            "ingest_unix": 1782583216,
+            "event_unix": 1782583216,
+            "timezone": "America\/New_York"
+        }
+    }
+}

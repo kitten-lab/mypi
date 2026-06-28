@@ -1,0 +1,15 @@
+{
+    "VEN": "digi-reporter",
+    "GRAVITY": 1,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "speaks-to": {
+            "GRAVITY": 1,
+            "BIN": {
+                "meetingroom": 1
+            }
+        }
+    }
+}

@@ -8,10 +8,10 @@ $config = $nav['navSec'] ?? [];
 <?php foreach ($nav as $ROOMS): ?>
 
 <?php 
-echo "<a href='/" . $ROOMS['DOM'] . '/' . $ROOMS['KEY'] . "'>" . $ROOMS['BUILDING'] . "</a> ||| ";
+echo "<a href='/" . BLOCK_URI . "/" . $ROOMS['DOM'] . '/' . $ROOMS['KEY'] . "'>" . $ROOMS['BUILDING'] . "</a> ||| ";
 
 foreach ($ROOMS['ROOMS'] as $ROOM) {
-  echo "<a href='/" . $ROOMS['DOM'] . '/' . $ROOM['KEY'] . "'>";
+  echo "<a href='/" . BLOCK_URI . "/" . $ROOMS['DOM'] . '/' . $ROOM['KEY'] . "'>";
   echo $ROOM['ROOM'] . "</a> | ";
  }
 

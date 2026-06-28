@@ -1,0 +1,13 @@
+{
+    "VEN": "meetingroom",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "digi-reporter": {
+            "GRAVITY": 1,
+            "BIN": {
+                "speaks-to": 1
+            }
+        }
+    }
+}

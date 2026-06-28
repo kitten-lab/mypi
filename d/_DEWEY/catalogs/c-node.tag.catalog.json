@@ -1,5 +1,5 @@
 {
-    "count": 255,
+    "count": 256,
     "c-node": {
         "oyzis": 1,
         "demon": 1,
@@ -98,6 +98,7 @@
         "sky": 12,
         "flight": 12,
         "glitter": 12,
-        "": 1
+        "": 1,
+        "meetingroom": 1
     }
 }

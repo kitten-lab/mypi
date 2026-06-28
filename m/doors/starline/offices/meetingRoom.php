@@ -7,6 +7,9 @@ SKY__AUTH(
 /* texture */ "classic"
 );
 
+global $MATERIAL;
+$MATERIAL = [];
+
 openSky(ROOM_DISPLAY);
 bigHeading(ROOM_DISPLAY);
 getTool("chatBOX", "ChatBox");

@@ -7,7 +7,7 @@ function keyMaker() {
 
     global $ENV;
       if ($ENV === "ROSEWOOD8"){ $localSLUG = ""; }
-      else { $localSLUG = ""; }
+      else { $localSLUG = BLOCK_URI; }
 
     $prettyURI = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -15,7 +15,7 @@ function keyMaker() {
       $parseForROSEWOOD = str_replace($localSLUG, '', $prettyURI);
       $parsed = trim($parseForROSEWOOD);
     } else {    
-      $parseForPUBLIC = str_replace(BLOCK_URI . "/", '', $prettyURI);
+      $parseForPUBLIC = str_replace($localSLUG, '', $prettyURI);
       $parsed = trim($parseForPUBLIC);
     }
 
