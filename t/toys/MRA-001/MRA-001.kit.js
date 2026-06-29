@@ -190,7 +190,7 @@ function LoadMRA001(){
     AppControls.innerHTML += "<button class='gameBtn'>Rules & Credits</button>";
 
 
-const handle = document.getElementById("grabby")
+const handle = document.getElementById("grabby");
 const draggable = document.getElementById("ROM_CONTENT");
 
 let offsetX, offsetY;

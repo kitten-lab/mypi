@@ -22,9 +22,9 @@ function ToggleKCD001(){
 
 function LoadKCD001(){
    loaded = true;
-   const ROM_CONTENT = document.getElementById("ROM_CONTENT");
+   const ROM_CONTENT = document.getElementById("ROM_SCREEN");
 
-    ROM_CONTENT.innerHTML = `
+    ROM_CONTENT.innerHTML += `
   <div id="ROM_CONTENT">
   <div id="grabby">GRABBY</div>
   <div id="SiloROM_BaseBox" class="SiloROM_BaseBox">
@@ -54,4 +54,43 @@ GameScreen.innerHTML = "<h1 id='title'>" + KDC001.toy + "</h1><div>CHAPTER 1: <b
   AppControls.innerHTML += "<button class='gameBtn' onclick='Level1()'>New Game</button>";
   AppControls.innerHTML += "<button class='gameBtn'>Rules & Credits</button>";
   AppControls.innerHTML += "</div>";
+
+  
+
+const handle = document.getElementById("grabby");
+const draggable = document.getElementById("ROM_CONTENT");
+
+let offsetX, offsetY;
+
+handle.addEventListener('mousedown', (e) => {
+    // Calculate the offset position
+    offsetX = e.clientX - draggable.offsetLeft;
+    offsetY = e.clientY - draggable.offsetTop;
+
+    // Add event listeners to the document for mousemove and mouseup
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+});
+
+function mouseMoveHandler(e) {
+    // Update the position of the draggable element
+    draggable.style.left = `${e.clientX - offsetX}px`;
+    draggable.style.top = `${e.clientY - offsetY}px`;
+    draggable.style.position = 'absolute'; // Set position to absolute
+}
+
+function mouseUpHandler() {
+    // Remove event listeners when mouse is released
+    document.removeEventListener('mousemove', mouseMoveHandler);
+    document.removeEventListener('mouseup', mouseUpHandler);
+}
+
+}
+
+
+function CloseROM(){
+
+  ROM_CONTENT.innerHTML = "";
+
+
 }

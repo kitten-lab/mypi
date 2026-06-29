@@ -1,0 +1,13 @@
+{
+    "VEN": "fruit",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "symbols": {
+            "GRAVITY": 1,
+            "BIN": {
+                "apple": 1
+            }
+        }
+    }
+}

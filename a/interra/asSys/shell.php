@@ -3,7 +3,7 @@
 <!-- BEGIN THE OPENING PRAYER OF PRODUCTION -->
 <!DOCTYPE html>
   <html><head>
-    <title><?= $GLOBALS[$SITE]['ROOM_DISPLAY'] ?></title>
+    <title><?= $GLOBALS[BLOCK_ID]['ROOM_DISPLAY'] ?></title>
     <!-- THE CALLING OF THE STYLESHEET PROCESSION -->
       <!-- insert getMyStyles(); -->
         <?php getMy_Styles() ?>

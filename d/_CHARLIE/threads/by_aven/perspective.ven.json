@@ -1,0 +1,22 @@
+{
+    "VEN": "perspective",
+    "GRAVITY": 8,
+    "ALIAS": [],
+    "NOTES": [],
+    "METADATA": [],
+    "SHELF": {
+        "oizys": {
+            "GRAVITY": 8,
+            "BIN": {
+                "haunting": 1,
+                "x": 1,
+                "tinkerbell": 1,
+                "misery": 1,
+                "demon": 1,
+                "goddess": 1,
+                "codebase": 1,
+                "source": 1
+            }
+        }
+    }
+}

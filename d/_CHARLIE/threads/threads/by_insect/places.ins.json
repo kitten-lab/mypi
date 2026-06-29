@@ -1,0 +1,14 @@
+{
+    "VEN": "places",
+    "GRAVITY": 2,
+    "METADATA": [],
+    "SHELF": {
+        "symbols": {
+            "GRAVITY": 2,
+            "BIN": {
+                "the-garden": 1,
+                "the-dreaming": 1
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 {
     "VEN": "misery",
-    "GRAVITY": 8,
+    "GRAVITY": 9,
     "METADATA": [],
     "SHELF": {
         "misery": {
@@ -32,6 +32,12 @@
             "GRAVITY": 1,
             "BIN": {
                 "trauma-healing": 1
+            }
+        },
+        "perspective": {
+            "GRAVITY": 1,
+            "BIN": {
+                "oizys": 1
             }
         }
     }

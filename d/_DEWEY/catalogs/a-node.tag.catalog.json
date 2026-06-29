@@ -1,5 +1,5 @@
 {
-    "count": 256,
+    "count": 270,
     "a-node": {
         "misery": 17,
         "goddess": 1,
@@ -11,7 +11,7 @@
         "mirror": 2,
         "universe": 5,
         "connection": 2,
-        "symbols": 11,
+        "symbols": 17,
         "wire-wolf": 15,
         "ai": 2,
         "journey": 6,
@@ -19,6 +19,7 @@
         "oriel": 1,
         "surfaces": 1,
         "scenes": 138,
-        "digi-reporter": 1
+        "digi-reporter": 1,
+        "perspective": 8
     }
 }

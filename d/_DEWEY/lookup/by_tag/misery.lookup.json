@@ -2,18 +2,18 @@
     "CABINET": {
         "misery": {
             "METADATA": {
-                "GRAVITY": 25,
+                "GRAVITY": 26,
                 "INGEST": {
                     "FIRST": 1782306079,
-                    "LAST": 1782311552
+                    "LAST": 1782738648
                 },
                 "EVENT": {
                     "FIRST": [],
                     "LAST": []
                 },
                 "LAST_USAGE": {
-                    "1739217638": [
-                        "goals"
+                    "1782738648": [
+                        "perspective"
                     ]
                 }
             },
@@ -708,6 +708,46 @@
                                 "1739217638": {
                                     "jack-nim": [
                                         "crate.4B88D0777F5613C4"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "perspective": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782738648,
+                            "LAST": 1782738648
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782738648": [
+                                "oizys"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "oizys": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738648,
+                                    "LAST": 1782738648
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738648": {
+                                    "km": [
+                                        "crate.ADA029270D33CD2F"
                                     ]
                                 }
                             }

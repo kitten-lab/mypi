@@ -1,0 +1,13 @@
+{
+    "VEN": "re-code",
+    "GRAVITY": 1,
+    "METADATA": [],
+    "SHELF": {
+        "symbols": {
+            "GRAVITY": 1,
+            "BIN": {
+                "stories": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,218 @@
+{
+    "CABINET": {
+        "oizys": {
+            "METADATA": {
+                "GRAVITY": 8,
+                "INGEST": {
+                    "FIRST": 1782738648,
+                    "LAST": 1782738648
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1782738648": [
+                        "perspective",
+                        "perspective",
+                        "perspective",
+                        "perspective",
+                        "perspective",
+                        "perspective",
+                        "perspective",
+                        "perspective"
+                    ]
+                }
+            },
+            "SHELF": {
+                "perspective": {
+                    "METADATA": {
+                        "GRAVITY": 8,
+                        "INGEST": {
+                            "FIRST": 1782738648,
+                            "LAST": 1782738648
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782738648": [
+                                "haunting",
+                                "x",
+                                "tinkerbell",
+                                "misery",
+                                "demon",
+                                "goddess",
+                                "codebase",
+                                "source"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "haunting": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738648,
+                                    "LAST": 1782738648
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738648": {
+                                    "km": [
+                                        "crate.ADA029270D33CD2F"
+                                    ]
+                                }
+                            }
+                        },
+                        "x": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738648,
+                                    "LAST": 1782738648
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738648": {
+                                    "km": [
+                                        "crate.ADA029270D33CD2F"
+                                    ]
+                                }
+                            }
+                        },
+                        "tinkerbell": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738648,
+                                    "LAST": 1782738648
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738648": {
+                                    "km": [
+                                        "crate.ADA029270D33CD2F"
+                                    ]
+                                }
+                            }
+                        },
+                        "misery": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738648,
+                                    "LAST": 1782738648
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738648": {
+                                    "km": [
+                                        "crate.ADA029270D33CD2F"
+                                    ]
+                                }
+                            }
+                        },
+                        "demon": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738648,
+                                    "LAST": 1782738648
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738648": {
+                                    "km": [
+                                        "crate.ADA029270D33CD2F"
+                                    ]
+                                }
+                            }
+                        },
+                        "goddess": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738648,
+                                    "LAST": 1782738648
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738648": {
+                                    "km": [
+                                        "crate.ADA029270D33CD2F"
+                                    ]
+                                }
+                            }
+                        },
+                        "codebase": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738648,
+                                    "LAST": 1782738648
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738648": {
+                                    "km": [
+                                        "crate.ADA029270D33CD2F"
+                                    ]
+                                }
+                            }
+                        },
+                        "source": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738648,
+                                    "LAST": 1782738648
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738648": {
+                                    "km": [
+                                        "crate.ADA029270D33CD2F"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 {
     "VEN": "symbols",
-    "GRAVITY": 11,
+    "GRAVITY": 17,
     "ALIAS": [],
     "NOTES": [],
     "METADATA": [],
@@ -24,6 +24,27 @@
             "GRAVITY": 1,
             "BIN": {
                 "bean": 1
+            }
+        },
+        "fruit": {
+            "GRAVITY": 1,
+            "BIN": {
+                "apple": 1
+            }
+        },
+        "places": {
+            "GRAVITY": 2,
+            "BIN": {
+                "the-garden": 1,
+                "the-dreaming": 1
+            }
+        },
+        "stories": {
+            "GRAVITY": 3,
+            "BIN": {
+                "step-mother": 1,
+                "re-code": 1,
+                "sleeping-princess": 1
             }
         }
     }

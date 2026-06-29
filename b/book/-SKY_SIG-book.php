@@ -1,6 +1,6 @@
 <?php // new naming migration //
 
-define('WORLD_ID', 'moon');
+define('WORLD_ID', 'book');
 define('WORLD_TAG', "book");
 define('BLOCK_ID', 'book');
 define('BLOCK_URI', 'book');

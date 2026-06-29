@@ -1,12 +1,12 @@
 {
-    "count": 256,
+    "count": 270,
     "c-node": {
         "oyzis": 1,
-        "demon": 1,
+        "demon": 2,
         "primal-force": 1,
         "godhead": 1,
         "erysichthon": 1,
-        "misery": 8,
+        "misery": 9,
         "grief": 1,
         "suffering": 2,
         "emotional-torment": 1,
@@ -35,7 +35,7 @@
         "reflect": 1,
         "universe": 1,
         "reflection": 1,
-        "source": 1,
+        "source": 2,
         "mirror": 1,
         "god": 1,
         "all-thing": 1,
@@ -99,6 +99,17 @@
         "flight": 12,
         "glitter": 12,
         "": 1,
-        "meetingroom": 1
+        "meetingroom": 1,
+        "haunting": 1,
+        "x": 1,
+        "tinkerbell": 1,
+        "goddess": 1,
+        "codebase": 1,
+        "apple": 1,
+        "the-garden": 1,
+        "the-dreaming": 1,
+        "step-mother": 1,
+        "re-code": 1,
+        "sleeping-princess": 1
     }
 }

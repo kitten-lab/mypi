@@ -1,0 +1,15 @@
+{
+    "VEN": "stories",
+    "GRAVITY": 3,
+    "METADATA": [],
+    "SHELF": {
+        "symbols": {
+            "GRAVITY": 3,
+            "BIN": {
+                "step-mother": 1,
+                "re-code": 1,
+                "sleeping-princess": 1
+            }
+        }
+    }
+}

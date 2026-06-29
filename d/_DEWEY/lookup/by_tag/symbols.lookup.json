@@ -2,87 +2,23 @@
     "CABINET": {
         "symbols": {
             "METADATA": {
-                "GRAVITY": 89,
+                "GRAVITY": 95,
                 "INGEST": {
                     "FIRST": 1782306523,
-                    "LAST": 1782562547
+                    "LAST": 1782738922
                 },
                 "EVENT": {
                     "FIRST": [],
                     "LAST": []
                 },
                 "LAST_USAGE": {
-                    "1739217602": [
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes",
-                        "scenes"
+                    "1782738922": [
+                        "fruit",
+                        "places",
+                        "places",
+                        "stories",
+                        "stories",
+                        "stories"
                     ]
                 }
             },
@@ -752,6 +688,189 @@
                                 "1739217602": {
                                     "HER": [
                                         "crate.DEFABFE211904269"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "fruit": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782738922,
+                            "LAST": 1782738922
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782738922": [
+                                "apple"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "apple": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738922,
+                                    "LAST": 1782738922
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738922": {
+                                    "km": [
+                                        "crate.E9B05AF444F030C8"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "places": {
+                    "METADATA": {
+                        "GRAVITY": 2,
+                        "INGEST": {
+                            "FIRST": 1782738922,
+                            "LAST": 1782738922
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782738922": [
+                                "the-garden",
+                                "the-dreaming"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "the-garden": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738922,
+                                    "LAST": 1782738922
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738922": {
+                                    "km": [
+                                        "crate.E9B05AF444F030C8"
+                                    ]
+                                }
+                            }
+                        },
+                        "the-dreaming": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738922,
+                                    "LAST": 1782738922
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738922": {
+                                    "km": [
+                                        "crate.E9B05AF444F030C8"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "stories": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1782738922,
+                            "LAST": 1782738922
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782738922": [
+                                "step-mother",
+                                "re-code",
+                                "sleeping-princess"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "step-mother": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738922,
+                                    "LAST": 1782738922
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738922": {
+                                    "km": [
+                                        "crate.E9B05AF444F030C8"
+                                    ]
+                                }
+                            }
+                        },
+                        "re-code": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738922,
+                                    "LAST": 1782738922
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738922": {
+                                    "km": [
+                                        "crate.E9B05AF444F030C8"
+                                    ]
+                                }
+                            }
+                        },
+                        "sleeping-princess": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738922,
+                                    "LAST": 1782738922
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738922": {
+                                    "km": [
+                                        "crate.E9B05AF444F030C8"
                                     ]
                                 }
                             }

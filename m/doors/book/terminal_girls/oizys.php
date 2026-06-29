@@ -15,7 +15,8 @@ SKY__AUTH(
 
 openSky(MOD_DISPLAY);
 bigHeading(ROOM_DISPLAY);
-hr();
-getTool("soprBASIC","AddFragment"); 
 hr();   
-getTool("soprBASIC","ViewList");    
+getTool("postBASIC","SoperView");    
+
+hr();
+getTool("postBASIC","MakePost"); 

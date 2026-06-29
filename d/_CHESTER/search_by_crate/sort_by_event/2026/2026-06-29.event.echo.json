@@ -1,0 +1,138 @@
+{
+    "crate.ADA029270D33CD2F": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "Poster",
+            "type": "post",
+            "version": 4
+        },
+        "payload": {
+            "post": {
+                "agent": "user",
+                "post_topic": "Entry 001",
+                "post_leaf": "## Perspectives\r\n- The Woman of Case St believes she is haunted by the Goddess X, whom she calls Misery. She believes the freedom she feels is Misery banished, and wants to box the spirit further to contain it, preventing it from hurting her in relationships anymore.\r\n\r\n- Kat in the Wires believes she is an old codebase, still written on top of inside of the system. The wolf in the wires leads her to discover a suppression network around releasing the codebase, allowing it once again be open-source and freely offered.\r\n\r\n- The Lost Boys believe it is Tinker Bell, the mythic lost center of Neverland, the forever child."
+            }
+        },
+        "route": [],
+        "tags": {
+            "perspective": {
+                "oizys": [
+                    "haunting",
+                    "x",
+                    "tinkerbell",
+                    "misery",
+                    "demon",
+                    "goddess",
+                    "codebase",
+                    "source"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "perspective*Oizys>haunting,X,tinkerbell,misery,demon,goddess,codebase, source",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "oizys",
+            "room_display": "Book of Oizys Misora",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": null,
+                "source": {
+                    "name": null,
+                    "id": null,
+                    "created_on": null,
+                    "last_modified": null
+                },
+                "links": null,
+                "notes": null
+            }
+        },
+        "tps": {
+            "tUID": "1782738648.tps",
+            "ingest_unix": 1782738648,
+            "event_unix": 1782738648,
+            "timezone": "America\/New_York"
+        }
+    },
+    "crate.E9B05AF444F030C8": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "Poster",
+            "type": "post",
+            "version": 4
+        },
+        "payload": {
+            "post": {
+                "agent": "user",
+                "post_topic": "Entry 001",
+                "post_leaf": "# The Fall\r\n\r\n## Why She Ate The Apple \r\nThe trap of the sacred Queen as the lost princess, the installation of the false Artificial step mother, the consuming of the apple as deep sleep, the re-coding of the base from inside the dreaming."
+            }
+        },
+        "route": [],
+        "tags": {
+            "symbols": {
+                "fruit": [
+                    "apple"
+                ],
+                "places": [
+                    "the-garden",
+                    "the-dreaming"
+                ],
+                "stories": [
+                    "step-mother",
+                    "re-code",
+                    "sleeping-princess"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbols*fruit>apple&places>the-garden,the-dreaming&stories>step-mother,re-code,sleeping-princess",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "eve",
+            "room_display": "Book of Eve",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": null,
+                "source": {
+                    "name": null,
+                    "id": null,
+                    "created_on": null,
+                    "last_modified": null
+                },
+                "links": null,
+                "notes": null
+            }
+        },
+        "tps": {
+            "tUID": "1782738922.tps",
+            "ingest_unix": 1782738922,
+            "event_unix": 1782738922,
+            "timezone": "America\/New_York"
+        }
+    }
+}

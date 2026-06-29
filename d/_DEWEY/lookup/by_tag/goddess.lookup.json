@@ -2,21 +2,18 @@
     "CABINET": {
         "goddess": {
             "METADATA": {
-                "GRAVITY": 4,
+                "GRAVITY": 5,
                 "INGEST": {
                     "FIRST": 1782306191,
-                    "LAST": 1782306353
+                    "LAST": 1782738648
                 },
                 "EVENT": {
                     "FIRST": [],
                     "LAST": []
                 },
                 "LAST_USAGE": {
-                    "1739217602": [
-                        "misery",
-                        "misery",
-                        "misery",
-                        "dark"
+                    "1782738648": [
+                        "perspective"
                     ]
                 }
             },
@@ -137,6 +134,46 @@
                                 "1739217602": {
                                     "jack-nim": [
                                         "crate.92D4B71D54DECC3D"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "perspective": {
+                    "METADATA": {
+                        "GRAVITY": 1,
+                        "INGEST": {
+                            "FIRST": 1782738648,
+                            "LAST": 1782738648
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782738648": [
+                                "oizys"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "oizys": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738648,
+                                    "LAST": 1782738648
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738648": {
+                                    "km": [
+                                        "crate.ADA029270D33CD2F"
                                     ]
                                 }
                             }

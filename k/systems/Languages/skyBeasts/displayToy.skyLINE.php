@@ -3,7 +3,7 @@ function displayToy($toy, $DressUp="ClassicBoi"){
   $funName = "CHESTERS TOYBOX";
   $funBox = "t/toys/" . $toy . "/";
 
-  $ToyBox = $GLOBALS['SONAR'] . $funBox;
+  $ToyBox = echoSONAR . $funBox;
   $DressUp = strtoupper($DressUp);
 
 if (!is_dir($ToyBox)) {

@@ -25,10 +25,12 @@ quickDressing("wwwExplorer_innerShell", "
 
 openSky("danyi's plog");
 
+bigHeading("what is this?");
+
 shelf("myShelf");
-displayToy("MRA-001","Julie");
+//displayToy("MRA-001","Julie");
 displayToy("MRA-001","ClassicBoi");
-displayToy("KCD-001","jULIE");
+//displayToy("KCD-001","JULIE");
 close_shelf();
 
 section("mine", "");

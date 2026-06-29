@@ -1,12 +1,18 @@
 {
     "VEN": "source",
-    "GRAVITY": 1,
+    "GRAVITY": 2,
     "METADATA": [],
     "SHELF": {
         "universe": {
             "GRAVITY": 1,
             "BIN": {
                 "alias": 1
+            }
+        },
+        "perspective": {
+            "GRAVITY": 1,
+            "BIN": {
+                "oizys": 1
             }
         }
     }

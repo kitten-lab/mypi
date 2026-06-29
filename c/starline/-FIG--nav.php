@@ -13,7 +13,7 @@ $GLOBALS[BLOCK_ID]['GETS']['topNav'] = echoSONAR . 'a/' . BLOCK_ID . '/asSys/top
 
 $GLOBALS[BLOCK_ID]['tDOM'] = [
   [ "DOM" => "offices" ],
-  [ "DOM" => "offices" ],
+  [ "DOM" => "events" ],
   [ "DOM" => "offices" ],
   [ "DOM" => "offices" ],
 ]; 

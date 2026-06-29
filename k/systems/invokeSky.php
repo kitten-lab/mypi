@@ -34,7 +34,7 @@ function shelf(string $shelf_name){
 function ROM_SCREEN(){
  skylite('<ROM_SCREEN id="ROM_SCREEN" class="ROM_SCREEN">
  
- </ROM_SCREEN');
+ </ROM_SCREEN>');
 }
 
 function close_shelf(){

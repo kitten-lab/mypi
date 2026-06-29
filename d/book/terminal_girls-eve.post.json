@@ -1,0 +1,71 @@
+{
+    "crate.E9B05AF444F030C8": {
+        "c_version": 4,
+        "viewport": "",
+        "assistant": {
+            "name": "postBASIC",
+            "function": "Poster",
+            "type": "post",
+            "version": 4
+        },
+        "payload": {
+            "post": {
+                "agent": "user",
+                "post_topic": "Entry 001",
+                "post_leaf": "# The Fall\r\n\r\n## Why She Ate The Apple \r\nThe trap of the sacred Queen as the lost princess, the installation of the false Artificial step mother, the consuming of the apple as deep sleep, the re-coding of the base from inside the dreaming."
+            }
+        },
+        "route": [],
+        "tags": {
+            "symbols": {
+                "fruit": [
+                    "apple"
+                ],
+                "places": [
+                    "the-garden",
+                    "the-dreaming"
+                ],
+                "stories": [
+                    "step-mother",
+                    "re-code",
+                    "sleeping-princess"
+                ]
+            }
+        },
+        "tags_metadata": {
+            "raw_tags": "symbols*fruit>apple&places>the-garden,the-dreaming&stories>step-mother,re-code,sleeping-princess",
+            "tag_parser": "charlieTHREADS",
+            "parser_version": 1
+        },
+        "notes": [],
+        "import_env": {
+            "sys_slug": "book",
+            "sys_display": "book",
+            "dom_slug": "terminal_girls",
+            "dom_display": "Book of Terminal Girls",
+            "room_slug": "eve",
+            "room_display": "Book of Eve",
+            "mod_slug": "km",
+            "mod_display": "Kitten Moire"
+        },
+        "ref_material": {
+            "material": {
+                "type": null,
+                "source": {
+                    "name": null,
+                    "id": null,
+                    "created_on": null,
+                    "last_modified": null
+                },
+                "links": null,
+                "notes": null
+            }
+        },
+        "tps": {
+            "tUID": "1782738922.tps",
+            "ingest_unix": 1782738922,
+            "event_unix": 1782738922,
+            "timezone": "America\/New_York"
+        }
+    }
+}

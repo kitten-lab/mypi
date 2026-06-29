@@ -1,0 +1,108 @@
+{
+    "CABINET": {
+        "stories": {
+            "METADATA": {
+                "GRAVITY": 3,
+                "INGEST": {
+                    "FIRST": 1782738922,
+                    "LAST": 1782738922
+                },
+                "EVENT": {
+                    "FIRST": [],
+                    "LAST": []
+                },
+                "LAST_USAGE": {
+                    "1782738922": [
+                        "symbols",
+                        "symbols",
+                        "symbols"
+                    ]
+                }
+            },
+            "SHELF": {
+                "symbols": {
+                    "METADATA": {
+                        "GRAVITY": 3,
+                        "INGEST": {
+                            "FIRST": 1782738922,
+                            "LAST": 1782738922
+                        },
+                        "EVENT": {
+                            "FIRST": [],
+                            "LAST": []
+                        },
+                        "LAST_USAGE": {
+                            "1782738922": [
+                                "step-mother",
+                                "re-code",
+                                "sleeping-princess"
+                            ]
+                        }
+                    },
+                    "BIN": {
+                        "step-mother": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738922,
+                                    "LAST": 1782738922
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738922": {
+                                    "km": [
+                                        "crate.E9B05AF444F030C8"
+                                    ]
+                                }
+                            }
+                        },
+                        "re-code": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738922,
+                                    "LAST": 1782738922
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738922": {
+                                    "km": [
+                                        "crate.E9B05AF444F030C8"
+                                    ]
+                                }
+                            }
+                        },
+                        "sleeping-princess": {
+                            "METADATA": {
+                                "GRAVITY": 1,
+                                "INGEST": {
+                                    "FIRST": 1782738922,
+                                    "LAST": 1782738922
+                                },
+                                "EVENT": {
+                                    "FIRST": [],
+                                    "LAST": []
+                                }
+                            },
+                            "INSTANCES": {
+                                "1782738922": {
+                                    "km": [
+                                        "crate.E9B05AF444F030C8"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

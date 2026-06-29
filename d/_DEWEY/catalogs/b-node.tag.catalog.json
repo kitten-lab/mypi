@@ -1,5 +1,5 @@
 {
-    "count": 256,
+    "count": 270,
     "b-node": {
         "alias": 8,
         "metadata": 2,
@@ -34,6 +34,10 @@
         "loves": 1,
         "star": 1,
         "oyzis": 26,
-        "speaks-to": 1
+        "speaks-to": 1,
+        "oizys": 8,
+        "fruit": 1,
+        "places": 2,
+        "stories": 3
     }
 }

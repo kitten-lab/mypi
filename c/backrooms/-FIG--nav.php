@@ -8,7 +8,7 @@
       ~                navigation config file              ~
 --------------------------------------------------------------*/
 
-$GLOBALS[BLOCK_ID]['GETS']['Nav'] = echoSONAR . 'a/' . WORLD_TAG . '/asSys/nav.php'; 
+$GLOBALS[BLOCK_ID]['GETS']['Nav'] = echoSONAR . 'a/' . WORLD_ID . '/asSys/nav.php'; 
 
 $GLOBALS[BLOCK_ID]['tDOM'] = [
   [ "DOM" => "requests" ],
