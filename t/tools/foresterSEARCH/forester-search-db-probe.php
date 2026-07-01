@@ -3,7 +3,7 @@
  * Read-only integration probe: search branches for a known keyword.
  *
  * Usage:
- *   C:\xampp\php\php.exe z\forester-search-db-probe.php [keyword]
+ *   C:\xampp\php\php.exe t\tools\foresterSEARCH\forester-search-db-probe.php [keyword]
  */
 
 declare(strict_types=1);

@@ -3,7 +3,7 @@
  * CLI self-test for forester search helpers.
  *
  * Usage:
- *   C:\xampp\php\php.exe z\forester-search-selftest.php
+ *   C:\xampp\php\php.exe t\tools\foresterSEARCH\forester-search-selftest.php
  */
 
 declare(strict_types=1);

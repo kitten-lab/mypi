@@ -2,8 +2,8 @@
 /**
  * Lightweight keyword search UI for nim-forester `branches`.
  *
- * Usage (avoid z/.htaccess basic-auth):
- *   C:\xampp\php\php.exe -S 127.0.0.1:8765 -t C:\xampp\htdocs\my-pocket-internet\z
+ * Usage:
+ *   C:\xampp\php\php.exe -S 127.0.0.1:8765 -t C:\xampp\htdocs\my-pocket-internet\t\tools\foresterSEARCH
  *   http://127.0.0.1:8765/forester-search.php?q=Mirror
  */
 

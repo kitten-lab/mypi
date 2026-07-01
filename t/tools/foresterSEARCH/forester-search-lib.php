@@ -1,7 +1,7 @@
 <?php
 /**
  * Pure helpers + read-only search for nim-forester `branches`.
- * Used by z/forester-search.php and z/forester-search-selftest.php.
+ * Used by t/tools/foresterSEARCH/forester-search.php and forester-search-selftest.php.
  */
 
 declare(strict_types=1);
