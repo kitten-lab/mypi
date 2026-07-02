@@ -427,6 +427,7 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+z/*.*
 z/.htaccess
 z/conversations.json
 z/json-sawmill.py
