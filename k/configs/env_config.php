@@ -1,6 +1,6 @@
 <?php
-
 $ENV = "ROSEWOOD8";
+
 date_default_timezone_set("America/New_York");
 
 // SET ROUTE LINE JUNCTION POINTS 

@@ -447,3 +447,17 @@ z/TPS/trackerKeeper/tpsReport_2026-04-09_data.json
 z/TPS/trackerKeeper/BOOTUPERRORED/tpsReport_2026-04-06_data.json
 z/import/detective-mystery-slot.md
 z/venRegistrar/registry.json
+terminals/.next-id
+terminals/1.txt
+terminals/2.txt
+terminals/3.txt
+terminals/4.txt
+t/tools/foresterSEARCH/.htaccess
+z/import-forester-logs.php
+t/tools/foresterSEARCH/forester-search-lib.php
+t/tools/foresterSEARCH/forester-search.php
+t/tools/foresterSEARCH/parsedown/equip.parsedown.php
+t/tools/foresterSEARCH/parsedown/Parsedown.php
+t/tools/foresterSEARCH/forester-search-lib.php
+t/tools/foresterSEARCH/forester-search.php
+plan.md

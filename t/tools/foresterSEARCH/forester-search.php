@@ -10,6 +10,8 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/forester-search-lib.php';
+require_once __DIR__ . '/parsedown/Parsedown.php'; 
+
 
 $keyword = '';
 if (isset($_GET['q'])) {
@@ -40,11 +42,12 @@ header('Content-Type: text/html; charset=utf-8');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>nim-forester branches search</title>
     <style>
-        body { font-family: system-ui, sans-serif; margin: 1.5rem; max-width: 52rem; }
-        h1 { font-size: 1.25rem; margin: 0 0 1rem; }
-        form { margin-bottom: 1.25rem; }
-        input[type="search"] { width: min(24rem, 100%); padding: 0.4rem 0.5rem; }
-        button { padding: 0.4rem 0.75rem; cursor: pointer; }
+        body { font-family: sans-serif; max-width: 800px; margin: 1rem auto; padding: 0 1rem; }
+        h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        form { margin-bottom: 1rem; }
+        input[type="search"] { width: 100%; padding: 0.5rem; font-size: 1rem; }
+        button { padding: 0.5rem 1rem; font-size: 1rem; }
+        p { margin: 0.5rem 0; background: #f9f9f9; padding: 0.5rem; border-radius: 4px; }
         .meta { color: #555; font-size: 0.85rem; margin-bottom: 0.35rem; }
         .result { border-top: 1px solid #ddd; padding: 0.75rem 0; }
         .body { white-space: pre-wrap; word-break: break-word; }
@@ -65,23 +68,29 @@ header('Content-Type: text/html; charset=utf-8');
     <?php if ($error !== null): ?>
         <p class="err">Database error: <?= htmlspecialchars($error, ENT_QUOTES | ENT_HTML5, 'UTF-8') ?></p>
     <?php elseif ($searched): ?>
+        
         <p class="count"><?= count($results) ?> matching branch<?= count($results) === 1 ? '' : 'es' ?> for &ldquo;<?= htmlspecialchars($keyword, ENT_QUOTES | ENT_HTML5, 'UTF-8') ?>&rdquo;</p>
         <?php if (count($results) === 0): ?>
             <p>No matches.</p>
         <?php else: ?>
-            <?php foreach ($results as $row): ?>
+            <?php foreach ($results as $row): 
+            $Parsedown = new Parsedown();
+                $timestamp = htmlspecialchars((string)($row['unix_ts'] ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+                $date = new DateTime("@$timestamp");
+                ?>
                 <article class="result">
                     <div class="meta">
+                        <?= $date->format('M j, Y @ H:i:s') ?> &middot;
                         id <?= (int)($row['id'] ?? 0) ?>
-                        &middot; <?= htmlspecialchars((string)($row['log_ref'] ?? ''), ENT_QUOTES | ENT_HTML5, 'UTF-8') ?>
+                        &middot; 
                         <?php if (!empty($row['branch_id'])): ?>
-                            &middot; <?= htmlspecialchars((string)$row['branch_id'], ENT_QUOTES | ENT_HTML5, 'UTF-8') ?>
+                            <?= htmlspecialchars((string)$row['branch_id'], ENT_QUOTES | ENT_HTML5, 'UTF-8') ?>
                         <?php endif; ?>
                         <?php if (!empty($row['sender'])): ?>
                             &middot; <?= htmlspecialchars((string)$row['sender'], ENT_QUOTES | ENT_HTML5, 'UTF-8') ?>
                         <?php endif; ?>
                     </div>
-                    <div class="body"><?= highlightKeywordRed((string)($row['body'] ?? ''), $keyword) ?></div>
+                    <div class="body"><?= $Parsedown->text(highlightKeywordRed(($row['body'] ?? ''), $keyword)) ?></div>
                 </article>
             <?php endforeach; ?>
         <?php endif; ?>

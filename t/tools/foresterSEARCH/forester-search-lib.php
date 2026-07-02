@@ -20,7 +20,7 @@ function buildBranchesSearchSql(string $keyword): ?array
     }
 
     return [
-        'sql' => 'SELECT `id`, `log_ref`, `branch_id`, `sender`, `body` FROM `branches` WHERE `body` LIKE ? ORDER BY `id`',
+        'sql' => 'SELECT `id`, `log_ref`, `branch_id`, `sender`, `body`, `unix_ts` FROM `branches` WHERE `body` LIKE ? ORDER BY `id`',
         'params' => ['%' . $trimmed . '%'],
     ];
 }
@@ -110,7 +110,7 @@ function foresterSearchSelfTest(): bool
 
     // Case-insensitive matching in highlight
     $mixed = highlightKeywordRed('MIRROR box Mirror MiRrOr', 'mirror');
-    $mixedHits = substr_count($mixed, 'style="color:red"');
+    $mixedHits = substr_count($mixed, 'style="color:red; font-weight:bold;"');
     if ($mixedHits !== 3) {
         echo "foresterSearchSelfTest FAIL: case-insensitive expected 3 red hits, got {$mixedHits}\n";
         $ok = false;
@@ -135,7 +135,7 @@ function foresterSearchSelfTest(): bool
 
     // Empty keyword guard — highlight returns escaped plain text only
     $plain = highlightKeywordRed('no highlight here', '');
-    if ($plain !== 'no highlight here' || strpos($plain, 'color:red') !== false) {
+    if ($plain !== 'no highlight here' || strpos($plain, 'color:red; font-weight:bold;') !== false) {
         echo "foresterSearchSelfTest FAIL: empty keyword highlight guard\n";
         $ok = false;
     }
