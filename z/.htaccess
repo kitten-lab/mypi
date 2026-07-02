@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Restricted Area"
-AuthUserFile C:/xampp/htdocs/my-pocket-internet/z/.htpasswd
-Require valid-user
