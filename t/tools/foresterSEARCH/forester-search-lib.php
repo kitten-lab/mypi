@@ -102,10 +102,11 @@ function foresterSearchSelfTest(): bool
     if ($multiHits !== 2) {
         echo "foresterSearchSelfTest FAIL: multi-occurrence expected 2 red hits, got {$multiHits}\n";
         $ok = false;
-    }
-    if (strpos($multi, 'Mirror') === false || strpos($multi, 'mirror') === false) {
+    } elseif (strpos($multi, 'Mirror') === false || strpos($multi, 'mirror') === false) {
         echo "foresterSearchSelfTest FAIL: multi-occurrence missing matched text\n";
         $ok = false;
+    } else {
+        echo "foresterSearchSelfTest PASS: multi-occurrence red highlight ({$multiHits} hits)\n";
     }
 
     // Case-insensitive matching in highlight
@@ -114,6 +115,8 @@ function foresterSearchSelfTest(): bool
     if ($mixedHits !== 3) {
         echo "foresterSearchSelfTest FAIL: case-insensitive expected 3 red hits, got {$mixedHits}\n";
         $ok = false;
+    } else {
+        echo "foresterSearchSelfTest PASS: case-insensitive matching ({$mixedHits} hits)\n";
     }
 
     // HTML escape non-match regions
@@ -127,17 +130,20 @@ function foresterSearchSelfTest(): bool
         $ok = false;
     }
 
-    // Empty keyword guard — SQL builder
-    if (buildBranchesSearchSql('') !== null || buildBranchesSearchSql('   ') !== null) {
+    // Empty keyword guard — SQL builder + highlight
+    $emptySqlOk = buildBranchesSearchSql('') === null && buildBranchesSearchSql('   ') === null;
+    $plain = highlightKeywordRed('no highlight here', '');
+    $emptyHighlightOk = $plain === 'no highlight here' && strpos($plain, 'color:red') === false;
+    if (!$emptySqlOk) {
         echo "foresterSearchSelfTest FAIL: empty keyword should yield null SQL\n";
         $ok = false;
     }
-
-    // Empty keyword guard — highlight returns escaped plain text only
-    $plain = highlightKeywordRed('no highlight here', '');
-    if ($plain !== 'no highlight here' || strpos($plain, 'color:red; font-weight:bold;') !== false) {
+    if (!$emptyHighlightOk) {
         echo "foresterSearchSelfTest FAIL: empty keyword highlight guard\n";
         $ok = false;
+    }
+    if ($emptySqlOk && $emptyHighlightOk) {
+        echo "foresterSearchSelfTest PASS: empty-keyword guard\n";
     }
 
     // Non-empty SQL builder shape
