@@ -455,10 +455,12 @@ terminals/3.txt
 terminals/4.txt
 t/tools/foresterSEARCH/.htaccess
 z/import-forester-logs.php
-t/tools/foresterSEARCH/forester-search-lib.php
-t/tools/foresterSEARCH/forester-search.php
 t/tools/foresterSEARCH/parsedown/equip.parsedown.php
 t/tools/foresterSEARCH/parsedown/Parsedown.php
-t/tools/foresterSEARCH/forester-search-lib.php
-t/tools/foresterSEARCH/forester-search.php
 plan.md
+
+# mypi ledger live DB
+d/_LEDGER/*.sqlite
+d/_LEDGER/*.sqlite-wal
+d/_LEDGER/*.sqlite-shm
+d/_LEDGER/*.db
