@@ -56,8 +56,11 @@ $result = mypi_ledger_create_post([
 
 $GLOBALS['POSTBASIC_LAST'] = $result;
 if (!empty($result['ok'])) {
-    // Soft confirm for page layer
-    $GLOBALS['POSTBASIC_CONFIRM'] = 'HEADLINE STORED · ' . $result['c_uid'];
+    $tps = $result['tps_uid'] ?? '';
+    $ne = (int) ($result['edges'] ?? 0);
+    $GLOBALS['POSTBASIC_CONFIRM'] = 'HEADLINE STORED · ' . $result['c_uid']
+        . ' · TPS ' . $tps
+        . ($ne ? " · Charlie edges:$ne" : '');
 } else {
     $GLOBALS['POSTBASIC_CONFIRM'] = 'STORE FAILED · ' . ($result['error'] ?? 'unknown');
 }

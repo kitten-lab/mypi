@@ -48,6 +48,12 @@ if (is_file($parsedownPath)) {
     <?php if ($dom): ?> · DOM <code><?= htmlspecialchars($dom) ?></code><?php endif; ?>
     · store <code>d/_LEDGER/mypi.sqlite</code>
   </p>
+<p class="muted" style="opacity:0.8;font-size:0.9rem;">
+  Full reports (not buried in this form):
+  <a href="/chester/crates">Crates</a> ·
+  <a href="/charlie/threads">Charlie</a> ·
+  <a href="/satora/shelves">TPS</a>
+</p>
 <?php if ($error): ?>
   <p style="color:#c66;">Ledger error: <?= htmlspecialchars($error) ?></p>
 <?php elseif (!$rows): ?>
@@ -71,6 +77,7 @@ if (is_file($parsedownPath)) {
             . ' · ' . $r['c_uid']
             . ' · ' . ($r['sys'] . '/' . $r['dom'] . '/' . $r['room'])
             . ' · mod:' . ($r['mod'] ?: '—')
+            . ' · TPS ' . ($r['t_uid'] ?: '—')
         );
       ?></pre>
     </article>

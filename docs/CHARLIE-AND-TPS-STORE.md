@@ -50,11 +50,20 @@ Paper reports were the **desired faces**. They should become **queries over inte
 
 **All crates still land on a shared membrane stamp** for the default store; world surfaces may *display* or *map* that stamp into local codings without forking the crate row.
 
-### Granularity — prefer windows, not every second
+### Granularity — “nearby,” not miwbs second-research
 
-Per-second shelves are **too fine** for “these happened together.”
+**mypi TPS windows are intentional and different from miwbs second-shelves.**
 
-**Preferred:** configurable **window** (default proposal: **60s** or **900s / 15 min**).
+| miwbs TPS | mypi SATORA nearby |
+|-----------|---------------------|
+| Often **per event_unix second** | **Window** (default 15m) |
+| Rich residual / mod-9 / pulse research | “These crates happened **nearby**” |
+| CYC separate; shelf = membrane second | Exact `event_unix` still on crate; sort **inside** window |
+
+We are **not** trying to clone “every mod-9 search forever” into mypi first.  
+Nearby co-occurrence is **more valuable** for care/import work. Full miwbs-style facets can attach later as optional shelf metadata (already stubbed in `facets_json`).
+
+**Preferred window:** configurable (default **900s / 15 min**; 60s ok).
 
 ```text
 window_unix = event_unix - (event_unix % WINDOW_SECONDS)

@@ -2,79 +2,108 @@
 
 // the sightsman prepares keys and directs to rooms:
 
+/**
+ * Always parse pretty path /DOM/KEY into $_GET[DOM]=KEY.
+ * Extra query (?tab=edges) is preserved and does NOT replace path routing.
+ */
 function keyMaker() {
-  if (empty($_GET)) {
+    global $ENV, $room, $fetch;
 
-    global $ENV;
-      // Local vhost: DocumentRoot is already the SYS → pretty path /DOM/KEY only.
-      global $ENV;
-      $local = function_exists('mypi_env_is_local')
+    $local = function_exists('mypi_env_is_local')
         ? mypi_env_is_local($ENV ?? '')
         : in_array($ENV ?? '', ['COMMANDCENTER9', 'ROSEWOOD8', 'LOCAL'], true);
-      if ($local) { $localSLUG = ""; }
-      else { $localSLUG = defined('BLOCK_URI') ? BLOCK_URI : ''; }
+    $localSLUG = $local ? '' : (defined('BLOCK_URI') ? BLOCK_URI : '');
 
-    $prettyURI = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-    if ($localSLUG !== '' && strpos($prettyURI, $localSLUG) !== false) {
-      $parsed = trim(str_replace($localSLUG, '', $prettyURI));
-    } else {
-      $parsed = trim(str_replace($localSLUG, '', $prettyURI));
+    $prettyURI = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+    if ($prettyURI === null || $prettyURI === false) {
+        $prettyURI = '/';
     }
 
-    $uriFRAGS = explode('/', $parsed);
-    
-    global $room;
-      $room = $uriFRAGS[1];
-      $key = $uriFRAGS[2] ?? null;
+    if ($localSLUG !== '' && strpos($prettyURI, $localSLUG) !== false) {
+        $parsed = trim(str_replace($localSLUG, '', $prettyURI));
+    } else {
+        $parsed = trim($prettyURI);
+    }
 
-    global $fetch;
-      $fetch = $uriFRAGS[3] ?? null;
+    $uriFRAGS = array_values(array_filter(explode('/', $parsed), 'strlen'));
+    // /DOM/KEY[/fetch]
+    $room = $uriFRAGS[0] ?? null;
+    $key = $uriFRAGS[1] ?? null;
+    $fetch = $uriFRAGS[2] ?? null;
 
+    if ($room !== null && $room !== '') {
+        // Do not wipe other query params (tab, sort, tps, …)
         $_GET[$room] = $key;
-  }
+    }
 }
 
-
-
-function lockAndKey(){  
+function lockAndKey() {
     global $SITE;
 
     $foundKey = false;
     $foundRoom = false;
-    if (empty($_GET)) {
-            notARoom();
+    $doors = $GLOBALS[$SITE]['tDOM'] ?? [];
+
+    // Prefer DOM keys that match tDOM (ignore tab/sort/tps query noise)
+    foreach ($doors as $door) {
+        $dom = $door['DOM'] ?? '';
+        if ($dom === '' || !array_key_exists($dom, $_GET)) {
+            continue;
+        }
+        $foundRoom = true;
+        $key = $_GET[$dom];
+        if ($key === null || $key === '') {
+            aRoomWithNoKey();
             require resolveShell();
             exit;
         }
-    foreach ($_GET as $room => $key) {
-        $doors = $GLOBALS[$SITE]['tDOM'] ?? [];
-        
-        foreach ($doors as $door){
-            if ($room == $door['DOM']) {
-                $foundRoom = true;
-                $path = ROOM_ROUTE . '/' . $door['DOM'] .'/' . $key . '.php';
-                if (empty($key)) {
-                    aRoomWithNoKey();
-                    require resolveShell();
-                    exit;
-                }
+        $path = ROOM_ROUTE . '/' . $dom . '/' . $key . '.php';
+        if (file_exists($path)) {
+            $foundKey = true;
+            require $path;
+            break;
+        }
+        break;
+    }
+
+    if (!$foundRoom) {
+        // Fallback: first GET key that matches a door (legacy)
+        foreach ($_GET as $room => $key) {
+            if (in_array($room, ['tab', 'sort', 'tps', 'here', 'all'], true)) {
+                continue;
+            }
+            foreach ($doors as $door) {
+                if ($room == $door['DOM']) {
+                    $foundRoom = true;
+                    $path = ROOM_ROUTE . '/' . $door['DOM'] . '/' . $key . '.php';
+                    if (empty($key)) {
+                        aRoomWithNoKey();
+                        require resolveShell();
+                        exit;
+                    }
                     if (file_exists($path)) {
                         $foundKey = true;
                         require $path;
-                        break;
-                    } 
-                    break;
-            } 
+                    }
+                    break 2;
+                }
+            }
         }
     }
-        if (!$foundRoom) { notARoom(); }
-        if (!$foundKey && $foundRoom) { noKeyFound(); }
-        if (!$foundKey && !$foundRoom) { noKeyFound(); }
+
+    if (!$foundRoom) {
+        notARoom();
+    }
+    if (!$foundKey && $foundRoom) {
+        noKeyFound();
+    }
+    if (!$foundKey && !$foundRoom) {
+        noKeyFound();
+    }
 
     require resolveShell();
 }
 
-function interraLocation(){
+function interraLocation() {
     // retired, remove from known usage locations
 }

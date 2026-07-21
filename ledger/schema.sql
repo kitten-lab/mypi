@@ -60,3 +60,41 @@ CREATE TABLE IF NOT EXISTS tag_map (
 );
 
 CREATE INDEX IF NOT EXISTS idx_tag_map_tag ON tag_map(tag);
+
+CREATE TABLE IF NOT EXISTS tps_shelves (
+  tps_uid TEXT PRIMARY KEY,
+  window_unix INTEGER NOT NULL,
+  window_seconds INTEGER NOT NULL,
+  clock_id TEXT NOT NULL DEFAULT 'gaia',
+  facets_json TEXT NOT NULL DEFAULT '{}',
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_tps_window ON tps_shelves(window_unix DESC);
+CREATE TABLE IF NOT EXISTS tps_attach (
+  tps_uid TEXT NOT NULL,
+  c_uid TEXT NOT NULL,
+  kind TEXT NOT NULL DEFAULT 'post',
+  seq INTEGER NOT NULL DEFAULT 0,
+  attached_at INTEGER NOT NULL,
+  PRIMARY KEY (tps_uid, c_uid)
+);
+CREATE INDEX IF NOT EXISTS idx_tps_attach_crate ON tps_attach(c_uid);
+CREATE TABLE IF NOT EXISTS thread_edges (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  c_uid TEXT NOT NULL,
+  from_term TEXT NOT NULL,
+  rel TEXT NOT NULL,
+  to_term TEXT NOT NULL,
+  ingest_unix INTEGER NOT NULL,
+  sys TEXT NOT NULL DEFAULT '',
+  dom TEXT NOT NULL DEFAULT '',
+  room TEXT NOT NULL DEFAULT '',
+  mod TEXT NOT NULL DEFAULT ''
+);
+CREATE INDEX IF NOT EXISTS idx_edges_from ON thread_edges(from_term);
+CREATE INDEX IF NOT EXISTS idx_edges_to ON thread_edges(to_term);
+CREATE TABLE IF NOT EXISTS thread_terms (
+  term TEXT PRIMARY KEY,
+  gravity INTEGER NOT NULL DEFAULT 0,
+  updated_at INTEGER NOT NULL
+);

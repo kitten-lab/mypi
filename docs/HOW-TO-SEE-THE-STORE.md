@@ -26,24 +26,26 @@ Table **`crate_events`**: every create (and later edits) is append-only with tim
 
 ## How to look
 
-### 1. On the Surface (Skyline News)
+### 1. First-class report Surfaces (like `d/` folders)
 
-Pocket browser or:
+| d/ sense | Starline DOM / URL |
+|----------|---------------------|
+| **_CHESTER** | `http://starline/chester/crates` |
+| **_CHARLIE** | `http://starline/charlie/threads` |
+| **_SATORA** | `http://starline/satora/shelves` |
+| **News write** | `http://starline/news/headlines` |
 
-`http://starline/news/headlines`
+Nav: **News · Crates · Charlie · TPS**
 
-- Form = MakePost  
-- List below = ledger rows for this SYS/DOM  
-
-### 2. mypi-tui (trust desk)
+### 2. mypi-tui (same three sections)
 
 ```bat
 cd C:\Builds\my-pocket-internet\ledger
 python mypi_tui.py
 ```
 
-Refresh list, select a crate, see tags + history.  
-**Add tag / Edit body** also leave events (from TUI).
+Keys **1 / 2 / 3** or buttons: **CRATES · CHARLIE · TPS**.  
+Authority delete only in CRATES section.
 
 ### 3. SQLite CLI (if installed)
 
@@ -65,13 +67,43 @@ Open `mypi.sqlite` in [DB Browser for SQLite](https://sqlitebrowser.org/) — fr
 
 Copy `d/_LEDGER/mypi.sqlite` somewhere safe. That **is** your thoughts DB for postBASIC-class cargo.
 
+## Charlie + TPS (schema v2)
+
+| Table | Meaning |
+|-------|---------|
+| **tps_shelves** | Membrane **windows** (default **900s / 15 min**), not every second |
+| **tps_attach** | Which crates sit on that window |
+| **thread_edges** | `from *rel> to` from tag string |
+| **thread_terms** | Gravity counts for reports |
+
+**Tag examples on MakePost:**
+
+```text
+online
+grief*connects>hope
+system*to>skyline
+```
+
+Separate multi-edges with **semicolons**.
+
+Crate `t_uid` looks like `1784667600.w900` (window start + width).
+
+**TUI:** button **Show TPS + Charlie** lists shelves, gravity, edges.
+
+Change window size (seconds) in SQLite:
+
+```sql
+UPDATE ledger_meta SET value='60' WHERE key='tps_window_seconds';  -- 1 minute
+-- or '900' for 15 minutes (default)
+```
+
 ## Flow
 
 ```text
 Skyline / news / headlines  (MOD system)
-  MakePost  →  Ledger.php  →  mypi.sqlite
-  SoperView →  SELECT from same file
-  mypi-tui  →  same file
+  MakePost  →  Ledger.php  →  crate + TPS window + Charlie edges
+  SoperView →  list + gravity + shelves
+  mypi-tui  →  same file (TPS + Charlie panel)
 ```
 
 ## Skyline News coordinates

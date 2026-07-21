@@ -12,7 +12,8 @@ import time
 from pathlib import Path
 from typing import Any
 
-SCHEMA_VERSION = "1"
+SCHEMA_VERSION = "2"
+DEFAULT_TPS_WINDOW = 900  # 15-minute membrane windows
 DEFAULT_DB = Path(__file__).resolve().parent.parent / "d" / "_LEDGER" / "mypi.sqlite"
 SCHEMA_SQL = Path(__file__).resolve().parent / "schema.sql"
 
@@ -33,12 +34,65 @@ def connect(db_path: Path | None = None) -> sqlite3.Connection:
 def init_db(conn: sqlite3.Connection) -> None:
     sql = SCHEMA_SQL.read_text(encoding="utf-8")
     conn.executescript(sql)
+    _ensure_sys_cols(conn)
+    _ensure_deleted_col(conn)
     conn.execute(
         "INSERT INTO ledger_meta(key, value) VALUES(?, ?) "
         "ON CONFLICT(key) DO UPDATE SET value=excluded.value",
         ("schema_version", SCHEMA_VERSION),
     )
+    conn.execute(
+        "INSERT INTO ledger_meta(key, value) VALUES(?, ?) "
+        "ON CONFLICT(key) DO NOTHING",
+        ("tps_window_seconds", str(DEFAULT_TPS_WINDOW)),
+    )
     conn.commit()
+
+
+def tps_window_seconds(conn: sqlite3.Connection) -> int:
+    init_db(conn)
+    row = conn.execute(
+        "SELECT value FROM ledger_meta WHERE key='tps_window_seconds'"
+    ).fetchone()
+    w = int(row["value"]) if row else DEFAULT_TPS_WINDOW
+    return w if w > 0 else DEFAULT_TPS_WINDOW
+
+
+def list_tps_shelves(conn: sqlite3.Connection, limit: int = 40) -> list[sqlite3.Row]:
+    init_db(conn)
+    return list(
+        conn.execute(
+            """
+            SELECT s.*,
+              (SELECT COUNT(*) FROM tps_attach a WHERE a.tps_uid=s.tps_uid) AS n_crates
+            FROM tps_shelves s
+            ORDER BY s.window_unix DESC
+            LIMIT ?
+            """,
+            (limit,),
+        )
+    )
+
+
+def charlie_gravity(conn: sqlite3.Connection, limit: int = 30) -> list[sqlite3.Row]:
+    init_db(conn)
+    return list(
+        conn.execute(
+            "SELECT term, gravity, updated_at FROM thread_terms "
+            "ORDER BY gravity DESC, term ASC LIMIT ?",
+            (limit,),
+        )
+    )
+
+
+def charlie_edges(conn: sqlite3.Connection, limit: int = 40) -> list[sqlite3.Row]:
+    init_db(conn)
+    return list(
+        conn.execute(
+            "SELECT * FROM thread_edges ORDER BY id DESC LIMIT ?",
+            (limit,),
+        )
+    )
 
 
 def _now() -> int:
