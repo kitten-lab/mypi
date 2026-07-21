@@ -3,36 +3,38 @@
 // the sightsman prepares keys and directs to rooms:
 
 /**
- * Always parse pretty path /DOM/KEY into $_GET[DOM]=KEY.
- * Extra query (?tab=edges) is preserved and does NOT replace path routing.
+ * Parse pretty path into $_GET[DOM]=KEY.
+ *
+ * Supports:
+ *   /{DOM}/{KEY}              — dedicated SYS vhost (DocumentRoot = b/{sys})
+ *   /{SYS}/{DOM}/{KEY}        — unified port b front (DocumentRoot = b/)
+ *
+ * Extra query (?tab=edges) preserved; ignored as rooms.
  */
 function keyMaker() {
     global $ENV, $room, $fetch;
-
-    $local = function_exists('mypi_env_is_local')
-        ? mypi_env_is_local($ENV ?? '')
-        : in_array($ENV ?? '', ['COMMANDCENTER9', 'ROSEWOOD8', 'LOCAL'], true);
-    $localSLUG = $local ? '' : (defined('BLOCK_URI') ? BLOCK_URI : '');
 
     $prettyURI = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
     if ($prettyURI === null || $prettyURI === false) {
         $prettyURI = '/';
     }
 
-    if ($localSLUG !== '' && strpos($prettyURI, $localSLUG) !== false) {
-        $parsed = trim(str_replace($localSLUG, '', $prettyURI));
-    } else {
-        $parsed = trim($prettyURI);
+    $uriFRAGS = array_values(array_filter(explode('/', $prettyURI), 'strlen'));
+
+    $sysId = defined('SYS_ID') ? SYS_ID : (defined('BLOCK_URI') ? BLOCK_URI : (defined('WORLD_ID') ? WORLD_ID : ''));
+    $sysId = strtolower((string) $sysId);
+
+    // Unified b-front: first segment is this SYS
+    if ($sysId !== '' && isset($uriFRAGS[0]) && strtolower($uriFRAGS[0]) === $sysId) {
+        array_shift($uriFRAGS);
     }
 
-    $uriFRAGS = array_values(array_filter(explode('/', $parsed), 'strlen'));
     // /DOM/KEY[/fetch]
     $room = $uriFRAGS[0] ?? null;
     $key = $uriFRAGS[1] ?? null;
     $fetch = $uriFRAGS[2] ?? null;
 
     if ($room !== null && $room !== '') {
-        // Do not wipe other query params (tab, sort, tps, …)
         $_GET[$room] = $key;
     }
 }
@@ -43,8 +45,8 @@ function lockAndKey() {
     $foundKey = false;
     $foundRoom = false;
     $doors = $GLOBALS[$SITE]['tDOM'] ?? [];
+    $ignoreGet = ['tab', 'sort', 'tps', 'here', 'all'];
 
-    // Prefer DOM keys that match tDOM (ignore tab/sort/tps query noise)
     foreach ($doors as $door) {
         $dom = $door['DOM'] ?? '';
         if ($dom === '' || !array_key_exists($dom, $_GET)) {
@@ -67,9 +69,8 @@ function lockAndKey() {
     }
 
     if (!$foundRoom) {
-        // Fallback: first GET key that matches a door (legacy)
         foreach ($_GET as $room => $key) {
-            if (in_array($room, ['tab', 'sort', 'tps', 'here', 'all'], true)) {
+            if (in_array($room, $ignoreGet, true)) {
                 continue;
             }
             foreach ($doors as $door) {
@@ -104,6 +105,47 @@ function lockAndKey() {
     require resolveShell();
 }
 
-function interraLocation() {
-    // retired, remove from known usage locations
+if (!function_exists('notARoom')) {
+    function notARoom() {
+        if (!isset($GLOBALS['pageTitle'])) {
+            $GLOBALS['pageTitle'] = 'No Room Found';
+        }
+        if (function_exists('openSky')) {
+            openSky('No Room Found');
+            medHeading('keyMAKER Failure Msg: No Room Found');
+            leaf('Please consider your location. Are you lost?');
+        }
+    }
+}
+
+if (!function_exists('noKeyFound')) {
+    function noKeyFound() {
+        if (!isset($GLOBALS['pageTitle'])) {
+            $GLOBALS['pageTitle'] = 'No Key Found';
+        }
+        if (function_exists('openSky')) {
+            openSky('No Key Found');
+            medHeading('keyMAKER Failure Msg: No Key Found');
+            leaf('Please consider your keys and try again.');
+        }
+    }
+}
+
+if (!function_exists('aRoomWithNoKey')) {
+    function aRoomWithNoKey() {
+        if (!isset($GLOBALS['pageTitle'])) {
+            $GLOBALS['pageTitle'] = 'No Key Found';
+        }
+        if (function_exists('openSky')) {
+            openSky('Room Without Key');
+            medHeading('keyMAKER Failure Msg: No Key Found');
+            leaf('Path needs /SYS/DOM/KEY on port b (or /DOM/KEY on a dedicated vhost).');
+        }
+    }
+}
+
+if (!function_exists('interraLocation')) {
+    function interraLocation() {
+        // retired
+    }
 }

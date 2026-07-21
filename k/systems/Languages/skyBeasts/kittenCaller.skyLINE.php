@@ -22,8 +22,13 @@ $GLOBALS['GETS']['scripts'][] = function() use ($kitten) {
   }
 
   if (is_file($MEOWMEOW)) {
-    print '<!-- kitten ' . $kitten . ': -->
-      <script src="' . K_ROUTE . $a_WildKitten . '"></script>';
+    // Inline kitten JS so pocket browser / WebView2 still works when host `k`
+    // script fetch fails (file:// gate, multi-host quirks, offline kits).
+    // External src kept as comment for debugging.
+    $body = file_get_contents($MEOWMEOW);
+    print '<!-- kitten ' . htmlspecialchars($kitten, ENT_QUOTES, 'UTF-8')
+      . ' (inline; also at ' . (defined('K_ROUTE') ? K_ROUTE : 'http://k') . $a_WildKitten . '): -->' . "\n"
+      . '<script>' . "\n" . $body . "\n" . '</script>' . "\n";
     } else { 
         error_log("MISSING KITTEN! "
          . $kitten

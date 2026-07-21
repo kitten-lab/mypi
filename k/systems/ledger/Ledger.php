@@ -465,6 +465,9 @@ SQL
     }
 
     /**
+     * List crates. Filters: sys, dom, room, mod, kind, tool, session (meta.session),
+     * order: 'desc'|'asc' on event_unix then ingest_unix.
+     *
      * @return list<array>
      */
     function mypi_ledger_list(array $opts = []) {
@@ -473,8 +476,15 @@ SQL
         $sys = $opts['sys'] ?? null;
         $dom = $opts['dom'] ?? null;
         $room = $opts['room'] ?? null;
+        $mod = $opts['mod'] ?? null;
         $kind = $opts['kind'] ?? null;
+        $tool = $opts['tool'] ?? null;
+        $session = $opts['session'] ?? null;
         $includeDeleted = !empty($opts['include_deleted']);
+        $order = strtolower((string) ($opts['order'] ?? 'desc'));
+        if ($order !== 'asc') {
+            $order = 'desc';
+        }
         $sql = 'SELECT * FROM crates WHERE 1=1';
         $args = [];
         if (!$includeDeleted) {
@@ -492,14 +502,76 @@ SQL
             $sql .= ' AND room = ?';
             $args[] = $room;
         }
+        if ($mod !== null && $mod !== '') {
+            $sql .= ' AND mod = ?';
+            $args[] = $mod;
+        }
         if ($kind !== null && $kind !== '') {
             $sql .= ' AND kind = ?';
             $args[] = $kind;
         }
-        $sql .= ' ORDER BY ingest_unix DESC LIMIT ' . max(1, min(200, $limit));
+        if ($tool !== null && $tool !== '') {
+            $sql .= ' AND tool = ?';
+            $args[] = $tool;
+        }
+        // chat sessions (and any tool that stamps meta.session)
+        if ($session !== null && $session !== '') {
+            $sql .= " AND json_extract(meta_json, '$.session') = ?";
+            $args[] = $session;
+        }
+        $sql .= ' ORDER BY COALESCE(event_unix, ingest_unix) ' . strtoupper($order)
+            . ', ingest_unix ' . strtoupper($order)
+            . ' LIMIT ' . max(1, min(500, $limit));
         $st = $pdo->prepare($sql);
         $st->execute($args);
         return $st->fetchAll();
+    }
+
+    /**
+     * Distinct chat sessions at a place (from meta.session on kind=chat crates).
+     *
+     * @return list<array{session:string,n:int,last_unix:int,label:string}>
+     */
+    function mypi_ledger_chat_sessions(array $opts = []) {
+        $pdo = mypi_ledger_pdo();
+        $sys = (string) ($opts['sys'] ?? '');
+        $dom = (string) ($opts['dom'] ?? '');
+        $room = (string) ($opts['room'] ?? '');
+        $sql = "SELECT
+            COALESCE(json_extract(meta_json, '$.session'), 'live') AS session,
+            COALESCE(json_extract(meta_json, '$.session_label'), '') AS label,
+            COUNT(*) AS n,
+            MAX(COALESCE(event_unix, ingest_unix)) AS last_unix
+          FROM crates
+          WHERE kind = 'chat'
+            AND (deleted_at IS NULL OR deleted_at = 0)";
+        $args = [];
+        if ($sys !== '') {
+            $sql .= ' AND sys = ?';
+            $args[] = $sys;
+        }
+        if ($dom !== '') {
+            $sql .= ' AND dom = ?';
+            $args[] = $dom;
+        }
+        if ($room !== '') {
+            $sql .= ' AND room = ?';
+            $args[] = $room;
+        }
+        $sql .= ' GROUP BY session ORDER BY last_unix DESC LIMIT 40';
+        $st = $pdo->prepare($sql);
+        $st->execute($args);
+        return $st->fetchAll() ?: [];
+    }
+
+    /** Shared place context from SKY__AUTH constants / SITE. */
+    function mypi_ledger_place_from_sky(): array {
+        $sys = defined('WORLD_ID') ? WORLD_ID : (defined('SYS_ID') ? SYS_ID : (string) ($GLOBALS['SITE'] ?? ''));
+        $dom = defined('DOM_SLUG') ? DOM_SLUG : '';
+        $room = defined('ROOM_SLUG') ? ROOM_SLUG : '';
+        $mod = defined('MOD_SLUG') ? MOD_SLUG : '';
+        $place_label = defined('ROOM_DISPLAY') ? ROOM_DISPLAY : '';
+        return compact('sys', 'dom', 'room', 'mod', 'place_label');
     }
 
     function mypi_ledger_get($c_uid) {

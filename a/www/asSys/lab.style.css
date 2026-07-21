@@ -1,0 +1,74 @@
+/* Tool Lab — pretend site inside WWW shell (not master www chrome) */
+.lab-site {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #1a2a1a;
+  max-width: 52rem;
+}
+.lab-banner {
+  border-bottom: 2px solid #3a5a3a;
+  padding: 0.4rem 0 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.lab-banner h1 {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  font-size: 1.1rem;
+  color: #2d5a2d;
+  text-transform: uppercase;
+}
+.lab-banner .lab-tag {
+  font-size: 0.75rem;
+  color: #5a7a5a;
+}
+.lab-layout {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.lab-nav {
+  width: 11rem;
+  flex-shrink: 0;
+  border: 1px solid #c5d5c5;
+  background: #f4faf4;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.85rem;
+}
+.lab-nav a {
+  display: block;
+  color: #0000cc;
+  text-decoration: none;
+  padding: 0.2rem 0;
+}
+.lab-nav a:hover {
+  text-decoration: underline;
+}
+.lab-nav .lab-nav-h {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5a7a5a;
+  margin: 0.4rem 0 0.2rem;
+}
+.lab-main {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #c5d5c5;
+  background: #fffef8;
+  padding: 0.85rem 1rem;
+}
+.lab-main h2 {
+  margin-top: 0;
+  font-weight: 400;
+  color: #2d5a2d;
+  border-bottom: 1px dotted #9ab09a;
+  padding-bottom: 0.25rem;
+}
+.lab-foot {
+  margin-top: 1rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #6a8a6a;
+  border-top: 1px solid #c5d5c5;
+  padding-top: 0.4rem;
+}

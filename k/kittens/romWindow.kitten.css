@@ -1,0 +1,141 @@
+/* ROM stage + multi-window host (any surface) */
+
+/* Stage is optional stacking marker only — windows attach to body as position:fixed */
+.rom-stage {
+  display: none; /* windows are not children of stage anymore */
+}
+
+.rom-window {
+  /* Viewport-fixed: drag uses clientX/Y only — WWW/pocket chrome never enters the math */
+  position: fixed;
+  width: max-content;
+  max-width: min(820px, 96vw);
+  height: max-content;
+  max-height: min(680px, 90vh);
+  display: flex;
+  flex-direction: column;
+  background: #1a1a2e;
+  color: #eee;
+  border: 0.25vh solid #6af;
+  box-shadow:
+    0.4vh 0.4vh 0 #000a,
+    inset 0 0 0 0.1vh #fff2;
+  z-index: 200;
+  font-family: VT323, monospace;
+  font-size: 2.2vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+}
+
+.rom-window.is-focused {
+  z-index: 100;
+  border-color: #8cf;
+  box-shadow:
+    0.5vh 0.5vh 0 #000c,
+    0 0 1.2vh #6af8;
+}
+
+.rom-window-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 0.5vh;
+  padding: 0.5vh 0.7vh;
+  background: linear-gradient(to top, #0033aa, #2266dd);
+  color: #fff;
+  cursor: grab;
+  user-select: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.rom-window-titlebar:active {
+  cursor: grabbing;
+}
+
+.rom-window-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rom-window-btn {
+  border: 0.15vh solid #0008;
+  background: #c0c0c0;
+  color: #111;
+  font-family: inherit;
+  font-size: 1.8vh;
+  line-height: 1;
+  padding: 0.25vh 0.7vh;
+  cursor: pointer;
+}
+
+.rom-window-body {
+  /* Viewport for the ROM: size to content (800×600 toys), scroll only if viewport is smaller */
+  flex: 0 1 auto;
+  overflow: auto;
+  padding: 0;
+  background: #0d0d18;
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: calc(90vh - 3.5vh); /* leave titlebar room */
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* ROM packages use absolute 800×600 shells — contain them as a fixed playfield */
+.rom-window-body > * {
+  box-sizing: border-box;
+}
+
+.rom-window-body .SiloROM_BaseBox,
+.rom-window-body .ROM_CONTENT,
+.rom-window-body .DECK_SCREEN {
+  position: relative !important; /* stay in the chrome flow, not escape the window */
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 800px;
+  height: 600px;
+  max-width: 100%;
+  margin: 0;
+}
+
+.rom-window-body .gameBtn {
+  font-family: VT323, monospace;
+  margin: 0;
+  padding: 0.5vh 0.9vh;
+  cursor: pointer;
+  width: auto; /* package CSS often sets 100% for sidebars */
+}
+
+/* Fallback cover size if dress-up CSS id mismatched */
+JULIE.ROMCover,
+CLASSICBOI.ROMCover,
+.ROMCover {
+  display: inline-grid;
+  vertical-align: top;
+  min-height: 144px;
+  min-width: 133px;
+  margin: 0.5rem;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+SHELF.SHELF,
+#toyShelf,
+.SHELF {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-start;
+  min-height: 160px;
+  padding: 0.5rem 0;
+  pointer-events: auto;
+  position: relative;
+  z-index: 5;
+}

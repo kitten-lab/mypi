@@ -2,7 +2,7 @@
 
 /* CLASSICBOI ROMS */
 
-#VEN_CLASSICBOI.KCD-001 {
+CLASSICBOI.ROMCover {
   height: 144px;
   width: 133px;
   border-radius: 4px;
@@ -25,7 +25,7 @@
   overflow: visible;
 }
 
-#VEN_CLASSICBOI.KCD-001::before {
+CLASSICBOI.ROMCover::before {
     content: "CLASSICBOI";
     position: fixed;
       left: 1rem;
@@ -41,7 +41,7 @@
 
 }
 
-#VEN_CLASSICBOI.KCD-001::after {
+CLASSICBOI.ROMCover::after {
     content: "";
     position: relative;
     top: 3px;
@@ -53,7 +53,7 @@
   cursor: pointer;
 }
 
-#VEN_CLASSICBOI.KCD-001 .label {
+CLASSICBOI.ROMCover .label {
   cursor: pointer;
   grid-area: Logo;
   display: block;
@@ -70,7 +70,7 @@
 
 }
 
-#VEN_CLASSICBOI.KCD-001 .label .title {
+CLASSICBOI.ROMCover .label .title {
   display: block;
   position: relative;
   top: 8px;
@@ -83,14 +83,14 @@
     1px 1px 2px white
 }
 
-#VEN_CLASSICBOI.KCD-001 .label .funtitle {
+CLASSICBOI.ROMCover .label .funtitle {
   display: block;
   position: relative;
   top: 16px;
     font-size: .8rem;
 }
 
-#VEN_CLASSICBOI.KCD-001 .label::before {
+CLASSICBOI.ROMCover .label::before {
   padding: 4px;
   content: "";
   display: block;

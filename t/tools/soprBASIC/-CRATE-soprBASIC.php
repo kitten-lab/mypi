@@ -1,91 +1,45 @@
-<?php 
-// definers
-define("POST_soperSECTION", $_POST['soper_section'] ?? "");
-define("POST_soper_leaf", $_POST['soper_leaf'] ?? "");
-define("POST_sectionID", $_POST['soper_leaf'] ?? "");
+<?php
+/**
+ * soprBASIC → ledger (kind=soper).
+ * topic = section heading; body = fragment; meta.section_slug for grouping.
+ * JSON sopr.frags in -v3/soprBASIC-json only.
+ */
 
-function json_payload(){
-    return [
-    "soper" => [
-        "agent" => $_POST['agent'],
-        "sec_display" => $GLOBALS['soperSECTION'],
-        "sec_slug" => $GLOBALS['sectionID'],
-        "supr_slug" => $GLOBALS['soperID'],
-        "content" => $_POST['soper_leaf'],
-    ]];
-}
+function soprBASIC_ledger_store(): array {
+    require_once ROUTE_TO_SYSTEMS . 'ledger/Ledger.php';
+    $place = mypi_ledger_place_from_sky();
 
-function json_route(){
-    return [];
-}
+    $section = trim((string) ($_POST['soper_section'] ?? ''));
+    $leaf = trim((string) ($_POST['soper_leaf'] ?? ''));
+    if ($section === '' && $leaf === '') {
+        return ['ok' => false, 'error' => 'empty fragment'];
+    }
+    if ($section === '') {
+        $section = 'loose';
+    }
+    $sectionSlug = strtolower(preg_replace('/\s+/', '', $section));
+    $agent = (string) ($_POST['agent'] ?? 'user');
 
-function soperSTORE(){
-
-    //GET YOUR COMMONS! 
-    $SITE = $GLOBALS['SITE'];
-    $a = $GLOBALS[$SITE];
-
-
-    $RAW_TAGS = POST_TAGS;
-    $RAW_TAGS = str_replace(["\r","\n", "\t"], '', $RAW_TAGS);
-    $RAW_TAGS = trim($RAW_TAGS);
-        $TAGS = tagSPLICER($RAW_TAGS);
-        
-    $soperSECTION = $_POST['soper_section'];
-    $soper_leaf = $_POST['soper_leaf'];
-
-    $soperROUTER = ROUTE('d', SHADOW_TOGGLE);
-        $soperFOLDER = $soperROUTER . $a['URI'] . '/';
-          aleph($soperFOLDER);
-          $soperSTACK = $soperFOLDER . '/' . $a['DOM_SLUG'] . '-' . $a['ROOM_SLUG'] . '.sopr.frags.json';
-          $soperSTORE = json_decode(file_get_contents($soperSTACK), true);
-
-        if (!$soperSTORE){
-            $soperSTORE = [];
-        }
-
-        $sectionID = strtolower(preg_replace('/\s+/', '', $soperSECTION));
-        $GLOBALS['sectionID'] = $sectionID;
-        $GLOBALS['soperSECTION'] = $soperSECTION;
-        
-        if (!isset($soperSTORE['SECTION'][$sectionID])) {
-            $soperSTORE['SECTION'][$sectionID] = [
-                'LABEL' => $soperSECTION,
-                'NOTES' => [],
-                'SOPERS' => [],
-            ];
-        }
-
-        $max = 0;
-
-        foreach ($soperSTORE['SECTION'][$sectionID]['SOPERS'] as $soper){
-            if (preg_match('/-(\d+)$/', $soper['ID'], $matches)){
-                $num = intval($matches[1]);
-                if ($num > $max) $max = $num;
-            }
-        }
-
-        $nextID = $max + 1;
-        $soperID = $sectionID
-        . '-'
-        . str_pad($nextID, 4, '0', STR_PAD_LEFT);
-
-        $GLOBALS['soperID'] = $soperID;
-
-        if (!in_array($soper_leaf, $soperSTORE['SECTION'][$sectionID]['SOPERS'])){
-            $soperSTORE['SECTION'][$sectionID]['SOPERS'][] =  [
-                'ID' => $soperID,
-                'FRAG' => $soper_leaf,
-                'AGENT' => $_POST['agent'],
-                'METADATA' => [
-                    'ADDED' => time(),
-                    'cUID' => cUID,
-                    'TAGS' => $TAGS,
-                ]
-    
-            ];
-        }
-
-    file_put_contents($soperSTACK, json_encode($soperSTORE, JSON_PRETTY_PRINT));
-    
+    return mypi_ledger_create_post([
+        'topic' => $section,
+        'body' => $leaf,
+        'agent' => $agent,
+        'tags_raw' => (string) ($_POST['POST__TAGS'] ?? ''),
+        'timezone' => (string) ($_POST['POST__TZ'] ?? ''),
+        'event_unix' => $_POST['POST__EVENT_UNIX'] ?? null,
+        'sys' => $place['sys'],
+        'dom' => $place['dom'],
+        'room' => $place['room'],
+        'mod' => $place['mod'],
+        'place_label' => $place['place_label'],
+        'tool' => 'soprBASIC',
+        'tool_version' => 6,
+        'kind' => 'soper',
+        'actor' => $place['mod'] !== '' ? $place['mod'] : $agent,
+        'meta' => [
+            'section' => $section,
+            'section_slug' => $sectionSlug,
+            'payload' => 'soper',
+        ],
+    ]);
 }

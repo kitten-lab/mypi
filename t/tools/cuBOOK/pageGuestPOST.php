@@ -1,54 +1,23 @@
-<?php 
-require_once __DIR__ . '/-SIG-cuBOOK.php'; // ASSISTANT SETTINGS
-$cuFIG = getFIG("cuBOOK", "GuestPOST"); ?>
+<?php
+require_once __DIR__ . '/-SIG-cuBOOK.php';
+require_once ROUTE_TO_SYSTEMS . 'wireWORDS.php';
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-
-
-<form method="POST" action="">
-<span class="">
-    <label for="USER"><?= $cuFIG['UserInput'] ?? "why"; ?></label><br>
-    <input 
-    rows="1" cols="60"
-    name="USER" 
-    placeholder="<?= $cuFIG['UserHint']; ?>" 
-    required>
-    <br>
-</span>
-
-<span class="">
-    <label for="MESSAGE"><?= $cuFIG['MsgInput']; ?></label><br>
-    <input 
-    rows="1" cols="60"
-    name="MESSAGE" 
-    placeholder="<?= $cuFIG['MsgHint']; ?>" 
-    required>
-    <br>
-</span>
-
-
+getFIG('cuBOOK', 'GuestPOST');
+global $mySIGFIG;
+?>
+<form method="POST" action="" class="cubook-form">
+  <div class="formContainer">
+    <?php wireINPUT('USER', true, true); ?>
+    <?php wireTEXTAREA('MESSAGE', true, true); ?>
+  </div>
   <input type="hidden" name="POST__TZ" id="tz-input">
-
-  <button type="submit">
-    <?= $cuFIG['Submit_Button'] ?? 'Submit'; ?>
-  </button> 
-  <button type="reset">Reset Form</button>
-
-  <span>
-
-    <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    echo $cuFIG['Confirmation_Msg'];
-    } 
-    ?>
-
-    </span>
-    </form>
-
+  <input type="hidden" name="POST__EVENT_UNIX">
+  <button type="submit"><?= htmlspecialchars($mySIGFIG['Submit_Button'] ?? 'Submit', ENT_QUOTES, 'UTF-8') ?></button>
+  <button type="reset">Reset</button>
+  <?php if (!empty($GLOBALS['CUBOOK_CONFIRM'])): ?>
+    <p class="cubook-confirm"><strong><?= htmlspecialchars($GLOBALS['CUBOOK_CONFIRM'], ENT_QUOTES, 'UTF-8') ?></strong></p>
+  <?php endif; ?>
+</form>
 <script>
   document.getElementById('tz-input').value = Intl.DateTimeFormat().resolvedOptions().timeZone;
 </script>
-<?php 
-$scripts = (string)$GLOBALS['INTERA']['SYSTEM'];
-?>

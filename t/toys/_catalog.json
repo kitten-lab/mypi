@@ -1,0 +1,14 @@
+{
+  "MRA-001": {
+    "title": "Morana Arcana",
+    "funtitle": "Fortuna Snackums",
+    "provider": "Chester's Imports",
+    "notes": "Card draw + Bardy. Real mini-game kit."
+  },
+  "KCD-001": {
+    "title": "Detective Kat Moire",
+    "funtitle": "Keys and Chords",
+    "provider": "Chester's Imports",
+    "notes": "Shell test only — no real game yet. Used to prove multi-window shells."
+  }
+}

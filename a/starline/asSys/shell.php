@@ -35,11 +35,14 @@
   ?>
 <script>
 
-if (window.location.pathname === '/' &&
-    !window.location.search
-) {
-  window.location.replace("/news/headlines");
+(function () {
+  var p = window.location.pathname.replace(/\/+$/, '') || '/';
+  // Unified b-front: /starline or /starline/
+  if (p === '/' || p === '/starline' || p === '/starline/index.php') {
+    var base = p.indexOf('/starline') === 0 ? '/starline' : '';
+    window.location.replace(base + '/news/headlines');
   }
+})();
 console.log("%cLAUNCHING THE SILO.....","background-color:blue;padding:10px;font-weight:600");
 </script>
   

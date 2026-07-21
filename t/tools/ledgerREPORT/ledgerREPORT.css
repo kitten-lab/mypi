@@ -1,0 +1,105 @@
+/**
+ * ledgerREPORT — base layout (neutral). Tables inherit page ink.
+ *
+ * Override from a room:
+ *   .ledger-report { --ledger-row-sel-bg: #e8f4e8; --ledger-link: #060; }
+ *
+ * Tokens:
+ *   --ledger-max-width
+ *   --ledger-table-size
+ *   --ledger-cell-pad
+ *   --ledger-row-border
+ *   --ledger-row-sel-bg   (selected TPS row — soft tint, not black)
+ *   --ledger-muted-opacity
+ *   --ledger-tab-on-weight
+ *   --ledger-tab-on-fg
+ *   --ledger-err-fg
+ *   --ledger-code-size
+ */
+
+.ledger-report {
+  --ledger-max-width: 56rem;
+  --ledger-table-size: 0.85rem;
+  --ledger-cell-pad: 0.4rem 0.5rem;
+  --ledger-row-border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  --ledger-row-sel-bg: color-mix(in srgb, currentColor 12%, transparent);
+  --ledger-muted-opacity: 0.75;
+  --ledger-tab-on-weight: 700;
+  --ledger-tab-on-fg: inherit;
+  --ledger-err-fg: inherit;
+  --ledger-code-size: 0.8em;
+
+  max-width: var(--ledger-max-width);
+  color: inherit;
+  background: transparent;
+}
+
+.ledger-report .muted {
+  opacity: var(--ledger-muted-opacity);
+  font-size: 0.9rem;
+}
+
+.ledger-report .err {
+  color: var(--ledger-err-fg);
+  opacity: 0.95;
+}
+
+.ledger-report .tabs a,
+.ledger-report .sort a {
+  margin-right: 0.25rem;
+  color: inherit;
+}
+
+.ledger-report .tabs a.on,
+.ledger-report .sort a.on {
+  font-weight: var(--ledger-tab-on-weight);
+  color: var(--ledger-tab-on-fg);
+  text-decoration: underline;
+}
+
+.ledger-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--ledger-table-size);
+  color: inherit;
+  background: transparent;
+}
+
+.ledger-table th,
+.ledger-table td {
+  border-bottom: var(--ledger-row-border);
+  padding: var(--ledger-cell-pad);
+  text-align: left;
+  vertical-align: top;
+  background: transparent;
+  color: inherit;
+}
+
+.ledger-table thead th {
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.ledger-table tbody tr {
+  background: transparent;
+}
+
+/* selected row: light wash from currentColor — readable on white OR black pages */
+.ledger-table tr.sel,
+.ledger-table tr.sel td {
+  background: var(--ledger-row-sel-bg);
+}
+
+.ledger-table code {
+  font-size: var(--ledger-code-size);
+  color: inherit;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  padding: 0.05em 0.25em;
+  border-radius: 2px;
+}
+
+.ledger-report a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

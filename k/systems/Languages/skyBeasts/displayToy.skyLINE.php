@@ -26,8 +26,11 @@ if (!is_dir($ToyBox)) {
     $PlayScript = $ToyBox . $toy . ".kit.js";
 
     if (is_file($PlayScript)) {
-      print '<!-- playscript ' . $DressUp . " for toy " . $toy . ': -->
-      <script src="' . T_ROUTE . '/toys/' . $toy . "/" . $toy . '.kit.js"></script>';
+      // Inline kit so pocket browser / multi-host does not drop playscripts
+      $body = file_get_contents($PlayScript);
+      print '<!-- playscript ' . htmlspecialchars($DressUp, ENT_QUOTES, 'UTF-8')
+        . ' for toy ' . htmlspecialchars($toy, ENT_QUOTES, 'UTF-8') . ' (inline): -->' . "\n"
+        . '<script>' . "\n" . $body . "\n" . '</script>' . "\n";
     } else {
       KDE_Error_Logger($funName . ": " . $toy, "  OH NO! WE DON'T KNOW WHAT GAME TO PLAY WITH THIS TOY! CALL MOM, I BET SHE CAN HELP. \nTELL HER IT WAS SUPPOSED TO BE HERE:" . $funBox);
     }
@@ -38,13 +41,18 @@ if (!is_dir($ToyBox)) {
     $CostumeParty = $ToyBox . "dressUps/" . $toy . "_" . $DressUp . ".viz.css";
 
     if (is_file($CostumeParty)) {
-      print '<!-- toy costume party for ' . $toy . ': -->
-     <link rel="stylesheet"  type="text/css" href="' . T_ROUTE . '/toys/' . $toy . '/' . $toy . '.viz.css"></link>
-     <link rel="stylesheet"  type="text/css" href="' . T_ROUTE . '/toys/' . $toy . '/dressUps/' . $toy . '_' . $DressUp . '.viz.css"></link>';
+      // Inline dress-up CSS (same pocket reason as kits / kittens)
+      $baseViz = $ToyBox . $toy . '.viz.css';
+      print '<!-- toy costume party for ' . htmlspecialchars($toy, ENT_QUOTES, 'UTF-8') . ' (inline): -->' . "\n<style>\n";
+      if (is_file($baseViz)) {
+          print file_get_contents($baseViz) . "\n";
+      }
+      print file_get_contents($CostumeParty) . "\n</style>\n";
     } else {
       KDE_Error_Logger($funName . ": " . $toy, "OH NO! THE TOY HAS NO DRESSUPS! WE CAN PLAY THIS WAY, BUT IT MIGHT LOOK WEIRD. THINK ITS WRONG? CALL MOM!  \nTELL HER IT WAS SUPPOSED TO BE HERE:" . $CostumeParty);
     }
   };
 }
+
     
 }

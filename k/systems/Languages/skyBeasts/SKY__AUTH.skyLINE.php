@@ -9,15 +9,6 @@ function SKY__AUTH(
     string $ROOM_DISPLAY,
     ?string $ROOM_FLAVOR="classic"
     ) {
-        global $SITE;
-
-        $GLOBALS[$SITE]['MOD_SLUG'] = $MOD_SLUG;
-        $GLOBALS[$SITE]['MOD_DISPLAY'] = $MOD_DISPLAY;
-        $GLOBALS[$SITE]['DOM_SLUG'] = $DOM_SLUG;
-        $GLOBALS[$SITE]['DOM_DISPLAY'] = $DOM_DISPLAY;
-        $GLOBALS[$SITE]['ROOM_SLUG'] = $ROOM_SLUG;
-        $GLOBALS[$SITE]['ROOM_DISPLAY'] = $ROOM_DISPLAY;
-        $GLOBALS['ROOM_FLAVOR'] = $ROOM_FLAVOR;
 
         define('MOD_SLUG', $MOD_SLUG);
         define('MOD_DISPLAY', $MOD_DISPLAY);

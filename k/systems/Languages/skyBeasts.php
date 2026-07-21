@@ -15,6 +15,7 @@ function callSkyBeasts(){
   [ "name" => "getDECOR", "type" => "php" ],
   [ "name" => "carlsToolBox", "type" => "php" ],
   [ "name" => "displayToy", "type" => "php" ],
+  [ "name" => "romStage", "type" => "php" ],
   ];
 }
 

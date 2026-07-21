@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Unified front: /{SYS}/... → that SYS's index.php (no per-surface hosts needed)
+# Existing files/dirs under b/ still served directly when present.
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# /starline or /starline/ → starline/index.php
+RewriteRule ^([A-Za-z0-9][A-Za-z0-9._-]*)/?$ $1/index.php [L,QSA]
+
+# /starline/news/headlines → starline/index.php (URI preserved for keyMaker)
+RewriteRule ^([A-Za-z0-9][A-Za-z0-9._-]*)/(.*)$ $1/index.php [L,QSA]

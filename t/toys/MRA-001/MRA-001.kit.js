@@ -1,7 +1,6 @@
+// MRA-001 Morana Arcana — registers with RomHost (multi-window safe)
 
-
-// load draw types
-drawTypes = [
+var drawTypes = [
   "A card from the center of the deck.",
   "A card flies out without hesitation.",
   "A pile flops on the table, with only one card face up.",
@@ -9,11 +8,11 @@ drawTypes = [
   "A card from the bottom of the deck."
 ];
 
-window.DECK = [
-    {
-      deckname: "The 90s Internet",
-      cards: [
-        {
+window.DECK = window.DECK || [
+  {
+    deckname: "The 90s Internet",
+    cards: [
+      {
         cardname: "UNDER CONSTRUCTION",
         cardnumber: 0,
         cardmeaning: "Even if it never launched, the UNDER CONSTRUCTION sign means there is still a chance.",
@@ -23,7 +22,8 @@ window.DECK = [
           "A construction site is still capable of blooming a rose from concrete. Yes, that is a Dark Tower reference.",
           "Rapid iteration sometimes feels like perpetual under construction, doesn't it?"
         ]
-        },{
+      },
+      {
         cardname: "GUESTBOOK",
         cardnumber: 1,
         cardmeaning: "Someone left a message on your GUESTBOOK. \nYou maybe didn't see them, but they were here. Look, they left their mark.",
@@ -33,7 +33,8 @@ window.DECK = [
           "Sometimes, all you can see is the mark that someone was there. Its hard when you can't reach back, but also stop hitting refresh. There aren't any new posts yet.",
           "Sometimes, a guest is more than a guest."
         ]
-      },{
+      },
+      {
         cardname: "WEBRING",
         cardnumber: 2,
         cardmeaning: "YOU'VE JOINED A WEB RING! You are now part of something, and you belong.",
@@ -43,7 +44,8 @@ window.DECK = [
           "The best part about a webring is the niche. Suddenly, you can find more sight shaped like yours.",
           "The circle of life, amirite?"
         ]
-      },{
+      },
+      {
         cardname: "NOTEPAD CODER",
         cardnumber: 3,
         cardmeaning: "If you didn't code it in Notepad, do you even really code? The Notepad Coder says pay attention to the craftsmanship, but beware of the ego.",
@@ -53,7 +55,8 @@ window.DECK = [
           "A coder should focus on what is built, not the pretentions of the tools used to build it.",
           "The tool used definitely does not define the quality of your craft. What matters is the pride of your build."
         ]
-      },{
+      },
+      {
         cardname: "LOST PASSWORD",
         cardnumber: 4,
         cardmeaning: "You lost your password again. When you try to update it, you enter the same password you're already using. Why didn't it work? You may never know.",
@@ -63,7 +66,8 @@ window.DECK = [
           "Some doors are protecting old versions of you. You have to wonder, do you need to change it still, or merely remember?",
           "Yeah. You should just reset it this time. Typing it wrong is a sign of unalignment, I'd guess."
         ]
-      },{
+      },
+      {
         cardname: "THE DIAL-UP SOUND",
         cardnumber: 5,
         cardmeaning: "The handshake of the open door. When you hear this sound, the world has opened up to you. Where will you go first?",
@@ -74,11 +78,12 @@ window.DECK = [
           "Your search terms await you."
         ]
       }
-      ]
-    },{
-      deckname: "Color Cards",
-      cards: [
-        {
+    ]
+  },
+  {
+    deckname: "Color Cards",
+    cards: [
+      {
         cardname: "RED",
         cardnumber: 0,
         cardmeaning: "Passion, Anger, Desire, Heat, Production, Fire, Transformation",
@@ -87,7 +92,8 @@ window.DECK = [
           "Close your eyes and look at the sun through your eyelids. That is the truth of red.",
           "What do you desire? Can you take action towards it?"
         ]
-        },{
+      },
+      {
         cardname: "BLUE",
         cardnumber: 1,
         cardmeaning: "Emotion, Ease, Water, Movement, Fluidity, Depth, Imagination",
@@ -96,154 +102,111 @@ window.DECK = [
           "There is a depth of emotions inside that you hide from. Let the ocean out.",
           "Much like the sky and the sea have no true color, so does blue represent the imaginal. What is everywhere of yoou that you cannot see but is still percieved?"
         ]
-        },{
+      },
+      {
         cardname: "GREEN",
         cardnumber: 1,
         cardmeaning: "Growth, Newness, Innocence, Pre-Development, Abundance, Production",
-        bardy: [
-          "Just confused."
-        ]
-        }
-      ]
-    }
+        bardy: ["Just confused."]
+      }
+    ]
+  }
 ];
 
-// div collector
-
 const MRA001 = {
-    vencode: "MRA-001",
-    provider: "Chester's Imports",
-    toy: "Morana Arcana",
-    style: "Julie",
-    funtitle: "Fortuna Snacks",
-    info: "A quick card draw with special BARDY DOLL interpretations!",
-    funtags: [ "Game", "ROM", "Divination", "Randomizer", "Deck Reader" ]
+  vencode: "MRA-001",
+  provider: "Chester's Imports",
+  toy: "Morana Arcana",
+  style: "Julie",
+  funtitle: "Fortuna Snacks",
+  info: "A quick card draw with special BARDY DOLL interpretations!",
+  funtags: ["Game", "ROM", "Divination", "Randomizer", "Deck Reader"]
 };
 
+// per-window state
+var MRA_STATE = Object.create(null);
 
-
-
-function Draw1(){
-let cardNo = 0;
-
-  drawOne = CurrentDeck.cards[Math.floor(Math.random() * CurrentDeck.cards.length)]
-  drawStyle = drawTypes[Math.floor(Math.random() * drawTypes.length)]
-  bardyFeedback = drawOne.bardy[Math.floor(Math.random() * drawOne.bardy.length)]
-
-  Your1CardReading = "<div id='" + cardNo++ + "'>" + drawStyle + " \n-" + drawOne.cardnumber + "-\n" + drawOne.cardname + "\n\n" + drawOne.cardmeaning + "\n\nBAR-B SAYS: " + bardyFeedback;
-  console.log(Your1CardReading);
-  CardDraw.innerHTML = Your1CardReading;
+function mraDraw1(body) {
+  var st = MRA_STATE["MRA-001"];
+  if (!st || !st.deck) return;
+  var cards = st.deck.cards;
+  var drawOne = cards[Math.floor(Math.random() * cards.length)];
+  var drawStyle = drawTypes[Math.floor(Math.random() * drawTypes.length)];
+  var bardyFeedback = drawOne.bardy[Math.floor(Math.random() * drawOne.bardy.length)];
+  var html =
+    "<div>" +
+    drawStyle +
+    "\n-" +
+    drawOne.cardnumber +
+    "-\n" +
+    drawOne.cardname +
+    "\n\n" +
+    drawOne.cardmeaning +
+    "\n\nBAR-B SAYS: " +
+    bardyFeedback +
+    "</div>";
+  var slot = body.querySelector("[data-mra-carddraw]");
+  if (slot) slot.innerHTML = html;
 }
 
-function ToggleMRA001(){
-    if (loaded == true) {
-        CloseROM();
-        loaded = false;
-    } else {
-        LoadMRA001();
-    }
+function mraRandomDeck(body) {
+  var st = MRA_STATE["MRA-001"];
+  if (!st) return;
+  st.deck = DECK[Math.floor(Math.random() * DECK.length)];
+  var meta = body.querySelector("[data-mra-deckname]");
+  if (meta) meta.textContent = st.deck.deckname + " (" + st.deck.cards.length + " cards)";
 }
 
-let loaded = false;
+function buildMRA001(body) {
+  // 800×600 playfield — rom-window chrome sizes to wrap this
+  body.innerHTML =
+    '<div class="SiloROM_BaseBox" data-mra-root="1" style="width:800px;height:600px;position:relative;display:flex;flex-direction:column;box-sizing:border-box;">' +
+    '<div data-mra-deckname class="rom-meta" style="flex:0 0 auto;padding:6px 8px;"></div>' +
+    '<div class="AppControls" data-mra-controls style="flex:0 0 auto;padding:4px 8px;display:flex;flex-wrap:wrap;gap:4px;"></div>' +
+    '<div id="GameScreen" data-mra-carddraw class="CardDraw" style="flex:1 1 auto;overflow:auto;padding:8px;min-height:0;"></div>' +
+    "</div>";
 
-// load the ROM
-function LoadMRA001(){
-    loaded = true;
+  var st = { deck: DECK[Math.floor(Math.random() * DECK.length)] };
+  MRA_STATE["MRA-001"] = st;
 
-    // loading DECKS
-    // the deck builds
- const ROM_CONTENT = document.getElementById("ROM_SCREEN");
+  var meta = body.querySelector("[data-mra-deckname]");
+  if (meta) meta.textContent = st.deck.deckname + " (" + st.deck.cards.length + " cards)";
 
-    ROM_CONTENT.innerHTML = `
- <div id="ROM_CONTENT">
-  <div id="grabby">GRABBY</div>
-  <div id="SiloROM_BaseBox" class="SiloROM_BaseBox">
-    <romHeader id="romHeader">
-    </romHeader>
-    <romBar class="ROM_BAR">
-        <div id="AppControls" class="AppControls">
-        </div>
-    </romBar>
-    <romMainScreen id="GameScreen"> 
-        <div id='CardDraw'>
-        </div>
-    </romMainScreen>
-    <romFooter>
-    </romFooter>
-    </div>
-    </div>
-    `;
-
-    ROM_Header = document.getElementById("romHeader");
-    AppControls = document.getElementById("AppControls");
-
-
-    CurrentDeck = null;
-        CurrentDeck = DECK[Math.floor(Math.random() * DECK.length)];
-
-    console.log(CurrentDeck.deckname + ": " + CurrentDeck.cards.length + " Cards");
-    
-    ROM_Header.innerHTML = "<h1 id='title'>" + MRA001.toy + "</h1>";
-
-    AppControls.innerHTML = "<button class='gameBtn' onclick'RandomDeck()'>Random Deck</button>";
-    AppControls.innerHTML += "<button class='gameBtn' onclick='Draw1()'>Draw A Card</button>";
-    AppControls.innerHTML += "<button class='gameBtn'>Rules & Credits</button>";
-
-
-const handle = document.getElementById("grabby");
-const draggable = document.getElementById("ROM_CONTENT");
-
-let offsetX, offsetY;
-
-handle.addEventListener('mousedown', (e) => {
-    // Calculate the offset position
-    offsetX = e.clientX - draggable.offsetLeft;
-    offsetY = e.clientY - draggable.offsetTop;
-
-    // Add event listeners to the document for mousemove and mouseup
-    document.addEventListener('mousemove', mouseMoveHandler);
-    document.addEventListener('mouseup', mouseUpHandler);
-});
-
-function mouseMoveHandler(e) {
-    // Update the position of the draggable element
-    draggable.style.left = `${e.clientX - offsetX}px`;
-    draggable.style.top = `${e.clientY - offsetY}px`;
-    draggable.style.position = 'absolute'; // Set position to absolute
+  var controls = body.querySelector("[data-mra-controls]");
+  var b1 = document.createElement("button");
+  b1.className = "gameBtn";
+  b1.textContent = "Random Deck";
+  b1.addEventListener("click", function () {
+    mraRandomDeck(body);
+  });
+  var b2 = document.createElement("button");
+  b2.className = "gameBtn";
+  b2.textContent = "Draw A Card";
+  b2.addEventListener("click", function () {
+    mraDraw1(body);
+  });
+  var b3 = document.createElement("button");
+  b3.className = "gameBtn";
+  b3.textContent = "Rules & Credits";
+  controls.appendChild(b1);
+  controls.appendChild(b2);
+  controls.appendChild(b3);
 }
 
-function mouseUpHandler() {
-    // Remove event listeners when mouse is released
-    document.removeEventListener('mousemove', mouseMoveHandler);
-    document.removeEventListener('mouseup', mouseUpHandler);
+function ToggleMRA001() {
+  if (!window.RomHost) {
+    console.warn("RomHost missing");
+    return;
+  }
+  RomHost.toggle("MRA-001", { title: MRA001.toy + " — " + MRA001.funtitle });
 }
 
+// register builder for multi-window host
+function registerMRA001() {
+  if (!window.RomHost) {
+    setTimeout(registerMRA001, 30);
+    return;
+  }
+  RomHost.register("MRA-001", buildMRA001);
 }
-
-
-function CloseROM(){
-
-  ROM_CONTENT.innerHTML = "";
-
-}
-
-
-// quick set for testing
-//LoadROM(GameTitle);
-/*
-"MESSAGE BOARD",
-        "LOST PASSWORD",
-        "EMAIL",
-        "DEAD LINK",
-        "POP UP AD",
-        "MIRRORED SITE",
-        "CHAIN EMAIL",
-        "RABBIT HOLE",
-        "MISSING IMAGE BOX",
-        "AVATAR",
-        "USERNAME",
-        "WEBRING",
-        "USER UNKNOWN",
-        "CHAT ROOM",
-        "PERSONAL HOMEPAGE"
-    */
+registerMRA001();

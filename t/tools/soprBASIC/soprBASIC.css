@@ -1,0 +1,83 @@
+/**
+ * soprBASIC — base layout (neutral).
+ *
+ * Tokens (set on .sopr-root or form / list ancestors):
+ *   --sopr-gap, --sopr-max-width, --sopr-label-fg, --sopr-input-*, --sopr-btn-*,
+ *   --sopr-frag-border, --sopr-slug-opacity, --sopr-slug-width
+ */
+
+form {
+  --sopr-gap: 0.75rem;
+  --sopr-max-width: 40rem;
+  --sopr-label-fg: inherit;
+  --sopr-input-bg: transparent;
+  --sopr-input-fg: inherit;
+  --sopr-input-border: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+  --sopr-input-pad: 0.45rem 0.55rem;
+  --sopr-btn-bg: transparent;
+  --sopr-btn-fg: inherit;
+  --sopr-btn-border: 1px solid color-mix(in srgb, currentColor 55%, transparent);
+  --sopr-btn-pad: 0.4rem 0.85rem;
+  --sopr-frag-border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  --sopr-slug-opacity: 0.55;
+  --sopr-slug-width: 10rem;
+
+  max-width: var(--sopr-max-width);
+}
+
+form span {
+  display: block;
+  margin-bottom: var(--sopr-gap);
+}
+
+form label {
+  color: var(--sopr-label-fg);
+  font-weight: 600;
+  background: none;
+}
+
+form input,
+form textarea {
+  font: inherit;
+  color: var(--sopr-input-fg);
+  background: var(--sopr-input-bg);
+  border: var(--sopr-input-border);
+  padding: var(--sopr-input-pad);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0.25rem 0 0;
+}
+
+form button {
+  font: inherit;
+  color: var(--sopr-btn-fg);
+  background: var(--sopr-btn-bg);
+  border: var(--sopr-btn-border);
+  padding: var(--sopr-btn-pad);
+  margin: 0.35rem 0.35rem 0 0;
+  cursor: pointer;
+}
+
+.soper_frag {
+  display: grid;
+  grid-template-columns: var(--sopr-slug-width) 1fr;
+  gap: 0.75rem;
+  margin: 0.6rem 0;
+  padding-top: 0.45rem;
+  border-top: var(--sopr-frag-border);
+  width: auto;
+  max-width: var(--sopr-max-width, 40rem);
+}
+
+.soper_frag .slug {
+  font-size: 0.75rem;
+  opacity: var(--sopr-slug-opacity);
+  text-transform: uppercase;
+  background: none;
+}
+
+.soper_frag .content {
+  line-height: 1.45;
+  margin: 0;
+}

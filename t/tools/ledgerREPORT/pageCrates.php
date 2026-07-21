@@ -55,10 +55,5 @@ try {
   </table>
 <?php endif; ?>
 </section>
-<style>
-.ledger-report { max-width: 56rem; }
-.ledger-report .muted { opacity: 0.75; font-size: 0.9rem; }
-.ledger-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-.ledger-table th, .ledger-table td { border-bottom: 1px solid #2a4a38; padding: 0.4rem 0.5rem; text-align: left; vertical-align: top; }
-.ledger-table code { font-size: 0.8em; }
-</style>
+<!-- styles: t/tools/ledgerREPORT/ledgerREPORT.css via getTool loadTool_Style -->
+

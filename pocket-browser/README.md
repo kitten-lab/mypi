@@ -15,8 +15,11 @@ Optional shortcut later: desktop `.bat` that runs the same.
 ## Needs
 
 - Apache/XAMPP running  
-- Hosts: `starline`, `book`, `b`, `go.edn`, …  
-- Junction: `htdocs\my-pocket-internet` → `Builds\my-pocket-internet`
+- **One host only for daily use:** `b` → DocumentRoot `…/b` (see `docs/B-FRONT.md`)  
+- Junction: `htdocs\my-pocket-internet` → `Builds\my-pocket-internet`  
+- Do **not** add a hosts line per new surface — open `http://b/{sys}/…` (pocket chrome hides the host leadline; title is path-only)
+
+Optional: `go.edn` stays a separate stack if you still open Terminal IO that way.
 
 ## Git note
 

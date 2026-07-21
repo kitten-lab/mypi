@@ -1,0 +1,82 @@
+/**
+ * chatBOX — base layout (neutral).
+ *
+ * Tokens:
+ *   --chat-gap, --chat-max-width, --chat-input-*, --chat-btn-*,
+ *   --chat-slug-border, --chat-time-opacity, --chat-user-weight
+ */
+
+form {
+  --chat-gap: 0.75rem;
+  --chat-max-width: 36rem;
+  --chat-input-bg: transparent;
+  --chat-input-fg: inherit;
+  --chat-input-border: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+  --chat-input-pad: 0.45rem 0.55rem;
+  --chat-btn-bg: transparent;
+  --chat-btn-fg: inherit;
+  --chat-btn-border: 1px solid color-mix(in srgb, currentColor 55%, transparent);
+  --chat-btn-pad: 0.4rem 0.85rem;
+  --chat-slug-border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  --chat-time-opacity: 0.45;
+  --chat-user-weight: 600;
+
+  max-width: var(--chat-max-width);
+}
+
+form span {
+  display: block;
+  margin-bottom: var(--chat-gap);
+}
+
+form label {
+  font-weight: 600;
+  background: none;
+}
+
+form input,
+form textarea {
+  font: inherit;
+  color: var(--chat-input-fg);
+  background: var(--chat-input-bg);
+  border: var(--chat-input-border);
+  padding: var(--chat-input-pad);
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0.25rem 0 0;
+}
+
+form button {
+  font: inherit;
+  color: var(--chat-btn-fg);
+  background: var(--chat-btn-bg);
+  border: var(--chat-btn-border);
+  padding: var(--chat-btn-pad);
+  margin: 0.35rem 0.35rem 0 0;
+  cursor: pointer;
+}
+
+.chat-slug {
+  border: var(--chat-slug-border);
+  padding: 0.45rem 0.55rem;
+  margin: 0.4rem 0;
+  max-width: var(--chat-max-width, 36rem);
+}
+
+.chat-time {
+  font-size: 0.7rem;
+  opacity: var(--chat-time-opacity);
+  margin: 0.25rem 0 0;
+}
+
+.user-display {
+  font-weight: var(--chat-user-weight);
+  font-size: 1.05em;
+}
+
+.chat-content {
+  font-size: 0.95em;
+  line-height: 1.4;
+  font-style: normal;
+  margin-top: 0.25rem;
+}

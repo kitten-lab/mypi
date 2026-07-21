@@ -1,50 +1,52 @@
-<?php 
-require_once ROUTE_TO_SYSTEMS . 'Borrows/parsedown/Parsedown.php'; 
-require_once ROUTE_TO_SYSTEMS . 'shadowENVO.php';
+<?php
+/**
+ * sopr fragments for this place, grouped by section (topic).
+ */
+require_once ROUTE_TO_SYSTEMS . 'ledger/Ledger.php';
+require_once ROUTE_TO_SYSTEMS . 'Borrows/parsedown/Parsedown.php';
 
-require_once __DIR__ . '/-SIG-soprBASIC.php'; // ASSISTANT SETTINGS
-require_once __DIR__ . '/-CRATE-soprBASIC.php'; // CRATE FILLER SETTINGS
-
-
-// SHADOW ENVIRONMENT SETTINGS AND OVERLAY
-$IS_IT = SHADOW_TOGGLE;
-
-if ($IS_IT == true) {
-  echo "<div class='sha_env'>shadow mode on</div>";
+$place = mypi_ledger_place_from_sky();
+$rows = [];
+$err = null;
+try {
+    $rows = mypi_ledger_list([
+        'sys' => $place['sys'],
+        'dom' => $place['dom'],
+        'room' => $place['room'],
+        'kind' => 'soper',
+        'tool' => 'soprBASIC',
+        'order' => 'desc',
+        'limit' => 120,
+    ]);
+} catch (Throwable $e) {
+    $err = $e->getMessage();
 }
 
-$CHEST = ROUTE_TO_LOCALSTORE . DOM_SLUG . '-' . ROOM_SLUG . '.sopr.frags.json';    
-  
-
-
-if(file_exists($CHEST)) {
-    $CHEST_THINGS = json_decode(file_get_contents($CHEST), true);
-        $Parsedown = new Parsedown();
-
-foreach ($CHEST_THINGS as $CRATE) {
-  foreach ($CRATE as $TIMBER) {
-            echo "<h3>" . $TIMBER['LABEL'] . "</h3>";
-    foreach ($TIMBER['SOPERS'] as $SOPR){
-        echo "<div class='soper_frag'>";
-        echo "<div class='slug'>" . $SOPR['ID'] . "<br>" . $SOPR['METADATA']['ADDED'];
-        echo "</div>"; 
-        echo "<div class='content'>" . $Parsedown->text($SOPR['FRAG']);
-                
-            foreach ($SOPR['METADATA']['TAGS'] as $TAG => $SUBTAG){
-              foreach ($SUBTAG as $TAG2 => $TAG3) {
-                echo "<pre>" . $TAG . " > " . $TAG2 . " > ";
-                foreach ($TAG3 as $T3) {
-                echo $T3 . "; ";
-                }
-                echo "</pre>";
-              }
-            }
-
-        echo "</div>"; 
-        echo "</div>"; 
-    }          
-  } 
+$Parsedown = new Parsedown();
+$bySection = [];
+foreach ($rows as $r) {
+    $meta = json_decode($r['meta_json'] ?? '{}', true) ?: [];
+    $sec = $meta['section'] ?? ($r['topic'] !== '' ? $r['topic'] : 'loose');
+    $bySection[$sec][] = $r;
 }
-} else { 
-    echo "No fragments found."; 
-    }
+?>
+<section class="sopr-list">
+<?php if ($err): ?>
+  <p class="err"><?= htmlspecialchars($err, ENT_QUOTES, 'UTF-8') ?></p>
+<?php elseif (!$bySection): ?>
+  <p class="muted">No fragments yet (ledger).</p>
+<?php else: ?>
+  <?php foreach ($bySection as $label => $items): ?>
+    <h3><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?></h3>
+    <?php foreach ($items as $SOPR):
+        $unix = (int) ($SOPR['event_unix'] ?: $SOPR['ingest_unix']);
+        $when = date('m/d/y H:i', $unix);
+    ?>
+      <div class="soper_frag">
+        <div class="slug"><?= htmlspecialchars($SOPR['c_uid'], ENT_QUOTES, 'UTF-8') ?><br><?= htmlspecialchars($when, ENT_QUOTES, 'UTF-8') ?></div>
+        <div class="content"><?= $Parsedown->text($SOPR['body'] ?? '') ?></div>
+      </div>
+    <?php endforeach; ?>
+  <?php endforeach; ?>
+<?php endif; ?>
+</section>

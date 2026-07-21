@@ -101,9 +101,5 @@ try {
   <?php endif; ?>
 <?php endif; ?>
 </section>
-<style>
-.ledger-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
-.ledger-table th, .ledger-table td { border-bottom: 1px solid #2a4a38; padding: 0.4rem 0.5rem; text-align: left; }
-.ledger-table tr.sel { background: #143314; }
-.muted { opacity: 0.7; font-size: 0.9rem; }
-</style>
+<!-- styles: t/tools/ledgerREPORT/ledgerREPORT.css via getTool loadTool_Style -->
+

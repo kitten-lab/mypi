@@ -78,63 +78,50 @@
 <body>
   <h1>Pocket Internet</h1>
   <p class="sub">
-    Your XAMPP world. No browser chrome from someone else —
-    just doors into Surfaces that are already running.
+    One host under the hood: <code>b</code> · path <code>/{sys}/…</code>.
+    No new fake domains. Pocket title bar hides the host leadline (path only).
   </p>
   <div class="grid">
-    <a class="door" href="http://starline/news/headlines">
+    <a class="door" href="http://b/www/lab/home">
+      <strong>WWW · Tool Lab</strong>
+      <span>/www/lab/home — pretend site · all tool tests</span>
+    </a>
+    <a class="door" href="http://b/www/danyi/index">
+      <strong>WWW · danyi.com</strong>
+      <span>/www/danyi/index — restored DEMO rooms (not a remake)</span>
+    </a>
+    <a class="door" href="http://b/starline/news/headlines">
       <strong>Starline · News</strong>
-      <span>post headlines → ledger</span>
+      <span>/starline/news/headlines</span>
     </a>
-    <a class="door" href="http://starline/chester/crates">
+    <a class="door" href="http://b/starline/chester/crates">
       <strong>Starline · Crates</strong>
-      <span>CHESTER report — all crates</span>
+      <span>/starline/chester/crates</span>
     </a>
-    <a class="door" href="http://starline/charlie/threads">
+    <a class="door" href="http://b/starline/charlie/threads">
       <strong>Starline · Charlie</strong>
-      <span>gravity + this*rel&gt;that edges</span>
+      <span>/starline/charlie/threads</span>
     </a>
-    <a class="door" href="http://starline/satora/shelves">
+    <a class="door" href="http://b/starline/satora/shelves">
       <strong>Starline · TPS</strong>
-      <span>SATORA time windows</span>
+      <span>/starline/satora/shelves</span>
     </a>
-    <a class="door" href="http://starline/">
-      <strong>Starline (home → News)</strong>
-      <span>http://starline/ — redirects to headlines</span>
-    </a>
-    <a class="door" href="http://book/">
-      <strong>Book</strong>
-      <span>http://book/ — fragment sheets</span>
+    <a class="door" href="http://b/book/terminal_girls/oriel">
+      <strong>Book · Oriel</strong>
+      <span>/book/terminal_girls/oriel</span>
     </a>
     <a class="door" href="http://b/">
-      <strong>Port b</strong>
-      <span>http://b/ — surface index</span>
-    </a>
-    <a class="door" href="http://backrooms/">
-      <strong>Backrooms</strong>
-      <span>http://backrooms/</span>
-    </a>
-    <a class="door" href="http://nim/">
-      <strong>Nim</strong>
-      <span>http://nim/</span>
-    </a>
-    <a class="door" href="http://go.edn/">
-      <strong>EDN (go.edn)</strong>
-      <span>Endless Door Network root</span>
+      <strong>Port b index</strong>
+      <span>list all SYS folders</span>
     </a>
     <a class="door" href="http://go.edn/Terminal/IO/">
-      <strong>Terminal IO</strong>
-      <span>go.edn — redact / import station</span>
-    </a>
-    <a class="door" href="http://go.edn/Destinations/Skyline/">
-      <strong>EDN Skyline</strong>
-      <span>Destinations / Bureau</span>
+      <strong>EDN Terminal IO</strong>
+      <span>separate stack (go.edn)</span>
     </a>
   </div>
   <p class="note">
-    Needs Apache up and mypi junction at
-    <code>htdocs/my-pocket-internet → Builds/my-pocket-internet</code>.
-    Menu: Home returns here. This is a gate, not the whole OS.
+    Needs Apache + host <code>b</code> → DocumentRoot <code>…/b</code>.
+    Junction: htdocs/my-pocket-internet → Builds/my-pocket-internet.
   </p>
 </body>
 </html>

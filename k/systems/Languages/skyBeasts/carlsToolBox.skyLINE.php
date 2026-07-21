@@ -5,49 +5,85 @@
 // so intellesense doesn't recognize its form. It does exist.
 
 function getTool(string $tool, string $function) {
-  $GLOBALS['GETS']['set'][] = function() use ($tool, $function) { 
+  $GLOBALS['GETS']['set'][] = function () use ($tool, $function) {
     getToolNIM($tool, 'page', $function);
-    };
-  $GLOBALS['GETS']['actor'][] = function() use ($tool, $function) {
-    getToolNIM($tool, 'actor', $function);
-    };
-  $GLOBALS['GETS']['scripts'][] = function() use ($tool, $function) {
-    getToolNIM($tool, 'script', $function);
-
-    };
-    $GLOBALS['GETS']['dressing'][] = function() use ($tool) {
-      loadTool_Style($tool);
-    };
+  };
+  $GLOBALS['GETS']['actor'][] = function () use ($tool, $function) {
+    getToolNIM($tool, 'actor', $function, true); // silent if no actor (view-only tools)
+  };
+  $GLOBALS['GETS']['scripts'][] = function () use ($tool, $function) {
+    getToolNIM($tool, 'script', $function, true); // silent if no script
+  };
+  $GLOBALS['GETS']['dressing'][] = function () use ($tool) {
+    loadTool_Style($tool);
+  };
 }
 
-
-function getToolNIM(string $tool, string $set, string $function){
-    $file = echoSONAR . "t/tools/" . $tool . "/" . $set . $function . ".php";
-    if (is_file($file)) {
+/**
+ * @param bool $optional  if true, missing file is not a console warning (page views often have no actor)
+ */
+function getToolNIM(string $tool, string $set, string $function, bool $optional = false) {
+  $file = echoSONAR . 't/tools/' . $tool . '/' . $set . $function . '.php';
+  if (is_file($file)) {
     loadTool($tool, $set, $function);
-    } else {
-        Console_Log_Warning($tool . " " . $function . " " . $set . ": Not found. Is it even an Error?");
-        Console_Log_Note("[ NOTE TO SELF ] Adapt error checking later to ensure we don\'t spit errors out for intentionally missing elements.");
-    }
+  } elseif (!$optional) {
+    Console_Log_Warning($tool . ' ' . $function . ' ' . $set . ': Not found. Is it even an Error?');
+    Console_Log_Note("[ NOTE TO SELF ] Adapt error checking later to ensure we don\\'t spit errors out for intentionally missing elements.");
+  }
 }
-
 
 function loadTool_Style(string $tool) {
-    $path = $tool . '/' . $tool . ".css";
-    $full = echoSONAR . "t" . $path;
+  $dir = echoSONAR . 't/tools/' . $tool . '/';
+  if (!is_dir($dir)) {
+    Console_Log_Warning($tool . ' MINOR ERROR: tool folder missing for styles');
+    return;
+  }
+
+  // Prefer exact match, then case variants (ChatBOX.css vs chatBOX.css)
+  $candidates = [
+    $tool . '.css',
+    strtolower($tool) . '.css',
+    strtoupper($tool) . '.css',
+    // historical capitalizations
+    'ChatBOX.css',
+    'cuBOOK.css',
+  ];
+
+  $found = null;
+  $foundName = null;
+  foreach ($candidates as $name) {
+    $full = $dir . $name;
     if (is_file($full)) {
-         echo '<link rel="stylesheet" type="text/css" href="' . T_ROUTE . $path . '">';
-         } else {
-            Console_Log_Warning($tool . " MINOR ERROR: Style MISSING FROM: " . $tool . " " . $path );
-         }
+      $found = $full;
+      $foundName = $name;
+      break;
+    }
+  }
+
+  // last resort: first *.css in the tool folder
+  if (!$found) {
+    foreach (glob($dir . '*.css') ?: [] as $cssFile) {
+      $found = $cssFile;
+      $foundName = basename($cssFile);
+      break;
+    }
+  }
+
+  if ($found) {
+    // Inline so pocket browser does not depend on host `t` (same as kittens/toys)
+    $css = file_get_contents($found);
+    echo '<!-- tool style ' . htmlspecialchars($tool . '/' . $foundName, ENT_QUOTES, 'UTF-8') . ' (inline) -->' . "\n";
+    echo "<style>\n" . $css . "\n</style>\n";
+  } else {
+    Console_Log_Warning($tool . ' MINOR ERROR: Style MISSING FROM: t/tools/' . $tool . '/');
+  }
 }
 
-
-    function loadTool(string $tool, string $type, string $function) {
-        $result = echoSONAR . 't/tools/' . $tool . '/' . $type . $function . '.php';
-        if (is_file($result)) {
-            include $result;
-        } else {
-            KDE_Error_Logger("KDE! Tool file not found. " . $result, "");
-        }  
-    }
+function loadTool(string $tool, string $type, string $function) {
+  $result = echoSONAR . 't/tools/' . $tool . '/' . $type . $function . '.php';
+  if (is_file($result)) {
+    include $result;
+  } else {
+    KDE_Error_Logger('KDE! Tool file not found. ' . $result, '');
+  }
+}

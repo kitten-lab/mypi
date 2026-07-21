@@ -1,38 +1,34 @@
-<?php 
-require_once ROUTE_TO_SYSTEMS . 'wireWORDS.php'; // CHEST CRATING SYSTEM
-require_once __DIR__ . '/-SIG-chatBOX.php'; // ASSISTANT SETTINGS
+<?php
+require_once __DIR__ . '/-SIG-chatBOX.php';
+require_once ROUTE_TO_SYSTEMS . 'wireWORDS.php';
 
-getFIG("chatBOX", "ChatBox");
-global $mySIGFIG; 
+getFIG('chatBOX', 'ChatBox');
+global $mySIGFIG;
 
+// stick to active session from query when posting
+$activeSession = isset($_GET['session']) ? preg_replace('/[^a-z0-9._-]+/i', '-', (string) $_GET['session']) : 'live';
+if ($activeSession === '') {
+    $activeSession = 'live';
+}
 ?>
-
-<!-- Load jQuery and jQuery UI -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-
-<!-- Wire Form Elements -->
-<form method="POST" action="">
- 
-<?php wireINPUT('username', true, true); ?><br><br>
-<?php wireTEXTAREA('message', true, true); ?><br><br>
-<input type="hidden" name="POST__TZ" id="tz-input">
-<input type="hidden" name="POST__EVENT_UNIX">
-<input type="hidden" name="POST__TAGS" value="$chattag">
-
-
-<button type="submit">Submit</button> 
-<button type="reset">Reset Form</button>
-
+<form method="POST" action="" class="chatbox-form">
+  <?php wireINPUT('username', true, true); ?><br>
+  <?php wireTEXTAREA('message', true, true); ?><br>
+  <?php wireINPUT('chat_session', true, false); ?><br>
+  <?php wireINPUT('chat_session_label', true, false); ?><br>
+  <input type="hidden" name="POST__TZ" id="tz-input">
+  <input type="hidden" name="POST__EVENT_UNIX">
+  <button type="submit">Say it</button>
+  <button type="reset">Reset</button>
+  <?php if (!empty($GLOBALS['CHATBOX_CONFIRM'])): ?>
+    <p class="chatbox-confirm"><strong><?= htmlspecialchars($GLOBALS['CHATBOX_CONFIRM'], ENT_QUOTES, 'UTF-8') ?></strong></p>
+  <?php endif; ?>
 </form>
-<!-- end form section -->
-
-<?php 
-  $scripts = (string)ROUTE_TO_SYSTEMS;
-  include $scripts . 'NIM/localSTORE.php';
-?>
-
 <script>
-  document.getElementById('tz-input').value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+(function () {
+  var tz = document.getElementById('tz-input');
+  if (tz) tz.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  var sess = document.querySelector('input[name="chat_session"]');
+  if (sess && !sess.value) sess.value = <?= json_encode($activeSession) ?>;
+})();
 </script>

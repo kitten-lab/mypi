@@ -31,10 +31,16 @@ function shelf(string $shelf_name){
 >');
 }
 
-function ROM_SCREEN(){
- skylite('<ROM_SCREEN id="ROM_SCREEN" class="ROM_SCREEN">
- 
- </ROM_SCREEN>');
+// ROM_SCREEN lives in skyBeasts/romStage.skyLINE.php (multi-window stage).
+// Keep a thin alias only if romStage failed to load.
+if (!function_exists('ROM_SCREEN')) {
+    function ROM_SCREEN() {
+        if (function_exists('romStage')) {
+            romStage();
+            return;
+        }
+        skylite('<div id="ROM_SCREEN" class="ROM_SCREEN"></div>');
+    }
 }
 
 function close_shelf(){
