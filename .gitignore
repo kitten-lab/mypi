@@ -459,7 +459,7 @@ t/tools/foresterSEARCH/parsedown/equip.parsedown.php
 t/tools/foresterSEARCH/parsedown/Parsedown.php
 plan.md
 
-# mypi ledger live DB
+# mypi ledger live DB (schema in ledger/schema.sql + k/systems/ledger)
 d/_LEDGER/*.sqlite
 d/_LEDGER/*.sqlite-wal
 d/_LEDGER/*.sqlite-shm

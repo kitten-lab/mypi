@@ -1,6 +1,8 @@
 <?php
-$ENV = "ROSEWOOD8";
-
+// Machine name for local dev (was ROSEWOOD8 on old laptop; this box is COMMANDCENTER9).
+// Online/public is optional — this tool is for you first.
+global $ENV;
+$ENV = "COMMANDCENTER9";
 date_default_timezone_set("America/New_York");
 
 // SET ROUTE LINE JUNCTION POINTS 

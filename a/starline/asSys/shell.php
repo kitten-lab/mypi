@@ -38,7 +38,7 @@
 if (window.location.pathname === '/' &&
     !window.location.search
 ) {
-  window.location.replace("/offices/frontDesk");
+  window.location.replace("/news/headlines");
   }
 console.log("%cLAUNCHING THE SILO.....","background-color:blue;padding:10px;font-weight:600");
 </script>

@@ -27,7 +27,14 @@ global $mySIGFIG;
 <button type="submit">Submit</button> 
 <button type="reset">Reset Form</button>
 
+<?php if (!empty($GLOBALS['POSTBASIC_CONFIRM'])): ?>
+  <p class="postbasic-confirm"><strong><?= htmlspecialchars($GLOBALS['POSTBASIC_CONFIRM']) ?></strong></p>
+<?php elseif ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+  <p class="postbasic-confirm"><strong>POSTED (check list below / ledger)</strong></p>
+<?php endif; ?>
+
 </form>
+
 <!-- end form section -->
 
 <script>

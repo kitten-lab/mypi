@@ -1,15 +1,16 @@
-<?php // new naming migration //
-
-define('WORLD_ID', 'starline');
-define('WORLD_TAG', "THE BEYOND BEGINS HERE");
-define('BLOCK_ID', 'starline');
-define('BLOCK_URI', 'starline');
+<?php
+// Cosmology: SYS starline. Compat aliases WORLD_/BLOCK_ until rename pass.
+define('SYS_ID', 'starline');
+define('SYS_TAG', 'THE BEYOND BEGINS HERE');
+define('WORLD_ID', SYS_ID);
+define('WORLD_TAG', SYS_TAG);
+define('BLOCK_ID', SYS_ID);
+define('BLOCK_URI', SYS_ID);
 
 global $SITE;
-// in-phase-out
 $GLOBALS['SITE'] = BLOCK_ID;
-$GLOBALS[$SITE]['SYS'] = WORLD_ID;
-$GLOBALS[$SITE]['SYS_SLUG'] = WORLD_ID;
-$GLOBALS[$SITE]['SYS_DISPLAY'] = WORLD_TAG;
+$GLOBALS[$SITE]['SYS'] = SYS_ID;
+$GLOBALS[$SITE]['SYS_SLUG'] = SYS_ID;
+$GLOBALS[$SITE]['SYS_DISPLAY'] = SYS_TAG;
 $GLOBALS[$SITE]['URI'] = BLOCK_URI;
 ?>

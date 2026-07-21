@@ -5,7 +5,7 @@ function SKY_JUNCTION($letter){
     $localJUNCTION = 'http://'; //localhost
     $globalJUNCTION = 'imported.to'; //live serving centers
   
-  if ($ENV === "ROSEWOOD8") {
+  if (function_exists('mypi_env_is_local') ? mypi_env_is_local($ENV ?? '') : in_array($ENV ?? '', ['COMMANDCENTER9', 'ROSEWOOD8', 'LOCAL'], true)) {
 
     define($letter . '_root', $localJUNCTION . $letter);
     define(strtoupper($letter) . '_ROUTE', $localJUNCTION . $letter);

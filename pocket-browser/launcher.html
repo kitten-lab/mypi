@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>mypi — pocket gate</title>
+  <style>
+    :root {
+      --bg: #0a100e;
+      --panel: #121c18;
+      --ink: #b8e0c8;
+      --dim: #5a8a6a;
+      --accent: #3dcf7a;
+      --line: #2a4a38;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: radial-gradient(ellipse at top, #15241c 0%, var(--bg) 55%);
+      color: var(--ink);
+      padding: 2.5rem 1.5rem 3rem;
+    }
+    h1 {
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.35rem;
+    }
+    .sub {
+      color: var(--dim);
+      font-size: 0.95rem;
+      max-width: 36rem;
+      line-height: 1.45;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: grid;
+      gap: 0.75rem;
+      max-width: 28rem;
+    }
+    a.door {
+      display: block;
+      padding: 0.9rem 1.1rem;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--ink);
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    a.door:hover {
+      border-color: var(--accent);
+      background: #162820;
+    }
+    a.door strong {
+      display: block;
+      color: var(--accent);
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+    a.door span {
+      font-size: 0.8rem;
+      color: var(--dim);
+    }
+    .note {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: var(--dim);
+      max-width: 28rem;
+      line-height: 1.4;
+    }
+    code { color: #8fd4a8; }
+  </style>
+</head>
+<body>
+  <h1>Pocket Internet</h1>
+  <p class="sub">
+    Your XAMPP world. No browser chrome from someone else —
+    just doors into Surfaces that are already running.
+  </p>
+  <div class="grid">
+    <a class="door" href="http://starline/news/headlines">
+      <strong>Starline · News</strong>
+      <span>http://starline/news/headlines — ledger headlines</span>
+    </a>
+    <a class="door" href="http://starline/">
+      <strong>Starline (home → News)</strong>
+      <span>http://starline/ — redirects to headlines</span>
+    </a>
+    <a class="door" href="http://book/">
+      <strong>Book</strong>
+      <span>http://book/ — fragment sheets</span>
+    </a>
+    <a class="door" href="http://b/">
+      <strong>Port b</strong>
+      <span>http://b/ — surface index</span>
+    </a>
+    <a class="door" href="http://backrooms/">
+      <strong>Backrooms</strong>
+      <span>http://backrooms/</span>
+    </a>
+    <a class="door" href="http://nim/">
+      <strong>Nim</strong>
+      <span>http://nim/</span>
+    </a>
+    <a class="door" href="http://go.edn/">
+      <strong>EDN (go.edn)</strong>
+      <span>Endless Door Network root</span>
+    </a>
+    <a class="door" href="http://go.edn/Terminal/IO/">
+      <strong>Terminal IO</strong>
+      <span>go.edn — redact / import station</span>
+    </a>
+    <a class="door" href="http://go.edn/Destinations/Skyline/">
+      <strong>EDN Skyline</strong>
+      <span>Destinations / Bureau</span>
+    </a>
+  </div>
+  <p class="note">
+    Needs Apache up and mypi junction at
+    <code>htdocs/my-pocket-internet → Builds/my-pocket-internet</code>.
+    Menu: Home returns here. This is a gate, not the whole OS.
+  </p>
+</body>
+</html>
