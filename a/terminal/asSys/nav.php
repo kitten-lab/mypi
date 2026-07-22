@@ -22,6 +22,7 @@ $h = function ($d, $key) {
 
 $treeIo = [
     ['key' => 'import', 'label' => 'IMPORT'],
+    ['key' => 'exports', 'label' => 'EXPORTS'],
     ['key' => 'files', 'label' => 'FILES'],
     ['key' => 'email', 'label' => 'E-MAIL'],
     ['key' => 'chat', 'label' => 'CHAT'],
@@ -58,7 +59,7 @@ $treeIo = [
           </li>
         <?php endforeach; ?>
       </ul>
-      <p class="tm-nav-whisper">use the rail to leave · X / OUT</p>
+      <p class="tm-nav-whisper">import · exports · use the rail to leave</p>
     <?php endif; ?>
   </nav>
 </div>

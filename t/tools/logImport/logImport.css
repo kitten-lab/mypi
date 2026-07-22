@@ -148,48 +148,118 @@
   display: none;
 }
 
-.logimport-seg-list {
-  border: var(--li-border);
-  padding: 0.45rem 0.55rem;
-  margin-bottom: 0.65rem;
-  background: rgba(0, 0, 0, 0.15);
-}
-
-.logimport-seg-row {
+/* Scissors bar + part title — not sticky (stacking made titles unreadable) */
+.logimport-seg-head {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
   align-items: center;
-  margin: 0.3rem 0;
+  gap: 0.4rem 0.55rem;
+  margin: 0.85rem 0 0.35rem;
+  padding: 0.4rem 0.5rem;
+  border-left: 2px solid currentColor;
+  /* solid-ish fill so text stays crisp in the thread */
+  background: #0c140c;
+  border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  border-left-width: 3px;
+  position: relative;
+  z-index: 1;
 }
 
-.logimport-seg-range {
-  font-size: 0.75rem;
-  opacity: 0.6;
-  min-width: 5rem;
-  font-variant-numeric: tabular-nums;
+.logimport-seg-scissors {
+  flex: 0 0 auto;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1;
 }
 
 .logimport-seg-title {
-  flex: 1 1 10rem;
+  flex: 1 1 8rem;
   min-width: 0;
   font: inherit;
   font-size: 0.9rem;
+  letter-spacing: 0.02em;
   color: inherit;
-  background: rgba(0, 0, 0, 0.3);
-  border: var(--li-border);
-  padding: 0.25rem 0.4rem;
+  background: #060a06;
+  border: 1px solid color-mix(in srgb, currentColor 40%, transparent);
+  padding: 0.3rem 0.45rem;
 }
 
-.logimport-seg-head {
-  margin: 0.85rem 0 0.35rem;
-  padding: 0.35rem 0.45rem;
-  border-left: 2px solid currentColor;
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
+.logimport-subh {
+  margin: 1rem 0 0.35rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  opacity: 0.85;
-  background: color-mix(in srgb, currentColor 8%, transparent);
+  opacity: 0.65;
+  font-weight: 400;
+}
+
+.logimport-wips {
+  margin: 0.75rem 0 1rem;
+  padding: 0.45rem 0.55rem 0.55rem;
+  border: var(--li-border);
+  background: #0a100a;
+}
+
+.logimport-wip-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.logimport-wip-ul li {
+  margin: 0.35rem 0;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.logimport-wip-ul li:last-child {
+  border-bottom: none;
+}
+
+.logimport-wip-ul a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logimport-wip-ul a:hover {
+  text-decoration: underline;
+}
+
+.logimport-wip-ul li.is-on {
+  border-left: 2px solid currentColor;
+  padding-left: 0.4rem;
+}
+
+.logimport-wip-when {
+  margin-left: 0.35rem;
+}
+
+.logimport-wip-note {
+  margin-top: 0.15rem;
+  opacity: 0.5;
+  font-size: 0.75rem;
+}
+
+/* terminal-io skin can override if needed */
+body.terminal-skin-io .logimport-seg-head {
+  background: #0a160a;
+}
+body.terminal-skin-io .logimport-seg-title {
+  background: #050c05;
+}
+body.terminal-skin-base .logimport-seg-head {
+  background: #12141a;
+}
+body.terminal-skin-base .logimport-seg-title {
+  background: #0a0c10;
+}
+
+.logimport-seg-range {
+  flex: 0 0 auto;
+  font-size: 0.7rem;
+  opacity: 0.55;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
 }
 
 .logimport-cut-row {

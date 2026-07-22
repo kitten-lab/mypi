@@ -1,8 +1,7 @@
 <?php
 /**
  * logImport · Desk — load tree-core, view, notes, hand-split segments.
- * getTool('logImport', 'Desk');
- *
+ * One form for titles + cuts so names survive every split.
  * Glass never modified. WIP → z/logs/tree_cores/wip/
  */
 require_once __DIR__ . '/logImport_lib.php';
@@ -54,6 +53,7 @@ $self = htmlspecialchars(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) 
 $nCores = is_array($catalog) ? (int) ($catalog['n_cores'] ?? 0) : 0;
 $nSeg = count($segments);
 $faceVal = $core ? (string) $core['face_id'] : '';
+$wipList = logimport_list_wips();
 ?>
 <div class="logimport">
   <p class="logimport-lede">
@@ -86,10 +86,45 @@ $faceVal = $core ? (string) $core['face_id'] : '';
     </p>
   <?php endif; ?>
 
+  <?php /* Always show WIPs on the import desk (any cores you've touched) */ ?>
+  <section class="logimport-wips" id="li-wips">
+    <h3 class="logimport-subh">WIPs</h3>
+    <?php if (!$wipList): ?>
+      <p class="logimport-meta">none yet · load a core, cut or note, save wip</p>
+    <?php else: ?>
+      <ul class="logimport-wip-ul">
+        <?php foreach ($wipList as $w):
+            $title = $w['yard_title'] !== '' ? $w['yard_title'] : ($w['glass_title'] !== '' ? $w['glass_title'] : 'untitled');
+            $href = $self . '?face=' . rawurlencode($w['face_id']);
+            $on = ($faceVal !== '' && $faceVal === $w['face_id']);
+            ?>
+          <li class="<?= $on ? 'is-on' : '' ?>">
+            <a href="<?= htmlspecialchars($href, ENT_QUOTES, 'UTF-8') ?>">
+              <strong><?= htmlspecialchars($w['face_id'], ENT_QUOTES, 'UTF-8') ?></strong>
+              <?php if ($w['testament_tag'] !== ''): ?>
+                <span class="logimport-meta">[<?= htmlspecialchars($w['testament_tag'], ENT_QUOTES, 'UTF-8') ?>]</span>
+              <?php endif; ?>
+              · <?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?>
+              <?php if ($w['n_segments'] > 0): ?>
+                <span class="logimport-meta"> · <?= (int) $w['n_segments'] ?> parts</span>
+              <?php endif; ?>
+            </a>
+            <?php if ($w['saved_at']): ?>
+              <span class="logimport-meta logimport-wip-when"><?= htmlspecialchars(date('m/d H:i', $w['saved_at']), ENT_QUOTES, 'UTF-8') ?></span>
+            <?php endif; ?>
+            <?php if ($w['notes_preview'] !== ''): ?>
+              <div class="logimport-meta logimport-wip-note"><?= htmlspecialchars($w['notes_preview'], ENT_QUOTES, 'UTF-8') ?></div>
+            <?php endif; ?>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+    <?php endif; ?>
+  </section>
+
   <?php if ($err): ?>
     <p class="logimport-status" style="opacity:1"><?= htmlspecialchars((string) $err, ENT_QUOTES, 'UTF-8') ?></p>
   <?php elseif ($splitOk): ?>
-    <p class="logimport-status">cut placed · <?= (int) $nSeg ?> segment(s)</p>
+    <p class="logimport-status">cut placed · <?= (int) max(1, $nSeg) ?> segment(s) · names kept</p>
   <?php elseif ($unsplitOk): ?>
     <p class="logimport-status">cut removed</p>
   <?php elseif ($clearOk): ?>
@@ -110,23 +145,8 @@ $faceVal = $core ? (string) $core['face_id'] : '';
       · glass <em><?= htmlspecialchars((string) ($core['title'] ?? ''), ENT_QUOTES, 'UTF-8') ?></em>
     </p>
 
-    <?php if ($nSeg > 0): ?>
-      <div class="logimport-seg-list">
-        <p class="logimport-meta">segments (titles save with wip)</p>
-        <?php foreach ($segments as $si => $seg): ?>
-          <div class="logimport-seg-row">
-            <span class="logimport-seg-range">#<?= (int) $seg['from_seq'] ?>–#<?= (int) $seg['to_seq'] ?></span>
-            <input type="text" form="li_main" name="seg_title[<?= (int) $si ?>]"
-                   class="logimport-seg-title"
-                   value="<?= htmlspecialchars((string) ($seg['title'] ?? ''), ENT_QUOTES, 'UTF-8') ?>"
-                   placeholder="part <?= (int) $si + 1 ?>">
-          </div>
-        <?php endforeach; ?>
-      </div>
-    <?php endif; ?>
-
+    <?php /* ONE form: titles + notes + split/unsplit buttons (names survive cuts) */ ?>
     <form method="post" action="" id="li_main">
-      <input type="hidden" name="logimport_action" value="save_wip">
       <input type="hidden" name="face" value="<?= htmlspecialchars($faceVal, ENT_QUOTES, 'UTF-8') ?>">
 
       <label class="logimport-meta" for="li_title">working title (starts as glass)</label>
@@ -144,16 +164,24 @@ $faceVal = $core ? (string) $core['face_id'] : '';
               $si = $seqToSeg[$seq] ?? 0;
               if ($nSeg > 0 && $si !== $prevSeg):
                   $prevSeg = $si;
-                  $segTitle = (string) ($segments[$si]['title'] ?? ('part ' . ($si + 1)));
+                  $segTitle = trim((string) ($segments[$si]['title'] ?? ''));
                   ?>
-            <div class="logimport-seg-head">
-              ✂ <?= htmlspecialchars($segTitle !== '' ? $segTitle : ('part ' . ($si + 1)), ENT_QUOTES, 'UTF-8') ?>
-              <span class="logimport-meta"> · #<?= (int) $segments[$si]['from_seq'] ?>–#<?= (int) $segments[$si]['to_seq'] ?></span>
+            <div class="logimport-seg-head" id="li-seghead-<?= (int) $si ?>">
+              <span class="logimport-seg-scissors" aria-hidden="true">✂</span>
+              <input type="text"
+                     name="seg_title[<?= (int) $si ?>]"
+                     class="logimport-seg-title"
+                     id="li-seg-<?= (int) $si ?>"
+                     value="<?= htmlspecialchars($segTitle, ENT_QUOTES, 'UTF-8') ?>"
+                     placeholder="name this part"
+                     autocomplete="off">
+              <span class="logimport-seg-range">#<?= (int) $segments[$si]['from_seq'] ?>–#<?= (int) $segments[$si]['to_seq'] ?></span>
             </div>
                   <?php
               endif;
               ?>
-            <div class="logimport-msg role-<?= htmlspecialchars($m['role'], ENT_QUOTES, 'UTF-8') ?>">
+            <div class="logimport-msg role-<?= htmlspecialchars($m['role'], ENT_QUOTES, 'UTF-8') ?>"
+                 id="li-msg-<?= $seq ?>">
               <div class="li-role">
                 <?= htmlspecialchars($m['role'], ENT_QUOTES, 'UTF-8') ?> · #<?= $seq ?>
               </div>
@@ -161,11 +189,11 @@ $faceVal = $core ? (string) $core['face_id'] : '';
               <?php if ($seq < $lastSeq): ?>
                 <div class="logimport-cut-row">
                   <?php if (in_array($seq, $cuts, true)): ?>
-                    <button type="submit" form="li_unsplit_<?= $seq ?>" class="logimport-cut is-cut">
+                    <button type="submit" name="unsplit_after" value="<?= $seq ?>" class="logimport-cut is-cut">
                       unsplit after #<?= $seq ?>
                     </button>
                   <?php else: ?>
-                    <button type="submit" form="li_split_<?= $seq ?>" class="logimport-cut">
+                    <button type="submit" name="split_after" value="<?= $seq ?>" class="logimport-cut">
                       split after #<?= $seq ?>
                     </button>
                   <?php endif; ?>
@@ -180,38 +208,13 @@ $faceVal = $core ? (string) $core['face_id'] : '';
       <textarea class="logimport-notes" id="li_notes" name="notes" placeholder="lumberjack notes…"><?= htmlspecialchars((string) ($wip['notes'] ?? ''), ENT_QUOTES, 'UTF-8') ?></textarea>
 
       <div class="logimport-actions">
-        <button type="submit">save wip</button>
+        <button type="submit" name="logimport_action" value="save_wip">save wip</button>
         <?php if ($nSeg > 0): ?>
-          <button type="submit" form="li_clear" class="logimport-cut">clear all cuts</button>
+          <button type="submit" name="clear_splits" value="1" class="logimport-cut">clear all cuts</button>
         <?php endif; ?>
         <span class="logimport-meta">encode · redact · submit — later</span>
       </div>
     </form>
-
-    <?php if ($messages && $lastSeq >= 0): ?>
-      <?php for ($s = 0; $s < $lastSeq; $s++): ?>
-        <form method="post" action="" id="li_split_<?= $s ?>" class="logimport-hidden">
-          <input type="hidden" name="logimport_action" value="split_after">
-          <input type="hidden" name="face" value="<?= htmlspecialchars($faceVal, ENT_QUOTES, 'UTF-8') ?>">
-          <input type="hidden" name="after_seq" value="<?= $s ?>">
-          <input type="hidden" name="yard_title" value="<?= htmlspecialchars($workingTitle, ENT_QUOTES, 'UTF-8') ?>">
-          <input type="hidden" name="notes" value="<?= htmlspecialchars((string) ($wip['notes'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
-        </form>
-        <form method="post" action="" id="li_unsplit_<?= $s ?>" class="logimport-hidden">
-          <input type="hidden" name="logimport_action" value="unsplit_after">
-          <input type="hidden" name="face" value="<?= htmlspecialchars($faceVal, ENT_QUOTES, 'UTF-8') ?>">
-          <input type="hidden" name="after_seq" value="<?= $s ?>">
-          <input type="hidden" name="yard_title" value="<?= htmlspecialchars($workingTitle, ENT_QUOTES, 'UTF-8') ?>">
-          <input type="hidden" name="notes" value="<?= htmlspecialchars((string) ($wip['notes'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
-        </form>
-      <?php endfor; ?>
-      <form method="post" action="" id="li_clear" class="logimport-hidden">
-        <input type="hidden" name="logimport_action" value="clear_splits">
-        <input type="hidden" name="face" value="<?= htmlspecialchars($faceVal, ENT_QUOTES, 'UTF-8') ?>">
-        <input type="hidden" name="yard_title" value="<?= htmlspecialchars($workingTitle, ENT_QUOTES, 'UTF-8') ?>">
-        <input type="hidden" name="notes" value="<?= htmlspecialchars((string) ($wip['notes'] ?? ''), ENT_QUOTES, 'UTF-8') ?>">
-      </form>
-    <?php endif; ?>
 
   <?php elseif ($faceQ !== ''): ?>
     <p class="logimport-warn">no core for #<?= htmlspecialchars(logimport_face_key($faceQ), ENT_QUOTES, 'UTF-8') ?></p>
@@ -221,3 +224,23 @@ $faceVal = $core ? (string) $core['face_id'] : '';
     lumberjack: split after a message · name the parts · save wip · glass stays whole
   </p>
 </div>
+<?php if ($core && $messages): ?>
+<script>
+(function () {
+  // Keep scroll position after redirect to #li-msg-N (browser may run before layout)
+  if (location.hash && location.hash.indexOf('li-msg-') === 1) {
+    var el = document.getElementById(location.hash.slice(1));
+    if (el) {
+      // thread is the scrollport — scroll message into view inside it
+      var thread = document.getElementById('li_thread');
+      if (thread && thread.contains(el)) {
+        var top = el.offsetTop - thread.offsetTop - 24;
+        thread.scrollTop = Math.max(0, top);
+      } else {
+        el.scrollIntoView({ block: 'center' });
+      }
+    }
+  }
+})();
+</script>
+<?php endif; ?>

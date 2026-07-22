@@ -280,6 +280,88 @@ if (!function_exists('logimport_paths')) {
     }
 
     /**
+     * List all WIP sidecars (one file per core you've touched).
+     *
+     * @return list<array{face_id:string,yard_title:string,notes_preview:string,n_segments:int,saved_at:int,glass_title:string,testament_tag:string}>
+     */
+    function logimport_list_wips(): array {
+        $dir = logimport_paths()['wip'];
+        if (!is_dir($dir)) {
+            return [];
+        }
+        $cat = logimport_load_catalog();
+        $byFace = [];
+        if (is_array($cat)) {
+            foreach ($cat['cores'] ?? [] as $c) {
+                if (is_array($c) && !empty($c['face_id'])) {
+                    $byFace[(string) $c['face_id']] = $c;
+                }
+            }
+        }
+        $out = [];
+        foreach (glob($dir . '/wip_*.json') ?: [] as $file) {
+            $base = basename($file);
+            if (!preg_match('/^wip_([0-9A-Za-z_-]+)\.json$/', $base, $m)) {
+                continue;
+            }
+            $face = logimport_face_key($m[1]);
+            $j = json_decode((string) file_get_contents($file), true);
+            if (!is_array($j)) {
+                continue;
+            }
+            $core = $byFace[$face] ?? null;
+            $segs = is_array($j['segments'] ?? null) ? $j['segments'] : [];
+            $notes = trim((string) ($j['notes'] ?? ''));
+            $preview = $notes;
+            if (function_exists('mb_substr')) {
+                $preview = mb_substr($notes, 0, 80);
+            } else {
+                $preview = substr($notes, 0, 80);
+            }
+            if (strlen($notes) > 80) {
+                $preview .= '…';
+            }
+            $out[] = [
+                'face_id' => $face,
+                'yard_title' => trim((string) ($j['yard_title'] ?? '')),
+                'notes_preview' => $preview,
+                'n_segments' => count($segs),
+                'saved_at' => (int) ($j['saved_at'] ?? filemtime($file) ?: 0),
+                'glass_title' => is_array($core) ? (string) ($core['title'] ?? '') : '',
+                'testament_tag' => is_array($core) ? (string) ($core['testament_tag'] ?? '') : '',
+            ];
+        }
+        usort($out, static fn($a, $b) => ($b['saved_at'] <=> $a['saved_at']));
+        return $out;
+    }
+
+    /**
+     * Submitted exports live here later (submit → material). Empty until then.
+     *
+     * @return list<array{face_id:string,path:string,saved_at:int,title:string}>
+     */
+    function logimport_list_exports(): array {
+        $root = rtrim(str_replace('\\', '/', echoSONAR), '/');
+        $dir = $root . '/z/logs/tree_cores/exports';
+        if (!is_dir($dir)) {
+            return [];
+        }
+        $out = [];
+        foreach (glob($dir . '/*.json') ?: [] as $file) {
+            $j = json_decode((string) file_get_contents($file), true);
+            $meta = is_array($j) ? $j : [];
+            $out[] = [
+                'face_id' => (string) ($meta['face_id'] ?? ''),
+                'path' => $file,
+                'saved_at' => (int) ($meta['exported_at'] ?? filemtime($file) ?: 0),
+                'title' => (string) ($meta['yard_title'] ?? $meta['title'] ?? basename($file)),
+            ];
+        }
+        usort($out, static fn($a, $b) => ($b['saved_at'] <=> $a['saved_at']));
+        return $out;
+    }
+
+    /**
      * Merge form fields into existing WIP (preserves encodes/redactions).
      */
     function logimport_wip_merge_form(string $face, array $post, ?array $existing = null): array {
@@ -296,25 +378,34 @@ if (!function_exists('logimport_paths')) {
         if (!isset($wip['redactions']) || !is_array($wip['redactions'])) {
             $wip['redactions'] = [];
         }
-        // segment titles from form: seg_title[0], seg_title[1], …
-        if (isset($post['seg_title']) && is_array($post['seg_title'])) {
-            $segs = logimport_segments_normalize($wip['segments'] ?? [], 0);
-            $titles = $post['seg_title'];
-            foreach ($segs as $i => $seg) {
-                if (isset($titles[$i])) {
-                    $segs[$i]['title'] = trim((string) $titles[$i]);
-                }
-            }
-            $wip['segments'] = $segs;
-        } elseif (!isset($wip['segments']) || !is_array($wip['segments'])) {
+        if (!isset($wip['segments']) || !is_array($wip['segments'])) {
             $wip['segments'] = [];
         }
         return $wip;
     }
 
     /**
+     * Build working segment list from POST titles + WIP ranges (same form submit).
+     *
+     * @return list<array{title:string,from_seq:int,to_seq:int}>
+     */
+    function logimport_segments_from_post_and_wip(array $post, array $wip, int $lastSeq): array {
+        $segs = logimport_segments_normalize($wip['segments'] ?? [], $lastSeq);
+        if ($segs === []) {
+            return [];
+        }
+        if (isset($post['seg_title']) && is_array($post['seg_title'])) {
+            foreach ($segs as $i => $seg) {
+                if (array_key_exists($i, $post['seg_title'])) {
+                    $segs[$i]['title'] = trim((string) $post['seg_title'][$i]);
+                }
+            }
+        }
+        return $segs;
+    }
+
+    /**
      * Normalize segment list; empty = whole log (no cuts).
-     * Each segment: title, from_seq, to_seq (inclusive).
      *
      * @param list<array|mixed> $segments
      * @return list<array{title:string,from_seq:int,to_seq:int}>
@@ -330,9 +421,17 @@ if (!function_exists('logimport_paths')) {
             }
             $from = (int) ($s['from_seq'] ?? 0);
             $to = (int) ($s['to_seq'] ?? $lastSeq);
-            $title = trim((string) ($s['title'] ?? ''));
+            if ($from < 0) {
+                $from = 0;
+            }
+            if ($lastSeq >= 0 && $to > $lastSeq) {
+                $to = $lastSeq;
+            }
+            if ($to < $from) {
+                continue;
+            }
             $out[] = [
-                'title' => $title,
+                'title' => trim((string) ($s['title'] ?? '')),
                 'from_seq' => $from,
                 'to_seq' => $to,
             ];
@@ -341,9 +440,20 @@ if (!function_exists('logimport_paths')) {
         return $out;
     }
 
+    /** Single full-span empty title → treat as no splits. */
+    function logimport_segments_collapse_trivial(array $segments, int $lastSeq): array {
+        if (count($segments) === 1
+            && (int) $segments[0]['from_seq'] === 0
+            && (int) $segments[0]['to_seq'] === $lastSeq
+            && trim((string) $segments[0]['title']) === ''
+        ) {
+            return [];
+        }
+        return $segments;
+    }
+
     /**
      * Cut points = last seq of each segment except the final one.
-     * e.g. segs 0-10, 11-50 → cuts [10]
      *
      * @param list<array{from_seq:int,to_seq:int}> $segments
      * @return list<int>
@@ -361,27 +471,31 @@ if (!function_exists('logimport_paths')) {
     }
 
     /**
-     * Build segments from sorted unique cut points (after_seq values).
-     * Cut after seq C means next segment starts at C+1.
+     * Build segments from cuts; inherit titles from $oldSegments by range overlap.
+     * First fragment of a named segment keeps the name; later fragments stay empty
+     * (user can name them) — never force "part N" over a saved name.
      *
-     * @param list<int> $cuts after-seq values
-     * @param array<int,string> $titlesByIndex optional titles
+     * @param list<int> $cuts
+     * @param list<array{title:string,from_seq:int,to_seq:int}> $oldSegments
      * @return list<array{title:string,from_seq:int,to_seq:int}>
      */
-    function logimport_segments_from_cuts(array $cuts, int $lastSeq, array $titlesByIndex = []): array {
+    function logimport_segments_from_cuts(array $cuts, int $lastSeq, array $oldSegments = []): array {
         if ($lastSeq < 0) {
             return [];
         }
         $cuts = array_values(array_unique(array_map('intval', $cuts)));
         sort($cuts);
-        // only valid interior cuts
         $cuts = array_values(array_filter(
             $cuts,
             static fn($c) => $c >= 0 && $c < $lastSeq
         ));
         if ($cuts === []) {
+            $title = '';
+            if (count($oldSegments) === 1) {
+                $title = trim((string) ($oldSegments[0]['title'] ?? ''));
+            }
             return [[
-                'title' => $titlesByIndex[0] ?? '',
+                'title' => $title,
                 'from_seq' => 0,
                 'to_seq' => $lastSeq,
             ]];
@@ -391,9 +505,9 @@ if (!function_exists('logimport_paths')) {
         for ($i = 0; $i < count($bounds) - 1; $i++) {
             $from = $bounds[$i] + 1;
             $to = $bounds[$i + 1];
-            $default = 'part ' . ($i + 1);
+            $title = logimport_inherit_segment_title($from, $to, $oldSegments);
             $segs[] = [
-                'title' => trim((string) ($titlesByIndex[$i] ?? '')) ?: $default,
+                'title' => $title,
                 'from_seq' => $from,
                 'to_seq' => $to,
             ];
@@ -402,25 +516,42 @@ if (!function_exists('logimport_paths')) {
     }
 
     /**
-     * Add a cut after message seq (split into two pieces at that boundary).
+     * Prefer old segment that shares the same from_seq (head of a cut keeps name).
+     * Else exact range match. Else empty (do not invent "part N" here).
      */
+    function logimport_inherit_segment_title(int $from, int $to, array $oldSegments): string {
+        if ($oldSegments === []) {
+            return '';
+        }
+        foreach ($oldSegments as $old) {
+            if ((int) $old['from_seq'] === $from && (int) $old['to_seq'] === $to) {
+                return trim((string) ($old['title'] ?? ''));
+            }
+        }
+        foreach ($oldSegments as $old) {
+            if ((int) $old['from_seq'] === $from
+                && $to <= (int) $old['to_seq']
+                && $from >= (int) $old['from_seq']
+            ) {
+                // head piece of a previously named segment
+                return trim((string) ($old['title'] ?? ''));
+            }
+        }
+        return '';
+    }
+
     function logimport_segments_add_cut(array $segments, int $afterSeq, int $lastSeq): array {
         if ($afterSeq < 0 || $afterSeq >= $lastSeq) {
             return logimport_segments_normalize($segments, $lastSeq);
         }
-        $cuts = logimport_segment_cuts(
-            $segments !== []
-                ? $segments
-                : [['from_seq' => 0, 'to_seq' => $lastSeq, 'title' => '']]
-        );
+        $base = $segments !== []
+            ? $segments
+            : [['from_seq' => 0, 'to_seq' => $lastSeq, 'title' => '']];
+        $cuts = logimport_segment_cuts($base);
         if (!in_array($afterSeq, $cuts, true)) {
             $cuts[] = $afterSeq;
         }
-        $titles = [];
-        foreach ($segments as $i => $s) {
-            $titles[$i] = (string) ($s['title'] ?? '');
-        }
-        return logimport_segments_from_cuts($cuts, $lastSeq, $titles);
+        return logimport_segments_from_cuts($cuts, $lastSeq, $base);
     }
 
     function logimport_segments_remove_cut(array $segments, int $afterSeq, int $lastSeq): array {
@@ -429,16 +560,10 @@ if (!function_exists('logimport_paths')) {
         if ($cuts === []) {
             return [];
         }
-        $titles = [];
-        foreach ($segments as $i => $s) {
-            $titles[$i] = (string) ($s['title'] ?? '');
-        }
-        return logimport_segments_from_cuts($cuts, $lastSeq, $titles);
+        return logimport_segments_from_cuts($cuts, $lastSeq, $segments);
     }
 
     /**
-     * Map seq → segment index for rendering.
-     *
      * @return array<int,int> seq => segmentIndex
      */
     function logimport_seq_to_segment(array $segments, int $lastSeq): array {
