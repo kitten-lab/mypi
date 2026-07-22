@@ -1733,6 +1733,9 @@ SQL
             'day_c_uid' => $day_c_uid,
             'chronokey' => (string) ($in['chronokey'] ?? ''),
         ];
+        if (!empty($in['meta_extra']) && is_array($in['meta_extra'])) {
+            $meta = array_merge($meta, $in['meta_extra']);
+        }
 
         $r = mypi_ledger_create_post([
             'topic' => $title,
@@ -1865,5 +1868,359 @@ SQL
         mypi_ledger_pdo()->prepare('UPDATE crates SET meta_json = ?, updated_at = ? WHERE c_uid = ?')
             ->execute([json_encode($meta), time(), $day_c_uid]);
         return ['ok' => true];
+    }
+
+    /**
+     * Parse day key from vault filename: "250916 - Tuesday Sep 16, 2025.md"
+     */
+    function mypi_ledger_dailylog_day_from_filename($name) {
+        $base = basename((string) $name);
+        if (preg_match('/^(\d{2})(\d{2})(\d{2})\b/', $base, $m)) {
+            return mypi_ledger_dailylog_day_norm($m[1] . $m[2] . $m[3]);
+        }
+        if (preg_match('/(\d{4})-(\d{2})-(\d{2})/', $base, $m)) {
+            return mypi_ledger_dailylog_day_norm($m[1] . '-' . $m[2] . '-' . $m[3]);
+        }
+        return '';
+    }
+
+    /**
+     * Pull unix from chronokey tail "….1758157510AD" or bare digits.
+     */
+    function mypi_ledger_dailylog_unix_from_chronokey($text) {
+        if (preg_match('/(\d{10})(?:AD)?\b/', (string) $text, $m)) {
+            $u = (int) $m[1];
+            if ($u > 1000000000 && $u < 2000000000) {
+                return $u;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Parse vault invent-ory markdown into sectioned entry atoms.
+     *
+     * @return list<array{section:string,title:string,body:string,context:string,tags_raw:string,event_unix:?int,wall_time:string,chronokey:string}>
+     */
+    function mypi_ledger_dailylog_parse_vault_md($raw, $dayYmd) {
+        $raw = str_replace(["\r\n", "\r"], "\n", (string) $raw);
+        // drop yaml frontmatter
+        if (preg_match('/^---\n.*?\n---\n/s', $raw, $fm)) {
+            $raw = substr($raw, strlen($fm[0]));
+        }
+        $lines = explode("\n", $raw);
+        $section = 'INCOMING EVENTS';
+        $entries = [];
+        $cur = null;
+
+        $flush = static function () use (&$cur, &$entries) {
+            if ($cur === null) {
+                return;
+            }
+            $cur['body'] = trim($cur['body']);
+            $cur['title'] = trim($cur['title']);
+            if ($cur['title'] === '' && $cur['body'] === '') {
+                $cur = null;
+                return;
+            }
+            if ($cur['title'] === '') {
+                $cur['title'] = '(entry)';
+            }
+            $entries[] = $cur;
+            $cur = null;
+        };
+
+        foreach ($lines as $line) {
+            // section headers ## name
+            if (preg_match('/^##\s+(.+?)\s*$/u', $line, $m)) {
+                $flush();
+                $section = trim($m[1]);
+                // skip pure template prompts
+                continue;
+            }
+            // entry heads #### / ###### title @ time
+            if (preg_match('/^#{3,6}\s+(.+?)(?:\s+@\s*(.+?))?\s*$/u', $line, $m)) {
+                $flush();
+                $title = trim($m[1]);
+                // skip template stubs
+                if (preg_match('/^(TRACK YOUR TRACKS|daily invent|for\s)/i', $title)) {
+                    continue;
+                }
+                $wall = isset($m[2]) ? trim($m[2]) : '';
+                $event = null;
+                if ($wall !== '' && $dayYmd !== '') {
+                    $ts = strtotime($dayYmd . ' ' . $wall);
+                    if ($ts !== false) {
+                        $event = $ts;
+                    }
+                }
+                $cur = [
+                    'section' => $section,
+                    'title' => $title,
+                    'body' => '',
+                    'context' => '',
+                    'tags_raw' => '',
+                    'event_unix' => $event,
+                    'wall_time' => $wall,
+                    'chronokey' => '',
+                ];
+                continue;
+            }
+            if ($cur === null) {
+                continue;
+            }
+            if (preg_match('/^(?:\*\*)?CONTEXT(?:\*\*)?\s*:\s*(?:\*\*)?(.*?)(?:\*\*)?\s*$/iu', $line, $m)) {
+                $cur['context'] = trim($m[1], " \t*");
+                continue;
+            }
+            if (preg_match('/^(?:\*\*)?TAGGED(?:\*\*)?\s*:\s*(.+)$/iu', $line, $m)) {
+                $tags = trim($m[1]);
+                $tags = preg_replace('/#/', '', $tags);
+                $tags = preg_replace('/\s+/', ' ', $tags);
+                // keep as space/comma-ish for tags_raw — use commas
+                $parts = preg_split('/[\s,]+/', $tags, -1, PREG_SPLIT_NO_EMPTY);
+                $cur['tags_raw'] = implode(',', array_map(static function ($t) {
+                    return ltrim($t, '#');
+                }, $parts ?: []));
+                continue;
+            }
+            if (preg_match('/CHRONOKEY/i', $line)) {
+                $cur['chronokey'] = trim(strip_tags($line));
+                $u = mypi_ledger_dailylog_unix_from_chronokey($line);
+                if ($u !== null) {
+                    $cur['event_unix'] = $u;
+                }
+                continue;
+            }
+            if (preg_match('/^---+\s*$/', $line)) {
+                $flush();
+                continue;
+            }
+            // skip template prompt lines
+            if (preg_match('/^<>\s/', $line)) {
+                continue;
+            }
+            $cur['body'] .= ($cur['body'] !== '' ? "\n" : '') . $line;
+        }
+        $flush();
+        return $entries;
+    }
+
+    /**
+     * Import one vault invent-ory .md into day log + leaf rows.
+     * Does NOT dual-write to Skyline (historical capture only).
+     *
+     * @return array{ok:bool,day?:string,day_c_uid?:string,leaves?:int,skipped?:bool,error?:string}
+     */
+    function mypi_ledger_dailylog_import_file(array $in) {
+        $path = trim((string) ($in['path'] ?? ''));
+        $raw = (string) ($in['raw'] ?? '');
+        $name = trim((string) ($in['filename'] ?? ''));
+        if ($path !== '') {
+            if (!is_file($path)) {
+                return ['ok' => false, 'error' => 'file not found'];
+            }
+            $raw = (string) file_get_contents($path);
+            if ($name === '') {
+                $name = basename($path);
+            }
+        }
+        if (trim($raw) === '') {
+            return ['ok' => false, 'error' => 'empty content'];
+        }
+        $day = mypi_ledger_dailylog_day_norm($in['day'] ?? '');
+        if ($day === '') {
+            $day = mypi_ledger_dailylog_day_from_filename($name !== '' ? $name : $path);
+        }
+        if ($day === '') {
+            return ['ok' => false, 'error' => 'could not parse day from filename'];
+        }
+
+        $sys = (string) ($in['sys'] ?? 'terminal');
+        $dom = (string) ($in['dom'] ?? 'io');
+        $room = (string) ($in['room'] ?? 'inventory');
+        $agent = (string) ($in['agent'] ?? 'user');
+        $force = !empty($in['force']);
+
+        $existing = mypi_ledger_dailylog_find_day($day, $sys, $dom, $room, $agent);
+        if ($existing && !$force) {
+            $n = count(mypi_ledger_dailylog_list_entries($existing['c_uid'], 5));
+            if ($n > 0) {
+                return [
+                    'ok' => true,
+                    'skipped' => true,
+                    'day' => $day,
+                    'day_c_uid' => $existing['c_uid'],
+                    'leaves' => $n,
+                    'error' => 'day already has leaves (pass force=1 to re-import)',
+                ];
+            }
+        }
+
+        $dayRes = mypi_ledger_dailylog_ensure_day([
+            'day' => $day,
+            'sys' => $sys,
+            'dom' => $dom,
+            'room' => $room,
+            'agent' => $agent,
+            'actor' => (string) ($in['actor'] ?? $agent),
+            'timezone' => (string) ($in['timezone'] ?? ''),
+            'place_label' => 'invent-0rium',
+        ]);
+        if (empty($dayRes['ok'])) {
+            return $dayRes;
+        }
+        $day_c_uid = $dayRes['c_uid'];
+
+        // stamp import source on day
+        $dayRow = mypi_ledger_get($day_c_uid);
+        if ($dayRow) {
+            $dmeta = json_decode((string) ($dayRow['meta_json'] ?? '{}'), true) ?: [];
+            $dmeta['source_path'] = $path !== '' ? $path : $name;
+            $dmeta['imported_at'] = time();
+            $dmeta['closed'] = true; // historical days close after import
+            mypi_ledger_pdo()->prepare('UPDATE crates SET meta_json = ?, updated_at = ? WHERE c_uid = ?')
+                ->execute([json_encode($dmeta), time(), $day_c_uid]);
+        }
+
+        $parsed = mypi_ledger_dailylog_parse_vault_md($raw, $day);
+        if (!$parsed) {
+            // whole file as one leaf
+            $parsed = [[
+                'section' => 'INCOMING EVENTS',
+                'title' => 'imported day body',
+                'body' => trim($raw),
+                'context' => '',
+                'tags_raw' => '',
+                'event_unix' => strtotime($day . ' 12:00:00') ?: time(),
+                'wall_time' => '',
+                'chronokey' => '',
+            ]];
+        }
+
+        // if force and leaves exist, soft-delete old invent leaves for this day only
+        if ($force && $existing) {
+            $old = mypi_ledger_dailylog_list_entries($day_c_uid, 500);
+            $now = time();
+            $pdo = mypi_ledger_pdo();
+            foreach ($old as $o) {
+                $om = json_decode((string) ($o['meta_json'] ?? '{}'), true) ?: [];
+                if (empty($om['from_vault_import'])) {
+                    continue; // keep live inserts
+                }
+                $pdo->prepare('UPDATE crates SET deleted_at = ?, updated_at = ? WHERE c_uid = ?')
+                    ->execute([$now, $now, $o['c_uid']]);
+            }
+        }
+
+        $n = 0;
+        $sections = [];
+        foreach ($parsed as $p) {
+            $sec = $p['section'] !== '' ? $p['section'] : 'INCOMING EVENTS';
+            $sections[$sec] = true;
+            $r = mypi_ledger_dailylog_insert([
+                'day' => $day,
+                'title' => $p['title'],
+                'body' => $p['body'],
+                'section' => $sec,
+                'context' => $p['context'],
+                'tags_raw' => $p['tags_raw'],
+                'event_unix' => $p['event_unix'] ?? null,
+                'chronokey' => $p['chronokey'],
+                'entry_type' => 'vault_import',
+                'report_to' => 'none',
+                'sys' => $sys,
+                'dom' => $dom,
+                'room' => $room,
+                'agent' => $agent,
+                'actor' => (string) ($in['actor'] ?? $agent),
+                'timezone' => (string) ($in['timezone'] ?? ''),
+                'place_label' => 'invent-0rium',
+                'meta_extra' => ['from_vault_import' => true],
+            ]);
+            // inject from_vault_import on leaf meta after create
+            if (!empty($r['ok']) && !empty($r['c_uid'])) {
+                $leaf = mypi_ledger_get($r['c_uid']);
+                if ($leaf) {
+                    $lm = json_decode((string) ($leaf['meta_json'] ?? '{}'), true) ?: [];
+                    $lm['from_vault_import'] = true;
+                    $lm['wall_time'] = $p['wall_time'] !== '' ? $p['wall_time'] : ($lm['wall_time'] ?? '');
+                    if ($p['chronokey'] !== '') {
+                        $lm['chronokey'] = $p['chronokey'];
+                    }
+                    mypi_ledger_pdo()->prepare('UPDATE crates SET meta_json = ? WHERE c_uid = ?')
+                        ->execute([json_encode($lm), $r['c_uid']]);
+                }
+                $n++;
+            }
+        }
+
+        // merge sections onto day
+        $dayRow = mypi_ledger_get($day_c_uid);
+        if ($dayRow) {
+            $dmeta = json_decode((string) ($dayRow['meta_json'] ?? '{}'), true) ?: [];
+            $secs = $dmeta['sections'] ?? [];
+            if (!is_array($secs)) {
+                $secs = [];
+            }
+            foreach (array_keys($sections) as $s) {
+                if (!in_array($s, $secs, true)) {
+                    $secs[] = $s;
+                }
+            }
+            $dmeta['sections'] = $secs;
+            $dmeta['closed'] = true;
+            mypi_ledger_pdo()->prepare('UPDATE crates SET meta_json = ?, updated_at = ? WHERE c_uid = ?')
+                ->execute([json_encode($dmeta), time(), $day_c_uid]);
+        }
+
+        return [
+            'ok' => true,
+            'day' => $day,
+            'day_c_uid' => $day_c_uid,
+            'leaves' => $n,
+            'skipped' => false,
+        ];
+    }
+
+    /**
+     * Import all YYMMDD*.md invent files from a directory.
+     *
+     * @return array{ok:bool,imported:list,skipped:list,errors:list}
+     */
+    function mypi_ledger_dailylog_import_dir(array $in) {
+        $dir = trim((string) ($in['dir'] ?? ''));
+        if ($dir === '' || !is_dir($dir)) {
+            return ['ok' => false, 'imported' => [], 'skipped' => [], 'errors' => ['bad dir']];
+        }
+        $force = !empty($in['force']);
+        $imported = [];
+        $skipped = [];
+        $errors = [];
+        $files = glob(rtrim($dir, '/\\') . DIRECTORY_SEPARATOR . '*.md') ?: [];
+        sort($files);
+        foreach ($files as $f) {
+            $base = basename($f);
+            if (!preg_match('/^\d{6}\b/', $base)) {
+                continue; // skip Daily Inventory.md, Untitled, etc.
+            }
+            $r = mypi_ledger_dailylog_import_file(array_merge($in, [
+                'path' => $f,
+                'force' => $force,
+            ]));
+            if (empty($r['ok'])) {
+                $errors[] = $base . ': ' . ($r['error'] ?? 'fail');
+            } elseif (!empty($r['skipped'])) {
+                $skipped[] = ($r['day'] ?? $base) . ' (' . ($r['leaves'] ?? 0) . ' leaves exist)';
+            } else {
+                $imported[] = ($r['day'] ?? $base) . ' → ' . (int) ($r['leaves'] ?? 0) . ' leaves';
+            }
+        }
+        return [
+            'ok' => true,
+            'imported' => $imported,
+            'skipped' => $skipped,
+            'errors' => $errors,
+        ];
     }
 }

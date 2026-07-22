@@ -282,3 +282,90 @@
 .muted {
   opacity: 0.6;
 }
+
+.inv-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: center;
+  margin: 0.2rem 0;
+}
+
+.inv-jump-label {
+  flex: 0 0 100%;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin: 0;
+}
+
+.inv-jump input[type="date"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  font: inherit;
+  font-size: 0.8rem;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.35);
+  border: var(--inv-border);
+  padding: 0.25rem 0.3rem;
+}
+
+.inv-vault {
+  border: var(--inv-border);
+  padding: 0.45rem 0.55rem 0.55rem;
+  margin: 0 0 1rem;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.inv-vault summary {
+  cursor: pointer;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.inv-vault-form label {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin: 0.4rem 0 0.15rem;
+}
+
+.inv-vault-form input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 0.85rem;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.35);
+  border: var(--inv-border);
+  padding: 0.4rem 0.5rem;
+}
+
+.inv-check {
+  display: flex !important;
+  align-items: center;
+  gap: 0.4rem;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 0.85rem !important;
+  opacity: 0.9 !important;
+  margin-top: 0.45rem !important;
+}
+
+.inv-import-report {
+  border: var(--inv-border);
+  padding: 0.4rem 0.55rem;
+  margin-bottom: 0.65rem;
+  background: rgba(0, 40, 0, 0.2);
+}
+
+.inv-import-list {
+  margin: 0.25rem 0 0.4rem 1.1rem;
+  font-size: 0.82rem;
+  padding: 0;
+}

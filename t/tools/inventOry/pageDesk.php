@@ -22,24 +22,25 @@ if ($day === '') {
     $day = $today;
 }
 
-$err = $GLOBALS['INVENTORY_ERROR'] ?? null;
+$err = $GLOBALS['INVENTORY_ERROR'] ?? (isset($_GET['inv_err']) ? (string) $_GET['inv_err'] : null);
 $ok = isset($_GET['inv_ok']);
 $rpt = isset($_GET['rpt']) ? (string) $_GET['rpt'] : '';
 $whom = isset($_GET['whom']) ? (string) $_GET['whom'] : '';
+$importFlash = null;
+if (isset($_GET['inv_import'])) {
+    $flash = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'inventOry_import_' . md5($agentSlug) . '.json';
+    if (is_file($flash)) {
+        $importFlash = json_decode((string) file_get_contents($flash), true);
+    }
+}
 
-// ensure day exists so insert form always has a shell
-$dayRes = mypi_ledger_dailylog_ensure_day([
-    'day' => $day,
-    'sys' => $sys,
-    'dom' => $dom,
-    'room' => $room,
-    'agent' => $agentSlug,
-    'place_label' => 'invent-0rium',
-]);
-$dayRow = $dayRes['row'] ?? null;
-$dayUid = (string) ($dayRes['c_uid'] ?? '');
+// Load day if it exists — do NOT auto-spawn a shell just by viewing a date.
+// New shells are created on insert or vault import only.
+$dayRow = mypi_ledger_dailylog_find_day($day, $sys, $dom, $room, $agentSlug);
+$dayUid = $dayRow ? (string) $dayRow['c_uid'] : '';
 $dayMeta = $dayRow ? (json_decode((string) ($dayRow['meta_json'] ?? '{}'), true) ?: []) : [];
 $closed = !empty($dayMeta['closed']);
+$dayExists = $dayUid !== '';
 
 $days = mypi_ledger_dailylog_list_days([
     'sys' => $sys,
@@ -124,7 +125,12 @@ $renderEntry = static function (array $e) use ($equip): void {
   <div class="inventury-layout">
     <aside class="inventury-days" aria-label="Day logs">
       <a class="inv-btn inv-btn-primary" href="<?= $self ?>?day=<?= htmlspecialchars($today, ENT_QUOTES, 'UTF-8') ?>#inv-insert">+ Insert today</a>
-      <p class="inv-hint muted">log · leaves · ship to Skyline from the form</p>
+      <form class="inv-jump" method="get" action="">
+        <label class="inv-jump-label" for="jump_day">Open day</label>
+        <input id="jump_day" name="day" type="date" value="<?= htmlspecialchars($day, ENT_QUOTES, 'UTF-8') ?>">
+        <button type="submit" class="inv-btn">Go</button>
+      </form>
+      <p class="inv-hint muted">changing the day field on insert opens that day — not a silent append to today</p>
       <ul class="inv-day-list">
         <?php foreach ($days as $d):
             $dm = json_decode((string) ($d['meta_json'] ?? '{}'), true) ?: [];
@@ -162,10 +168,39 @@ $renderEntry = static function (array $e) use ($equip): void {
         </p>
       <?php endif; ?>
 
+      <?php if (is_array($importFlash)): ?>
+        <div class="inv-import-report">
+          <p class="inv-status"><strong>vault import</strong>
+            · imported <?= (int) ($_GET['imp_n'] ?? 0) ?>
+            · skipped <?= (int) ($_GET['skip_n'] ?? 0) ?>
+            · errors <?= (int) ($_GET['err_n'] ?? 0) ?>
+          </p>
+          <?php if (!empty($importFlash['imported'])): ?>
+            <ul class="inv-import-list"><?php foreach ($importFlash['imported'] as $line): ?>
+              <li><?= htmlspecialchars((string) $line, ENT_QUOTES, 'UTF-8') ?></li>
+            <?php endforeach; ?></ul>
+          <?php endif; ?>
+          <?php if (!empty($importFlash['skipped'])): ?>
+            <p class="muted">skipped (already had leaves — re-run with force to replace vault-imported only):</p>
+            <ul class="inv-import-list"><?php foreach ($importFlash['skipped'] as $line): ?>
+              <li><?= htmlspecialchars((string) $line, ENT_QUOTES, 'UTF-8') ?></li>
+            <?php endforeach; ?></ul>
+          <?php endif; ?>
+          <?php if (!empty($importFlash['errors'])): ?>
+            <ul class="inv-import-list inv-err"><?php foreach ($importFlash['errors'] as $line): ?>
+              <li><?= htmlspecialchars((string) $line, ENT_QUOTES, 'UTF-8') ?></li>
+            <?php endforeach; ?></ul>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
+
       <header class="inv-day-head">
         <h2 class="inv-day-title">
           <?= htmlspecialchars($day, ENT_QUOTES, 'UTF-8') ?>
-          <span class="muted"><?= htmlspecialchars((string) ($dayMeta['weekday'] ?? ''), ENT_QUOTES, 'UTF-8') ?></span>
+          <span class="muted"><?= htmlspecialchars((string) ($dayMeta['weekday'] ?? date('l', strtotime($day) ?: time())), ENT_QUOTES, 'UTF-8') ?></span>
+          <?php if (!$dayExists): ?>
+            <span class="inv-badge">not opened yet</span>
+          <?php endif; ?>
         </h2>
         <?php if ($dayUid !== ''): ?>
           <form method="post" action="" class="inv-close-form">
@@ -178,16 +213,19 @@ $renderEntry = static function (array $e) use ($equip): void {
         <?php endif; ?>
       </header>
 
-      <?php if (!$closed): ?>
       <form method="post" action="" class="inv-insert" id="inv-insert">
         <input type="hidden" name="invent_action" value="insert">
         <input type="hidden" name="inv_tz" class="inv-tz" value="">
         <input type="hidden" name="inv_event_unix" id="inv-event-unix" value="">
 
         <h3 class="inv-insert-label">Insert · invent leaf</h3>
-        <p class="inv-hint muted">Always lands on this day. Optional copy to a Skyline service bucket (mod empty).</p>
+        <p class="inv-hint muted">
+          <strong>Day field decides the log.</strong> Change it → that calendar day is created/opened and the leaf goes there
+          (not silently onto today). Optional Skyline copy (mod empty).
+          <?php if ($closed): ?> · this day is closed — capture still works (or reopen first)<?php endif; ?>
+        </p>
 
-        <label for="inv_day">Day <span class="muted">(backdate OK)</span></label>
+        <label for="inv_day">Day <span class="muted">(this is the log shell · backdate OK)</span></label>
         <input id="inv_day" name="inv_day" type="date" required value="<?= htmlspecialchars($day, ENT_QUOTES, 'UTF-8') ?>">
 
         <label for="inv_section">Section</label>
@@ -237,13 +275,35 @@ $renderEntry = static function (array $e) use ($equip): void {
           <button type="submit" class="inv-btn inv-btn-primary">Capture leaf</button>
         </div>
       </form>
-      <?php else: ?>
-        <p class="inv-status muted">Day closed — reopen to insert, or pick another day.</p>
-      <?php endif; ?>
+
+      <details class="inv-vault" id="inv-vault">
+        <summary>Import old vault Daily Inventory (YYMMDD · … .md)</summary>
+        <p class="inv-hint muted">
+          Parses each dated file into its <strong>own day log + leaves</strong> (not dumped on today).
+          Skips days that already have leaves unless force is checked.
+          Does <strong>not</strong> dual-write to Skyline (historical only).
+        </p>
+        <form method="post" action="" class="inv-vault-form">
+          <input type="hidden" name="invent_action" value="import_vault">
+          <input type="hidden" name="inv_tz" class="inv-tz" value="">
+          <label for="inv_vault_dir">Folder</label>
+          <input id="inv_vault_dir" name="inv_vault_dir" type="text"
+                 value="D:\_Chester's Imports\Terminal IO\USERS\SDK808\Daily Inventory">
+          <label class="inv-check">
+            <input type="checkbox" name="inv_force" value="1">
+            force re-import vault leaves on days that already have them
+          </label>
+          <div class="inv-actions">
+            <button type="submit" class="inv-btn inv-btn-primary">Import vault days</button>
+          </div>
+        </form>
+      </details>
 
       <div class="inv-leaves">
-        <?php if (!$entries): ?>
-          <p class="muted inv-empty">no leaves on this day yet</p>
+        <?php if (!$dayExists): ?>
+          <p class="muted inv-empty">no log shell for this date yet — capture a leaf or import vault to open it</p>
+        <?php elseif (!$entries): ?>
+          <p class="muted inv-empty">day open · no leaves yet</p>
         <?php else: ?>
           <?php foreach ($sectionOrder as $sec):
               if (empty($bySection[$sec])) {

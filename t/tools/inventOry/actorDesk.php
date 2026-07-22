@@ -32,6 +32,39 @@ if ($action === 'close' || $action === 'reopen') {
     exit;
 }
 
+if ($action === 'import_vault') {
+    $dir = trim((string) ($_POST['inv_vault_dir'] ?? ''));
+    $force = !empty($_POST['inv_force']);
+    if ($dir === '') {
+        $dir = "D:\\_Chester's Imports\\Terminal IO\\USERS\\SDK808\\Daily Inventory";
+    }
+    $r = mypi_ledger_dailylog_import_dir([
+        'dir' => $dir,
+        'force' => $force,
+        'sys' => $sys,
+        'dom' => $dom,
+        'room' => $room,
+        'agent' => $agentSlug,
+        'actor' => $agentSlug,
+        'timezone' => $tz,
+    ]);
+    // stash summary in session-ish query (keep short)
+    $q = [
+        'inv_import' => '1',
+        'imp_n' => count($r['imported'] ?? []),
+        'skip_n' => count($r['skipped'] ?? []),
+        'err_n' => count($r['errors'] ?? []),
+    ];
+    if (!empty($r['imported'][0]) && preg_match('/^(\d{4}-\d{2}-\d{2})/', $r['imported'][0], $m)) {
+        $q['day'] = $m[1];
+    }
+    // full report via flash file (tiny)
+    $flash = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'inventOry_import_' . md5($agentSlug) . '.json';
+    @file_put_contents($flash, json_encode($r, JSON_PRETTY_PRINT));
+    header('Location: ' . $path . '?' . http_build_query($q));
+    exit;
+}
+
 if ($action !== 'insert') {
     return;
 }
