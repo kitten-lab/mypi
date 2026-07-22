@@ -1,8 +1,9 @@
 <?php
 /**
- * mypi ledger — single SQLite store (shared with Python mypi_tui).
- * Cosmology fields: sys, dom, room, mod (not world/block in new writes).
- * DB: d/_LEDGER/mypi.sqlite
+ * Chester's Imports ledger — single SQLite store (shared with Python mypi_tui).
+ * CHESTER_UID = c_uid column (every stored row). Scale + parent = composition.
+ * DB: d/_LEDGER/chesters_imports.sqlite
+ * Plan: mypi docs/CRATE-DUAL-RAIL-AND-IMPORT-WORK.md
  */
 
 if (!function_exists('mypi_ledger_path')) {
@@ -14,7 +15,35 @@ if (!function_exists('mypi_ledger_path')) {
         if (!is_dir($dir)) {
             mkdir($dir, 0775, true);
         }
-        return $dir . '/mypi.sqlite';
+        $primary = $dir . '/chesters_imports.sqlite';
+        // one-time: prefer renamed house file; fall back to legacy mypi.sqlite if present
+        if (!is_file($primary) && is_file($dir . '/mypi.sqlite')) {
+            return $dir . '/mypi.sqlite';
+        }
+        return $primary;
+    }
+
+    /** Default scale for a kind (leaf | branch | log | yard_crate). */
+    function mypi_ledger_default_scale($kind) {
+        $k = strtolower(trim((string) $kind));
+        $map = [
+            'post' => 'leaf',
+            'chat' => 'leaf',
+            'guestcu' => 'leaf',
+            'soper' => 'leaf',
+            'file' => 'leaf',
+            'folder' => 'log',
+            'material' => 'log',
+            'log_material' => 'log',
+            'timber' => 'leaf',
+            'thought_bit' => 'leaf',
+            'fragment' => 'leaf',
+            'session' => 'log',
+            'arc' => 'yard_crate',
+            'shipment' => 'yard_crate',
+            'yard_crate' => 'yard_crate',
+        ];
+        return $map[$k] ?? 'leaf';
     }
 
     function mypi_ledger_pdo() {
@@ -42,6 +71,14 @@ CREATE TABLE IF NOT EXISTS ledger_meta (
 CREATE TABLE IF NOT EXISTS crates (
   c_uid TEXT PRIMARY KEY,
   kind TEXT NOT NULL DEFAULT 'post',
+  scale TEXT NOT NULL DEFAULT 'leaf',
+  face_id TEXT NOT NULL DEFAULT '',
+  parent_c_uid TEXT NOT NULL DEFAULT '',
+  stem_c_uid TEXT NOT NULL DEFAULT '',
+  span_start INTEGER,
+  span_end INTEGER,
+  glass_title TEXT NOT NULL DEFAULT '',
+  yard_title TEXT NOT NULL DEFAULT '',
   topic TEXT NOT NULL DEFAULT '',
   body TEXT NOT NULL DEFAULT '',
   agent TEXT NOT NULL DEFAULT 'user',
@@ -60,6 +97,7 @@ CREATE TABLE IF NOT EXISTS crates (
   timezone TEXT NOT NULL DEFAULT '',
   t_uid TEXT NOT NULL DEFAULT '',
   meta_json TEXT NOT NULL DEFAULT '{}',
+  deleted_at INTEGER,
   created_at INTEGER NOT NULL,
   updated_at INTEGER NOT NULL
 );
@@ -67,6 +105,10 @@ CREATE INDEX IF NOT EXISTS idx_crates_ingest ON crates(ingest_unix DESC);
 CREATE INDEX IF NOT EXISTS idx_crates_place ON crates(place_path);
 CREATE INDEX IF NOT EXISTS idx_crates_sys ON crates(sys);
 CREATE INDEX IF NOT EXISTS idx_crates_kind ON crates(kind);
+CREATE INDEX IF NOT EXISTS idx_crates_scale ON crates(scale);
+CREATE INDEX IF NOT EXISTS idx_crates_parent ON crates(parent_c_uid);
+CREATE INDEX IF NOT EXISTS idx_crates_stem ON crates(stem_c_uid);
+CREATE INDEX IF NOT EXISTS idx_crates_face ON crates(face_id);
 CREATE TABLE IF NOT EXISTS crate_events (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   c_uid TEXT NOT NULL,
@@ -133,7 +175,7 @@ CREATE TABLE IF NOT EXISTS thread_terms (
 );
 SQL
         );
-        // Add columns if DB was created by older Python schema
+        // Add columns if DB was created by older schema
         $cols = [];
         foreach ($pdo->query('PRAGMA table_info(crates)') as $row) {
             $cols[$row['name']] = true;
@@ -146,18 +188,48 @@ SQL
         if (empty($cols['deleted_at'])) {
             $pdo->exec('ALTER TABLE crates ADD COLUMN deleted_at INTEGER');
         }
+        $textCols = [
+            'scale' => 'leaf',
+            'face_id' => '',
+            'parent_c_uid' => '',
+            'stem_c_uid' => '',
+            'glass_title' => '',
+            'yard_title' => '',
+        ];
+        foreach ($textCols as $c => $def) {
+            if (empty($cols[$c])) {
+                $pdo->exec(
+                    "ALTER TABLE crates ADD COLUMN $c TEXT NOT NULL DEFAULT "
+                    . $pdo->quote($def)
+                );
+            }
+        }
+        foreach (['span_start', 'span_end'] as $c) {
+            if (empty($cols[$c])) {
+                $pdo->exec("ALTER TABLE crates ADD COLUMN $c INTEGER");
+            }
+        }
+        $pdo->exec('CREATE INDEX IF NOT EXISTS idx_crates_scale ON crates(scale)');
+        $pdo->exec('CREATE INDEX IF NOT EXISTS idx_crates_parent ON crates(parent_c_uid)');
+        $pdo->exec('CREATE INDEX IF NOT EXISTS idx_crates_stem ON crates(stem_c_uid)');
+        $pdo->exec('CREATE INDEX IF NOT EXISTS idx_crates_face ON crates(face_id)');
         $pdo->prepare(
             'INSERT INTO ledger_meta(key, value) VALUES(?, ?)
              ON CONFLICT(key) DO UPDATE SET value=excluded.value'
-        )->execute(['schema_version', '2']);
+        )->execute(['schema_version', '3']);
+        $pdo->prepare(
+            'INSERT INTO ledger_meta(key, value) VALUES(?, ?)
+             ON CONFLICT(key) DO UPDATE SET value=excluded.value'
+        )->execute(['ledger_name', "Chester's Imports"]);
         $pdo->prepare(
             'INSERT INTO ledger_meta(key, value) VALUES(?, ?)
              ON CONFLICT(key) DO NOTHING'
         )->execute(['tps_window_seconds', '900']);
     }
 
+    /** Mint a CHESTER_UID (stored in c_uid). */
     function mypi_ledger_new_cuid() {
-        return 'crate.' . strtoupper(bin2hex(random_bytes(8)));
+        return 'ch.' . strtoupper(bin2hex(random_bytes(8)));
     }
 
     function mypi_ledger_tps_window_seconds(PDO $pdo = null) {
@@ -426,6 +498,19 @@ SQL
         $agent = (string) ($in['agent'] ?? 'user');
         $tool = (string) ($in['tool'] ?? 'postBASIC');
         $kind = (string) ($in['kind'] ?? 'post');
+        $scale = trim((string) ($in['scale'] ?? ''));
+        if ($scale === '') {
+            $scale = mypi_ledger_default_scale($kind);
+        }
+        $face_id = (string) ($in['face_id'] ?? '');
+        $parent_c_uid = (string) ($in['parent_c_uid'] ?? '');
+        $stem_c_uid = (string) ($in['stem_c_uid'] ?? '');
+        $glass_title = (string) ($in['glass_title'] ?? '');
+        $yard_title = (string) ($in['yard_title'] ?? '');
+        $span_start = array_key_exists('span_start', $in) && $in['span_start'] !== '' && $in['span_start'] !== null
+            ? (int) $in['span_start'] : null;
+        $span_end = array_key_exists('span_end', $in) && $in['span_end'] !== '' && $in['span_end'] !== null
+            ? (int) $in['span_end'] : null;
         $actor = (string) ($in['actor'] ?? $mod ?: 'hands');
         $tz = (string) ($in['timezone'] ?? '');
         $ingest = time();
@@ -440,13 +525,17 @@ SQL
         $tps_uid = mypi_ledger_tps_uid($window, $w);
         $pdo->prepare(
             'INSERT INTO crates(
-              c_uid, kind, topic, body, agent, tool, tool_version,
+              c_uid, kind, scale, face_id, parent_c_uid, stem_c_uid,
+              span_start, span_end, glass_title, yard_title,
+              topic, body, agent, tool, tool_version,
               place_path, place_label, sys, dom, room, mod,
               tags_json, tags_raw, event_unix, ingest_unix, timezone, t_uid, meta_json,
               created_at, updated_at
-            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
         )->execute([
-            $c_uid, $kind, $topic, $body, $agent, $tool, (int) ($in['tool_version'] ?? 5),
+            $c_uid, $kind, $scale, $face_id, $parent_c_uid, $stem_c_uid,
+            $span_start, $span_end, $glass_title, $yard_title,
+            $topic, $body, $agent, $tool, (int) ($in['tool_version'] ?? 5),
             $place_path, $place_label, $sys, $dom, $room, $mod,
             json_encode($tags), $tags_raw, $event, $ingest, $tz, $tps_uid,
             json_encode($in['meta'] ?? new stdClass()),
@@ -991,13 +1080,17 @@ SQL
         $meta = ['folder' => $folder];
         $pdo->prepare(
             'INSERT INTO crates(
-              c_uid, kind, topic, body, agent, tool, tool_version,
+              c_uid, kind, scale, face_id, parent_c_uid, stem_c_uid,
+              span_start, span_end, glass_title, yard_title,
+              topic, body, agent, tool, tool_version,
               place_path, place_label, sys, dom, room, mod,
               tags_json, tags_raw, event_unix, ingest_unix, timezone, t_uid, meta_json,
               created_at, updated_at
-            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
         )->execute([
-            $c_uid, 'folder', $folder, '', $agent, 'fileKeeper', 1,
+            $c_uid, 'folder', 'log', '', '', '',
+            null, null, '', '',
+            $folder, '', $agent, 'fileKeeper', 1,
             $place_path, (string) ($in['place_label'] ?? ''), $sys, $dom, $room, $mod,
             '[]', '', $ingest, $ingest, (string) ($in['timezone'] ?? ''), $tps_uid,
             json_encode($meta),
@@ -1108,13 +1201,17 @@ SQL
         $tps_uid = mypi_ledger_tps_uid($window, $w);
         $pdo->prepare(
             'INSERT INTO crates(
-              c_uid, kind, topic, body, agent, tool, tool_version,
+              c_uid, kind, scale, face_id, parent_c_uid, stem_c_uid,
+              span_start, span_end, glass_title, yard_title,
+              topic, body, agent, tool, tool_version,
               place_path, place_label, sys, dom, room, mod,
               tags_json, tags_raw, event_unix, ingest_unix, timezone, t_uid, meta_json,
               created_at, updated_at
-            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
         )->execute([
-            $c_uid, $kind, $title, $body, $agent, $tool, (int) ($in['tool_version'] ?? 1),
+            $c_uid, $kind, 'leaf', '', $parent, $stem,
+            null, null, '', '',
+            $title, $body, $agent, $tool, (int) ($in['tool_version'] ?? 1),
             $place_path, $place_label, $sys, $dom, $room, $mod,
             json_encode($tags), $tags_raw, $event, $ingest, $tz, $tps_uid,
             json_encode($meta),

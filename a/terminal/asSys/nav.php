@@ -21,6 +21,7 @@ $h = function ($d, $key) {
 };
 
 $treeIo = [
+    ['key' => 'import', 'label' => 'IMPORT'],
     ['key' => 'files', 'label' => 'FILES'],
     ['key' => 'email', 'label' => 'E-MAIL'],
     ['key' => 'chat', 'label' => 'CHAT'],

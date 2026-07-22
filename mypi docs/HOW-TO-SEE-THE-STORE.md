@@ -4,8 +4,8 @@
 
 | What | Path |
 |------|------|
-| **SQLite ledger** | `C:\Builds\my-pocket-internet\d\_LEDGER\mypi.sqlite` |
-| Same via junction | `C:\xampp\htdocs\my-pocket-internet\d\_LEDGER\mypi.sqlite` |
+| **SQLite ledger** | `C:\Builds\my-pocket-internet\d\_LEDGER\chesters_imports.sqlite` |
+| Same via junction | `C:\xampp\htdocs\my-pocket-internet\d\_LEDGER\chesters_imports.sqlite` |
 
 **Not** written anymore by new postBASIC: `d/starline/news-headlines.post.json` style room slips.
 

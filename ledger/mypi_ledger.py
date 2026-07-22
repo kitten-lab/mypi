@@ -1,6 +1,8 @@
 """
-mypi ledger — single SQLite store (crates + append-only events).
-Place = place_path / place_label only (no sys/dom/mod).
+Chester's Imports ledger — single SQLite store (CHESTER_UID rows + events).
+c_uid column = CHESTER_UID. scale + parent = composition.
+DB default: d/_LEDGER/chesters_imports.sqlite
+Plan: mypi docs/CRATE-DUAL-RAIL-AND-IMPORT-WORK.md
 """
 
 from __future__ import annotations
@@ -12,18 +14,49 @@ import time
 from pathlib import Path
 from typing import Any
 
-SCHEMA_VERSION = "2"
+SCHEMA_VERSION = "3"
 DEFAULT_TPS_WINDOW = 900  # 15-minute membrane windows
-DEFAULT_DB = Path(__file__).resolve().parent.parent / "d" / "_LEDGER" / "mypi.sqlite"
+_LEDGER_DIR = Path(__file__).resolve().parent.parent / "d" / "_LEDGER"
+DEFAULT_DB = _LEDGER_DIR / "chesters_imports.sqlite"
+LEGACY_DB = _LEDGER_DIR / "mypi.sqlite"
 SCHEMA_SQL = Path(__file__).resolve().parent / "schema.sql"
+
+# kind → default scale (leaf | branch | log | yard_crate)
+_KIND_SCALE = {
+    "post": "leaf",
+    "chat": "leaf",
+    "guestcu": "leaf",
+    "soper": "leaf",
+    "file": "leaf",
+    "folder": "log",
+    "material": "log",
+    "log_material": "log",
+    "timber": "leaf",
+    "thought_bit": "leaf",
+    "fragment": "leaf",
+    "session": "log",
+    "arc": "yard_crate",
+    "shipment": "yard_crate",
+    "yard_crate": "yard_crate",
+}
+
+
+def default_scale(kind: str) -> str:
+    return _KIND_SCALE.get((kind or "").strip().lower(), "leaf")
 
 
 def new_c_uid() -> str:
-    return "crate." + secrets.token_hex(8).upper()
+    """Mint a CHESTER_UID (stored in c_uid)."""
+    return "ch." + secrets.token_hex(8).upper()
+
+
+def resolve_default_db() -> Path:
+    """Always use chesters_imports.sqlite (fresh house file). Legacy mypi.sqlite is not auto-opened."""
+    return DEFAULT_DB
 
 
 def connect(db_path: Path | None = None) -> sqlite3.Connection:
-    path = Path(db_path) if db_path else DEFAULT_DB
+    path = Path(db_path) if db_path else resolve_default_db()
     path.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(str(path))
     conn.row_factory = sqlite3.Row
@@ -36,10 +69,16 @@ def init_db(conn: sqlite3.Connection) -> None:
     conn.executescript(sql)
     _ensure_sys_cols(conn)
     _ensure_deleted_col(conn)
+    _ensure_composition_cols(conn)
     conn.execute(
         "INSERT INTO ledger_meta(key, value) VALUES(?, ?) "
         "ON CONFLICT(key) DO UPDATE SET value=excluded.value",
         ("schema_version", SCHEMA_VERSION),
+    )
+    conn.execute(
+        "INSERT INTO ledger_meta(key, value) VALUES(?, ?) "
+        "ON CONFLICT(key) DO UPDATE SET value=excluded.value",
+        ("ledger_name", "Chester's Imports"),
     )
     conn.execute(
         "INSERT INTO ledger_meta(key, value) VALUES(?, ?) "
@@ -106,6 +145,29 @@ def _ensure_sys_cols(conn: sqlite3.Connection) -> None:
             conn.execute(
                 f"ALTER TABLE crates ADD COLUMN {col} TEXT NOT NULL DEFAULT ''"
             )
+    conn.commit()
+
+
+def _ensure_composition_cols(conn: sqlite3.Connection) -> None:
+    """v3: scale, face_id, parent/stem, spans, glass/yard titles."""
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(crates)")}
+    alters = [
+        ("scale", "TEXT NOT NULL DEFAULT 'leaf'"),
+        ("face_id", "TEXT NOT NULL DEFAULT ''"),
+        ("parent_c_uid", "TEXT NOT NULL DEFAULT ''"),
+        ("stem_c_uid", "TEXT NOT NULL DEFAULT ''"),
+        ("glass_title", "TEXT NOT NULL DEFAULT ''"),
+        ("yard_title", "TEXT NOT NULL DEFAULT ''"),
+        ("span_start", "INTEGER"),
+        ("span_end", "INTEGER"),
+    ]
+    for col, decl in alters:
+        if col not in cols:
+            conn.execute(f"ALTER TABLE crates ADD COLUMN {col} {decl}")
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_crates_scale ON crates(scale)")
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_crates_parent ON crates(parent_c_uid)")
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_crates_stem ON crates(stem_c_uid)")
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_crates_face ON crates(face_id)")
     conn.commit()
 
 
@@ -378,6 +440,14 @@ def create_crate(
     timezone: str = "",
     actor: str = "hands",
     kind: str = "post",
+    scale: str | None = None,
+    face_id: str = "",
+    parent_c_uid: str = "",
+    stem_c_uid: str = "",
+    span_start: int | None = None,
+    span_end: int | None = None,
+    glass_title: str = "",
+    yard_title: str = "",
     meta: dict[str, Any] | None = None,
     c_uid: str | None = None,
 ) -> str:
@@ -385,7 +455,9 @@ def create_crate(
         raise ValueError("need topic or body")
     init_db(conn)
     _ensure_sys_cols(conn)
+    _ensure_composition_cols(conn)
     c_uid = (c_uid or "").strip() or new_c_uid()
+    scale = (scale or "").strip() or default_scale(kind)
     ingest = _now()
     ev = event_unix if event_unix is not None else ingest
     place_path = (place_path or "").strip()
@@ -413,16 +485,26 @@ def create_crate(
     conn.execute(
         """
         INSERT INTO crates(
-          c_uid, kind, topic, body, agent, tool, tool_version,
+          c_uid, kind, scale, face_id, parent_c_uid, stem_c_uid,
+          span_start, span_end, glass_title, yard_title,
+          topic, body, agent, tool, tool_version,
           place_path, place_label, sys, dom, room, mod,
           tags_json, tags_raw,
           event_unix, ingest_unix, timezone, t_uid, meta_json,
           created_at, updated_at
-        ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
         """,
         (
             c_uid,
             kind,
+            scale,
+            face_id or "",
+            parent_c_uid or "",
+            stem_c_uid or "",
+            span_start,
+            span_end,
+            glass_title or "",
+            yard_title or "",
             topic,
             body,
             agent,

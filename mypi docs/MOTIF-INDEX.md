@@ -1,7 +1,8 @@
 # Motif index — corpus defrag for logs (Charlie’s missing half)
 
-**Status:** design / pre-runner  
-**When:** after next ChatGPT export lands under `z/`  
+**Status:** design / pre-runner — **IMPORT received** (Thunderdome under `z/logs/NEW_MASTER_USE_THESE/`)  
+**When:** after next ChatGPT export lands under `z/` — *that event has occurred*  
+**Process authority (yard voice):** [WIRE-WOLF-WOODS.md](./WIRE-WOLF-WOODS.md) — Chester’s Imports / Wire Wolf Woods  
 **Goal:** discover recurring motifs, tag **message ids**, pool everything about the same thing into a **bucket**, then make meaning — without hand-reading the corpus.
 
 This is the same impulse as **CharlieTHREADS** (tags + edges so related crates share a term and gravity), applied to the **export message graph** where the real loop-back density lives. Charlie on the ledger = live writing. Motif index = retrospective forestry over ChatGPT (and later Evernote / images / paper refs).

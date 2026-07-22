@@ -1,6 +1,7 @@
-# mypi ledger + TUI
+# Chester's Imports ledger + TUI
 
-**Trust the store before real thoughts.**
+**Trust the store before real thoughts.**  
+**Plan:** `mypi docs/CRATE-DUAL-RAIL-AND-IMPORT-WORK.md` (sealed).
 
 ## Run TUI
 
@@ -14,15 +15,22 @@ python mypi_tui.py
 
 | Piece | Path |
 |-------|------|
-| SQLite DB | `d/_LEDGER/mypi.sqlite` |
-| Schema | `schema.sql` |
+| SQLite DB | `d/_LEDGER/chesters_imports.sqlite` |
+| Schema | `schema.sql` (v3) |
 | Python API | `mypi_ledger.py` |
+| PHP API | `k/systems/ledger/Ledger.php` |
 | Viewer | `mypi_tui.py` |
 
-## Naming
+## CHESTER_UID + scale
 
-No **sys / dom / mod** in the ledger. Place is `place_path` (e.g. `starline/offices/frontdesk`) + optional `place_label`.  
-See `docs/PLACE-AND-NAMING.md`.
+- **`c_uid`** = CHESTER_UID (minted `ch.HEX…`) — every stored row  
+- **`scale`** = `leaf` | `branch` | `log` | `yard_crate`  
+- **`parent_c_uid` / `stem_c_uid`** = composition (instances of fractions, not butchered trees)  
+- **`face_id`** = human tile (yard / optional tool face)  
+
+## Naming (place)
+
+Place is still `place_path` + sys/dom/room/mod columns.
 
 ## Trust drill
 
