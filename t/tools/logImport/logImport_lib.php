@@ -278,4 +278,185 @@ if (!function_exists('logimport_paths')) {
             json_encode($wip, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)
         ) !== false;
     }
+
+    /**
+     * Merge form fields into existing WIP (preserves encodes/redactions).
+     */
+    function logimport_wip_merge_form(string $face, array $post, ?array $existing = null): array {
+        $wip = is_array($existing) ? $existing : (logimport_wip_load($face) ?: []);
+        if (array_key_exists('yard_title', $post)) {
+            $wip['yard_title'] = trim((string) $post['yard_title']);
+        }
+        if (array_key_exists('notes', $post)) {
+            $wip['notes'] = (string) $post['notes'];
+        }
+        if (!isset($wip['encodes']) || !is_array($wip['encodes'])) {
+            $wip['encodes'] = [];
+        }
+        if (!isset($wip['redactions']) || !is_array($wip['redactions'])) {
+            $wip['redactions'] = [];
+        }
+        // segment titles from form: seg_title[0], seg_title[1], …
+        if (isset($post['seg_title']) && is_array($post['seg_title'])) {
+            $segs = logimport_segments_normalize($wip['segments'] ?? [], 0);
+            $titles = $post['seg_title'];
+            foreach ($segs as $i => $seg) {
+                if (isset($titles[$i])) {
+                    $segs[$i]['title'] = trim((string) $titles[$i]);
+                }
+            }
+            $wip['segments'] = $segs;
+        } elseif (!isset($wip['segments']) || !is_array($wip['segments'])) {
+            $wip['segments'] = [];
+        }
+        return $wip;
+    }
+
+    /**
+     * Normalize segment list; empty = whole log (no cuts).
+     * Each segment: title, from_seq, to_seq (inclusive).
+     *
+     * @param list<array|mixed> $segments
+     * @return list<array{title:string,from_seq:int,to_seq:int}>
+     */
+    function logimport_segments_normalize($segments, int $lastSeq): array {
+        if (!is_array($segments) || $segments === []) {
+            return [];
+        }
+        $out = [];
+        foreach ($segments as $s) {
+            if (!is_array($s)) {
+                continue;
+            }
+            $from = (int) ($s['from_seq'] ?? 0);
+            $to = (int) ($s['to_seq'] ?? $lastSeq);
+            $title = trim((string) ($s['title'] ?? ''));
+            $out[] = [
+                'title' => $title,
+                'from_seq' => $from,
+                'to_seq' => $to,
+            ];
+        }
+        usort($out, static fn($a, $b) => $a['from_seq'] <=> $b['from_seq']);
+        return $out;
+    }
+
+    /**
+     * Cut points = last seq of each segment except the final one.
+     * e.g. segs 0-10, 11-50 → cuts [10]
+     *
+     * @param list<array{from_seq:int,to_seq:int}> $segments
+     * @return list<int>
+     */
+    function logimport_segment_cuts(array $segments): array {
+        if (count($segments) < 2) {
+            return [];
+        }
+        $cuts = [];
+        $n = count($segments);
+        for ($i = 0; $i < $n - 1; $i++) {
+            $cuts[] = (int) $segments[$i]['to_seq'];
+        }
+        return $cuts;
+    }
+
+    /**
+     * Build segments from sorted unique cut points (after_seq values).
+     * Cut after seq C means next segment starts at C+1.
+     *
+     * @param list<int> $cuts after-seq values
+     * @param array<int,string> $titlesByIndex optional titles
+     * @return list<array{title:string,from_seq:int,to_seq:int}>
+     */
+    function logimport_segments_from_cuts(array $cuts, int $lastSeq, array $titlesByIndex = []): array {
+        if ($lastSeq < 0) {
+            return [];
+        }
+        $cuts = array_values(array_unique(array_map('intval', $cuts)));
+        sort($cuts);
+        // only valid interior cuts
+        $cuts = array_values(array_filter(
+            $cuts,
+            static fn($c) => $c >= 0 && $c < $lastSeq
+        ));
+        if ($cuts === []) {
+            return [[
+                'title' => $titlesByIndex[0] ?? '',
+                'from_seq' => 0,
+                'to_seq' => $lastSeq,
+            ]];
+        }
+        $bounds = array_merge([-1], $cuts, [$lastSeq]);
+        $segs = [];
+        for ($i = 0; $i < count($bounds) - 1; $i++) {
+            $from = $bounds[$i] + 1;
+            $to = $bounds[$i + 1];
+            $default = 'part ' . ($i + 1);
+            $segs[] = [
+                'title' => trim((string) ($titlesByIndex[$i] ?? '')) ?: $default,
+                'from_seq' => $from,
+                'to_seq' => $to,
+            ];
+        }
+        return $segs;
+    }
+
+    /**
+     * Add a cut after message seq (split into two pieces at that boundary).
+     */
+    function logimport_segments_add_cut(array $segments, int $afterSeq, int $lastSeq): array {
+        if ($afterSeq < 0 || $afterSeq >= $lastSeq) {
+            return logimport_segments_normalize($segments, $lastSeq);
+        }
+        $cuts = logimport_segment_cuts(
+            $segments !== []
+                ? $segments
+                : [['from_seq' => 0, 'to_seq' => $lastSeq, 'title' => '']]
+        );
+        if (!in_array($afterSeq, $cuts, true)) {
+            $cuts[] = $afterSeq;
+        }
+        $titles = [];
+        foreach ($segments as $i => $s) {
+            $titles[$i] = (string) ($s['title'] ?? '');
+        }
+        return logimport_segments_from_cuts($cuts, $lastSeq, $titles);
+    }
+
+    function logimport_segments_remove_cut(array $segments, int $afterSeq, int $lastSeq): array {
+        $cuts = logimport_segment_cuts($segments);
+        $cuts = array_values(array_filter($cuts, static fn($c) => (int) $c !== $afterSeq));
+        if ($cuts === []) {
+            return [];
+        }
+        $titles = [];
+        foreach ($segments as $i => $s) {
+            $titles[$i] = (string) ($s['title'] ?? '');
+        }
+        return logimport_segments_from_cuts($cuts, $lastSeq, $titles);
+    }
+
+    /**
+     * Map seq → segment index for rendering.
+     *
+     * @return array<int,int> seq => segmentIndex
+     */
+    function logimport_seq_to_segment(array $segments, int $lastSeq): array {
+        if ($segments === []) {
+            $map = [];
+            for ($i = 0; $i <= $lastSeq; $i++) {
+                $map[$i] = 0;
+            }
+            return $map;
+        }
+        $map = [];
+        foreach ($segments as $si => $seg) {
+            $from = (int) $seg['from_seq'];
+            $to = (int) $seg['to_seq'];
+            for ($i = $from; $i <= $to; $i++) {
+                $map[$i] = $si;
+            }
+        }
+        return $map;
+    }
 }

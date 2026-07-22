@@ -143,3 +143,79 @@
   opacity: 0.5;
   margin-top: 1rem;
 }
+
+.logimport-hidden {
+  display: none;
+}
+
+.logimport-seg-list {
+  border: var(--li-border);
+  padding: 0.45rem 0.55rem;
+  margin-bottom: 0.65rem;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.logimport-seg-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin: 0.3rem 0;
+}
+
+.logimport-seg-range {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  min-width: 5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.logimport-seg-title {
+  flex: 1 1 10rem;
+  min-width: 0;
+  font: inherit;
+  font-size: 0.9rem;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.3);
+  border: var(--li-border);
+  padding: 0.25rem 0.4rem;
+}
+
+.logimport-seg-head {
+  margin: 0.85rem 0 0.35rem;
+  padding: 0.35rem 0.45rem;
+  border-left: 2px solid currentColor;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.logimport-cut-row {
+  margin-top: 0.35rem;
+}
+
+.logimport-cut {
+  font: inherit;
+  font-size: 0.65rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.45rem !important;
+  border: 1px dashed color-mix(in srgb, currentColor 40%, transparent) !important;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.55;
+}
+
+.logimport-cut:hover {
+  opacity: 1;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.logimport-cut.is-cut {
+  opacity: 0.9;
+  border-style: solid !important;
+  border-color: color-mix(in srgb, currentColor 55%, transparent) !important;
+}
