@@ -27,12 +27,19 @@ Default **ON** — no Windows title bar, **no white native menu**.
 
 | | |
 |--|--|
-| **Dark caption** | Drag · **☰** doors · ─ □ ✕ |
+| **Dark caption** | Drag · **☰** · **▣** size step · **◎** deep · ─ □ ✕ |
 | **Doors menu** | ☰ or **Alt+M** / **Ctrl+K** |
-| **Esc** | Close doors menu |
+| **Zoom** | **Ctrl+=** / **Ctrl+−** / **Ctrl+0**. Click **%** → reset 100%. Persists in localStorage. |
+| **Window size** | **▣** — toggle **1024×768 ↔ 1600×1200** (not fullscreen). |
+| **Go deep** | **F11** or **◎** — hides caption, surface fills the window. **Esc** / **F11** to surface. Terminal: drag the **>| IOX** rail slug to move. Other surfaces get a tiny corner grabber if needed. |
+| **Maximize** | **□** or double-click drag strip — OS maximize, caption stays. |
+| **Esc** | Exit deep · else close doors menu |
 
 Caption: `pocket-browser/caption.js`.  
-Surfaces must honor `--pocket-caption-h` on **html** (not re-zero it on `body`).
+Surfaces must honor `--pocket-caption-h` on **html** (not re-zero it on `body`).  
+Surfaces may theme `#mypi-pocket-caption` (e.g. terminal skins); default is product chrome.
+
+Frameless is intentionally a fixed *portal* feel; **zoom** and **go deep** are how you “get larger” without Chrome’s chrome.
 
 ```bat
 python pocket_browser.py

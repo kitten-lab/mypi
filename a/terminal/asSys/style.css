@@ -10,6 +10,9 @@
   --tm-sidebar-w: 14rem;
   --tm-status-h: 1.75rem;
   --tm-tab-h: 1.7rem;
+  /* reading column grows with window; still capped so lines don't go infinite */
+  --tm-reading-max: min(52rem, 100%);
+  --tm-prose-max: min(46rem, 100%);
 
   --tm-bg: #0a0a0a;
   --tm-tree-bg: #1a1a1a;
@@ -92,6 +95,40 @@ body.terminal-station {
   padding: 0.35rem 0 0.55rem;
   border-bottom: 1px solid var(--tm-line);
   width: 100%;
+  /* pywebview-drag-region — moves frameless window (esp. when deep hides caption) */
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.tm-rail-brand:active {
+  cursor: grabbing;
+}
+
+/* deep mode: flush to top + brand grabber (no dark strip above IOX) */
+html.mypi-pocket-deep body.terminal-station,
+html.mypi-pocket-deep body.terminal-station .tm-app {
+  --pocket-caption-h: 0px !important;
+}
+
+html.mypi-pocket-deep body.terminal-station .tm-app {
+  top: 0 !important;
+}
+
+html.mypi-pocket-deep body.terminal-station .tm-rail {
+  padding-top: 0;
+}
+
+html.mypi-pocket-deep body.terminal-station .tm-rail-brand {
+  padding: 0.45rem 0 0.55rem;
+  margin: 0;
+  background: color-mix(in srgb, var(--tm-accent) 12%, transparent);
+  box-shadow: inset 0 0 12px color-mix(in srgb, var(--tm-accent) 18%, transparent);
+}
+
+html.mypi-pocket-deep body.terminal-station .tm-rail-brand .tm-rail-iox {
+  opacity: 1;
+  text-shadow: 0 0 12px var(--tm-accent);
 }
 
 .tm-rail-gt {
@@ -353,13 +390,13 @@ aside.tm-rail form.tm-rail-out {
   text-transform: uppercase;
 }
 
-/* reading pane — NO card-in-card */
+/* reading pane — NO card-in-card; fills center column height */
 .tm-main {
   flex: 1 1 auto;
   min-height: 0;
   overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 0.85rem 1.25rem 1.5rem;
+  overflow-y: auto;
+  padding: 0.85rem clamp(0.85rem, 2vw, 1.75rem) 1.5rem;
   scrollbar-width: thin;
   scrollbar-color: var(--pocket-scroll-thumb) transparent;
 }
@@ -372,8 +409,10 @@ aside.tm-rail form.tm-rail-out {
 }
 
 .tm-reading {
-  max-width: 48rem;
-  /* no border box — text sits on the CRT field */
+  /* grow with window (1024 vs 1600) without becoming a newspaper */
+  width: 100%;
+  max-width: var(--tm-reading-max);
+  min-height: min-content;
 }
 
 .tm-reading h1 {
@@ -402,8 +441,14 @@ aside.tm-rail form.tm-rail-out {
 .tm-reading .tm-lede {
   font-size: 1.05rem;
   color: var(--tm-fg);
-  max-width: 42rem;
+  max-width: var(--tm-prose-max);
   margin: 0.55rem 0;
+}
+
+/* tools installed in main (logImport, fileKeeper, …) use the width */
+.tm-reading .logimport,
+.tm-reading .filekeeper {
+  max-width: min(56rem, 100%);
 }
 
 /* sparse machine voice — almost not there */
@@ -701,6 +746,27 @@ header.tm-header {
   display: none !important;
 }
 
+/* wide portal (e.g. 1600×1200) — more tree, more reading field */
+@media (min-width: 1400px) {
+  :root {
+    --tm-sidebar-w: 16rem;
+    --tm-reading-max: min(58rem, 100%);
+    --tm-prose-max: min(52rem, 100%);
+  }
+  .tm-main {
+    padding-left: clamp(1rem, 2.5vw, 2.25rem);
+    padding-right: clamp(1rem, 2.5vw, 2.25rem);
+  }
+}
+
+@media (min-width: 1700px) {
+  :root {
+    --tm-sidebar-w: 17rem;
+    --tm-reading-max: min(64rem, 100%);
+    --tm-prose-max: min(56rem, 100%);
+  }
+}
+
 @media (max-width: 720px) {
   .tm-rail {
     flex: 0 0 2.5rem;
@@ -716,4 +782,87 @@ header.tm-header {
     flex: 0 0 28vh;
     border-bottom: 1px solid var(--tm-line);
   }
+}
+
+/* -- pocket caption (PB inject default ? terminal surface theme) --
+   caption.js injects #mypi-pocket-caption into the page.
+   Default product chrome is purple-blue; terminal overrides when
+   html.mypi-pocket-frameless + body.terminal-station.
+   Skins (base / io) retint via --tm-* tokens.
+   Do not change height / drag region / z-index.
+*/
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption {
+  font-family: var(--tm-font-mono), "VT323", ui-monospace, monospace;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tm-fg);
+  background: var(--tm-bg);
+  background-image: var(--tm-scan);
+  background-size: var(--tm-scan-size);
+  border-bottom: 1px solid var(--tm-line);
+  box-shadow: none;
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-mark {
+  width: 8px;
+  height: 8px;
+  border-radius: 0;
+  background: var(--tm-accent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--tm-accent) 55%, transparent);
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-title {
+  opacity: 0.9;
+  letter-spacing: 0.08em;
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-btn {
+  color: var(--tm-fg-dim);
+  font-family: inherit;
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-btn:hover {
+  background: color-mix(in srgb, var(--tm-accent) 18%, transparent);
+  color: var(--tm-hot);
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-btn.close:hover {
+  background: #5a2020;
+  color: #ffb0b0;
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-menu {
+  font-family: var(--tm-font-mono), "VT323", ui-monospace, monospace;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--tm-fg);
+  background: var(--tm-tree-bg);
+  background-image: var(--tm-scan);
+  background-size: var(--tm-scan-size);
+  border: 1px solid var(--tm-line);
+  border-top: none;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-menu button {
+  color: var(--tm-fg);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-menu button:hover,
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-menu button:focus {
+  background: color-mix(in srgb, var(--tm-accent) 22%, transparent);
+  color: var(--tm-hot);
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-menu .mypi-menu-sep {
+  background: var(--tm-line);
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-menu .mypi-menu-hint {
+  color: var(--tm-fg-dim);
+  letter-spacing: 0.1em;
 }

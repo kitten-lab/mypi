@@ -49,13 +49,20 @@ _FRAMELESS = os.environ.get("MYPI_POCKET_FRAMELESS", "1").strip().lower() not in
 _CAPTION_SRC = CAPTION_JS.read_text(encoding="utf-8") if CAPTION_JS.is_file() else ""
 
 
+# Mag ▣ classic toggle — the sizes you actually want (not a climb ladder).
+_MAG_SMALL = (1024, 768)
+_MAG_LARGE = (1600, 1200)
+
+
 class PocketApi:
     """JS bridge: window.pywebview.api.*"""
 
     def __init__(self) -> None:
         self._window: webview.Window | None = None
         self._maximized = False
-        self._normal_size = (1100, 720)
+        self._normal_size = _MAG_SMALL
+        # True → currently showing LARGE; next press → SMALL
+        self._mag_large = False
 
     def bind(self, window: webview.Window) -> None:
         self._window = window
@@ -65,6 +72,7 @@ class PocketApi:
             self._window.minimize()
 
     def toggle_maximize(self) -> None:
+        """Window maximize (caption stays). For full immersion use JS Go deep / F11."""
         if not self._window:
             return
         if self._maximized:
@@ -82,6 +90,34 @@ class PocketApi:
                 pass
             self._window.maximize()
             self._maximized = True
+
+    def step_window_size(self) -> str:
+        """
+        Toggle 1024×768 ↔ 1600×1200 (not fullscreen, not a size ladder).
+        """
+        if not self._window:
+            return ""
+        try:
+            if self._maximized:
+                self._window.restore()
+                self._maximized = False
+        except Exception:
+            pass
+
+        if self._mag_large:
+            target = _MAG_SMALL
+            self._mag_large = False
+        else:
+            target = _MAG_LARGE
+            self._mag_large = True
+
+        try:
+            self._window.resize(target[0], target[1])
+            self._normal_size = target
+        except Exception:
+            self._mag_large = not self._mag_large
+            return f"{target[0]}x{target[1]}"
+        return f"{target[0]}x{target[1]}"
 
     def close(self) -> None:
         if self._window:
@@ -250,13 +286,14 @@ def main() -> None:
     window = webview.create_window(
         title=f"{TITLE_ROOT} · gate",
         url=HOME,
-        width=1100,
-        height=720,
+        width=_MAG_SMALL[0],
+        height=_MAG_SMALL[1],
         min_size=(640, 480),
         background_color="#0a0c12",
         text_select=True,
         frameless=_FRAMELESS,
         easy_drag=False,
+        resizable=True,
         shadow=True,
         js_api=api,
     )
@@ -345,7 +382,10 @@ if __name__ == "__main__":
         f"devtools={'ON' if _DEBUG else 'OFF'}"
     )
     if _FRAMELESS:
-        print("  portal: dark caption only · ☰ doors · Alt+M / Ctrl+K · drag · ─ □ ✕")
+        print(
+            "  portal: caption ☰ · Alt+M · drag · ─ □ ✕ · "
+            "Ctrl± zoom · F11 go deep · Esc surface"
+        )
     if not CAPTION_JS.is_file():
         print(f"  WARNING: missing {CAPTION_JS}")
     main()

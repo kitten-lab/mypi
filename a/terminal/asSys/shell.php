@@ -49,7 +49,8 @@ $face = $authed ? strtoupper($agent['slug']) : '???';
    */
   ?>
   <aside class="tm-rail" aria-label="Session rail">
-    <div class="tm-rail-brand" title="concept of connection">
+    <div class="tm-rail-brand pywebview-drag-region" data-pocket-drag
+         title="drag window · deep: this is your grabber">
       <span class="tm-rail-gt">&gt;|</span>
       <span class="tm-rail-iox">IOX</span>
     </div>

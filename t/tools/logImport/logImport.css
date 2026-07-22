@@ -4,7 +4,8 @@
 
 .logimport {
   --li-border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
-  max-width: 52rem;
+  max-width: min(56rem, 100%);
+  width: 100%;
 }
 
 .logimport-lede {
@@ -74,10 +75,18 @@
 .logimport-thread {
   border: var(--li-border);
   background: rgba(0, 0, 0, 0.2);
-  max-height: 28rem;
+  /* grow with taller window (768 → 1200) instead of a fixed postcard */
+  max-height: min(52vh, 40rem);
+  min-height: 12rem;
   overflow-y: auto;
   padding: 0.5rem 0.65rem;
   margin-bottom: 0.75rem;
+}
+
+@media (min-height: 1000px) {
+  .logimport-thread {
+    max-height: min(58vh, 48rem);
+  }
 }
 
 .logimport-msg {
