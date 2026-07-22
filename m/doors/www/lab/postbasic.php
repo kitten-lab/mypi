@@ -1,6 +1,6 @@
 <?php
 /**
- * WWW Tool Lab · postBASIC (ledger kind=post) — same rail as Starline News.
+ * WWW Tool Lab · postBASIC — same rail as Starline News.
  */
 require_once __DIR__ . '/_lab_site.php';
 
@@ -12,10 +12,10 @@ SKY__AUTH(
 );
 
 openSky('Lab · postBASIC');
-lab_open('postBASIC · headlines / posts', 'postbasic');
+lab_open('posts & headlines', 'postbasic');
 
-leaf('Writes **ledger** crates `kind=post` via `mypi_ledger_create_post` (Charlie tags + TPS). Same store as Skyline News.');
-leaf('Form: topic + body + optional Charlie threads (`this*rel&gt;that`). List below is SoperView for this lab place.');
+leaf('Write a headline, leave a body, optionally thread a few names. What you post here lands in the same pile as Skyline News.');
+leaf('List below is everything this lab room has already said.');
 hr();
 
 section('', 'lab-tool-form');
@@ -26,7 +26,7 @@ close_section();
 hr();
 
 section('', 'lab-tool-view');
-medHeading('Posts in this lab (ledger)');
+medHeading('Posts in this room');
 getTool('postBASIC', 'SoperView');
 close_section();
 

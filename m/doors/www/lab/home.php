@@ -14,16 +14,17 @@ SKY__AUTH(
 openSky('Tool Lab');
 lab_open('Welcome to the Tool Lab', 'home');
 
-leaf('This is a **fake little website** living inside the WWW explorer chrome. Each page installs tools with `getTool` the same way real rooms do.');
-leaf('Use the side nav (built with `section` / `close_section`) to hit every root tool under test.');
+leaf('A small pretend site tucked inside the WWW window. Side rooms try tools the way real doors do.');
+leaf('Pick a room from the rail — posts, files, guest book, fragments, chat, reports, toys.');
 hr();
-leaf('**postBASIC** — ledger posts (MakePost + SoperView)');
-leaf('**cuBOOK** — guestbook form + view');
-leaf('**soprBASIC** — add fragment + list');
-leaf('**chatBOX** — chat form + room log');
-leaf('**ledgerREPORT** — crates / charlie / TPS faces');
-leaf('**Toy ROMs** — placeToy / RomHost stage');
-leaf('**secretROOM** — visual auth concept (if present)');
+leaf('**Posts** — headlines and body text');
+leaf('**Files** — markdown desk, view and revise');
+leaf('**Guest book** — sign and read');
+leaf('**Fragments** — short scraps in a pile');
+leaf('**Chat** — hangout room');
+leaf('**Reports** — crates, Charlie, TPS faces');
+leaf('**Toys** — little windows on the stage');
+leaf('**Secret** — pretend lock (when installed)');
 
 lab_close();
 closeSky();

@@ -13,6 +13,8 @@ $GLOBALS[BLOCK_ID]['tDOM'] = [
   ['DOM' => 'events'],
 ];
 
+// offices keys include authdesk (auth roster)
+
 $GLOBALS[BLOCK_ID]['NAV'] = [
   'navSec' => [
     'DOM' => 'news',

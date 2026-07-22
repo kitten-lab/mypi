@@ -1,12 +1,9 @@
 /**
- * chatBOX — base layout (neutral).
- *
- * Tokens:
- *   --chat-gap, --chat-max-width, --chat-input-*, --chat-btn-*,
- *   --chat-slug-border, --chat-time-opacity, --chat-user-weight
+ * chatBOX — scoped so it cannot restyle shell rails / other forms.
  */
 
-form {
+.chatbox-form,
+.chatbox-room {
   --chat-gap: 0.75rem;
   --chat-max-width: 36rem;
   --chat-input-bg: transparent;
@@ -20,22 +17,25 @@ form {
   --chat-slug-border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
   --chat-time-opacity: 0.45;
   --chat-user-weight: 600;
+}
 
+.chatbox-form {
   max-width: var(--chat-max-width);
 }
 
-form span {
+.chatbox-form > span,
+.chatbox-form span.wire-field {
   display: block;
   margin-bottom: var(--chat-gap);
 }
 
-form label {
+.chatbox-form label {
   font-weight: 600;
   background: none;
 }
 
-form input,
-form textarea {
+.chatbox-form input,
+.chatbox-form textarea {
   font: inherit;
   color: var(--chat-input-fg);
   background: var(--chat-input-bg);
@@ -46,7 +46,7 @@ form textarea {
   margin: 0.25rem 0 0;
 }
 
-form button {
+.chatbox-form button {
   font: inherit;
   color: var(--chat-btn-fg);
   background: var(--chat-btn-bg);
@@ -56,6 +56,7 @@ form button {
   cursor: pointer;
 }
 
+.chatbox-room .chat-slug,
 .chat-slug {
   border: var(--chat-slug-border);
   padding: 0.45rem 0.55rem;
@@ -63,17 +64,20 @@ form button {
   max-width: var(--chat-max-width, 36rem);
 }
 
+.chatbox-room .chat-time,
 .chat-time {
   font-size: 0.7rem;
   opacity: var(--chat-time-opacity);
   margin: 0.25rem 0 0;
 }
 
+.chatbox-room .user-display,
 .user-display {
   font-weight: var(--chat-user-weight);
   font-size: 1.05em;
 }
 
+.chatbox-room .chat-content,
 .chat-content {
   font-size: 0.95em;
   line-height: 1.4;
@@ -100,4 +104,3 @@ form button {
   margin-top: 0.5rem;
   opacity: 0.9;
 }
-

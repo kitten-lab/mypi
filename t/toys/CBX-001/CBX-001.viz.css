@@ -1,0 +1,139 @@
+/* CBX-001 Chatterbox — base playfield (neutral-ish 90s chat) */
+.cbx-root {
+  width: 800px;
+  height: 600px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  color: #e8ffe8;
+  background: #001a00;
+  border: 2px solid #0f0;
+  position: relative;
+}
+.cbx-title {
+  flex: 0 0 auto;
+  padding: 6px 10px;
+  background: linear-gradient(180deg, #003300, #001a00);
+  border-bottom: 1px solid #0a0;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cbx-title span { opacity: 0.75; font-weight: 400; font-size: 12px; }
+.cbx-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px 8px;
+  background: #002200;
+  border-bottom: 1px solid #0a0;
+  align-items: center;
+}
+.cbx-toolbar label {
+  font-size: 11px;
+  opacity: 0.8;
+  margin-right: 2px;
+}
+.cbx-toolbar input {
+  font: inherit;
+  font-size: 12px;
+  color: #cfc;
+  background: #000;
+  border: 1px solid #0a0;
+  padding: 3px 6px;
+  width: 7rem;
+}
+.cbx-toolbar input.wide { width: 9rem; }
+.cbx-toolbar button.cbx-refresh {
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  color: #0a0;
+  background: #030;
+  border: 1px solid #0a0;
+  padding: 3px 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-left: auto;
+}
+.cbx-toolbar button.cbx-refresh:hover { background: #0a0; color: #000; }
+.cbx-toolbar button.cbx-refresh:disabled { opacity: 0.5; cursor: wait; }
+.cbx-log {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 8px 10px;
+  background: #000800;
+  min-height: 0;
+}
+.cbx-line {
+  margin: 0 0 0.55rem 0;
+  line-height: 1.35;
+  word-wrap: break-word;
+}
+.cbx-line .who {
+  color: #6f6;
+  font-weight: 700;
+}
+.cbx-line .when {
+  color: #484;
+  font-size: 11px;
+  margin-left: 0.35rem;
+}
+.cbx-line .msg {
+  color: #dfd;
+  white-space: pre-wrap;
+}
+.cbx-empty { opacity: 0.5; font-style: italic; padding: 1rem 0; }
+.cbx-compose {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+  background: #001a00;
+  border-top: 1px solid #0a0;
+}
+.cbx-compose textarea {
+  flex: 1;
+  font: inherit;
+  font-size: 13px;
+  color: #efe;
+  background: #000;
+  border: 1px solid #0a0;
+  padding: 6px;
+  resize: none;
+  height: 3.2rem;
+  box-sizing: border-box;
+}
+.cbx-compose button {
+  font: inherit;
+  font-weight: 700;
+  color: #000;
+  background: #0c0;
+  border: 1px solid #0f0;
+  padding: 0 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.cbx-compose button:hover { background: #0f0; }
+.cbx-sessions {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  font-size: 11px;
+  background: #001100;
+  border-bottom: 1px solid #060;
+}
+.cbx-sessions a {
+  color: #8f8;
+  margin-right: 0.6rem;
+  text-decoration: none;
+}
+.cbx-sessions a.on { color: #fff; font-weight: 700; text-decoration: underline; }
+.cbx-status {
+  flex: 0 0 auto;
+  font-size: 11px;
+  padding: 2px 8px;
+  color: #6a6;
+}

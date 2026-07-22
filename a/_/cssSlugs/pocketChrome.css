@@ -1,0 +1,54 @@
+/**
+ * pocketChrome — shared shell chrome for pocket-browser / dense apps.
+ * Scope scrollbars to .pocket-scroll (not *) so WebView2 stays predictable.
+ * SYS overrides --pocket-scroll-* on body or pane.
+ */
+
+:root {
+  --pocket-scroll-size: 12px;
+  --pocket-scroll-track: #1a1a1e;
+  --pocket-scroll-thumb: #6a6a78;
+  --pocket-scroll-thumb-hover: #8a8a9a;
+  --pocket-scroll-radius: 6px;
+}
+
+/* Utility: app-shell regions that scroll instead of the document */
+.pocket-scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 0;
+  min-width: 0;
+  overscroll-behavior: contain;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--pocket-scroll-thumb) var(--pocket-scroll-track);
+}
+
+.pocket-no-scroll {
+  overflow: hidden;
+}
+
+/* Chromium / WebView2 — classic gutter scrollbars (not overlay-invisible) */
+.pocket-scroll::-webkit-scrollbar {
+  width: var(--pocket-scroll-size);
+  height: var(--pocket-scroll-size);
+}
+
+.pocket-scroll::-webkit-scrollbar-track {
+  background: var(--pocket-scroll-track);
+}
+
+.pocket-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--pocket-scroll-thumb);
+  border-radius: var(--pocket-scroll-radius);
+  /* solid fill — no transparent border/clip (that made thumbs vanish at 8px) */
+  border: 2px solid var(--pocket-scroll-track);
+}
+
+.pocket-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--pocket-scroll-thumb-hover);
+}
+
+.pocket-scroll::-webkit-scrollbar-corner {
+  background: var(--pocket-scroll-track);
+}

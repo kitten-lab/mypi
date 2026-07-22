@@ -42,19 +42,20 @@ function lab_open(string $pageTitle, string $activeKey = 'home'): void {
 
     $links = [
         'home' => 'Lab home',
-        'postbasic' => 'postBASIC posts',
-        'cubook' => 'cuBOOK guestbook',
-        'sopr' => 'soprBASIC fragments',
-        'chat' => 'chatBOX room',
-        'ledger' => 'ledgerREPORT',
-        'toys' => 'Toy ROMs stage',
-        'secret' => 'secretROOM (visual)',
+        'postbasic' => 'Posts',
+        'filekeeper' => 'Files',
+        'cubook' => 'Guest book',
+        'sopr' => 'Fragments',
+        'chat' => 'Chat',
+        'ledger' => 'Reports',
+        'toys' => 'Toys',
+        'secret' => 'Secret',
     ];
 
     section('', 'lab-site');
     section('', 'lab-banner');
     h1('Tool Lab · pretend website');
-    leaf('<span class="lab-tag">Inside WWW shell · tests for root t/tools · not the real internet</span>');
+    leaf('<span class="lab-tag">Inside the WWW window · not the open web · just a practice house</span>');
     close_section();
 
     section('', 'lab-layout');
@@ -79,7 +80,7 @@ function lab_close(): void {
     close_section(); // lab-main
     close_section(); // lab-layout
     section('', 'lab-foot');
-    leaf('Tool Lab · hosted on SYS www · path /www/lab/… · styles: a/www/asSys/lab.style.css');
+    leaf('Tool Lab · www / lab · practice rooms only');
     close_section();
     close_section(); // lab-site
 }

@@ -1,4 +1,7 @@
 <?php
+/**
+ * WWW Tool Lab · chatBOX + CBX-001 Chatterbox ROM.
+ */
 require_once __DIR__ . '/_lab_site.php';
 
 SKY__AUTH(
@@ -8,23 +11,26 @@ SKY__AUTH(
     'classic'
 );
 
+// Tool pages stay silent; ROM owns the hangout chrome
+$GLOBALS['CHATBOX_QUIET_PAGES'] = true;
+
 openSky('Lab · chatBOX');
-lab_open('chatBOX · room', 'chat');
+lab_open('chatterbox', 'chat');
 
-leaf('**Live hangout:** each line is a ledger crate `kind=chat` with `meta.session` (default `live`). Open another session id to start a parallel hangout at this place.');
-leaf('Room list is oldest → newest. Session switcher appears after the first lines land.');
+leaf('**CBX-001** — click the cover. Pick a nick, a hangout name if you want a private corner, then say something.');
+leaf('The form log stays quiet here; the little window is the room.');
 hr();
 
-section('', 'lab-tool-form');
-medHeading('Say something');
+// Actors + boot JSON (no classic form/log chrome)
 getTool('chatBOX', 'ChatBox');
-close_section();
+getTool('chatBOX', 'ChatRoom');
 
 hr();
-
-section('', 'lab-tool-view');
-medHeading('Chat log');
-getTool('chatBOX', 'ChatRoom');
+romStage();
+section('', 'lab-toy-shelf');
+shelf('cbxShelf');
+placeToy('CBX-001', 'ClassicBoi');
+close_shelf();
 close_section();
 
 lab_close();

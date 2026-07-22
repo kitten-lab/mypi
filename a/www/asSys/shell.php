@@ -37,10 +37,14 @@ $navCall = $GLOBALS['navCall'] ?? ($GLOBALS[$SITE]['GETS']['navCall'] ?? null);
 <div class="wwwExplorer_windowToolBar">
 
 <div class="wwwExplorer_linkBar">
-  <div role="button" tabindex="0" onclick="WWWBack()" onkeydown="if(event.key==='Enter')WWWBack()">back</div>
-  <div role="button" tabindex="0" onclick="WWWForward()" onkeydown="if(event.key==='Enter')WWWForward()">forward</div>
+  <div role="button" tabindex="0" data-webbar="back" onclick="WWWBack()" onkeydown="if(event.key==='Enter')WWWBack()">back</div>
+  <div role="button" tabindex="0" data-webbar="forward" onclick="WWWForward()" onkeydown="if(event.key==='Enter')WWWForward()">forward</div>
+  <div role="button" tabindex="0" id="REFRESH" data-webbar="refresh"
+       onclick="if(event.shiftKey||event.ctrlKey||event.altKey){WWWHardRefresh()}else{WWWRefresh()}"
+       onkeydown="if(event.key==='Enter')WWWRefresh()"
+       title="Shift/Ctrl+click = hard refresh">refresh</div>
   <span id="wwwBar" class="linkSlug" contenteditable="true" spellcheck="false"></span>
-  <div id="GO" role="button" tabindex="0" onclick="LetsGO()" onkeydown="if(event.key==='Enter')LetsGO()">GO!</div>
+  <div id="GO" role="button" tabindex="0" data-webbar="go" onclick="LetsGO()" onkeydown="if(event.key==='Enter')LetsGO()">GO!</div>
 </div>
 
 <div class="wwwExplorer_innerShell">

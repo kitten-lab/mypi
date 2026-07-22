@@ -4,8 +4,10 @@
 <?php setGET("actor"); ?>
 <!-- BEGIN THE OPENING PRAYER OF PRODUCTION -->
 <!DOCTYPE html>
-  <html><head>
-    <title><?= $GLOBALS['pageTitle'] ?></title>
+  <html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?= htmlspecialchars($GLOBALS['pageTitle'] ?? 'STARLINE') ?></title>
     <!-- THE CALLING OF THE STYLESHEET PROCESSION -->
       <!-- insert getMyStyles(); -->
         <?php getMy_Styles() ?>
@@ -15,26 +17,24 @@
         <?php setGET("quickDress"); ?>
       </style>
   </head>
-  <body>
+  <body class="starline-citadel pocket-app">
   <!-- END OPENING PRAYERS -->
-<body>
 
-<?php include 'header.php'; ?>
-<main>
+<?php include __DIR__ . '/header.php'; ?>
 
-<div class="MAIN">
+<main class="sl-main pocket-scroll" id="starlineMain">
+  <div class="MAIN sl-panel">
     <?php setGET("set"); ?>
-</div>
+  </div>
+  <?php include __DIR__ . '/footer.php'; ?>
 </main>
-<?php include 'footer.php'; ?>
 
-
-  <?php 
+  <?php
     callKitten("siloGreeting");
+    callKitten("webBAR");
     callKitten("roomTEXTURE");
   ?>
 <script>
-
 (function () {
   var p = window.location.pathname.replace(/\/+$/, '') || '/';
   // Unified b-front: /starline or /starline/
@@ -43,9 +43,9 @@
     window.location.replace(base + '/news/headlines');
   }
 })();
-console.log("%cLAUNCHING THE SILO.....","background-color:blue;padding:10px;font-weight:600");
+console.log("%cSTARLINE CITADEL ONLINE","background:linear-gradient(90deg,#1a1f3a,#3d2a5c);color:#c8d4ff;padding:8px 12px;font-weight:600");
 </script>
-  
+
     <?php setGET("scripts"); ?>
 
 </body>

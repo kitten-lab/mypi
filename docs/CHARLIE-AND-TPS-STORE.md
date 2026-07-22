@@ -28,6 +28,8 @@ Paper reports were the **desired faces**. They should become **queries over inte
 
 **Rule:** postBASIC / tools **write edges + tags into the ledger**. Charlie “paper” = export/view of that graph.
 
+**Archive half (ChatGPT / multi-surface loop-back):** same impulse as Charlie buckets, but on **message ids** and a cullable **master motif list** — see [MOTIF-INDEX.md](./MOTIF-INDEX.md). Live Charlie tags and motif `slug`s should converge later.
+
 ---
 
 ## TPS — membrane time windows

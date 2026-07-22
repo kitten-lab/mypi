@@ -1,29 +1,41 @@
+/* Pocket frameless caption: inject sets --pocket-caption-h on html/body.
+   Do NOT re-zero the var on body (that buried chrome under the PB bar). */
+:root,
+html {
+  --pocket-caption-h: 0px;
+  height: 100%;
+}
 
 body {
-    height: 98vh;
+    margin: 0;
+    height: 100%;
     color: white;
     font-family: VT323;
     font-size: 2vh;
-overflow: hidden; /* Keeps screen content inside */
+    overflow: hidden; /* Keeps screen content inside */
+    /* inherit --pocket-caption-h from html; inject may also set on body */
+}
 
-    }
+/* Full explorer under PB caption strip */
 .wwwExplorer_mainShell {
 position: fixed;
-top: 0;
+top: var(--pocket-caption-h, 0px);
 left: 0;
 right: 0;
 bottom: 0;
 background: gray;
 overflow: hidden; /* Keeps screen content inside */
+z-index: 0;
 }
 
 
 .wwwExplorer_windowTitleBar {
 position: fixed;
-top: 1vh;
+top: calc(var(--pocket-caption-h, 0px) + 1vh);
 left: .5vh;
 right: .5vh;
 height: 4vh;
+z-index: 1;
 background-image: linear-gradient(to top, blue);
 overflow: hidden; /* Keeps screen content inside */
 box-shadow: 
@@ -43,19 +55,23 @@ padding: 1vh 1vh;
 }
 .wwwExplorer_windowToolBar {
 position: fixed;
-top: 8vh;
+top: calc(var(--pocket-caption-h, 0px) + 8vh);
 left: 1vh;
 right: 1vh;
-height: 410vh;
+/* fill remaining viewport under title bar / link bar */
+bottom: 1vh;
+height: auto;
 overflow: hidden; /* Keeps screen content inside */
+z-index: 1;
 }
 
 .wwwExplorer_linkBar {
     position: fixed;
     display: flex;
+    top: calc(var(--pocket-caption-h, 0px) + 8vh);
     left: 1vh;
     right: 1vh;
-    
+    z-index: 2;
 }
 
 .linkSlug {
@@ -92,14 +108,16 @@ box-shadow:
 
 .wwwExplorer_innerShell {
 position: fixed;
-top: 13vh;
+top: calc(var(--pocket-caption-h, 0px) + 13vh);
 left: 1vh;
 right: 1vh;
 bottom: 4vh;
 font-size: 3vh;
 padding:.6vh;
 background: black;
-overflow-x: scroll; /* Keeps screen content inside */
+overflow-x: auto;
+overflow-y: auto; /* lab tools / fileKeeper need vertical scroll */
+z-index: 1;
 }
 
 

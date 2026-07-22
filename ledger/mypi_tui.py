@@ -45,10 +45,22 @@ except ImportError:
 
 
 def _path_of(row) -> str:
+    """Prefer place_path; only fall back to sys/dom/room when path empty."""
     try:
-        return f"{row['sys']}/{row['dom']}/{row['room']}"
+        pp = (row["place_path"] if "place_path" in row.keys() else "") or ""
     except Exception:
-        return (row["place_path"] if "place_path" in row.keys() else "") or ""
+        pp = ""
+    pp = str(pp).strip()
+    if pp:
+        return pp
+    try:
+        sys_ = (row["sys"] or "").strip()
+        dom = (row["dom"] or "").strip()
+        room = (row["room"] or "").strip()
+    except Exception:
+        return ""
+    parts = [p for p in (sys_, dom, room) if p]
+    return "/".join(parts)
 
 
 def _clip(s: str, n: int = 48) -> str:
@@ -106,7 +118,10 @@ class MypiTui(App[None]):
         Binding("3", "sec_edges", "Edges"),
         Binding("4", "sec_tps", "TPS"),
         Binding("d", "demo", "Demo"),
-        Binding("delete", "soft_del", "Soft-del", show=False),
+        # Soft-del = devalue (deleted_at); NUKE = hard remove one crate
+        Binding("delete", "soft_del", "Soft-del"),
+        Binding("backspace", "soft_del", "Soft-del", show=False),
+        Binding("shift+delete", "hard_del", "NUKE"),
     ]
 
     def __init__(self) -> None:
@@ -211,6 +226,9 @@ class MypiTui(App[None]):
     def action_soft_del(self) -> None:
         self.del_soft()
 
+    def action_hard_del(self) -> None:
+        self.del_hard()
+
     def _clear_viewer(self, msg: str) -> None:
         related = self.query_one("#related-table", DataTable)
         related.clear(columns=True)
@@ -219,15 +237,68 @@ class MypiTui(App[None]):
         self.query_one("#related-hint", Static).update("related crates")
         self._selected_crate = None
 
-    def _status_line(self) -> None:
+    def _status_line(self, note: str = "") -> None:
         st = stats(self.conn)
         try:
             w = tps_window_seconds(self.conn)
         except Exception:
             w = 900
-        self.query_one("#status", Static).update(
-            f"  crates={st['crates']}  TPS={w}s  v{st['schema_version']}  ·  {DEFAULT_DB}"
-        )
+        base = f"  crates={st['crates']}  TPS={w}s  v{st['schema_version']}  ·  {DEFAULT_DB}"
+        if note:
+            base = f"{base}  ·  {note}"
+        if self._selected_crate:
+            base = f"{base}  ·  sel={self._selected_crate[:18]}"
+        self.query_one("#status", Static).update(base)
+
+    @staticmethod
+    def _crate_uid_from_row_key(key: str | None) -> str | None:
+        """Map a DataTable row_key value to a c_uid, if the row is crate-shaped."""
+        if not key:
+            return None
+        key = str(key)
+        if key.startswith("term:") or key.startswith("tps:"):
+            return None
+        if key.startswith("edge:"):
+            parts = key.split(":", 2)
+            if len(parts) >= 3 and parts[2]:
+                return parts[2]
+            return None
+        # crates section uses bare c_uid; related table too
+        if key.startswith("crate.") or key:
+            return key
+        return None
+
+    def _note_selected_from_key(self, key: str | None) -> None:
+        """Track highlighted/selected crate without requiring Enter."""
+        uid = self._crate_uid_from_row_key(key)
+        if not uid:
+            return
+        if get_crate(self.conn, uid):
+            self._selected_crate = uid
+
+    def _resolve_target_crate(self) -> str | None:
+        """Prefer explicit selection; else cursor row on either table."""
+        if self._selected_crate and get_crate(self.conn, self._selected_crate):
+            return self._selected_crate
+        for tid in ("related-table", "index-table"):
+            try:
+                table = self.query_one(f"#{tid}", DataTable)
+            except Exception:
+                continue
+            if not table.row_count:
+                continue
+            try:
+                coord = table.cursor_coordinate
+                cell = table.coordinate_to_cell_key(coord)
+                rk = cell.row_key
+                key = str(rk.value) if rk is not None else None
+            except Exception:
+                key = None
+            uid = self._crate_uid_from_row_key(key)
+            if uid and get_crate(self.conn, uid):
+                self._selected_crate = uid
+                return uid
+        return None
 
     def _load_index(self) -> None:
         self._set_nav_highlight()
@@ -385,6 +456,7 @@ class MypiTui(App[None]):
         if len(meta) > 400:
             meta = meta[:397] + "..."
         body = row["body"] or ""
+        soft = row["deleted_at"] if "deleted_at" in row.keys() else None
         lines = [
             f"c_uid   {row['c_uid']}",
             f"kind    {row['kind']}    tool  {row['tool']} v{row['tool_version']}",
@@ -399,9 +471,11 @@ class MypiTui(App[None]):
             f"tps     {row['t_uid']}",
             f"event   {row['event_unix']}    ingest {row['ingest_unix']}",
             f"meta    {meta}",
-            "",
-            "— history —",
         ]
+        if soft:
+            lines.append(f"DELETED soft @{soft}  (hidden from index; history kept)")
+        lines.append("")
+        lines.append("— history —")
         for ev in history(self.conn, c_uid):
             payload = ev["payload_json"]
             if len(payload) > 140:
@@ -412,7 +486,61 @@ class MypiTui(App[None]):
             lines.append("")
             lines.append("— tags (open Charlie index + select term to list) —")
             lines.append("  " + "  ".join(tags[:24]))
+        lines.append("")
+        lines.append("— del  Soft-del / Backspace  ·  shift+del NUKE  ·  topnav buttons —")
         viewer.update("\n".join(lines))
+        self._status_line()
+
+    def _apply_index_key(self, key: str, *, open_viewer: bool) -> None:
+        """Shared path for highlight (select only) vs select (open materials)."""
+        if key.startswith("term:"):
+            if open_viewer:
+                self._show_tag_in_viewer(key[5:])
+            return
+        if key.startswith("edge:"):
+            parts = key.split(":", 2)
+            if len(parts) >= 3:
+                self._note_selected_from_key(parts[2])
+                if open_viewer:
+                    self._show_crate(parts[2])
+            return
+        if key.startswith("tps:"):
+            if open_viewer:
+                self._show_tps_in_viewer(key[4:])
+            return
+        # bare c_uid / crate.*
+        if key.startswith("crate.") or get_crate(self.conn, key):
+            self._note_selected_from_key(key)
+            if not open_viewer:
+                self._status_line()
+                return
+            related = self.query_one("#related-table", DataTable)
+            related.clear(columns=True)
+            related.add_columns("c_uid", "kind", "place")
+            row = get_crate(self.conn, key)
+            if row:
+                related.add_row(
+                    row["c_uid"][:18],
+                    row["kind"] or "",
+                    _clip(_path_of(row), 20),
+                    key=row["c_uid"],
+                )
+                self.query_one("#related-hint", Static).update("current crate")
+            self._show_crate(key)
+
+    @on(DataTable.RowHighlighted)
+    def row_highlighted(self, event: DataTable.RowHighlighted) -> None:
+        """Arrow/cursor moves set the devalue target without needing Enter."""
+        if not event.row_key:
+            return
+        key = str(event.row_key.value)
+        table_id = event.data_table.id if event.data_table else ""
+        if table_id == "related-table":
+            self._note_selected_from_key(key)
+            self._status_line()
+            return
+        if table_id == "index-table":
+            self._apply_index_key(key, open_viewer=False)
 
     @on(DataTable.RowSelected)
     def row_selected(self, event: DataTable.RowSelected) -> None:
@@ -427,33 +555,7 @@ class MypiTui(App[None]):
                 self._show_crate(key)
             return
 
-        # Left index
-        if key.startswith("term:"):
-            self._show_tag_in_viewer(key[5:])
-            return
-        if key.startswith("edge:"):
-            parts = key.split(":", 2)
-            if len(parts) >= 3:
-                self._show_crate(parts[2])
-            return
-        if key.startswith("tps:"):
-            self._show_tps_in_viewer(key[4:])
-            return
-        if key.startswith("crate.") or get_crate(self.conn, key):
-            # crates section: also mirror into related as single-row context
-            related = self.query_one("#related-table", DataTable)
-            related.clear(columns=True)
-            related.add_columns("c_uid", "kind", "place")
-            row = get_crate(self.conn, key)
-            if row:
-                related.add_row(
-                    row["c_uid"][:18],
-                    row["kind"] or "",
-                    _clip(_path_of(row), 20),
-                    key=row["c_uid"],
-                )
-                self.query_one("#related-hint", Static).update("current crate")
-            self._show_crate(key)
+        self._apply_index_key(key, open_viewer=True)
 
     @on(Button.Pressed, "#sec-crates")
     def b_crates(self) -> None:
@@ -493,26 +595,49 @@ class MypiTui(App[None]):
 
     @on(Button.Pressed, "#btn-del")
     def del_soft(self) -> None:
-        if not self._selected_crate:
-            self.query_one("#status", Static).update("  select a crate in the viewer first")
+        """Devalue: soft-delete (hidden from lists, history + snapshot kept)."""
+        c_uid = self._resolve_target_crate()
+        if not c_uid:
+            self.query_one("#status", Static).update(
+                "  Soft-del: highlight a crate row (index or related) first"
+            )
             return
-        soft_delete(self.conn, self._selected_crate, actor="mypi-tui")
+        try:
+            soft_delete(self.conn, c_uid, actor="mypi-tui")
+        except KeyError:
+            self.query_one("#status", Static).update(f"  Soft-del: missing {c_uid[:24]}")
+            return
+        note = f"devalued (soft) {c_uid[:24]}"
         self._selected_crate = None
-        self.action_refresh()
+        self._load_index()
+        self._clear_viewer(f"Soft-deleted {c_uid}\n(devalued — gone from index, in deleted_log)")
+        self._status_line(note)
 
     @on(Button.Pressed, "#btn-hard")
     def del_hard(self) -> None:
-        if not self._selected_crate:
-            self.query_one("#status", Static).update("  select a crate in the viewer first")
+        """Hard remove one crate only (never the world)."""
+        c_uid = self._resolve_target_crate()
+        if not c_uid:
+            self.query_one("#status", Static).update(
+                "  NUKE: highlight a crate row (index or related) first"
+            )
             return
-        hard_delete(self.conn, self._selected_crate, actor="mypi-tui")
+        try:
+            hard_delete(self.conn, c_uid, actor="mypi-tui")
+        except KeyError:
+            self.query_one("#status", Static).update(f"  NUKE: missing {c_uid[:24]}")
+            return
+        note = f"NUKED {c_uid[:24]}"
         self._selected_crate = None
-        self.action_refresh()
+        self._load_index()
+        self._clear_viewer(f"Hard-deleted {c_uid}\n(snapshot in deleted_log)")
+        self._status_line(note)
 
 
 def main() -> None:
     print(f"ledger db: {DEFAULT_DB}")
     print("Layout: top nav · left index · right viewer (related + full payload)")
+    print("Delete: highlight crate → Soft-del / Del / Backspace  ·  Shift+Del or NUKE")
     MypiTui().run()
 
 

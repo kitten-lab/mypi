@@ -1,15 +1,16 @@
-<?php // new naming migration //
-
-define('WORLD_ID', 'book');
-define('WORLD_TAG', "book");
-define('BLOCK_ID', 'book');
-define('BLOCK_URI', 'book');
+<?php
+// Cosmology: SYS book — fragment atelier / book-making surface.
+define('SYS_ID', 'book');
+define('SYS_TAG', 'Fragments into form');
+define('WORLD_ID', SYS_ID);
+define('WORLD_TAG', SYS_TAG);
+define('BLOCK_ID', SYS_ID);
+define('BLOCK_URI', SYS_ID);
 
 global $SITE;
-// in-phase-out
 $GLOBALS['SITE'] = BLOCK_ID;
-$GLOBALS[$SITE]['SYS'] = WORLD_ID;
-$GLOBALS[$SITE]['SYS_SLUG'] = WORLD_ID;
-$GLOBALS[$SITE]['SYS_DISPLAY'] = WORLD_TAG;
+$GLOBALS[$SITE]['SYS'] = SYS_ID;
+$GLOBALS[$SITE]['SYS_SLUG'] = SYS_ID;
+$GLOBALS[$SITE]['SYS_DISPLAY'] = SYS_TAG;
 $GLOBALS[$SITE]['URI'] = BLOCK_URI;
 ?>

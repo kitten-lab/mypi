@@ -9,9 +9,9 @@ SKY__AUTH(
 );
 
 openSky('Lab · soprBASIC');
-lab_open('soprBASIC · fragments', 'sopr');
+lab_open('fragments', 'sopr');
 
-leaf('Fragments go to ledger `kind=soper` (section = topic). Old JSON chests: `t/tools/-v3/soprBASIC-json`.');
+leaf('Drop a scrap under a section heading. The pile below is everything this room has collected.');
 hr();
 
 section('', 'lab-tool-form');

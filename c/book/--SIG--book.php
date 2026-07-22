@@ -7,8 +7,11 @@
     include __DIR__ . '/-FIG--nav.php';
     
     function getMy_Styles(){
-        getA_Style("style", WORLD_TAG, "asSys");
-
+        // Path segment must be SYS id (book), not display WORLD_TAG.
+        $sys = defined('SYS_ID') ? SYS_ID : (defined('WORLD_ID') ? WORLD_ID : BLOCK_ID);
+        // Shared pocket chrome (scrollbars / pane tokens) before surface paint
+        getA_Style("pocketChrome", "_", "cssSlugs");
+        getA_Style("style", $sys, "asSys");
     }
 ?>
 

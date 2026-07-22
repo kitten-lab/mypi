@@ -725,4 +725,507 @@ SQL
         ]);
         return ['ok' => true];
     }
+
+    /**
+     * Strip invisible / bidi junk Windows and rich-text paste inject
+     * (LTR marks around "September ‎16 ‎2025 ‏‎10:16PM", etc.).
+     */
+    function mypi_sanitize_datetime_text(string $s): string
+    {
+        // Unicode format / bidi / zero-width / BOM
+        $s = preg_replace('/[\x{200B}-\x{200F}\x{202A}-\x{202E}\x{2060}-\x{206F}\x{FEFF}\x{00AD}]/u', '', $s) ?? $s;
+        // weird spaces → normal space
+        $s = preg_replace('/[\x{00A0}\x{202F}\x{2000}-\x{200A}\x{3000}]/u', ' ', $s) ?? $s;
+        // normalize am/pm glued to digits
+        $s = preg_replace('/(\d)\s*([ap])\.?\s*m\.?/i', '$1 $2m', $s) ?? $s;
+        $s = preg_replace('/\bat\b/i', ' ', $s) ?? $s;
+        // drop weekday names (Tuesday,) — strtotime/DateTime handle better without sometimes
+        $s = preg_replace(
+            '/\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday|mon|tue|wed|thu|fri|sat|sun)\b[, ]*/i',
+            '',
+            $s
+        ) ?? $s;
+        $s = str_replace([',', '·', '—', '–'], ' ', $s);
+        $s = preg_replace('/\s+/', ' ', trim($s)) ?? $s;
+        return $s;
+    }
+
+    /**
+     * Parse free-text datetime → unix seconds (nearest second).
+     * Accepts: bare unix, "now", ISO, US dates, "September 16 2025 10:16PM",
+     * "09/16/2025 10:16pm", weekday-prefixed dumps, Windows LTR-mark garbage, etc.
+     * Empty → null (caller uses "now").
+     *
+     * @return int|null
+     */
+    function mypi_parse_event_time($raw, $timezone = '') {
+        if ($raw === null) {
+            return null;
+        }
+        $s = mypi_sanitize_datetime_text((string) $raw);
+        if ($s === '') {
+            return null;
+        }
+        if (preg_match('/^(now|today|n)$/i', $s)) {
+            return time();
+        }
+        // pure integer unix (9–13 digits)
+        if (preg_match('/^\d{9,13}$/', $s)) {
+            $n = (int) $s;
+            if ($n > 9999999999) {
+                $n = (int) floor($n / 1000);
+            }
+            return $n;
+        }
+
+        $tzName = trim((string) $timezone);
+        $tzObj = null;
+        if ($tzName !== '') {
+            try {
+                $tzObj = new DateTimeZone($tzName);
+            } catch (Throwable $e) {
+                $tzObj = null;
+            }
+        }
+        if ($tzObj === null) {
+            try {
+                $tzObj = new DateTimeZone(date_default_timezone_get());
+            } catch (Throwable $e) {
+                $tzObj = new DateTimeZone('UTC');
+            }
+        }
+
+        $try = $s;
+        // "10:16PM" already normalized; unify to "10:16 PM" for formats with A
+        $try = preg_replace_callback('/\b([ap])m\b/i', static function ($m) {
+            return strtoupper($m[1]) . 'M';
+        }, $try) ?? $try;
+
+        $formats = [
+            'Y-m-d H:i:s',
+            'Y-m-d H:i',
+            'Y-m-d g:i A',
+            'Y-m-d g:iA',
+            'Y-m-d',
+            'm/d/Y H:i:s',
+            'm/d/Y H:i',
+            'm/d/Y g:i:s A',
+            'm/d/Y g:i A',
+            'm/d/Y g:iA',
+            'm/d/Y',
+            'n/j/Y g:i:s A',
+            'n/j/Y g:i A',
+            'n/j/Y H:i',
+            'n/j/Y',
+            'm/d/y g:i A',
+            'm/d/y H:i',
+            'm/d/y',
+            'M j Y g:i:s A',
+            'M j Y g:i A',
+            'M j Y g:iA',
+            'M j Y H:i:s',
+            'M j Y H:i',
+            'M j Y',
+            'F j Y g:i:s A',
+            'F j Y g:i A',
+            'F j Y g:iA',
+            'F j Y H:i:s',
+            'F j Y H:i',
+            'F j Y',
+            'F j, Y g:i:s A',
+            'F j, Y g:i A',
+            'F j, Y',
+            'j M Y g:i A',
+            'j M Y H:i',
+            'j M Y',
+            DateTimeInterface::ATOM,
+            DateTimeInterface::RFC2822,
+            'c',
+        ];
+
+        $ts = null;
+        foreach ($formats as $fmt) {
+            if (!is_string($fmt) || $fmt === '') {
+                continue;
+            }
+            $dt = DateTime::createFromFormat('!' . $fmt, $try, $tzObj);
+            if (!$dt instanceof DateTime) {
+                continue;
+            }
+            $errs = DateTime::getLastErrors();
+            if (is_array($errs) && (!empty($errs['error_count']) || !empty($errs['warning_count']))) {
+                continue;
+            }
+            $ts = $dt->getTimestamp();
+            break;
+        }
+
+        if ($ts === null) {
+            try {
+                $dt2 = new DateTime($try, $tzObj);
+                $ts = $dt2->getTimestamp();
+            } catch (Throwable $e) {
+                $prevTz = date_default_timezone_get();
+                try {
+                    date_default_timezone_set($tzObj->getName());
+                } catch (Throwable $e2) {
+                }
+                $parsed = strtotime($try);
+                date_default_timezone_set($prevTz);
+                if ($parsed !== false) {
+                    $ts = (int) $parsed;
+                }
+            }
+        }
+
+        return $ts !== null ? (int) $ts : null;
+    }
+
+    /** Single-depth folder name for fileKeeper (no slashes; empty = root). */
+    function mypi_ledger_file_folder_norm(string $name): string
+    {
+        $name = trim($name);
+        // strip path junk — one layer only
+        $name = str_replace(['\\', '/'], ' ', $name);
+        $name = preg_replace('/\s+/', ' ', $name) ?? $name;
+        $name = trim($name);
+        if (function_exists('mb_substr')) {
+            $name = mb_substr($name, 0, 80);
+        } else {
+            $name = substr($name, 0, 80);
+        }
+        return $name;
+    }
+
+    /**
+     * Distinct folders at a place (from file heads + empty folder markers).
+     *
+     * @return list<string> sorted, never includes ''
+     */
+    function mypi_ledger_file_folders(array $opts = []): array
+    {
+        $pdo = mypi_ledger_pdo();
+        $sys = (string) ($opts['sys'] ?? '');
+        $dom = (string) ($opts['dom'] ?? '');
+        $room = (string) ($opts['room'] ?? '');
+        $sql = "SELECT DISTINCT TRIM(COALESCE(json_extract(meta_json, '$.folder'), '')) AS folder
+          FROM crates
+          WHERE tool = 'fileKeeper'
+            AND kind IN ('file', 'folder')
+            AND (deleted_at IS NULL OR deleted_at = 0)";
+        $args = [];
+        if ($sys !== '') {
+            $sql .= ' AND sys = ?';
+            $args[] = $sys;
+        }
+        if ($dom !== '') {
+            $sql .= ' AND dom = ?';
+            $args[] = $dom;
+        }
+        if ($room !== '') {
+            $sql .= ' AND room = ?';
+            $args[] = $room;
+        }
+        $st = $pdo->prepare($sql);
+        $st->execute($args);
+        $out = [];
+        foreach ($st->fetchAll() ?: [] as $row) {
+            $f = mypi_ledger_file_folder_norm((string) ($row['folder'] ?? ''));
+            if ($f !== '') {
+                $out[$f] = true;
+            }
+        }
+        // also folder markers use topic as name
+        $sql2 = "SELECT topic FROM crates
+          WHERE tool = 'fileKeeper' AND kind = 'folder'
+            AND (deleted_at IS NULL OR deleted_at = 0)";
+        $args2 = [];
+        if ($sys !== '') {
+            $sql2 .= ' AND sys = ?';
+            $args2[] = $sys;
+        }
+        if ($dom !== '') {
+            $sql2 .= ' AND dom = ?';
+            $args2[] = $dom;
+        }
+        if ($room !== '') {
+            $sql2 .= ' AND room = ?';
+            $args2[] = $room;
+        }
+        $st2 = $pdo->prepare($sql2);
+        $st2->execute($args2);
+        foreach ($st2->fetchAll() ?: [] as $row) {
+            $f = mypi_ledger_file_folder_norm((string) ($row['topic'] ?? ''));
+            if ($f !== '') {
+                $out[$f] = true;
+            }
+        }
+        $list = array_keys($out);
+        natcasesort($list);
+        return array_values($list);
+    }
+
+    /**
+     * Create an empty folder marker (kind=folder) so it appears with no files yet.
+     *
+     * @return array{ok:bool,folder?:string,error?:string}
+     */
+    function mypi_ledger_file_mkdir(array $in): array
+    {
+        $folder = mypi_ledger_file_folder_norm((string) ($in['folder'] ?? $in['title'] ?? ''));
+        if ($folder === '') {
+            return ['ok' => false, 'error' => 'empty folder name'];
+        }
+        $sys = (string) ($in['sys'] ?? '');
+        $dom = (string) ($in['dom'] ?? '');
+        $room = (string) ($in['room'] ?? '');
+        $mod = (string) ($in['mod'] ?? '');
+        $place_path = trim(implode('/', array_filter([$sys, $dom, $room], 'strlen')), '/');
+        $agent = (string) ($in['agent'] ?? $mod ?: 'user');
+        $ingest = time();
+        $c_uid = mypi_ledger_new_cuid();
+        $pdo = mypi_ledger_pdo();
+        $w = mypi_ledger_tps_window_seconds($pdo);
+        $window = mypi_ledger_window_unix($ingest, $w);
+        $tps_uid = mypi_ledger_tps_uid($window, $w);
+        $meta = ['folder' => $folder];
+        $pdo->prepare(
+            'INSERT INTO crates(
+              c_uid, kind, topic, body, agent, tool, tool_version,
+              place_path, place_label, sys, dom, room, mod,
+              tags_json, tags_raw, event_unix, ingest_unix, timezone, t_uid, meta_json,
+              created_at, updated_at
+            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+        )->execute([
+            $c_uid, 'folder', $folder, '', $agent, 'fileKeeper', 1,
+            $place_path, (string) ($in['place_label'] ?? ''), $sys, $dom, $room, $mod,
+            '[]', '', $ingest, $ingest, (string) ($in['timezone'] ?? ''), $tps_uid,
+            json_encode($meta),
+            $ingest, $ingest,
+        ]);
+        mypi_ledger_tps_ensure_and_attach($pdo, $c_uid, 'folder', $ingest, $ingest);
+        return ['ok' => true, 'folder' => $folder, 'c_uid' => $c_uid];
+    }
+
+    /**
+     * fileKeeper: save a markdown file revision.
+     * New file → stem_c_uid = this c_uid, parent_c_uid empty.
+     * Edit → new c_uid, stem preserved, parent = previous head.
+     * Lineage is structural (meta), not Charlie tags.
+     *
+     * @return array{ok:bool,c_uid?:string,stem_c_uid?:string,parent_c_uid?:string,error?:string}
+     */
+    function mypi_ledger_file_save(array $in) {
+        $title = trim((string) ($in['title'] ?? $in['topic'] ?? ''));
+        $body = (string) ($in['body'] ?? '');
+        if ($title === '' && trim($body) === '') {
+            return ['ok' => false, 'error' => 'empty file'];
+        }
+        if ($title === '') {
+            $title = 'untitled';
+        }
+
+        $parent = trim((string) ($in['parent_c_uid'] ?? ''));
+        $stem = trim((string) ($in['stem_c_uid'] ?? ''));
+        $tags_raw = trim((string) ($in['tags_raw'] ?? ''));
+
+        if ($parent !== '') {
+            $prev = mypi_ledger_get($parent);
+            if (!$prev) {
+                return ['ok' => false, 'error' => 'parent not found'];
+            }
+            $prevMeta = json_decode((string) ($prev['meta_json'] ?? '{}'), true) ?: [];
+            $stem = (string) ($prevMeta['stem_c_uid'] ?? $prev['c_uid']);
+        }
+
+        // pre-allocate stem for brand-new files
+        $c_uid_preview = mypi_ledger_new_cuid();
+        if ($stem === '') {
+            $stem = $c_uid_preview;
+        }
+
+        // one-depth folder ('' = root). Explicit key wins; else inherit parent.
+        $folder = '';
+        if (array_key_exists('folder', $in)) {
+            $folder = mypi_ledger_file_folder_norm((string) $in['folder']);
+        } elseif ($parent !== '') {
+            $prev0 = mypi_ledger_get($parent);
+            $prev0Meta = json_decode((string) ($prev0['meta_json'] ?? '{}'), true) ?: [];
+            $folder = mypi_ledger_file_folder_norm((string) ($prev0Meta['folder'] ?? ''));
+        }
+
+        $meta = array_merge(is_array($in['meta'] ?? null) ? $in['meta'] : [], [
+            'stem_c_uid' => $stem,
+            'parent_c_uid' => $parent,
+            'rev' => (int) ($in['rev'] ?? 0),
+            'folder' => $folder,
+        ]);
+        if ($parent !== '') {
+            $prev = mypi_ledger_get($parent);
+            $prevMeta = json_decode((string) ($prev['meta_json'] ?? '{}'), true) ?: [];
+            $meta['rev'] = (int) ($prevMeta['rev'] ?? 1) + 1;
+        } else {
+            $meta['rev'] = 1;
+        }
+
+        // inject chosen c_uid via create path — create_post always mints; so call lower-level style
+        $sys = (string) ($in['sys'] ?? '');
+        $dom = (string) ($in['dom'] ?? '');
+        $room = (string) ($in['room'] ?? '');
+        $mod = (string) ($in['mod'] ?? '');
+        $place_path = trim(implode('/', array_filter([$sys, $dom, $room], 'strlen')), '/');
+        $place_label = (string) ($in['place_label'] ?? '');
+        $agent = (string) ($in['agent'] ?? $mod ?: 'user');
+        $tool = 'fileKeeper';
+        $kind = 'file';
+        $actor = (string) ($in['actor'] ?? $mod ?: 'hands');
+        $tz = (string) ($in['timezone'] ?? '');
+        $ingest = time();
+        if (array_key_exists('event_unix', $in) && $in['event_unix'] !== '' && $in['event_unix'] !== null) {
+            $event = (int) $in['event_unix'];
+        } else {
+            $event = $ingest;
+        }
+        // never trust 0 as a real event unless explicitly ancient; treat 0 as missing
+        if ($event <= 0) {
+            $event = $ingest;
+        }
+
+        $c_uid = $c_uid_preview;
+        // first revision: stem is self
+        if ($parent === '') {
+            $stem = $c_uid;
+            $meta['stem_c_uid'] = $stem;
+            $meta['parent_c_uid'] = '';
+        }
+        $meta['event_unix'] = $event;
+        $meta['event_raw'] = (string) ($in['event_raw'] ?? '');
+
+        $tags = mypi_ledger_parse_tags($tags_raw, $sys, $dom, $room, $mod);
+        $pdo = mypi_ledger_pdo();
+        $w = mypi_ledger_tps_window_seconds($pdo);
+        $window = mypi_ledger_window_unix($event, $w);
+        $tps_uid = mypi_ledger_tps_uid($window, $w);
+        $pdo->prepare(
+            'INSERT INTO crates(
+              c_uid, kind, topic, body, agent, tool, tool_version,
+              place_path, place_label, sys, dom, room, mod,
+              tags_json, tags_raw, event_unix, ingest_unix, timezone, t_uid, meta_json,
+              created_at, updated_at
+            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+        )->execute([
+            $c_uid, $kind, $title, $body, $agent, $tool, (int) ($in['tool_version'] ?? 1),
+            $place_path, $place_label, $sys, $dom, $room, $mod,
+            json_encode($tags), $tags_raw, $event, $ingest, $tz, $tps_uid,
+            json_encode($meta),
+            $ingest, $ingest,
+        ]);
+        mypi_ledger_tps_ensure_and_attach($pdo, $c_uid, $kind, $event, $ingest);
+        $insTag = $pdo->prepare('INSERT OR IGNORE INTO tag_map(c_uid, tag) VALUES(?,?)');
+        foreach ($tags as $t) {
+            $insTag->execute([$c_uid, $t]);
+        }
+        $edges = mypi_ledger_charlie_write($pdo, $c_uid, $tags_raw, $sys, $dom, $room, $mod, $ingest, $tags);
+        $pdo->prepare(
+            'INSERT INTO crate_events(
+              c_uid, event_type, payload_json, actor, place_path,
+              event_unix, ingest_unix, tool
+            ) VALUES (?,?,?,?,?,?,?,?)'
+        )->execute([
+            $c_uid,
+            $parent === '' ? 'file_create' : 'file_revise',
+            json_encode([
+                'topic' => $title,
+                'stem_c_uid' => $stem,
+                'parent_c_uid' => $parent,
+                'rev' => $meta['rev'],
+                'edges' => $edges,
+                'tps_uid' => $tps_uid,
+            ]),
+            $actor,
+            $place_path,
+            $event,
+            $ingest,
+            $tool,
+        ]);
+        return [
+            'ok' => true,
+            'c_uid' => $c_uid,
+            'stem_c_uid' => $stem,
+            'parent_c_uid' => $parent,
+            'rev' => $meta['rev'],
+            'tps_uid' => $tps_uid,
+        ];
+    }
+
+    /**
+     * Latest revision of each file stem at a place (kind=file, tool=fileKeeper).
+     *
+     * @return list<array>
+     */
+    function mypi_ledger_file_heads(array $opts = []) {
+        $pdo = mypi_ledger_pdo();
+        $limit = max(1, min(200, (int) ($opts['limit'] ?? 80)));
+        $sys = (string) ($opts['sys'] ?? '');
+        $dom = (string) ($opts['dom'] ?? '');
+        $room = (string) ($opts['room'] ?? '');
+        $sql = "SELECT c.* FROM crates c
+          INNER JOIN (
+            SELECT
+              COALESCE(json_extract(meta_json, '$.stem_c_uid'), c_uid) AS stem,
+              MAX(ingest_unix) AS mx
+            FROM crates
+            WHERE kind = 'file'
+              AND tool = 'fileKeeper'
+              AND (deleted_at IS NULL OR deleted_at = 0)";
+        $args = [];
+        if ($sys !== '') {
+            $sql .= ' AND sys = ?';
+            $args[] = $sys;
+        }
+        if ($dom !== '') {
+            $sql .= ' AND dom = ?';
+            $args[] = $dom;
+        }
+        if ($room !== '') {
+            $sql .= ' AND room = ?';
+            $args[] = $room;
+        }
+        $sql .= " GROUP BY stem
+          ) h ON COALESCE(json_extract(c.meta_json, '$.stem_c_uid'), c.c_uid) = h.stem
+              AND c.ingest_unix = h.mx
+          WHERE c.kind = 'file' AND c.tool = 'fileKeeper'
+            AND (c.deleted_at IS NULL OR c.deleted_at = 0)
+          ORDER BY c.ingest_unix DESC
+          LIMIT " . $limit;
+        $st = $pdo->prepare($sql);
+        $st->execute($args);
+        return $st->fetchAll() ?: [];
+    }
+
+    /**
+     * All revisions for a stem (oldest → newest).
+     *
+     * @return list<array>
+     */
+    function mypi_ledger_file_revisions(string $stem_c_uid, int $limit = 50) {
+        $stem_c_uid = trim($stem_c_uid);
+        if ($stem_c_uid === '') {
+            return [];
+        }
+        $limit = max(1, min(100, $limit));
+        $st = mypi_ledger_pdo()->prepare(
+            "SELECT * FROM crates
+             WHERE kind = 'file' AND tool = 'fileKeeper'
+               AND (deleted_at IS NULL OR deleted_at = 0)
+               AND (
+                 c_uid = ?
+                 OR json_extract(meta_json, '$.stem_c_uid') = ?
+               )
+             ORDER BY ingest_unix ASC
+             LIMIT " . $limit
+        );
+        $st->execute([$stem_c_uid, $stem_c_uid]);
+        return $st->fetchAll() ?: [];
+    }
 }

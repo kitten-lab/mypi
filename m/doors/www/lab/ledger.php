@@ -9,9 +9,9 @@ SKY__AUTH(
 );
 
 openSky('Lab · ledgerREPORT');
-lab_open('ledgerREPORT · faces', 'ledger');
+lab_open('reports', 'ledger');
 
-leaf('Same tool faces Starline uses — crates / charlie / TPS if the pages exist.');
+leaf('Three faces on the same store: crates on the shelf, Charlie’s names, TPS windows. Same glass Starline uses when the rooms are installed.');
 hr();
 
 section('', 'lab-tool-view');

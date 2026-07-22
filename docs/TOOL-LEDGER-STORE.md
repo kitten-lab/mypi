@@ -57,6 +57,27 @@ For each edge, **tags + gravity** include all four pieces: **`a`**, **`connector
 
 `mypi_ledger_list` accepts: `tool`, `session` (**json_extract meta.session**, not a tag), `order` (`asc`|`desc`), `mod`.
 
+## Speakers vs mods
+
+| Field | Meaning |
+|-------|---------|
+| **agent** | Who is speaking / considering (chat nick, miwbs thinker **ʞ**, …) |
+| **mod** | Authorship *system* / sky MOD (empty until room-building work) |
+| **tool** | `chatBOX` / `miwbs` / `postBASIC` (column, not a tag) |
+| **kind** | `chat` / `consideration` / `post` (column, not a tag) |
+
+Person tags: **`@nick`** / **`@ʞ`** from agent (Charlie). Do not put `tool:` / `kind:` in tags.
+
+## TPS window ids
+
+Shared format (PHP + Python ledger):
+
+```text
+{window_unix}.w{window_seconds}
+```
+
+Example: `1784682000.w900` — **not** `tps.1784682000.w900`.
+
 ## Backup restore
 
 Old JSON writers: `t/tools/-v3/cuBOOK-json`, `chatBOX-json`, `soprBASIC-json`.

@@ -1,0 +1,390 @@
+/**
+ * fileKeeper — markdown desk. Surface skins color via currentColor.
+ */
+
+.filekeeper {
+  --fk-gap: 0.65rem;
+  --fk-border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  max-width: 48rem;
+}
+
+.filekeeper-layout {
+  display: grid;
+  grid-template-columns: minmax(10rem, 12.5rem) 1fr;
+  gap: 0.85rem;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .filekeeper-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.filekeeper-list {
+  border: var(--fk-border);
+  padding: 0.45rem 0.35rem 0.65rem;
+  background: rgba(0, 0, 0, 0.25);
+  max-height: 28rem;
+  overflow-y: auto;
+}
+
+.filekeeper-list h3 {
+  margin: 0 0 0.4rem 0.35rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+.filekeeper-list ul,
+.fk-file-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fk-folder {
+  margin: 0.25rem 0 0.15rem;
+  border: none;
+}
+
+.fk-folder-sum {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.4rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+.fk-folder-sum::-webkit-details-marker {
+  display: none;
+}
+
+.fk-folder-chev::before {
+  content: "▶";
+  font-size: 0.65rem;
+  opacity: 0.7;
+  display: inline-block;
+  transition: transform 0.12s ease;
+}
+
+.fk-folder[open] > .fk-folder-sum .fk-folder-chev::before {
+  transform: rotate(90deg);
+}
+
+.fk-folder-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.fk-folder-n {
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+
+.fk-folder-files {
+  padding-left: 0.55rem;
+  border-left: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  margin-left: 0.55rem;
+}
+
+.fk-empty-folder,
+.fk-empty-hint {
+  padding: 0.25rem 0.45rem;
+  opacity: 0.45;
+  font-size: 0.8rem;
+}
+
+.fk-mkdir {
+  margin-top: 0.75rem;
+  padding: 0.45rem 0.35rem 0.2rem;
+  border-top: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.fk-mkdir-label {
+  flex: 0 0 100%;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin: 0;
+}
+
+.fk-mkdir input[type="text"] {
+  flex: 1 1 5rem;
+  min-width: 0;
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.4rem;
+  border: var(--fk-border);
+  background: rgba(0, 0, 0, 0.3);
+  color: inherit;
+  border-radius: 0;
+}
+
+.fk-mkdir button {
+  font: inherit;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.45rem;
+  border: var(--fk-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.fk-folder-select {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.35);
+  border: var(--fk-border);
+  border-radius: 0;
+  padding: 0.45rem 0.55rem;
+}
+
+.filekeeper-list a {
+  display: block;
+  padding: 0.35rem 0.45rem;
+  color: inherit;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.filekeeper-list a:hover,
+.filekeeper-list a.is-on {
+  border-left-color: currentColor;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.filekeeper-list .fk-meta {
+  display: block;
+  font-size: 0.7rem;
+  opacity: 0.5;
+  margin-top: 0.1rem;
+}
+
+.filekeeper-panel,
+.filekeeper-editor,
+.filekeeper-view {
+  border: var(--fk-border);
+  padding: 0.65rem 0.75rem 0.85rem;
+  background: rgba(0, 0, 0, 0.2);
+  min-width: 0;
+}
+
+.filekeeper-view {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.fk-view-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.fk-view-title {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  flex: 1 1 12rem;
+}
+
+.fk-btn {
+  display: inline-block;
+  font: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  border: var(--fk-border);
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.fk-btn:hover {
+  background: color-mix(in srgb, currentColor 15%, transparent);
+  text-decoration: none;
+}
+
+.fk-view-body {
+  margin-top: 0.75rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  max-width: 42rem;
+}
+
+.fk-view-body p {
+  margin: 0.55rem 0;
+}
+
+.fk-view-body h1,
+.fk-view-body h2,
+.fk-view-body h3 {
+  margin: 1rem 0 0.4rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.fk-view-body pre,
+.fk-pre {
+  overflow-x: auto;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border: var(--fk-border);
+  background: rgba(0, 0, 0, 0.3);
+  white-space: pre-wrap;
+}
+
+.fk-view-body code {
+  font-size: 0.9em;
+}
+
+/* GFM task lists — visual only (disabled inputs from ParsedownTasks) */
+.fk-view-body ul:has(> li > input.md-task-checkbox),
+.fk-view-body ol:has(> li > input.md-task-checkbox) {
+  list-style: none;
+  padding-left: 0.35rem;
+}
+
+.fk-view-body li:has(> input.md-task-checkbox) {
+  list-style: none;
+  margin: 0.25rem 0;
+  padding-left: 0.1rem;
+}
+
+.fk-view-body input.md-task-checkbox {
+  appearance: auto;
+  -webkit-appearance: checkbox;
+  width: 1em;
+  height: 1em;
+  margin: 0 0.45em 0 0;
+  vertical-align: -0.12em;
+  cursor: default;
+  accent-color: currentColor;
+  opacity: 0.95;
+  pointer-events: none; /* view-only: no accidental toggle focus */
+}
+
+.fk-view-body li:has(> input.md-task-checkbox:checked) {
+  opacity: 0.88;
+}
+
+.filekeeper-revs a.is-on {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.filekeeper-editor label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin: 0.45rem 0 0.2rem;
+}
+
+.filekeeper-editor input[type="text"],
+.filekeeper-editor textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.35);
+  border: var(--fk-border);
+  border-radius: 0;
+  padding: 0.45rem 0.55rem;
+}
+
+.filekeeper-editor textarea {
+  min-height: 16rem;
+  line-height: 1.45;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.filekeeper-actions {
+  margin-top: 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.filekeeper-actions button {
+  font: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  border: var(--fk-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.filekeeper-actions button:hover {
+  background: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.filekeeper-actions a.fk-new {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin-left: 0.25rem;
+}
+
+.filekeeper-status {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin: 0.35rem 0 0;
+}
+
+.fk-event-preview {
+  margin-top: 0.25rem !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.fk-event-preview strong {
+  letter-spacing: 0.02em;
+}
+
+.filekeeper-status strong {
+  opacity: 1;
+}
+
+.filekeeper-revs {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.filekeeper-revs a {
+  color: inherit;
+  margin-right: 0.5rem;
+}

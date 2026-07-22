@@ -1,11 +1,22 @@
 <?php
+/**
+ * chatBOX form — or quiet when $GLOBALS['CHATBOX_QUIET_PAGES'] (ROM owns UI).
+ */
 require_once __DIR__ . '/-SIG-chatBOX.php';
 require_once ROUTE_TO_SYSTEMS . 'wireWORDS.php';
+
+if (!empty($GLOBALS['CHATBOX_QUIET_PAGES'])) {
+    if (!empty($GLOBALS['CHATBOX_CONFIRM'])) {
+        echo '<p class="chatbox-confirm muted"><strong>'
+            . htmlspecialchars($GLOBALS['CHATBOX_CONFIRM'], ENT_QUOTES, 'UTF-8')
+            . '</strong></p>';
+    }
+    return;
+}
 
 getFIG('chatBOX', 'ChatBox');
 global $mySIGFIG;
 
-// stick to active session from query when posting
 $activeSession = isset($_GET['session']) ? preg_replace('/[^a-z0-9._-]+/i', '-', (string) $_GET['session']) : 'live';
 if ($activeSession === '') {
     $activeSession = 'live';

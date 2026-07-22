@@ -1,0 +1,7 @@
+# Host `a` serves chrome CSS/JS. WebView2 + Edge cache these hard when
+# Cache-Control is missing. Prefer revalidate in local pocket work.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>

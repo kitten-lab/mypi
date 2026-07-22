@@ -1,7 +1,7 @@
 <?php
 /**
- * Live chat room — ledger kind=chat for this place + session (default live).
- * Chronological (oldest first) so it reads like a hangout, not a news feed.
+ * Live chat room — ledger kind=chat + session.
+ * Quiet mode: emit window.CHATBOX_BOOT for CBX-001 ROM (no HTML log).
  */
 require_once ROUTE_TO_SYSTEMS . 'ledger/Ledger.php';
 require_once ROUTE_TO_SYSTEMS . 'Borrows/parsedown/Parsedown.php';
@@ -36,9 +36,43 @@ try {
     $err = $e->getMessage();
 }
 
+// Boot payload for ROM / kitten (always — even when not quiet)
+$bootLines = [];
+foreach ($rows as $r) {
+    $bootLines[] = [
+        'c_uid' => $r['c_uid'] ?? '',
+        'agent' => $r['agent'] ?? '',
+        'body' => $r['body'] ?? '',
+        'event_unix' => (int) ($r['event_unix'] ?: $r['ingest_unix']),
+        't_uid' => $r['t_uid'] ?? '',
+    ];
+}
+$bootSessions = [];
+foreach ($sessions as $s) {
+    $bootSessions[] = [
+        'session' => $s['session'] ?? 'live',
+        'label' => $s['label'] ?? '',
+        'n' => (int) ($s['n'] ?? 0),
+    ];
+}
+$boot = [
+    'session' => $session,
+    'place' => $place,
+    'lines' => $bootLines,
+    'sessions' => $bootSessions,
+    'confirm' => $GLOBALS['CHATBOX_CONFIRM'] ?? null,
+    'error' => $err,
+];
+$bootJson = json_encode($boot, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+echo '<script>window.CHATBOX_BOOT = ' . $bootJson . ';</script>' . "\n";
+// Easy parse after fetch POST (ROM stays open)
+echo '<script type="application/json" id="chatbox-boot-json">' . $bootJson . '</script>' . "\n";
+
+if (!empty($GLOBALS['CHATBOX_QUIET_PAGES'])) {
+    return;
+}
+
 $Parsedown = new Parsedown();
-$qBase = '?';
-// keep other query junk out — only session
 ?>
 <section class="chatbox-room">
   <h2 class="chatbox-room-title">
@@ -68,7 +102,7 @@ $qBase = '?';
   <?php endif; ?>
 
 <?php if ($err): ?>
-  <p class="err"><?= htmlspecialchars($err, ENT_QUOTES, 'UTF-8') ?></p>
+  <p class="err"><?= htmlspecialchars($err) ?></p>
 <?php elseif (!$rows): ?>
   <p class="muted">No lines in this session yet. Say something above.</p>
 <?php else: ?>
@@ -76,7 +110,6 @@ $qBase = '?';
       $unix = (int) ($r['event_unix'] ?: $r['ingest_unix']);
       $when = date('D m/d/y h:i:sA', $unix);
       $user = $r['agent'] !== '' ? $r['agent'] : 'anon';
-      $meta = json_decode($r['meta_json'] ?? '{}', true) ?: [];
   ?>
     <div class="chat-slug">
       <div class="user-display"><?= htmlspecialchars($user, ENT_QUOTES, 'UTF-8') ?></div>

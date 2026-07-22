@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if (!function_exists('noKeyFound')) {
     function noKeyFound() {
         openSky("SKY AUTH FAILURE");

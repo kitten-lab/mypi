@@ -26,6 +26,7 @@ $GLOBALS[BLOCK_ID]['NAV'] = [
         'ROOMS' => [
             ['ROOM' => 'Lab home', 'KEY' => 'home'],
             ['ROOM' => 'postBASIC', 'KEY' => 'postbasic'],
+            ['ROOM' => 'fileKeeper', 'KEY' => 'filekeeper'],
             ['ROOM' => 'cuBOOK', 'KEY' => 'cubook'],
             ['ROOM' => 'soprBASIC', 'KEY' => 'sopr'],
             ['ROOM' => 'chatBOX', 'KEY' => 'chat'],

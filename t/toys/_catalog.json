@@ -10,5 +10,11 @@
     "funtitle": "Keys and Chords",
     "provider": "Chester's Imports",
     "notes": "Shell test only — no real game yet. Used to prove multi-window shells."
+  },
+  "CBX-001": {
+    "title": "Chatterbox",
+    "funtitle": "live room",
+    "provider": "Chester's Imports",
+    "notes": "90s chat ROM — nick, session, scroll, Say. Ledger kind=chat via chatBOX."
   }
 }

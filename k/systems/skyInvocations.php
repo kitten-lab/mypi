@@ -4,15 +4,31 @@
 
 
 
+/**
+ * Cache-bust query for static assets on host `a` (cross-origin from `b`).
+ * WebView2 ignores soft reload for CSS; filemtime + optional page ?_cb= forces new URL.
+ */
+function mypi_asset_bust(string $fullPath): string
+{
+    $v = is_file($fullPath) ? (string) filemtime($fullPath) : (string) time();
+    if (!empty($_GET['_cb'])) {
+        $cb = preg_replace('/[^a-zA-Z0-9_-]/', '', (string) $_GET['_cb']);
+        if ($cb !== '') {
+            $v .= '.' . $cb;
+        }
+    }
+    return $v;
+}
+
 function getA_Style(string $css, string $folder, string $function) {
     $path = "/" . $folder . "/" . $function . "/" . $css . ".css";
     $full = echoSONAR . "a" . $path;
     if (is_file($full)) {
-         echo '<link rel="stylesheet"  type="text/css" href="' . A_ROUTE . $path . '">';
-         } else {
-            error_log("PATH NOT FOUND getAStyle " . $path);
-
-         }
+        $href = A_ROUTE . $path . '?v=' . rawurlencode(mypi_asset_bust($full));
+        echo '<link rel="stylesheet" type="text/css" href="' . htmlspecialchars($href, ENT_QUOTES, 'UTF-8') . '">';
+    } else {
+        error_log("PATH NOT FOUND getAStyle " . $path);
+    }
 }
 
 
@@ -20,11 +36,11 @@ function invokeStyle(string $css, string $folder) {
     $path = "/" . $folder . "/" . $css . ".css";
     $full = echoSONAR . "a" . $path;
     if (is_file($full)) {
-         echo '<link rel="stylesheet"  type="text/css" href="' . A_ROUTE . $path . '">';
-         } else {
-            error_log("PATH NOT FOUND invokeStyle" . $path);
-
-         }
+        $href = A_ROUTE . $path . '?v=' . rawurlencode(mypi_asset_bust($full));
+        echo '<link rel="stylesheet" type="text/css" href="' . htmlspecialchars($href, ENT_QUOTES, 'UTF-8') . '">';
+    } else {
+        error_log("PATH NOT FOUND invokeStyle" . $path);
+    }
 }
 
 

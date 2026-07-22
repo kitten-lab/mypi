@@ -9,21 +9,17 @@ SKY__AUTH(
 );
 
 openSky('Lab · secretROOM');
-lab_open('secretROOM · visual auth', 'secret');
+lab_open('secret door', 'secret');
 
-leaf('Concept layer only — not real security. Uses Protect.DEMO if present under -v2.');
+leaf('A pretend lock for the concept layer — not a real vault.');
 hr();
 
 section('', 'lab-tool-form');
-// live root tools path may not have secretROOM; try v2-style name if getTool finds nothing it just warns
 if (is_file(echoSONAR . 't/tools/-v2/secretROOM/pageLogin.php')) {
-    // not on getTool path (needs t/tools/secretROOM) — show note
-    leaf('secretROOM still lives under `t/tools/-v2/secretROOM`. Copy or symlink to root tools when you want full install.');
+    leaf('The secret room still sleeps in the archive. When it wakes, it will hang here.');
 } else {
-    leaf('No secretROOM package at `t/tools/secretROOM` yet.');
+    leaf('No secret door installed yet. The frame is waiting.');
 }
-// Attempt classic name if user later promotes it
-// getTool('secretROOM', 'Login');
 close_section();
 
 lab_close();
