@@ -39,6 +39,9 @@ if (!function_exists('mypi_ledger_path')) {
             'thought_bit' => 'leaf',
             'fragment' => 'leaf',
             'session' => 'log',
+            'dailylog' => 'log',
+            'dailylog_entry' => 'leaf',
+            'report' => 'leaf',
             'arc' => 'yard_crate',
             'shipment' => 'yard_crate',
             'yard_crate' => 'yard_crate',
@@ -1443,5 +1446,424 @@ SQL
         );
         $st->execute([$stem_c_uid, $stem_c_uid]);
         return $st->fetchAll() ?: [];
+    }
+
+    // ── inventOry / daily log (log shell + leaf entries) ───────────────
+
+    /**
+     * Skyline service buckets (terminal dual-write targets).
+     * mod stays empty on submit — room is the office.
+     *
+     * @return array<string,array{sys:string,dom:string,room:string,mod:string,label:string,service:string}>
+     */
+    function mypi_ledger_report_buckets() {
+        return [
+            'omens' => [
+                'sys' => 'skyline',
+                'dom' => 'services',
+                'room' => 'omens',
+                'mod' => '',
+                'label' => "Oman's Omens",
+                'service' => 'oman',
+            ],
+            'hymns' => [
+                'sys' => 'skyline',
+                'dom' => 'services',
+                'room' => 'hymns',
+                'mod' => '',
+                'label' => 'Song of Songs',
+                'service' => 'hymn',
+            ],
+        ];
+    }
+
+    /** Normalize to YYYY-MM-DD or '' */
+    function mypi_ledger_dailylog_day_norm($day) {
+        $day = trim((string) $day);
+        if (preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $day, $m)) {
+            return sprintf('%04d-%02d-%02d', (int) $m[1], (int) $m[2], (int) $m[3]);
+        }
+        if (preg_match('/^(\d{2})(\d{2})(\d{2})$/', $day, $m)) {
+            // YYMMDD
+            $y = 2000 + (int) $m[1];
+            return sprintf('%04d-%02d-%02d', $y, (int) $m[2], (int) $m[3]);
+        }
+        $ts = strtotime($day);
+        if ($ts !== false) {
+            return date('Y-m-d', $ts);
+        }
+        return '';
+    }
+
+    /**
+     * Find day log crate for agent + day key.
+     */
+    function mypi_ledger_dailylog_find_day($day, $sys, $dom, $room, $agent = '') {
+        $day = mypi_ledger_dailylog_day_norm($day);
+        if ($day === '') {
+            return null;
+        }
+        $pdo = mypi_ledger_pdo();
+        $sql = "SELECT * FROM crates
+                WHERE kind = 'dailylog' AND tool = 'inventOry'
+                  AND (deleted_at IS NULL OR deleted_at = 0)
+                  AND json_extract(meta_json, '$.day') = ?
+                  AND sys = ? AND dom = ? AND room = ?";
+        $args = [$day, $sys, $dom, $room];
+        if ($agent !== '') {
+            $sql .= ' AND agent = ?';
+            $args[] = $agent;
+        }
+        $sql .= ' ORDER BY ingest_unix DESC LIMIT 1';
+        $st = $pdo->prepare($sql);
+        $st->execute($args);
+        $row = $st->fetch();
+        return $row ?: null;
+    }
+
+    /**
+     * Open or create today's (or given) invent-ory day log.
+     *
+     * @return array{ok:bool,c_uid?:string,day?:string,created?:bool,error?:string,row?:array}
+     */
+    function mypi_ledger_dailylog_ensure_day(array $in) {
+        $day = mypi_ledger_dailylog_day_norm($in['day'] ?? date('Y-m-d'));
+        if ($day === '') {
+            return ['ok' => false, 'error' => 'bad day'];
+        }
+        $sys = (string) ($in['sys'] ?? 'terminal');
+        $dom = (string) ($in['dom'] ?? 'io');
+        $room = (string) ($in['room'] ?? 'inventory');
+        $mod = (string) ($in['mod'] ?? '');
+        $agent = (string) ($in['agent'] ?? 'user');
+        $existing = mypi_ledger_dailylog_find_day($day, $sys, $dom, $room, $agent);
+        if ($existing) {
+            return [
+                'ok' => true,
+                'c_uid' => $existing['c_uid'],
+                'day' => $day,
+                'created' => false,
+                'row' => $existing,
+            ];
+        }
+        $ts = strtotime($day . ' 12:00:00') ?: time();
+        $weekday = date('l', $ts);
+        $topic = $day . ' · ' . $weekday;
+        $meta = [
+            'day' => $day,
+            'weekday' => $weekday,
+            'standard_date' => date('m-d-Y', $ts),
+            'closed' => false,
+            'sections' => ['INCOMING EVENTS', 'FINAL DAILY RECORD'],
+            'chronokey' => '',
+            'last_updated' => date('H:i'),
+        ];
+        $r = mypi_ledger_create_post([
+            'topic' => $topic,
+            'body' => "# daily invent-ory\n###### for " . date('l M j, Y', $ts) . "\n",
+            'kind' => 'dailylog',
+            'scale' => 'log',
+            'tool' => 'inventOry',
+            'tool_version' => 1,
+            'sys' => $sys,
+            'dom' => $dom,
+            'room' => $room,
+            'mod' => $mod,
+            'place_label' => (string) ($in['place_label'] ?? 'invent-0rium'),
+            'agent' => $agent,
+            'actor' => (string) ($in['actor'] ?? $agent),
+            'timezone' => (string) ($in['timezone'] ?? ''),
+            'event_unix' => $ts,
+            'tags_raw' => '',
+            'meta' => $meta,
+        ]);
+        if (empty($r['ok'])) {
+            return $r;
+        }
+        return [
+            'ok' => true,
+            'c_uid' => $r['c_uid'],
+            'day' => $day,
+            'created' => true,
+            'row' => mypi_ledger_get($r['c_uid']),
+        ];
+    }
+
+    /**
+     * List day logs newest first.
+     *
+     * @return list<array>
+     */
+    function mypi_ledger_dailylog_list_days(array $opts = []) {
+        $limit = max(1, min(200, (int) ($opts['limit'] ?? 60)));
+        $pdo = mypi_ledger_pdo();
+        $sql = "SELECT * FROM crates
+                WHERE kind = 'dailylog' AND tool = 'inventOry'
+                  AND (deleted_at IS NULL OR deleted_at = 0)";
+        $args = [];
+        if (!empty($opts['sys'])) {
+            $sql .= ' AND sys = ?';
+            $args[] = $opts['sys'];
+        }
+        if (!empty($opts['dom'])) {
+            $sql .= ' AND dom = ?';
+            $args[] = $opts['dom'];
+        }
+        if (!empty($opts['room'])) {
+            $sql .= ' AND room = ?';
+            $args[] = $opts['room'];
+        }
+        if (!empty($opts['agent'])) {
+            $sql .= ' AND agent = ?';
+            $args[] = $opts['agent'];
+        }
+        $sql .= ' ORDER BY json_extract(meta_json, \'$.day\') DESC, ingest_unix DESC LIMIT ' . $limit;
+        $st = $pdo->prepare($sql);
+        $st->execute($args);
+        return $st->fetchAll() ?: [];
+    }
+
+    /**
+     * Leaves for a day log, event order.
+     *
+     * @return list<array>
+     */
+    function mypi_ledger_dailylog_list_entries($day_c_uid, $limit = 200) {
+        $day_c_uid = trim((string) $day_c_uid);
+        if ($day_c_uid === '') {
+            return [];
+        }
+        $limit = max(1, min(500, (int) $limit));
+        $st = mypi_ledger_pdo()->prepare(
+            "SELECT * FROM crates
+             WHERE kind = 'dailylog_entry' AND tool = 'inventOry'
+               AND parent_c_uid = ?
+               AND (deleted_at IS NULL OR deleted_at = 0)
+             ORDER BY event_unix ASC, ingest_unix ASC
+             LIMIT " . $limit
+        );
+        $st->execute([$day_c_uid]);
+        return $st->fetchAll() ?: [];
+    }
+
+    /**
+     * Insert invent leaf (+ optional Skyline report copy).
+     *
+     * @return array{ok:bool,c_uid?:string,day_c_uid?:string,report_c_uid?:string,error?:string}
+     */
+    function mypi_ledger_dailylog_insert(array $in) {
+        $title = trim((string) ($in['title'] ?? $in['topic'] ?? ''));
+        $body = trim((string) ($in['body'] ?? ''));
+        if ($title === '' && $body === '') {
+            return ['ok' => false, 'error' => 'empty entry'];
+        }
+        if ($title === '') {
+            $title = '(untitled)';
+        }
+
+        $sys = (string) ($in['sys'] ?? 'terminal');
+        $dom = (string) ($in['dom'] ?? 'io');
+        $room = (string) ($in['room'] ?? 'inventory');
+        $mod = (string) ($in['mod'] ?? '');
+        $agent = (string) ($in['agent'] ?? 'user');
+        $tz = (string) ($in['timezone'] ?? '');
+
+        $day = mypi_ledger_dailylog_day_norm($in['day'] ?? date('Y-m-d'));
+        if ($day === '') {
+            $day = date('Y-m-d');
+        }
+
+        $event = null;
+        if (isset($in['event_unix']) && $in['event_unix'] !== '' && $in['event_unix'] !== null) {
+            $event = (int) $in['event_unix'];
+        }
+        if (($event === null || $event <= 0) && !empty($in['event_raw'])) {
+            if (function_exists('mypi_parse_event_time')) {
+                $event = mypi_parse_event_time((string) $in['event_raw'], $tz);
+            } else {
+                $ts = strtotime((string) $in['event_raw']);
+                $event = $ts !== false ? $ts : null;
+            }
+        }
+        if ($event === null || $event <= 0) {
+            // backdate day at local noon if only day given; else now
+            if ($day !== date('Y-m-d')) {
+                $event = strtotime($day . ' ' . date('H:i:s')) ?: time();
+            } else {
+                $event = time();
+            }
+        }
+
+        $dayRes = mypi_ledger_dailylog_ensure_day([
+            'day' => $day,
+            'sys' => $sys,
+            'dom' => $dom,
+            'room' => $room,
+            'mod' => $mod,
+            'agent' => $agent,
+            'actor' => (string) ($in['actor'] ?? $agent),
+            'timezone' => $tz,
+            'place_label' => (string) ($in['place_label'] ?? 'invent-0rium'),
+        ]);
+        if (empty($dayRes['ok'])) {
+            return $dayRes;
+        }
+        $day_c_uid = $dayRes['c_uid'];
+
+        $section = trim((string) ($in['section'] ?? 'INCOMING EVENTS'));
+        if ($section === '') {
+            $section = 'INCOMING EVENTS';
+        }
+        $context = trim((string) ($in['context'] ?? ''));
+        $tags_raw = trim((string) ($in['tags_raw'] ?? ''));
+        $entry_type = trim((string) ($in['entry_type'] ?? 'free'));
+        $wall = date('g:i A', $event);
+
+        $leafBody = $body;
+        if ($context !== '') {
+            $leafBody .= ($leafBody !== '' ? "\n\n" : '') . 'CONTEXT: **' . $context . '**';
+        }
+
+        $meta = [
+            'section' => $section,
+            'wall_time' => $wall,
+            'context' => $context,
+            'entry_type' => $entry_type,
+            'day' => $day,
+            'day_c_uid' => $day_c_uid,
+            'chronokey' => (string) ($in['chronokey'] ?? ''),
+        ];
+
+        $r = mypi_ledger_create_post([
+            'topic' => $title,
+            'body' => $leafBody,
+            'kind' => 'dailylog_entry',
+            'scale' => 'leaf',
+            'tool' => 'inventOry',
+            'tool_version' => 1,
+            'sys' => $sys,
+            'dom' => $dom,
+            'room' => $room,
+            'mod' => $mod,
+            'place_label' => (string) ($in['place_label'] ?? 'invent-0rium'),
+            'agent' => $agent,
+            'actor' => (string) ($in['actor'] ?? $agent),
+            'timezone' => $tz,
+            'event_unix' => $event,
+            'tags_raw' => $tags_raw,
+            'parent_c_uid' => $day_c_uid,
+            'stem_c_uid' => $day_c_uid,
+            'meta' => $meta,
+        ]);
+        if (empty($r['ok'])) {
+            return $r;
+        }
+        $entry_c_uid = $r['c_uid'];
+
+        // bump day last_updated
+        $pdo = mypi_ledger_pdo();
+        $dayRow = mypi_ledger_get($day_c_uid);
+        if ($dayRow) {
+            $dmeta = json_decode((string) ($dayRow['meta_json'] ?? '{}'), true) ?: [];
+            $dmeta['last_updated'] = date('H:i', $event);
+            $secs = $dmeta['sections'] ?? [];
+            if (!is_array($secs)) {
+                $secs = [];
+            }
+            if (!in_array($section, $secs, true)) {
+                $secs[] = $section;
+                $dmeta['sections'] = $secs;
+            }
+            $pdo->prepare('UPDATE crates SET meta_json = ?, updated_at = ? WHERE c_uid = ?')
+                ->execute([json_encode($dmeta), time(), $day_c_uid]);
+        }
+
+        $report_c_uid = null;
+        $report_to = trim((string) ($in['report_to'] ?? ''));
+        if ($report_to !== '' && $report_to !== 'none') {
+            $copy = mypi_ledger_report_copy_entry([
+                'entry_c_uid' => $entry_c_uid,
+                'bucket' => $report_to,
+                'agent' => $agent,
+                'actor' => (string) ($in['actor'] ?? $agent),
+                'timezone' => $tz,
+            ]);
+            if (!empty($copy['ok'])) {
+                $report_c_uid = $copy['c_uid'];
+            }
+        }
+
+        return [
+            'ok' => true,
+            'c_uid' => $entry_c_uid,
+            'day_c_uid' => $day_c_uid,
+            'day' => $day,
+            'report_c_uid' => $report_c_uid,
+        ];
+    }
+
+    /**
+     * Dual-write: copy invent leaf into a Skyline service bucket (mod empty).
+     *
+     * @return array{ok:bool,c_uid?:string,error?:string}
+     */
+    function mypi_ledger_report_copy_entry(array $in) {
+        $entry_c_uid = trim((string) ($in['entry_c_uid'] ?? ''));
+        $bucketKey = trim((string) ($in['bucket'] ?? ''));
+        $buckets = mypi_ledger_report_buckets();
+        if ($entry_c_uid === '' || !isset($buckets[$bucketKey])) {
+            return ['ok' => false, 'error' => 'bad entry or bucket'];
+        }
+        $entry = mypi_ledger_get($entry_c_uid);
+        if (!$entry) {
+            return ['ok' => false, 'error' => 'entry not found'];
+        }
+        $b = $buckets[$bucketKey];
+        $emeta = json_decode((string) ($entry['meta_json'] ?? '{}'), true) ?: [];
+        $meta = [
+            'service' => $b['service'],
+            'bucket' => $bucketKey,
+            'source' => 'inventOry',
+            'source_c_uid' => $entry_c_uid,
+            'source_day_c_uid' => (string) ($emeta['day_c_uid'] ?? $entry['parent_c_uid'] ?? ''),
+            'reported_at' => time(),
+            'section' => (string) ($emeta['section'] ?? ''),
+            'context' => (string) ($emeta['context'] ?? ''),
+        ];
+        return mypi_ledger_create_post([
+            'topic' => (string) ($entry['topic'] ?? ''),
+            'body' => (string) ($entry['body'] ?? ''),
+            'kind' => 'report',
+            'scale' => 'leaf',
+            'tool' => 'inventOry',
+            'tool_version' => 1,
+            'sys' => $b['sys'],
+            'dom' => $b['dom'],
+            'room' => $b['room'],
+            'mod' => '', // office bucket only — no character mod
+            'place_label' => $b['label'],
+            'agent' => (string) ($in['agent'] ?? $entry['agent'] ?? 'user'),
+            'actor' => (string) ($in['actor'] ?? 'hands'),
+            'timezone' => (string) ($in['timezone'] ?? $entry['timezone'] ?? ''),
+            'event_unix' => (int) ($entry['event_unix'] ?? time()),
+            'tags_raw' => (string) ($entry['tags_raw'] ?? ''),
+            'parent_c_uid' => $entry_c_uid,
+            'meta' => $meta,
+        ]);
+    }
+
+    /**
+     * Soft-close a day log.
+     */
+    function mypi_ledger_dailylog_set_closed($day_c_uid, $closed = true) {
+        $row = mypi_ledger_get($day_c_uid);
+        if (!$row || ($row['kind'] ?? '') !== 'dailylog') {
+            return ['ok' => false, 'error' => 'not a day log'];
+        }
+        $meta = json_decode((string) ($row['meta_json'] ?? '{}'), true) ?: [];
+        $meta['closed'] = (bool) $closed;
+        mypi_ledger_pdo()->prepare('UPDATE crates SET meta_json = ?, updated_at = ? WHERE c_uid = ?')
+            ->execute([json_encode($meta), time(), $day_c_uid]);
+        return ['ok' => true];
     }
 }

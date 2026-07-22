@@ -1,0 +1,284 @@
+/**
+ * inventOry — invent-0rium desk (terminal green field)
+ */
+.inventury {
+  --inv-border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.inventury-layout {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(9rem, 12rem) minmax(0, 1fr);
+  gap: 0.5rem;
+  height: 100%;
+  align-items: stretch;
+}
+
+@media (max-width: 720px) {
+  .inventury-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+}
+
+.inventury-days {
+  border: var(--inv-border);
+  background: rgba(0, 0, 0, 0.25);
+  min-height: 0;
+  height: 100%;
+  overflow: auto;
+  padding: 0.4rem 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.inv-day-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+}
+
+.inv-day-link {
+  display: block;
+  padding: 0.3rem 0.4rem;
+  color: inherit;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  font-size: 0.88rem;
+  line-height: 1.2;
+}
+
+.inv-day-link:hover,
+.inv-day-link.is-on {
+  border-left-color: currentColor;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.inv-day-link.closed {
+  opacity: 0.65;
+}
+
+.inv-day-key {
+  display: block;
+  font-variant-numeric: tabular-nums;
+}
+
+.inv-day-name {
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+.inv-badge {
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.inventury-panel {
+  border: var(--inv-border);
+  background: rgba(0, 0, 0, 0.15);
+  min-height: 0;
+  height: 100%;
+  overflow: auto;
+  padding: 0.5rem 0.75rem 1rem;
+  box-sizing: border-box;
+}
+
+.inv-day-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.inv-day-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.inv-insert {
+  border: var(--inv-border);
+  padding: 0.55rem 0.65rem 0.7rem;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.inv-insert-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.inv-insert label {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin: 0.4rem 0 0.15rem;
+}
+
+.inv-insert input[type="text"],
+.inv-insert input[type="date"],
+.inv-insert textarea,
+.inv-insert select {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.35);
+  border: var(--inv-border);
+  border-radius: 0;
+  padding: 0.4rem 0.5rem;
+}
+
+.inv-insert textarea {
+  min-height: 5rem;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+.inv-actions {
+  margin-top: 0.55rem;
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.inv-btn {
+  font: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  padding: 0.35rem 0.65rem;
+  border: var(--inv-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.inv-btn:hover {
+  background: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.inv-btn-primary {
+  border-color: color-mix(in srgb, currentColor 55%, transparent);
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  font-weight: 600;
+  width: 100%;
+}
+
+.inventury-days .inv-btn-primary {
+  flex: 0 0 auto;
+}
+
+.inv-hint {
+  font-size: 0.75rem;
+  margin: 0.15rem 0 0.35rem;
+}
+
+.inv-status {
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
+}
+
+.inv-err {
+  color: #f88;
+}
+
+.inv-sec {
+  margin: 1rem 0 0.4rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  padding-bottom: 0.2rem;
+}
+
+.inv-leaf {
+  border-left: 2px solid color-mix(in srgb, currentColor 40%, transparent);
+  padding: 0.35rem 0 0.5rem 0.65rem;
+  margin: 0.45rem 0;
+}
+
+.inv-leaf-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.inv-leaf-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.inv-leaf-when {
+  font-size: 0.8rem;
+  opacity: 0.65;
+  font-variant-numeric: tabular-nums;
+}
+
+.inv-leaf-body {
+  margin-top: 0.25rem;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  white-space: break-spaces;
+}
+
+.inv-leaf-body p {
+  margin: 0.3rem 0;
+}
+
+.inv-leaf-ctx,
+.inv-leaf-tags {
+  font-size: 0.85rem;
+  margin: 0.25rem 0 0;
+  opacity: 0.9;
+}
+
+.inv-k {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-right: 0.35rem;
+}
+
+.inv-leaf-meta {
+  font-size: 0.7rem;
+  margin: 0.3rem 0 0;
+  word-break: break-all;
+}
+
+.inv-empty {
+  font-size: 0.85rem;
+  padding: 0.35rem;
+}
+
+.muted {
+  opacity: 0.6;
+}

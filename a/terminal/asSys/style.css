@@ -450,8 +450,9 @@ aside.tm-rail form.tm-rail-out {
   max-width: min(56rem, 100%);
 }
 
-/* fileKeeper desk: fill reading pane top→bottom (tree + reader), not a short card */
-.tm-main:has(.filekeeper) {
+/* fileKeeper / inventOry desks: fill reading pane top→bottom */
+.tm-main:has(.filekeeper),
+.tm-main:has(.inventury) {
   display: flex;
   flex-direction: column;
   overflow: hidden; /* scroll lives inside tree / panel */
@@ -459,7 +460,8 @@ aside.tm-rail form.tm-rail-out {
   padding-bottom: 0.55rem;
 }
 
-.tm-reading:has(.filekeeper) {
+.tm-reading:has(.filekeeper),
+.tm-reading:has(.inventury) {
   max-width: none;
   width: 100%;
   flex: 1 1 auto;
@@ -469,7 +471,8 @@ aside.tm-rail form.tm-rail-out {
   height: 100%;
 }
 
-.tm-reading:has(.filekeeper) .filekeeper {
+.tm-reading:has(.filekeeper) .filekeeper,
+.tm-reading:has(.inventury) .inventury {
   flex: 1 1 auto;
   min-height: 0;
   max-width: none;

@@ -24,6 +24,7 @@ $treeIo = [
     ['key' => 'import', 'label' => 'IMPORT'],
     ['key' => 'exports', 'label' => 'EXPORTS'],
     ['key' => 'files', 'label' => 'FILES'],
+    ['key' => 'inventory', 'label' => 'INVENT'],
     ['key' => 'email', 'label' => 'E-MAIL'],
     ['key' => 'chat', 'label' => 'CHAT'],
     ['key' => 'login', 'label' => 'SESSION'],
