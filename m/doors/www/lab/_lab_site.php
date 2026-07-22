@@ -42,6 +42,7 @@ function lab_open(string $pageTitle, string $activeKey = 'home'): void {
 
     $links = [
         'home' => 'Lab home',
+        'postbasic' => 'postBASIC posts',
         'cubook' => 'cuBOOK guestbook',
         'sopr' => 'soprBASIC fragments',
         'chat' => 'chatBOX room',

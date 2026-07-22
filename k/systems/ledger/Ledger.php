@@ -238,8 +238,9 @@ SQL
                 $to = strtolower(trim($m[3]));
                 if ($from !== '' && $to !== '') {
                     $edges[] = ['from' => $from, 'rel' => $rel, 'to' => $to];
-                    foreach ([$from, $to, $from . '*' . $rel . '>' . $to] as $t) {
-                        if (!in_array($t, $tags, true)) {
+                    // a, connector (rel), c, and full chain — connector is a real term too
+                    foreach ([$from, $rel, $to, $from . '*' . $rel . '>' . $to] as $t) {
+                        if ($t !== '' && !in_array($t, $tags, true)) {
                             $tags[] = $t;
                         }
                     }
@@ -300,7 +301,17 @@ SQL
         return $tps_uid;
     }
 
-    function mypi_ledger_charlie_write(PDO $pdo, $c_uid, $tags_raw, $sys, $dom, $room, $mod, $ingest) {
+    /**
+     * Write Charlie edges + gravity for a crate.
+     *
+     * Edges come from relationship language in tags_raw (this*rel>that).
+     * Gravity bumps EVERY production tag, including auto place tags
+     * (path:, @seg, sys:, dom:, mod:) — those are real Charlie material, not hidden filters.
+     *
+     * @param list<string>|null $all_tags  full tag list from parse_tags (preferred); if null, uses parse of tags_raw only
+     * @return list<array{from:string,rel:string,to:string}>
+     */
+    function mypi_ledger_charlie_write(PDO $pdo, $c_uid, $tags_raw, $sys, $dom, $room, $mod, $ingest, $all_tags = null) {
         $parsed = mypi_ledger_parse_charlie($tags_raw);
         $insE = $pdo->prepare(
             'INSERT INTO thread_edges(c_uid, from_term, rel, to_term, ingest_unix, sys, dom, room, mod)
@@ -312,19 +323,35 @@ SQL
                gravity = gravity + 1,
                updated_at = excluded.updated_at'
         );
+        $already = [];
         foreach ($parsed['edges'] as $e) {
             $insE->execute([
                 $c_uid, $e['from'], $e['rel'], $e['to'], $ingest, $sys, $dom, $room, $mod,
             ]);
-            $bump->execute([$e['from'], 1, $ingest]);
-            $bump->execute([$e['to'], 1, $ingest]);
-            $bump->execute([$e['from'] . '*' . $e['rel'] . '>' . $e['to'], 1, $ingest]);
+            // Gravity for a, connector, c, and full chain (connector was missing before)
+            foreach ([
+                $e['from'],
+                $e['rel'],
+                $e['to'],
+                $e['from'] . '*' . $e['rel'] . '>' . $e['to'],
+            ] as $term) {
+                if ($term === '' || isset($already[$term])) {
+                    continue;
+                }
+                $bump->execute([$term, 1, $ingest]);
+                $already[$term] = true;
+            }
         }
-        foreach ($parsed['tags'] as $t) {
-            if (strpos($t, '*') !== false || strpos($t, ':') !== false || str_starts_with($t, '@')) {
+        // Full production tag set (user tags + auto place tags) — do not hide path:/@/sys: from Charlie
+        $tagList = is_array($all_tags) ? $all_tags : $parsed['tags'];
+        foreach ($tagList as $t) {
+            $t = strtolower(trim((string) $t));
+            if ($t === '' || isset($already[$t])) {
                 continue;
             }
+            // Edge full-forms already bumped; plain * in the middle of non-edge junk is still a term if present
             $bump->execute([$t, 1, $ingest]);
+            $already[$t] = true;
         }
         return $parsed['edges'];
     }
@@ -430,7 +457,8 @@ SQL
         foreach ($tags as $t) {
             $insTag->execute([$c_uid, $t]);
         }
-        $edges = mypi_ledger_charlie_write($pdo, $c_uid, $tags_raw, $sys, $dom, $room, $mod, $ingest);
+        // Pass full tags (incl. auto path/@/sys/dom/mod) so Charlie gravity is production-complete
+        $edges = mypi_ledger_charlie_write($pdo, $c_uid, $tags_raw, $sys, $dom, $room, $mod, $ingest, $tags);
         $pdo->prepare(
             'INSERT INTO crate_events(
               c_uid, event_type, payload_json, actor, place_path,
@@ -579,6 +607,29 @@ SQL
         $st->execute([$c_uid]);
         $row = $st->fetch();
         return $row ?: null;
+    }
+
+    /**
+     * Crates tagged with this Charlie/production tag (via tag_map).
+     *
+     * @return list<array>
+     */
+    function mypi_ledger_crates_for_tag(string $tag, int $limit = 80) {
+        $tag = strtolower(trim($tag));
+        if ($tag === '') {
+            return [];
+        }
+        $limit = max(1, min(200, $limit));
+        $st = mypi_ledger_pdo()->prepare(
+            'SELECT c.* FROM crates c
+             JOIN tag_map t ON t.c_uid = c.c_uid
+             WHERE t.tag = ?
+               AND (c.deleted_at IS NULL OR c.deleted_at = 0)
+             ORDER BY COALESCE(c.event_unix, c.ingest_unix) DESC
+             LIMIT ' . $limit
+        );
+        $st->execute([$tag]);
+        return $st->fetchAll() ?: [];
     }
 
     function mypi_ledger_history($c_uid) {

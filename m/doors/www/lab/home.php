@@ -17,6 +17,7 @@ lab_open('Welcome to the Tool Lab', 'home');
 leaf('This is a **fake little website** living inside the WWW explorer chrome. Each page installs tools with `getTool` the same way real rooms do.');
 leaf('Use the side nav (built with `section` / `close_section`) to hit every root tool under test.');
 hr();
+leaf('**postBASIC** — ledger posts (MakePost + SoperView)');
 leaf('**cuBOOK** — guestbook form + view');
 leaf('**soprBASIC** — add fragment + list');
 leaf('**chatBOX** — chat form + room log');

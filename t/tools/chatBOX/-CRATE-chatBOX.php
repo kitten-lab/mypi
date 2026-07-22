@@ -2,21 +2,23 @@
 /**
  * chatBOX → ledger crates (kind=chat) with **session** meta.
  *
- * Juvenile live tool: each POST is one line in a hangout.
- * Session keeps lines together so many "rooms" can live at one place_path
- * (or one default "live" session per sky room).
+ * Juvenile live tool: each POST is one **line** in a hangout (not a whole session blob).
  *
- * Crate shape (via mypi_ledger_create_post):
- *   kind:  chat
- *   tool:  chatBOX
- *   agent: display name (username)
- *   body:  message text
- *   topic: short line for lists — "chat · {session} · {user}"
- *   meta:  {
- *     session: string,          // id slug, default "live"
- *     session_label: string,    // human title
- *     place_path: string
+ * Field map (do not conflate speaker with topic):
+ *   agent  = who said it (nick / username)     ← user lives HERE only
+ *   body   = what they said (message text)
+ *   topic  = hangout label for generic lists   ← session title, NOT the user
+ *   kind   = chat
+ *   tool   = chatBOX
+ *   meta   = {
+ *     session: string,        // id slug, default "live"  ← hangout key lives HERE
+ *     session_label: string,
+ *     place_path: string,
+ *     live: true,
+ *     speaker: string
  *   }
+ *   tags_raw = ONLY intentional Charlie material (user-supplied).
+ *              Never session ids, place paths, or tool filters — those are payload/columns.
  *
  * JSON .chat.log.json lives only in -v3/chatBOX-json backup.
  */
@@ -29,6 +31,18 @@ function chatBOX_normalize_session(string $raw): string {
     $s = preg_replace('/[^a-z0-9._-]+/', '-', $s);
     $s = trim($s, '-._');
     return $s !== '' ? $s : 'live';
+}
+
+/** Charlie person tag from nick — @rosey, not stuffed into topic. */
+function chatBOX_speaker_tag(string $user): string {
+    $u = strtolower(trim($user));
+    $u = ltrim($u, '@');
+    $u = preg_replace('/[^a-z0-9._-]+/', '-', $u);
+    $u = trim($u, '-._');
+    if ($u === '') {
+        $u = 'anon';
+    }
+    return '@' . $u;
 }
 
 /**
@@ -59,11 +73,21 @@ function chatBOX_ledger_store(): array {
         $place['sys'], $place['dom'], $place['room'],
     ], 'strlen')), '/');
 
+    // Charlie: nick as @person (production tag). Session stays in meta only.
+    // Optional extra threading from the form merges after the speaker tag.
+    $nickTag = chatBOX_speaker_tag($user);
+    $extra = trim((string) ($_POST['POST__TAGS'] ?? $_POST['tags'] ?? ''));
+    $tags_raw = $nickTag;
+    if ($extra !== '') {
+        $tags_raw .= ',' . $extra;
+    }
+
     $result = mypi_ledger_create_post([
-        'topic' => 'chat · ' . $session . ' · ' . $user,
+        // topic = hangout name for crate browsers — never the speaker
+        'topic' => $sessionLabel,
         'body' => $message,
         'agent' => $user,
-        'tags_raw' => 'chat,session:' . $session,
+        'tags_raw' => $tags_raw,
         'timezone' => (string) ($_POST['POST__TZ'] ?? ''),
         'event_unix' => $_POST['POST__EVENT_UNIX'] ?? null,
         'sys' => $place['sys'],
@@ -80,6 +104,8 @@ function chatBOX_ledger_store(): array {
             'session_label' => $sessionLabel,
             'place_path' => $place_path,
             'live' => true,
+            // explicit so readers never mine topic for nick
+            'speaker' => $user,
         ],
     ]);
 
