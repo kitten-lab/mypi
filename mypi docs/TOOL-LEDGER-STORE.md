@@ -46,8 +46,19 @@ List filters use **columns** + **`meta`** for tool structure; Charlie still *see
 
 Still **not** tags: tool-private payload (e.g. chat `meta.session`) — that stays in `meta`, not fake `session:…` tags.
 
-**Edges** come from relationship language `a*connector>c` in user `tags_raw`.  
-For each edge, **tags + gravity** include all four pieces: **`a`**, **`connector`**, **`c`**, and the full chain `a*connector>c` (connector was previously omitted as its own term).
+**Edges** come from Charlie relationship language in user `tags_raw` (full **tagSplicer** stages, not a single flat blob):
+
+| stage | op | meaning |
+|-------|-----|---------|
+| 1 | `;` / newlines | independent clauses |
+| 2 | `from*rest` | subject + right-hand material |
+| 3 | `&` | multi rel-segments under the same `from` |
+| 4 | `rel>thats` | relationship + destination(s) |
+| 5 | `,` | **multi-that** → **one edge per that** (not one `to` string of commas) |
+
+Examples: `a*connector>c` · `understanding*you>system,structure,format` → three edges · `this*related>that&holds>other` → two edges under `this`.
+
+For each edge, **tags + gravity** include all four pieces: **`a`**, **`connector`**, **`c`**, and the full chain `a*connector>c`.
 
 - **ChatRoom** lists with `order=asc` filtered by **`meta.session`**.
 - Session switcher: `mypi_ledger_chat_sessions()`.

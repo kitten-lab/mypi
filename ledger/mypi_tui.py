@@ -12,7 +12,9 @@ Primary list never replaces itself when you open a tag or window.
 from __future__ import annotations
 
 import json
+import re
 import sys
+from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -34,14 +36,53 @@ from mypi_ledger import (  # noqa: E402
 )
 
 try:
+    from rich.text import Text
     from textual import on
     from textual.app import App, ComposeResult
     from textual.binding import Binding
-    from textual.containers import Horizontal, Vertical
+    from textual.containers import Horizontal, Vertical, VerticalScroll
     from textual.widgets import Button, DataTable, Footer, Header, Label, Static
 except ImportError:
     print("Need textual: pip install textual")
     sys.exit(1)
+
+# Styles (applied via Text API — never parse crate payload as markup)
+_S_HEAD = "bold #9ed4b0"
+_S_SEC = "bold #7ab890"
+_S_DIM = "dim #5a8a6a"
+_S_VAL = "#b8e0c8"
+_S_EDGE = "#8fc9a0"
+_S_REL = "#5a8a6a"
+_S_WARN = "bold red"
+_S_META = "dim #6a9a7a"
+_S_BODY = "#c5e6d0"
+_S_H1 = "bold #d4f0dc"
+_S_H2 = "bold #b8e0c8"
+_S_H3 = "bold #9ed4b0"
+_S_CODE = "#e2f5e8"
+_S_CODE_EDGE = "dim #3a5a48"
+_S_QUOTE = "italic #8fb89a"
+_S_LINK = "underline #9ed4b0"
+_S_URL = "dim #4a7a5a"
+
+# Optional ``` fences still work if present, but are NOT required.
+# Terminal styling may own ``` — prefer auto grid/prose detection.
+_RE_FENCE = re.compile(r"^```")
+_RE_HEADING = re.compile(r"^(#{1,6})\s+(.*)$")
+_RE_QUOTE = re.compile(r"^>\s?(.*)$")
+_RE_HR = re.compile(r"^(-{3,}|\*{3,}|_{3,})\s*$")
+_RE_MD_LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+_RE_BOLD = re.compile(r"\*\*(.+?)\*\*")
+_RE_ITALIC = re.compile(r"(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)")
+_RE_CODE_SPAN = re.compile(r"`([^`]+)`")
+# Letter/glyph grids: "A L P H A", "A  E", spaced singles, short runs
+_RE_GRID_LINE = re.compile(
+    r"^(?:"
+    r"(?:[\w'’.\-](?:\s+[\w'’.\-]){1,24})"  # spaced tokens (letter grids)
+    r"|(?:[\w'’.\-]{1,3}(?:\s{2,}[\w'’.\-]{1,3}){1,24})"  # multi-space columns
+    r")\s*$"
+)
+_RE_ONLY_SPACED_CHARS = re.compile(r"^(?:\S\s+){1,40}\S\s*$")
 
 
 def _path_of(row) -> str:
@@ -68,6 +109,316 @@ def _clip(s: str, n: int = 48) -> str:
     return s if len(s) <= n else s[: n - 1] + "…"
 
 
+def _g(row, key: str, default: str = "") -> str:
+    """Safe row field → string (sqlite3.Row or mapping)."""
+    try:
+        if hasattr(row, "keys") and key not in row.keys():
+            return default
+        v = row[key]
+    except Exception:
+        return default
+    if v is None:
+        return default
+    return str(v)
+
+
+def _fmt_ts(unix) -> str:
+    """Human local time + raw unix for puritanical dual-read."""
+    if unix is None or unix == "" or unix == 0 or unix == "0":
+        return "—"
+    try:
+        u = int(unix)
+    except (TypeError, ValueError):
+        return str(unix)
+    if u <= 0:
+        return "—"
+    try:
+        human = datetime.fromtimestamp(u).strftime("%Y-%m-%d %H:%M:%S")
+    except (OSError, OverflowError, ValueError):
+        human = "?"
+    return f"{human}  ·  {u}"
+
+
+def _split_tags(tags: list[str]) -> tuple[list[str], list[str], list[str]]:
+    """user-ish / place-auto / edge full-forms."""
+    user: list[str] = []
+    place: list[str] = []
+    chains: list[str] = []
+    for t in tags:
+        t = (t or "").strip()
+        if not t:
+            continue
+        if "*" in t and ">" in t:
+            chains.append(t)
+        elif t.startswith(("path:", "sys:", "dom:", "mod:", "room:")) or t.startswith(
+            "@"
+        ):
+            place.append(t)
+        else:
+            user.append(t)
+    return user, place, chains
+
+
+def _pretty_meta(meta_json: str, max_chars: int = 1200) -> str:
+    raw = (meta_json or "").strip()
+    if not raw or raw == "{}":
+        return "—"
+    try:
+        obj = json.loads(raw)
+        text = json.dumps(obj, indent=2, ensure_ascii=False, sort_keys=True)
+    except Exception:
+        text = raw
+    if len(text) > max_chars:
+        return text[: max_chars - 1] + "…"
+    return text
+
+
+def _t_blank() -> Text:
+    return Text("")
+
+
+def _t_section(title: str) -> Text:
+    return Text(f"── {title} ──", style=_S_SEC)
+
+
+def _t_kv(label: str, value: str, *, empty: str = "—") -> Text:
+    """Label + value as plain Text (safe for any crate payload)."""
+    t = Text()
+    t.append(f"{label:<10} ", style=_S_DIM)
+    val = (value if value is not None else "").strip()
+    if not val or val == "—":
+        t.append(empty, style=_S_DIM)
+    else:
+        t.append(val, style=_S_VAL)
+    return t
+
+
+def _t_line(*parts: tuple[str, str]) -> Text:
+    t = Text()
+    for text, style in parts:
+        t.append(text, style=style or _S_VAL)
+    return t
+
+
+def _looks_like_grid_line(line: str) -> bool:
+    """True for letter grids / columny lines — no fences needed."""
+    s = line.rstrip("\n")
+    if not s or not s.strip():
+        return False
+    # Never treat markdown structure as grid
+    if s.lstrip().startswith(("#", ">", "-", "*", "|", "[")):
+        if s.lstrip().startswith("|"):
+            return True  # md tables are pre-ish
+        # bare list / heading / quote — not grid
+        if _RE_HEADING.match(s) or _RE_QUOTE.match(s) or _RE_HR.match(s):
+            return False
+        if s.lstrip().startswith(("- ", "* ", "+ ")):
+            return False
+    stripped = s.strip()
+    # Pure short glyph runs with internal spaces (A L P H A, A E, …)
+    if _RE_ONLY_SPACED_CHARS.match(stripped) and "  " not in stripped:
+        # single spaces between 1-char tokens
+        parts = stripped.split()
+        if 2 <= len(parts) <= 32 and all(len(p) <= 2 for p in parts):
+            return True
+    if _RE_GRID_LINE.match(stripped):
+        parts = stripped.split()
+        # Prefer short tokens (glyphs/syllables), not prose sentences
+        if parts and all(len(p) <= 8 for p in parts) and len(parts) >= 2:
+            # Reject "normal" sentences (many long words)
+            longish = sum(1 for p in parts if len(p) > 4)
+            if longish <= max(1, len(parts) // 3):
+                return True
+    # Multi-space column layout
+    if re.search(r"\S\s{2,}\S", s) and len(s) < 80:
+        return True
+    return False
+
+
+def _strip_optional_fences(lines: list[str]) -> list[str]:
+    """If the whole body (or a block) is wrapped in ```, unwrap — never required."""
+    if len(lines) >= 2 and _RE_FENCE.match(lines[0].strip()) and _RE_FENCE.match(
+        lines[-1].strip()
+    ):
+        return lines[1:-1]
+    return lines
+
+
+def _append_inline_md(t: Text, s: str, base_style: str = _S_BODY) -> None:
+    """
+    Light inline markdown into Text (no Rich markup parse).
+    Handles [text](url), **bold**, *italic*, `code` — rest is literal.
+    """
+    if not s:
+        return
+
+    # Tokenize by finding earliest special construct
+    i = 0
+    n = len(s)
+    while i < n:
+        # find next candidate
+        candidates: list[tuple[int, str, re.Match[str]]] = []
+        for name, rx in (
+            ("link", _RE_MD_LINK),
+            ("bold", _RE_BOLD),
+            ("code", _RE_CODE_SPAN),
+            ("italic", _RE_ITALIC),
+        ):
+            m = rx.search(s, i)
+            if m:
+                candidates.append((m.start(), name, m))
+        if not candidates:
+            t.append(s[i:], style=base_style)
+            break
+        candidates.sort(key=lambda x: x[0])
+        start, name, m = candidates[0]
+        if start > i:
+            t.append(s[i:start], style=base_style)
+        if name == "link":
+            label, url = m.group(1), m.group(2)
+            t.append(label, style=_S_LINK)
+            if url and not url.startswith("#"):
+                t.append(" ", style=base_style)
+                t.append(url, style=_S_URL)
+        elif name == "bold":
+            t.append(m.group(1), style="bold " + base_style)
+        elif name == "italic":
+            t.append(m.group(1), style="italic " + base_style)
+        elif name == "code":
+            t.append(m.group(1), style=_S_CODE)
+        i = m.end()
+
+
+def _render_prose_line(line: str) -> Text:
+    """One non-grid line: headings, quotes, hr, lists, inline md."""
+    s = line.rstrip("\n")
+    t = Text(no_wrap=False)
+
+    if not s.strip():
+        return t
+
+    hm = _RE_HEADING.match(s)
+    if hm:
+        level = len(hm.group(1))
+        style = _S_H1 if level <= 1 else _S_H2 if level <= 3 else _S_H3
+        t.append("▸ ", style=_S_DIM)
+        _append_inline_md(t, hm.group(2).strip(), style)
+        return t
+
+    if _RE_HR.match(s.strip()):
+        t.append("─" * min(40, max(8, len(s))), style=_S_DIM)
+        return t
+
+    qm = _RE_QUOTE.match(s)
+    if qm:
+        t.append("│ ", style=_S_DIM)
+        _append_inline_md(t, qm.group(1), _S_QUOTE)
+        return t
+
+    stripped = s.lstrip()
+    indent = len(s) - len(stripped)
+    if indent:
+        t.append(" " * indent, style=_S_BODY)
+    if stripped.startswith(("- ", "* ", "+ ")):
+        t.append("• ", style=_S_DIM)
+        _append_inline_md(t, stripped[2:], _S_BODY)
+        return t
+    if re.match(r"^\d+\.\s+", stripped):
+        m = re.match(r"^(\d+\.)\s+(.*)$", stripped)
+        if m:
+            t.append(m.group(1) + " ", style=_S_DIM)
+            _append_inline_md(t, m.group(2), _S_BODY)
+            return t
+
+    _append_inline_md(t, s, _S_BODY)
+    return t
+
+
+def _render_grid_line(line: str) -> Text:
+    """Preserve spacing; style as material block (letter grids, columns)."""
+    # Keep trailing spaces meaningful for alignment; drop only newline
+    s = line.rstrip("\n")
+    t = Text(no_wrap=True)
+    t.append("  ", style=_S_CODE_EDGE)
+    t.append(s, style=_S_CODE)
+    return t
+
+
+def _render_body_material(body: str) -> list[Text]:
+    """
+    Format crate body for the viewer.
+
+    - Does NOT require ``` fences (terminal may use those for its own chrome).
+    - Auto-detects letter/glyph grids and multi-space columns as pre blocks.
+    - Light markdown: # headings, >, lists, [text](url), **bold**, *italic*.
+    - Fences, if present, still unwrap as pre (optional, never required).
+    """
+    raw = (body or "").replace("\r\n", "\n").replace("\r", "\n")
+    if not raw.strip():
+        return [Text("(empty body)", style=_S_DIM)]
+
+    lines = raw.split("\n")
+    lines = _strip_optional_fences(lines)
+    out: list[Text] = []
+
+    i = 0
+    n = len(lines)
+    in_fence = False
+
+    while i < n:
+        line = lines[i]
+
+        # Optional fence toggle — only if user used them; not required
+        if _RE_FENCE.match(line.strip()):
+            in_fence = not in_fence
+            if in_fence:
+                out.append(Text("  ┌── material ──", style=_S_CODE_EDGE))
+            else:
+                out.append(Text("  └──", style=_S_CODE_EDGE))
+            i += 1
+            continue
+
+        if in_fence:
+            out.append(_render_grid_line(line))
+            i += 1
+            continue
+
+        # Auto-detect a run of grid lines (letter matrices, columns)
+        if _looks_like_grid_line(line):
+            run: list[str] = []
+            while i < n and (
+                _looks_like_grid_line(lines[i])
+                or (
+                    run
+                    and not lines[i].strip()
+                    and i + 1 < n
+                    and _looks_like_grid_line(lines[i + 1])
+                )
+            ):
+                # blank line inside grid run → keep as spacer
+                run.append(lines[i])
+                i += 1
+            out.append(Text("  ┌── grid ──", style=_S_CODE_EDGE))
+            for gl in run:
+                if not gl.strip():
+                    out.append(Text("  │", style=_S_CODE_EDGE))
+                else:
+                    out.append(_render_grid_line(gl))
+            out.append(Text("  └──", style=_S_CODE_EDGE))
+            continue
+
+        # Markdown table row → pre-ish
+        if line.lstrip().startswith("|") and "|" in line.lstrip()[1:]:
+            out.append(_render_grid_line(line))
+            i += 1
+            continue
+
+        out.append(_render_prose_line(line))
+        i += 1
+
+    return out
+
+
 class MypiTui(App[None]):
     TITLE = "mypi ledger"
     CSS = """
@@ -89,8 +440,8 @@ class MypiTui(App[None]):
     #topnav .nav-on { background: #143314; text-style: bold; }
     #body { height: 1fr; }
     #index-pane {
-        width: 42%;
-        min-width: 28;
+        width: 38%;
+        min-width: 26;
         border-right: tall #2a4a38;
         padding: 0 1;
     }
@@ -100,11 +451,16 @@ class MypiTui(App[None]):
     }
     #index-title, #viewer-title { text-style: bold; color: #7ab890; margin: 1 0 0 0; }
     #index-table { height: 1fr; }
-    #related-table { height: 12; border: tall #2a4a38; margin-bottom: 1; }
-    #viewer {
+    #related-table { height: 8; border: tall #2a4a38; margin-bottom: 1; }
+    #viewer-scroll {
         height: 1fr;
         border: tall #2a4a38;
-        padding: 1;
+        background: #0a100e;
+        overflow-x: auto;
+    }
+    #viewer {
+        height: auto;
+        padding: 1 1 2 1;
         background: #0a100e;
     }
     .muted { color: #5a8a6a; }
@@ -159,7 +515,12 @@ class MypiTui(App[None]):
                     classes="muted",
                 )
                 yield DataTable(id="related-table")
-                yield Static("Select an item on the left.", id="viewer")
+                with VerticalScroll(id="viewer-scroll"):
+                    yield Static(
+                        "Select an item on the left.",
+                        id="viewer",
+                        markup=False,
+                    )
         yield Static("", id="status")
         yield Footer()
 
@@ -443,53 +804,230 @@ class MypiTui(App[None]):
                 )
             self.query_one("#viewer", Static).update("\n".join(lines))
 
+    def _stem_family(self, row) -> list:
+        """Other revisions / siblings sharing stem_c_uid (fileKeeper lineage)."""
+        stem = _g(row, "stem_c_uid") or _g(row, "c_uid")
+        if not stem:
+            return []
+        try:
+            return list(
+                self.conn.execute(
+                    """
+                    SELECT * FROM crates
+                    WHERE (stem_c_uid = ? OR c_uid = ?)
+                      AND (deleted_at IS NULL OR deleted_at = 0)
+                    ORDER BY ingest_unix ASC, created_at ASC
+                    """,
+                    (stem, stem),
+                )
+            )
+        except Exception:
+            return []
+
+    def _crate_edges(self, c_uid: str) -> list:
+        try:
+            return list(
+                self.conn.execute(
+                    """
+                    SELECT from_term, rel, to_term, ingest_unix
+                    FROM thread_edges
+                    WHERE c_uid = ?
+                    ORDER BY id ASC
+                    """,
+                    (c_uid,),
+                )
+            )
+        except Exception:
+            return []
+
     def _show_crate(self, c_uid: str) -> None:
         self._selected_crate = c_uid
         row = get_crate(self.conn, c_uid)
         viewer = self.query_one("#viewer", Static)
-        self.query_one("#viewer-title", Label).update(f"Viewer · crate")
+        self.query_one("#viewer-title", Label).update("Viewer · crate")
         if not row:
-            viewer.update("missing crate")
+            viewer.update(Text("missing crate", style=_S_WARN))
             return
-        tags = json.loads(row["tags_json"] or "[]")
-        meta = row["meta_json"] or "{}"
-        if len(meta) > 400:
-            meta = meta[:397] + "..."
-        body = row["body"] or ""
-        soft = row["deleted_at"] if "deleted_at" in row.keys() else None
-        lines = [
-            f"c_uid   {row['c_uid']}",
-            f"kind    {row['kind']}    tool  {row['tool']} v{row['tool_version']}",
-            f"place   {row['sys']}/{row['dom']}/{row['room']}   mod={row['mod']}",
-            f"agent   {row['agent']}",
-            f"topic   {row['topic']}",
-            "",
-            "— body —",
-            body,
-            "",
-            f"tags    {', '.join(tags)}",
-            f"tps     {row['t_uid']}",
-            f"event   {row['event_unix']}    ingest {row['ingest_unix']}",
-            f"meta    {meta}",
-        ]
-        if soft:
-            lines.append(f"DELETED soft @{soft}  (hidden from index; history kept)")
-        lines.append("")
-        lines.append("— history —")
-        for ev in history(self.conn, c_uid):
-            payload = ev["payload_json"]
-            if len(payload) > 140:
-                payload = payload[:137] + "..."
-            lines.append(f"  #{ev['id']} {ev['event_type']} @{ev['ingest_unix']} {payload}")
-        # clickable tag hints
-        if tags:
-            lines.append("")
-            lines.append("— tags (open Charlie index + select term to list) —")
-            lines.append("  " + "  ".join(tags[:24]))
-        lines.append("")
-        lines.append("— del  Soft-del / Backspace  ·  shift+del NUKE  ·  topnav buttons —")
-        viewer.update("\n".join(lines))
+
+        # Related pane → stem family when multi-rev (don't clobber tag/TPS lists
+        # for single leaves — puritanical but keep drill-down context).
+        family = self._stem_family(row)
+        if len(family) > 1:
+            related = self.query_one("#related-table", DataTable)
+            related.clear(columns=True)
+            related.add_columns("when", "kind", "agent", "body", "tps", "c_uid")
+            self.query_one("#related-hint", Static).update(
+                f"lineage stem={_g(row, 'stem_c_uid') or c_uid[:18]}  ·  "
+                f"{len(family)} rev(s)  ·  select another"
+            )
+            for r in family:
+                when = r["event_unix"] or r["ingest_unix"] or 0
+                related.add_row(
+                    str(when),
+                    _clip((r["kind"] or "") + "·" + (r["tool"] or ""), 12),
+                    _clip(r["agent"] or "", 10),
+                    _clip(r["body"] or "", 36),
+                    _clip(r["t_uid"] or "", 12),
+                    r["c_uid"][:16],
+                    key=r["c_uid"],
+                )
+
+        try:
+            tags = json.loads(_g(row, "tags_json") or "[]")
+            if not isinstance(tags, list):
+                tags = []
+        except Exception:
+            tags = []
+        tags = [str(t) for t in tags]
+        user_tags, place_tags, chain_tags = _split_tags(tags)
+        tags_raw = _g(row, "tags_raw")
+        edges = self._crate_edges(c_uid)
+
+        body = (_g(row, "body") or "").replace("\r\n", "\n").replace("\r", "\n")
+        topic = _g(row, "topic")
+        scale = _g(row, "scale") or "—"
+        face = _g(row, "face_id") or "—"
+        parent = _g(row, "parent_c_uid") or "—"
+        stem = _g(row, "stem_c_uid") or "—"
+        place_label = _g(row, "place_label")
+        tz = _g(row, "timezone") or "—"
+        tool_ver = _g(row, "tool_version")
+        tool = _g(row, "tool")
+        tool_s = f"{tool} v{tool_ver}" if tool_ver else tool
+
+        meta_raw = _g(row, "meta_json") or "{}"
+        try:
+            meta_obj = json.loads(meta_raw) if meta_raw else {}
+        except Exception:
+            meta_obj = {}
+        if not isinstance(meta_obj, dict):
+            meta_obj = {}
+        folder = str(meta_obj.get("folder") or "")
+        rev = meta_obj.get("rev", "")
+        event_raw = str(meta_obj.get("event_raw") or "")
+
+        out = Text()
+        soft = _g(row, "deleted_at")
+        out.append(_g(row, "c_uid"), style=_S_HEAD)
+        if soft and soft not in ("0", "None"):
+            out.append("  DEVALUED", style=_S_WARN)
+            out.append(f" soft @{soft}", style=_S_DIM)
+        out.append("\n\n")
+
+        def add(line: Text | str = "") -> None:
+            if isinstance(line, Text):
+                out.append_text(line)
+            else:
+                out.append(str(line))
+            out.append("\n")
+
+        add(_t_section("identity"))
+        add(_t_kv("kind", f"{_g(row, 'kind')}  ·  {tool_s}"))
+        add(_t_kv("scale", scale))
+        add(_t_kv("face_id", face))
+        add(_t_kv("topic", topic or "—"))
+        add(_t_kv("agent", _g(row, "agent") or "—"))
+        add(_t_kv("mod", _g(row, "mod") or "—"))
+        add()
+        add(_t_section("place"))
+        add(_t_kv("path", _path_of(row) or "—"))
+        add(
+            _t_kv(
+                "sys/dom/rm",
+                "/".join(
+                    p
+                    for p in (_g(row, "sys"), _g(row, "dom"), _g(row, "room"))
+                    if p
+                )
+                or "—",
+            )
+        )
+        add(_t_kv("label", place_label or "—"))
+        add()
+        add(_t_section("lineage"))
+        add(_t_kv("stem", stem))
+        add(_t_kv("parent", parent))
+        add(_t_kv("folder", folder or "—"))
+        add(_t_kv("rev", str(rev) if rev != "" else "—"))
+        add()
+        add(_t_section("time"))
+        add(_t_kv("event", _fmt_ts(_g(row, "event_unix"))))
+        add(_t_kv("event_raw", event_raw or "—"))
+        add(_t_kv("ingest", _fmt_ts(_g(row, "ingest_unix"))))
+        add(_t_kv("created", _fmt_ts(_g(row, "created_at"))))
+        add(_t_kv("updated", _fmt_ts(_g(row, "updated_at"))))
+        add(_t_kv("tps", _g(row, "t_uid") or "—"))
+        add(_t_kv("tz", tz))
+        add()
+        add(_t_section("charlie"))
+        add(
+            _t_kv(
+                "tags_raw",
+                tags_raw or "(none — no user thread language)",
+            )
+        )
+
+        if edges:
+            add(_t_kv("edges", f"{len(edges)} relationship(s)"))
+            for e in edges:
+                et = Text("           ")
+                et.append(str(e["from_term"]), style="bold " + _S_EDGE)
+                et.append(f"*{e['rel']}>", style=_S_REL)
+                et.append(str(e["to_term"]), style="bold " + _S_EDGE)
+                add(et)
+        else:
+            add(_t_kv("edges", "(none on this crate)"))
+
+        if chain_tags and not edges:
+            add(_t_kv("chains", ", ".join(chain_tags)))
+        if user_tags:
+            add(_t_kv("terms", ", ".join(user_tags)))
+        if place_tags:
+            add(_t_kv("place tags", ", ".join(place_tags)))
+        if not user_tags and not place_tags and not chain_tags and not tags_raw:
+            add(_t_kv("terms", "(empty tag set)"))
+
+        add()
+        add(_t_section("body"))
+        for bline in _render_body_material(body):
+            add(bline)
+
+        add()
+        add(_t_section("meta"))
+        for mline in _pretty_meta(meta_raw).split("\n"):
+            add(Text(mline, style=_S_META))
+
+        add()
+        add(_t_section("history"))
+        evs = list(history(self.conn, c_uid))
+        if not evs:
+            add(Text("  (no crate_events)", style=_S_DIM))
+        for ev in evs:
+            payload = _g(ev, "payload_json")
+            if len(payload) > 160:
+                payload = payload[:157] + "…"
+            ht = Text("  ")
+            ht.append(f"#{_g(ev, 'id')} ", style=_S_DIM)
+            ht.append(_g(ev, "event_type") + " ", style="bold " + _S_VAL)
+            ht.append(_fmt_ts(_g(ev, "ingest_unix")), style=_S_DIM)
+            add(ht)
+            if payload and payload not in ("{}", "null"):
+                add(Text(f"    {payload}", style=_S_META))
+
+        add()
+        add(
+            Text(
+                "del Soft-del / Backspace  ·  shift+del NUKE  ·  r refresh",
+                style=_S_DIM,
+            )
+        )
+
+        viewer.update(out)
         self._status_line()
+        try:
+            self.query_one("#viewer-scroll", VerticalScroll).scroll_home(animate=False)
+        except Exception:
+            pass
 
     def _apply_index_key(self, key: str, *, open_viewer: bool) -> None:
         """Shared path for highlight (select only) vs select (open materials)."""

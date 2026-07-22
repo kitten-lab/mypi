@@ -38,6 +38,8 @@ if (is_file($parsedownPath)) {
     require_once $parsedownPath;
     if (class_exists('Parsedown')) {
         $pd = new Parsedown();
+        $pd->setSafeMode(true);
+        $pd->setBreaksEnabled(true);
     }
 }
 ?>

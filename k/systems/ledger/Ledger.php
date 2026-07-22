@@ -273,6 +273,18 @@ SQL
     }
 
     /**
+     * Charlie / tagSplicer stages (not flat this*rel>blob):
+     *   1. `;` / newlines  → independent clauses
+     *   2. `from*rest`     → subject + right-hand material
+     *   3. `&`             → multi rel-segments under same from
+     *   4. `rel>thats`     → relationship + destination(s)
+     *   5. `,`             → multi-that: one edge per that (not one string of thats)
+     *
+     * Example: understanding*you>system,structure,format
+     *   → edges understanding*you>system, …>structure, …>format
+     * Example: this*related>that&holds>other
+     *   → this*related>that + this*holds>other
+     *
      * @return array{tags:list<string>,edges:list<array{from:string,rel:string,to:string}>}
      */
     function mypi_ledger_parse_charlie($tags_raw) {
@@ -282,48 +294,104 @@ SQL
         if ($raw === '') {
             return ['tags' => [], 'edges' => []];
         }
-        $parts = preg_split('/[;\n]+/', $raw);
-        $chunks = [];
-        foreach ($parts as $p) {
-            $p = trim($p);
-            if ($p === '') {
+
+        $add_tag = static function ($t) use (&$tags) {
+            $t = strtolower(trim((string) $t));
+            $t = ltrim($t, '#');
+            if ($t !== '' && !in_array($t, $tags, true)) {
+                $tags[] = $t;
+            }
+        };
+        $add_edge = static function ($from, $rel, $to) use (&$edges, $add_tag) {
+            $from = strtolower(trim((string) $from));
+            $rel = strtolower(trim((string) $rel));
+            $to = strtolower(trim((string) $to));
+            $from = ltrim($from, '#');
+            $rel = ltrim($rel, '#');
+            $to = ltrim($to, '#');
+            if ($from === '' || $to === '') {
+                return;
+            }
+            $edges[] = ['from' => $from, 'rel' => $rel, 'to' => $to];
+            // a, connector, c, and full chain — connector is a real term too
+            foreach ([$from, $rel, $to, $from . '*' . $rel . '>' . $to] as $t) {
+                $add_tag($t);
+            }
+        };
+
+        $clauses = preg_split('/[;\n]+/', $raw);
+        foreach ($clauses as $clause) {
+            $clause = strtolower(trim((string) $clause));
+            if ($clause === '') {
                 continue;
             }
-            if (strpos($p, '*') !== false && strpos($p, '>') !== false) {
-                $chunks[] = $p;
+
+            // Stage 2: from*rest  (no * → plain tags / bag words)
+            if (strpos($clause, '*') === false) {
+                foreach (preg_split('/[\s,]+/', $clause) as $c) {
+                    $add_tag($c);
+                }
+                continue;
+            }
+
+            $star = explode('*', $clause, 2);
+            $from = trim($star[0]);
+            $rest = isset($star[1]) ? trim($star[1]) : '';
+            if ($from === '' || $rest === '') {
+                if ($from !== '') {
+                    $add_tag($from);
+                }
+                continue;
+            }
+
+            // Stage 3: & multi rel-segments under same from
+            if (strpos($rest, '&') !== false) {
+                $segments = explode('&', $rest);
             } else {
-                foreach (preg_split('/[\s,]+/', $p) as $c) {
-                    if (trim($c) !== '') {
-                        $chunks[] = trim($c);
+                $segments = [$rest];
+            }
+
+            foreach ($segments as $segment) {
+                $segment = trim($segment);
+                if ($segment === '') {
+                    continue;
+                }
+
+                // Stage 4: rel>thats  (no > → typed bare term under from)
+                if (strpos($segment, '>') === false) {
+                    $add_tag($from);
+                    $add_tag($segment);
+                    $add_tag($from . '*' . $segment);
+                    continue;
+                }
+
+                $gt = explode('>', $segment, 2);
+                $rel = trim($gt[0]);
+                $childRaw = isset($gt[1]) ? trim($gt[1]) : '';
+                if ($rel === '' || $childRaw === '') {
+                    if ($rel !== '') {
+                        $add_tag($from);
+                        $add_tag($rel);
                     }
+                    continue;
+                }
+
+                // Stage 5: , multi-that → one edge per that
+                if (strpos($childRaw, ',') !== false) {
+                    $thats = array_map('trim', explode(',', $childRaw));
+                } else {
+                    $thats = [$childRaw];
+                }
+                foreach ($thats as $to) {
+                    $to = trim($to);
+                    if ($to === '') {
+                        continue;
+                    }
+                    $add_edge($from, $rel, $to);
                 }
             }
         }
-        foreach ($chunks as $chunk) {
-            $chunk = ltrim(trim($chunk), '#');
-            if ($chunk === '') {
-                continue;
-            }
-            if (preg_match('/^(.+?)\*(.+?)>(.+)$/u', $chunk, $m)) {
-                $from = strtolower(trim($m[1]));
-                $rel = strtolower(trim($m[2]));
-                $to = strtolower(trim($m[3]));
-                if ($from !== '' && $to !== '') {
-                    $edges[] = ['from' => $from, 'rel' => $rel, 'to' => $to];
-                    // a, connector (rel), c, and full chain — connector is a real term too
-                    foreach ([$from, $rel, $to, $from . '*' . $rel . '>' . $to] as $t) {
-                        if ($t !== '' && !in_array($t, $tags, true)) {
-                            $tags[] = $t;
-                        }
-                    }
-                }
-            } else {
-                $t = strtolower($chunk);
-                if (!in_array($t, $tags, true)) {
-                    $tags[] = $t;
-                }
-            }
-        }
+
         return ['tags' => $tags, 'edges' => $edges];
     }
 
@@ -474,9 +542,35 @@ SQL
 
     function mypi_ledger_charlie_edges($limit = 40) {
         $limit = max(1, min(100, (int) $limit));
+        // Live Charlie only: drop edges for missing / soft-deleted crates
         return mypi_ledger_pdo()->query(
-            "SELECT * FROM thread_edges ORDER BY id DESC LIMIT $limit"
+            "SELECT e.* FROM thread_edges e
+             INNER JOIN crates c ON c.c_uid = e.c_uid
+             WHERE c.deleted_at IS NULL OR c.deleted_at = 0
+             ORDER BY e.id DESC LIMIT $limit"
         )->fetchAll();
+    }
+
+    /**
+     * Pull Charlie relationship edges for one crate (soft- or hard-delete path).
+     * Gravity in thread_terms is left as-is (cheap; full rebuild is separate).
+     */
+    function mypi_ledger_charlie_detach(PDO $pdo, $c_uid) {
+        $pdo->prepare('DELETE FROM thread_edges WHERE c_uid = ?')->execute([$c_uid]);
+    }
+
+    /**
+     * Remove edges whose crate is gone or devalued. Safe to run anytime.
+     * @return array{removed:int}
+     */
+    function mypi_ledger_charlie_scrub_orphans() {
+        $pdo = mypi_ledger_pdo();
+        $n = $pdo->exec(
+            "DELETE FROM thread_edges WHERE c_uid NOT IN (
+               SELECT c_uid FROM crates WHERE deleted_at IS NULL OR deleted_at = 0
+             )"
+        );
+        return ['removed' => (int) $n];
     }
 
     /**
@@ -746,6 +840,8 @@ SQL
         $pdo->prepare(
             'UPDATE crates SET deleted_at = ?, updated_at = ? WHERE c_uid = ?'
         )->execute([$now, $now, $c_uid]);
+        // Devalue = out of live Charlie graph (re-spliced on restore from tags_raw)
+        mypi_ledger_charlie_detach($pdo, $c_uid);
         $pdo->prepare(
             'INSERT INTO crate_events(
               c_uid, event_type, payload_json, actor, place_path,
@@ -769,7 +865,8 @@ SQL
     }
 
     /**
-     * Hard-delete: removes crate, tags, events. Snapshot kept in deleted_log only.
+     * Hard-delete: removes crate, tags, events, Charlie edges, TPS attach.
+     * Snapshot kept in deleted_log only.
      * Use when soft-delete is not enough. Does NOT nuke the world — one c_uid only.
      * @return array{ok:bool,error?:string}
      */
@@ -784,6 +881,8 @@ SQL
             'INSERT INTO deleted_log(c_uid, snapshot_json, deleted_at, actor, hard)
              VALUES (?,?,?,?,1)'
         )->execute([$c_uid, json_encode($row), $now, $actor]);
+        mypi_ledger_charlie_detach($pdo, $c_uid);
+        $pdo->prepare('DELETE FROM tps_attach WHERE c_uid = ?')->execute([$c_uid]);
         $pdo->prepare('DELETE FROM tag_map WHERE c_uid = ?')->execute([$c_uid]);
         $pdo->prepare('DELETE FROM crate_events WHERE c_uid = ?')->execute([$c_uid]);
         $pdo->prepare('DELETE FROM crates WHERE c_uid = ?')->execute([$c_uid]);
@@ -803,6 +902,26 @@ SQL
         $pdo->prepare(
             'UPDATE crates SET deleted_at = NULL, updated_at = ? WHERE c_uid = ?'
         )->execute([$now, $c_uid]);
+        // Re-splice Charlie from stored tags_raw (edges were detached on soft-delete)
+        $tags_raw = (string) ($row['tags_raw'] ?? '');
+        $tags = mypi_ledger_parse_tags(
+            $tags_raw,
+            (string) ($row['sys'] ?? ''),
+            (string) ($row['dom'] ?? ''),
+            (string) ($row['room'] ?? ''),
+            (string) ($row['mod'] ?? '')
+        );
+        mypi_ledger_charlie_write(
+            $pdo,
+            $c_uid,
+            $tags_raw,
+            (string) ($row['sys'] ?? ''),
+            (string) ($row['dom'] ?? ''),
+            (string) ($row['room'] ?? ''),
+            (string) ($row['mod'] ?? ''),
+            $now,
+            $tags
+        );
         $pdo->prepare(
             'INSERT INTO crate_events(
               c_uid, event_type, payload_json, actor, place_path,

@@ -13,7 +13,7 @@ SKY__AUTH(
 );
 
 openSky('files');
-h1('files');
+/* Room name lives in the terminal tabline only — no second FILES header in the desk. */
 
 getTool('fileKeeper', 'Desk');
 

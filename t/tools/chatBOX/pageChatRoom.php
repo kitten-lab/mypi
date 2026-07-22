@@ -73,6 +73,8 @@ if (!empty($GLOBALS['CHATBOX_QUIET_PAGES'])) {
 }
 
 $Parsedown = new Parsedown();
+$Parsedown->setSafeMode(true);
+$Parsedown->setBreaksEnabled(true);
 ?>
 <section class="chatbox-room">
   <h2 class="chatbox-room-title">

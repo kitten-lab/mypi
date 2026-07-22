@@ -73,7 +73,7 @@ Copy `d/_LEDGER/mypi.sqlite` somewhere safe. That **is** your thoughts DB for po
 |-------|---------|
 | **tps_shelves** | Membrane **windows** (default **900s / 15 min**), not every second |
 | **tps_attach** | Which crates sit on that window |
-| **thread_edges** | `from *rel> to` from tag string |
+| **thread_edges** | `from *rel> to` from tag string (detached on soft/hard delete; scrub orphans anytime) |
 | **thread_terms** | Gravity counts for reports |
 
 **Tag examples on MakePost:**

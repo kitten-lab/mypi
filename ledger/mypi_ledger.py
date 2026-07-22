@@ -125,13 +125,41 @@ def charlie_gravity(conn: sqlite3.Connection, limit: int = 30) -> list[sqlite3.R
 
 
 def charlie_edges(conn: sqlite3.Connection, limit: int = 40) -> list[sqlite3.Row]:
+    """Live Charlie only — edges for missing / soft-deleted crates are hidden."""
     init_db(conn)
     return list(
         conn.execute(
-            "SELECT * FROM thread_edges ORDER BY id DESC LIMIT ?",
+            """
+            SELECT e.* FROM thread_edges e
+            INNER JOIN crates c ON c.c_uid = e.c_uid
+            WHERE c.deleted_at IS NULL OR c.deleted_at = 0
+            ORDER BY e.id DESC LIMIT ?
+            """,
             (limit,),
         )
     )
+
+
+def charlie_detach(conn: sqlite3.Connection, c_uid: str) -> None:
+    """Remove relationship edges for one crate (soft/hard delete path)."""
+    conn.execute("DELETE FROM thread_edges WHERE c_uid=?", (c_uid,))
+
+
+def charlie_scrub_orphans(conn: sqlite3.Connection) -> int:
+    """
+    Delete edges whose crate is gone or devalued.
+    Returns number of rows removed. Safe anytime.
+    """
+    init_db(conn)
+    cur = conn.execute(
+        """
+        DELETE FROM thread_edges WHERE c_uid NOT IN (
+          SELECT c_uid FROM crates WHERE deleted_at IS NULL OR deleted_at = 0
+        )
+        """
+    )
+    conn.commit()
+    return int(cur.rowcount or 0)
 
 
 def _now() -> int:
@@ -218,47 +246,92 @@ def parse_charlie(tags_raw: str) -> dict[str, Any]:
     """
     Parse tags_raw into plain tags + relationship edges.
 
-    Edge form: from*rel>to  (optionally chained with ; or newlines)
+    Multi-stage Charlie / tagSplicer (not flat this*rel>blob):
+      1. `;` / newlines  → independent clauses
+      2. `from*rest`     → subject + right-hand material
+      3. `&`             → multi rel-segments under same from
+      4. `rel>thats`     → relationship + destination(s)
+      5. `,`             → multi-that: one edge per that
+
+    Examples:
+      understanding*you>system,structure,format
+        → understanding*you>system, …>structure, …>format
+      this*related>that&holds>other
+        → this*related>that + this*holds>other
     """
+    import re
+
     tags: list[str] = []
     edges: list[dict[str, str]] = []
     raw = (tags_raw or "").strip()
     if not raw:
         return {"tags": tags, "edges": edges}
 
-    import re
+    def add_tag(t: str) -> None:
+        t = (t or "").strip().lower().lstrip("#")
+        if t and t not in tags:
+            tags.append(t)
 
-    chunks: list[str] = []
-    for p in re.split(r"[;\n]+", raw):
-        p = p.strip()
-        if not p:
-            continue
-        if "*" in p and ">" in p:
-            chunks.append(p)
-        else:
-            for c in re.split(r"[\s,]+", p):
-                c = c.strip()
-                if c:
-                    chunks.append(c)
+    def add_edge(frm: str, rel: str, to: str) -> None:
+        frm = (frm or "").strip().lower().lstrip("#")
+        rel = (rel or "").strip().lower().lstrip("#")
+        to = (to or "").strip().lower().lstrip("#")
+        if not frm or not to:
+            return
+        edges.append({"from": frm, "rel": rel, "to": to})
+        for t in (frm, rel, to, f"{frm}*{rel}>{to}"):
+            add_tag(t)
 
-    for chunk in chunks:
-        chunk = chunk.strip().lstrip("#")
-        if not chunk:
+    for clause in re.split(r"[;\n]+", raw):
+        clause = clause.strip().lower()
+        if not clause:
             continue
-        m = re.match(r"^(.+?)\*(.+?)>(.+)$", chunk)
-        if m:
-            frm = m.group(1).strip().lower()
-            rel = m.group(2).strip().lower()
-            to = m.group(3).strip().lower()
-            if frm and to:
-                edges.append({"from": frm, "rel": rel, "to": to})
-                for t in (frm, rel, to, f"{frm}*{rel}>{to}"):
-                    if t and t not in tags:
-                        tags.append(t)
+
+        # Stage 2: from*rest  (no * → plain tags)
+        if "*" not in clause:
+            for c in re.split(r"[\s,]+", clause):
+                add_tag(c)
             continue
-        low = chunk.lower()
-        if low and low not in tags:
-            tags.append(low)
+
+        star = clause.split("*", 1)
+        frm = star[0].strip()
+        rest = star[1].strip() if len(star) > 1 else ""
+        if not frm or not rest:
+            if frm:
+                add_tag(frm)
+            continue
+
+        # Stage 3: & multi rel-segments under same from
+        segments = rest.split("&") if "&" in rest else [rest]
+
+        for segment in segments:
+            segment = segment.strip()
+            if not segment:
+                continue
+
+            # Stage 4: rel>thats  (no > → typed bare term under from)
+            if ">" not in segment:
+                add_tag(frm)
+                add_tag(segment)
+                add_tag(f"{frm}*{segment}")
+                continue
+
+            gt = segment.split(">", 1)
+            rel = gt[0].strip()
+            child_raw = gt[1].strip() if len(gt) > 1 else ""
+            if not rel or not child_raw:
+                if rel:
+                    add_tag(frm)
+                    add_tag(rel)
+                continue
+
+            # Stage 5: , multi-that → one edge per that
+            thats = [x.strip() for x in child_raw.split(",")] if "," in child_raw else [child_raw]
+            for to in thats:
+                to = to.strip()
+                if to:
+                    add_edge(frm, rel, to)
+
     return {"tags": tags, "edges": edges}
 
 
@@ -773,6 +846,8 @@ def soft_delete(
         "UPDATE crates SET deleted_at=?, updated_at=? WHERE c_uid=?",
         (now, now, c_uid),
     )
+    # Devalue = out of live Charlie graph (re-spliced on restore from tags_raw)
+    charlie_detach(conn, c_uid)
     conn.execute(
         """
         INSERT INTO crate_events(
@@ -808,7 +883,7 @@ def hard_delete(
     actor: str = "hands",
     tool: str = "mypi-tui",
 ) -> None:
-    """Remove one crate only. Never the whole world."""
+    """Remove one crate only (incl. Charlie edges + TPS attach). Never the whole world."""
     init_db(conn)
     _ensure_deleted_col(conn)
     row = get_crate(conn, c_uid)
@@ -822,6 +897,8 @@ def hard_delete(
         """,
         (c_uid, json.dumps(dict(row)), now, actor),
     )
+    charlie_detach(conn, c_uid)
+    conn.execute("DELETE FROM tps_attach WHERE c_uid=?", (c_uid,))
     conn.execute("DELETE FROM tag_map WHERE c_uid=?", (c_uid,))
     conn.execute("DELETE FROM crate_events WHERE c_uid=?", (c_uid,))
     conn.execute("DELETE FROM crates WHERE c_uid=?", (c_uid,))

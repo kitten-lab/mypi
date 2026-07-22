@@ -23,6 +23,8 @@ try {
 }
 
 $Parsedown = new Parsedown();
+$Parsedown->setSafeMode(true);
+$Parsedown->setBreaksEnabled(true);
 $bySection = [];
 foreach ($rows as $r) {
     $meta = json_decode($r['meta_json'] ?? '{}', true) ?: [];

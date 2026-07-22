@@ -446,9 +446,35 @@ aside.tm-rail form.tm-rail-out {
 }
 
 /* tools installed in main (logImport, fileKeeper, …) use the width */
-.tm-reading .logimport,
-.tm-reading .filekeeper {
+.tm-reading .logimport {
   max-width: min(56rem, 100%);
+}
+
+/* fileKeeper desk: fill reading pane top→bottom (tree + reader), not a short card */
+.tm-main:has(.filekeeper) {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* scroll lives inside tree / panel */
+  padding-top: 0.45rem;
+  padding-bottom: 0.55rem;
+}
+
+.tm-reading:has(.filekeeper) {
+  max-width: none;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tm-reading:has(.filekeeper) .filekeeper {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-width: none;
+  width: 100%;
+  height: 100%;
 }
 
 /* sparse machine voice — almost not there */

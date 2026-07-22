@@ -145,20 +145,26 @@ $self = htmlspecialchars(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) 
 $editHref = $self . '?stem=' . rawurlencode($stem) . '&edit=1';
 $viewHref = $self . '?stem=' . rawurlencode($stem);
 
-// markdown render for view (GFM task lists → disabled visual checkboxes)
+// markdown render for view (GFM task lists + single-newline breaks for grids)
 $rendered = '';
 if ($mode === 'view' && $body !== '') {
+    $equip = ROUTE_TO_SYSTEMS . 'Borrows/parsedown/equip.parsedown.php';
     $pdTasks = ROUTE_TO_SYSTEMS . 'Borrows/parsedown/ParsedownTasks.php';
     $pdBase = ROUTE_TO_SYSTEMS . 'Borrows/parsedown/Parsedown.php';
-    if (is_file($pdTasks)) {
+    if (is_file($equip)) {
+        require_once $equip;
+        $rendered = render_md($body);
+    } elseif (is_file($pdTasks)) {
         require_once $pdTasks;
         $pd = new ParsedownTasks();
         $pd->setSafeMode(true);
+        $pd->setBreaksEnabled(true);
         $rendered = $pd->text($body);
     } elseif (is_file($pdBase)) {
         require_once $pdBase;
         $pd = new Parsedown();
         $pd->setSafeMode(true);
+        $pd->setBreaksEnabled(true);
         $rendered = $pd->text($body);
     } else {
         $rendered = '<pre class="fk-pre">' . htmlspecialchars($body, ENT_QUOTES, 'UTF-8') . '</pre>';
@@ -167,85 +173,86 @@ if ($mode === 'view' && $body !== '') {
 ?>
 <div class="filekeeper">
   <div class="filekeeper-layout">
-    <aside class="filekeeper-list">
-      <h3>Files</h3>
-      <ul class="fk-root-actions">
-        <li>
-          <a href="<?= $self ?>?new=1" class="<?= $new && $folder === '' ? 'is-on' : '' ?>">+ new file</a>
-        </li>
-      </ul>
+    <aside class="filekeeper-list" aria-label="File tree">
+      <div class="fk-tree">
+        <?php
+        $renderFileLink = static function (array $h, string $stemActive, bool $isNew, string $selfPath): void {
+            $hm = json_decode((string) ($h['meta_json'] ?? '{}'), true) ?: [];
+            $hs = (string) ($hm['stem_c_uid'] ?? $h['c_uid']);
+            $on = (!$isNew && $stemActive !== '' && $hs === $stemActive);
+            $when = (int) (!empty($h['event_unix']) ? $h['event_unix'] : ($h['ingest_unix'] ?? 0));
+            echo '<li>';
+            echo '<a href="' . $selfPath . '?stem=' . rawurlencode($hs) . '" class="' . ($on ? 'is-on' : '') . '">';
+            echo htmlspecialchars($h['topic'] !== '' ? $h['topic'] : 'untitled', ENT_QUOTES, 'UTF-8');
+            echo '<span class="fk-meta">r' . (int) ($hm['rev'] ?? 1);
+            echo $when ? ' · ' . date('m/d H:i', $when) : '';
+            echo '</span></a></li>';
+        };
+        ?>
 
-      <?php
-      $renderFileLink = static function (array $h, string $stemActive, bool $isNew, string $selfPath): void {
-          $hm = json_decode((string) ($h['meta_json'] ?? '{}'), true) ?: [];
-          $hs = (string) ($hm['stem_c_uid'] ?? $h['c_uid']);
-          $on = (!$isNew && $stemActive !== '' && $hs === $stemActive);
-          $when = (int) (!empty($h['event_unix']) ? $h['event_unix'] : ($h['ingest_unix'] ?? 0));
-          echo '<li>';
-          echo '<a href="' . $selfPath . '?stem=' . rawurlencode($hs) . '" class="' . ($on ? 'is-on' : '') . '">';
-          echo htmlspecialchars($h['topic'] !== '' ? $h['topic'] : 'untitled', ENT_QUOTES, 'UTF-8');
-          echo '<span class="fk-meta">r' . (int) ($hm['rev'] ?? 1);
-          echo $when ? ' · ' . date('m/d H:i', $when) : '';
-          echo '</span></a></li>';
-      };
-      ?>
-
-      <?php if (!empty($byFolder[''])): ?>
-        <ul class="fk-file-ul">
-          <?php foreach ($byFolder[''] as $h) {
-              $renderFileLink($h, $stem, $new, $self);
-          } ?>
-        </ul>
-      <?php endif; ?>
-
-      <?php foreach ($byFolder as $fname => $files):
-          if ($fname === '') {
-              continue;
-          }
-          $openFolder = ($folder === $fname) || (!$new && $stem !== '' && $folder === $fname);
-          // keep open if any file in folder is selected
-          if (!$openFolder && $stem !== '') {
-              foreach ($files as $fh) {
-                  $fhm = json_decode((string) ($fh['meta_json'] ?? '{}'), true) ?: [];
-                  if (($fhm['stem_c_uid'] ?? $fh['c_uid']) === $stem) {
-                      $openFolder = true;
-                      break;
-                  }
-              }
-          }
-          ?>
-        <details class="fk-folder"<?= $openFolder ? ' open' : '' ?>>
-          <summary class="fk-folder-sum">
-            <span class="fk-folder-chev" aria-hidden="true"></span>
-            <span class="fk-folder-name"><?= htmlspecialchars($fname, ENT_QUOTES, 'UTF-8') ?></span>
-            <span class="fk-folder-n"><?= count($files) ?></span>
-          </summary>
-          <ul class="fk-file-ul fk-folder-files">
-            <?php if ($files): ?>
-              <?php foreach ($files as $h) {
-                  $renderFileLink($h, $stem, $new, $self);
-              } ?>
-            <?php else: ?>
-              <li class="fk-empty-folder">empty</li>
-            <?php endif; ?>
-            <li>
-              <a href="<?= $self ?>?new=1&amp;folder=<?= rawurlencode($fname) ?>">+ file here</a>
-            </li>
+        <?php if (!empty($byFolder[''])): ?>
+          <ul class="fk-file-ul">
+            <?php foreach ($byFolder[''] as $h) {
+                $renderFileLink($h, $stem, $new, $self);
+            } ?>
           </ul>
-        </details>
-      <?php endforeach; ?>
+        <?php endif; ?>
 
-      <?php if (!$heads && !$folderNames): ?>
-        <p class="fk-empty-hint">no files yet</p>
-      <?php endif; ?>
+        <?php foreach ($byFolder as $fname => $files):
+            if ($fname === '') {
+                continue;
+            }
+            $openFolder = ($folder === $fname) || (!$new && $stem !== '' && $folder === $fname);
+            // keep open if any file in folder is selected
+            if (!$openFolder && $stem !== '') {
+                foreach ($files as $fh) {
+                    $fhm = json_decode((string) ($fh['meta_json'] ?? '{}'), true) ?: [];
+                    if (($fhm['stem_c_uid'] ?? $fh['c_uid']) === $stem) {
+                        $openFolder = true;
+                        break;
+                    }
+                }
+            }
+            ?>
+          <details class="fk-folder"<?= $openFolder ? ' open' : '' ?>>
+            <summary class="fk-folder-sum">
+              <span class="fk-folder-chev" aria-hidden="true"></span>
+              <span class="fk-folder-name"><?= htmlspecialchars($fname, ENT_QUOTES, 'UTF-8') ?></span>
+              <span class="fk-folder-n"><?= count($files) ?></span>
+            </summary>
+            <ul class="fk-file-ul fk-folder-files">
+              <?php if ($files): ?>
+                <?php foreach ($files as $h) {
+                    $renderFileLink($h, $stem, $new, $self);
+                } ?>
+              <?php else: ?>
+                <li class="fk-empty-folder">empty</li>
+              <?php endif; ?>
+              <li>
+                <a href="<?= $self ?>?new=1&amp;folder=<?= rawurlencode($fname) ?>">+ file here</a>
+              </li>
+            </ul>
+          </details>
+        <?php endforeach; ?>
 
-      <form method="post" class="fk-mkdir" action="">
-        <input type="hidden" name="filekeeper_action" value="mkdir">
-        <input type="hidden" name="fk_tz" value="">
-        <label class="fk-mkdir-label" for="fk_mkdir">+ folder</label>
-        <input id="fk_mkdir" name="fk_mkdir" type="text" placeholder="music · aleph-bet A-Z" required maxlength="80">
-        <button type="submit">make</button>
-      </form>
+        <?php if (!$heads && !$folderNames): ?>
+          <p class="fk-empty-hint">no files yet</p>
+        <?php endif; ?>
+      </div>
+
+      <div class="fk-list-foot">
+        <div class="fk-root-actions">
+          <a class="fk-btn fk-btn-new<?= $new && $folder === '' ? ' is-on' : '' ?>"
+             href="<?= $self ?>?new=1">+ New file</a>
+        </div>
+        <form method="post" class="fk-mkdir" action="">
+          <input type="hidden" name="filekeeper_action" value="mkdir">
+          <input type="hidden" name="fk_tz" value="">
+          <label class="fk-mkdir-label" for="fk_mkdir">+ folder</label>
+          <input id="fk_mkdir" name="fk_mkdir" type="text" placeholder="music · aleph-bet A-Z" required maxlength="80">
+          <button type="submit">make</button>
+        </form>
+      </div>
     </aside>
 
     <section class="filekeeper-panel">
@@ -268,7 +275,7 @@ if ($mode === 'view' && $body !== '') {
             <h2 class="fk-view-title"><?= htmlspecialchars($title !== '' ? $title : 'untitled', ENT_QUOTES, 'UTF-8') ?></h2>
             <div class="filekeeper-actions">
               <a class="fk-btn" href="<?= htmlspecialchars($editHref, ENT_QUOTES, 'UTF-8') ?>">Modify</a>
-              <a class="fk-new" href="<?= $self ?>?new=1">new file</a>
+              <a class="fk-btn fk-btn-new" href="<?= $self ?>?new=1">+ New file</a>
             </div>
           </header>
           <p class="filekeeper-status">
@@ -356,9 +363,9 @@ if ($mode === 'view' && $body !== '') {
             <div class="filekeeper-actions">
               <button type="submit"><?= $new ? 'Create file' : 'Save revision' ?></button>
               <?php if (!$new && $stem !== ''): ?>
-                <a class="fk-new" href="<?= htmlspecialchars($viewHref, ENT_QUOTES, 'UTF-8') ?>">cancel</a>
+                <a class="fk-btn fk-btn-quiet" href="<?= htmlspecialchars($viewHref, ENT_QUOTES, 'UTF-8') ?>">Cancel</a>
               <?php endif; ?>
-              <a class="fk-new" href="<?= $self ?>?new=1">new file</a>
+              <a class="fk-btn fk-btn-new" href="<?= $self ?>?new=1">+ New file</a>
             </div>
           </form>
         </div>
