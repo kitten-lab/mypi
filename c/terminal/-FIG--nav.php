@@ -7,6 +7,7 @@ $GLOBALS[BLOCK_ID]['tDOM'] = [
     ['DOM' => 'base'],
     ['DOM' => 'io'],
     ['DOM' => 'ab'],
+    ['DOM' => 'icu'],
     // future: rx, jx, cu, …
 ];
 

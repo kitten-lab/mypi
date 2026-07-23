@@ -46,6 +46,7 @@ if (!function_exists('mypi_ledger_path')) {
             'dossier_faction' => 'log',
             'dossier_membership' => 'leaf',
             'dossier_note' => 'leaf',
+            'shot_card' => 'leaf',
             'arc' => 'yard_crate',
             'shipment' => 'yard_crate',
             'yard_crate' => 'yard_crate',
@@ -2674,6 +2675,145 @@ SQL
         $st = $pdo->prepare($sql);
         $st->execute($args);
         return $st->fetchAll() ?: [];
+    }
+
+    // ── shotDesk (ICU · Watchers scene cards) ────────────────────────
+
+    function mypi_shot_place(array $in = []) {
+        return [
+            'sys' => (string) ($in['sys'] ?? 'terminal'),
+            'dom' => (string) ($in['dom'] ?? 'icu'),
+            'room' => (string) ($in['room'] ?? 'shots'),
+            'mod' => (string) ($in['mod'] ?? ''),
+            'place_label' => (string) ($in['place_label'] ?? 'Shots'),
+        ];
+    }
+
+    function mypi_shot_list(array $opts = []) {
+        $limit = max(1, min(200, (int) ($opts['limit'] ?? 80)));
+        $place = mypi_shot_place($opts);
+        $pdo = mypi_ledger_pdo();
+        $sql = "SELECT * FROM crates
+                WHERE kind = 'shot_card' AND tool = 'shotDesk'
+                  AND (deleted_at IS NULL OR deleted_at = 0)
+                  AND sys = ? AND dom = ? AND room = ?";
+        $args = [$place['sys'], $place['dom'], $place['room']];
+        if (!empty($opts['q'])) {
+            $sql .= ' AND (lower(topic) LIKE ? OR lower(body) LIKE ? OR lower(meta_json) LIKE ?)';
+            $q = '%' . strtolower(trim((string) $opts['q'])) . '%';
+            $args[] = $q;
+            $args[] = $q;
+            $args[] = $q;
+        }
+        $sql .= ' ORDER BY ingest_unix DESC LIMIT ' . $limit;
+        $st = $pdo->prepare($sql);
+        $st->execute($args);
+        return $st->fetchAll() ?: [];
+    }
+
+    /**
+     * Create or update a shot card.
+     */
+    function mypi_shot_save(array $in) {
+        $title = trim((string) ($in['title'] ?? $in['topic'] ?? ''));
+        if ($title === '') {
+            return ['ok' => false, 'error' => 'title required'];
+        }
+        $place = mypi_shot_place($in);
+        $c_uid = trim((string) ($in['c_uid'] ?? ''));
+        $slugline = trim((string) ($in['slugline'] ?? ''));
+        $visual = trim((string) ($in['visual'] ?? ''));
+        $action = trim((string) ($in['action'] ?? ''));
+        $dialogue = trim((string) ($in['dialogue'] ?? ''));
+        $transition = trim((string) ($in['transition'] ?? ''));
+        $amusement = trim((string) ($in['amusement'] ?? ''));
+        $tags = trim((string) ($in['tags_raw'] ?? ''));
+        $agent = (string) ($in['agent'] ?? 'user');
+
+        // Body: readable card script
+        $parts = [];
+        if ($slugline !== '') {
+            $parts[] = '## SLUGLINE' . "\n" . $slugline;
+        }
+        if ($visual !== '') {
+            $parts[] = '## VISUAL' . "\n" . $visual;
+        }
+        if ($action !== '') {
+            $parts[] = '## ACTION' . "\n" . $action;
+        }
+        if ($dialogue !== '') {
+            $parts[] = '## DIALOGUE' . "\n" . $dialogue;
+        }
+        if ($transition !== '') {
+            $parts[] = '## TRANSITION' . "\n" . $transition;
+        }
+        if ($amusement !== '') {
+            $parts[] = '## AMUSEMENT' . "\n" . $amusement;
+        }
+        // allow free body override
+        if (!empty($in['body']) && trim((string) $in['body']) !== '') {
+            $body = (string) $in['body'];
+        } else {
+            $body = implode("\n\n", $parts);
+        }
+
+        $meta = [
+            'slugline' => $slugline,
+            'visual' => $visual,
+            'action' => $action,
+            'dialogue' => $dialogue,
+            'transition' => $transition,
+            'amusement' => $amusement,
+            'code' => (string) ($in['code'] ?? $title),
+        ];
+
+        if ($c_uid !== '') {
+            $row = mypi_ledger_get($c_uid);
+            if (!$row || ($row['kind'] ?? '') !== 'shot_card') {
+                return ['ok' => false, 'error' => 'shot not found'];
+            }
+            $old = json_decode((string) ($row['meta_json'] ?? '{}'), true) ?: [];
+            $meta = array_merge($old, $meta);
+            mypi_ledger_pdo()->prepare(
+                'UPDATE crates SET topic=?, body=?, meta_json=?, tags_raw=?, tags_json=?, updated_at=? WHERE c_uid=?'
+            )->execute([
+                $title,
+                $body,
+                json_encode($meta),
+                $tags,
+                json_encode(mypi_ledger_parse_tags($tags, $place['sys'], $place['dom'], $place['room'], $place['mod'])),
+                time(),
+                $c_uid,
+            ]);
+            // refresh tag_map lightly
+            $pdo = mypi_ledger_pdo();
+            $pdo->prepare('DELETE FROM tag_map WHERE c_uid=?')->execute([$c_uid]);
+            $ins = $pdo->prepare('INSERT OR IGNORE INTO tag_map(c_uid, tag) VALUES(?,?)');
+            foreach (mypi_ledger_parse_tags($tags, $place['sys'], $place['dom'], $place['room'], $place['mod']) as $t) {
+                $ins->execute([$c_uid, $t]);
+            }
+            return ['ok' => true, 'c_uid' => $c_uid, 'updated' => true];
+        }
+
+        $r = mypi_ledger_create_post([
+            'topic' => $title,
+            'body' => $body,
+            'kind' => 'shot_card',
+            'scale' => 'leaf',
+            'tool' => 'shotDesk',
+            'tool_version' => 1,
+            'sys' => $place['sys'],
+            'dom' => $place['dom'],
+            'room' => $place['room'],
+            'mod' => $place['mod'],
+            'place_label' => $place['place_label'],
+            'agent' => $agent,
+            'actor' => (string) ($in['actor'] ?? $agent),
+            'timezone' => (string) ($in['timezone'] ?? ''),
+            'tags_raw' => $tags,
+            'meta' => $meta,
+        ]);
+        return $r;
     }
 
     // ── Media store (diagram boards, covers, sine waves…) ─────────────

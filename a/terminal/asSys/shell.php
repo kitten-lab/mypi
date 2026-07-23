@@ -39,17 +39,32 @@ if ($authed && !empty($agent['dom'])) {
 }
 $face = $authed ? strtoupper($agent['slug']) : '???';
 $domSkin = strtolower((string) ($authed ? ($agent['dom'] ?: $skin) : $skin));
-// chip brand: IO green house · AB red line
-$chip = ($domSkin === 'ab') ? 'ABX' : 'IOX';
-$statusBrand = ($domSkin === 'ab') ? "ABX · ON WATCH" : "CHESTER'S NOW IMPORTING";
-$brokenWhisper = ($domSkin === 'ab')
-    ? 'for the collection of what they tried to unwrite'
-    : 'for the collection and protection of your thoughts';
-$ghost = ($domSkin === 'ab') ? 'someone left the line open' : 'put them here';
-$foot = ($domSkin === 'ab') ? 'A·X' : 'O·X';
-$hint = !$authed
-    ? 'log in · put them here'
-    : (($domSkin === 'ab') ? 'the line is listening' : 'the forest remembers');
+// chip brand: IOX green · ABX red · ICU amber (I See You)
+if ($domSkin === 'ab') {
+    $chip = 'ABX';
+    $statusBrand = 'ABX · ON WATCH';
+    $brokenWhisper = 'for the collection of what they tried to unwrite';
+    $ghost = 'someone left the line open';
+    $foot = 'A·X';
+    $hint = 'the line is listening';
+} elseif ($domSkin === 'icu') {
+    $chip = 'ICU';
+    $statusBrand = 'ICU · I SEE YOU';
+    $brokenWhisper = 'for the collection of cuts you pretend are accidents';
+    $ghost = 'the watchers never blinked';
+    $foot = 'I·U';
+    $hint = 'i see you';
+} else {
+    $chip = 'IOX';
+    $statusBrand = "CHESTER'S NOW IMPORTING";
+    $brokenWhisper = 'for the collection and protection of your thoughts';
+    $ghost = 'put them here';
+    $foot = 'O·X';
+    $hint = $authed ? 'the forest remembers' : 'log in · put them here';
+}
+if (!$authed) {
+    $hint = 'log in · put them here';
+}
 ?>
 <body class="terminal-station terminal-skin-<?= htmlspecialchars($skin) ?>">
 

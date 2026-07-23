@@ -1,0 +1,304 @@
+/**
+ * shotDesk — ICU Watchers scene cards (amber-friendly)
+ */
+.sdesk {
+  --sd-border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.sdesk-layout {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(10rem, 14rem) minmax(0, 1fr);
+  gap: 0.5rem;
+  height: 100%;
+}
+
+@media (max-width: 720px) {
+  .sdesk-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sdesk-side {
+  border: var(--sd-border);
+  background: rgba(0, 0, 0, 0.28);
+  min-height: 0;
+  overflow: auto;
+  padding: 0.4rem 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sdesk-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.2rem 0.25rem;
+}
+
+.sdesk-chip {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+}
+
+.sdesk-whisper {
+  font-size: 0.62rem;
+  opacity: 0.55;
+  letter-spacing: 0.06em;
+}
+
+.sdesk-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.sdesk-list a {
+  display: block;
+  padding: 0.4rem 0.4rem;
+  color: inherit;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.sdesk-list a:hover,
+.sdesk-list a.is-on {
+  border-left-color: currentColor;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.sdesk-list .sd-meta {
+  display: block;
+  font-size: 0.65rem;
+  opacity: 0.55;
+  margin-top: 0.12rem;
+  line-height: 1.3;
+}
+
+.sdesk-panel {
+  border: var(--sd-border);
+  background: rgba(0, 0, 0, 0.16);
+  min-height: 0;
+  overflow: auto;
+  padding: 0.55rem 0.75rem 1rem;
+  box-sizing: border-box;
+}
+
+.sdesk-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.sdesk-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.sd-code {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+  text-transform: uppercase;
+}
+
+.sd-slugline {
+  margin: 0 0 0.65rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+  padding-bottom: 0.35rem;
+}
+
+.sd-lede {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  opacity: 0.85;
+  max-width: 40rem;
+}
+
+.sd-status {
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
+}
+
+.sd-err {
+  color: #f88;
+}
+
+.sd-section {
+  margin: 0.85rem 0 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  padding-bottom: 0.15rem;
+}
+
+.sd-card-view .sd-section {
+  margin-top: 0.55rem;
+}
+
+.sd-block {
+  margin-bottom: 0.55rem;
+}
+
+.sd-body {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  white-space: normal;
+}
+
+.sd-dialogue .sd-body {
+  font-style: italic;
+  border-left: 2px solid color-mix(in srgb, currentColor 40%, transparent);
+  padding-left: 0.55rem;
+}
+
+.sd-transition {
+  opacity: 0.8;
+  letter-spacing: 0.02em;
+}
+
+.sd-amuse {
+  opacity: 0.9;
+  border: 1px dashed color-mix(in srgb, currentColor 30%, transparent);
+  padding: 0.35rem 0.5rem 0.5rem;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.sd-form {
+  border: var(--sd-border);
+  padding: 0.5rem 0.55rem 0.6rem;
+  margin: 0.5rem 0 0.75rem;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.sd-form label {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin: 0.35rem 0 0.12rem;
+}
+
+.sd-form input[type="text"],
+.sd-form textarea,
+.sd-form select {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.35);
+  border: var(--sd-border);
+  border-radius: 0;
+  padding: 0.35rem 0.45rem;
+}
+
+.sd-form textarea {
+  min-height: 4rem;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+.sd-form .sd-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin-top: 0.35rem;
+}
+
+.sd-btn {
+  font: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  padding: 0.35rem 0.65rem;
+  border: var(--sd-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.sd-btn:hover {
+  background: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.sd-btn-primary {
+  border-color: color-mix(in srgb, currentColor 55%, transparent);
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  font-weight: 600;
+}
+
+.sd-board {
+  max-width: min(100%, 28rem);
+  max-height: 16rem;
+  border: var(--sd-border);
+  display: block;
+  margin: 0.35rem 0 0.75rem;
+  object-fit: contain;
+}
+
+.sd-empty {
+  opacity: 0.55;
+  font-size: 0.88rem;
+}
+
+.sd-hint {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin: 0.15rem 0 0.4rem;
+}
+
+.sd-index {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+}
+
+.sd-index li {
+  border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.sd-index a {
+  display: block;
+  padding: 0.45rem 0.15rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.sd-index a:hover {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.sd-index .sd-meta {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.55;
+  margin-top: 0.15rem;
+}

@@ -78,4 +78,29 @@ return [
         'sys' => 'terminal',
         'roles' => ['terminal', 'ab', 'agent-k'],
     ],
+    // Terminal ICU — Watchers · Teehee
+    [
+        'username' => 'the000',
+        'keyphrase' => 'alwaysknew',
+        'display' => 'Teehee',
+        'dom' => 'icu',
+        'sys' => 'terminal',
+        'roles' => ['terminal', 'icu', 'watchers', 'teehee'],
+    ],
+    [
+        'username' => 'THE-000',
+        'keyphrase' => 'alwaysknew',
+        'display' => 'Teehee',
+        'dom' => 'icu',
+        'sys' => 'terminal',
+        'roles' => ['terminal', 'icu', 'watchers', 'teehee'],
+    ],
+    [
+        'username' => 'THE000',
+        'keyphrase' => 'alwaysknew',
+        'display' => 'Teehee',
+        'dom' => 'icu',
+        'sys' => 'terminal',
+        'roles' => ['terminal', 'icu', 'watchers', 'teehee'],
+    ],
 ];

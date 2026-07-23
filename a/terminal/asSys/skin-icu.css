@@ -1,0 +1,140 @@
+/* ICU — amber CRT · I See You · Watchers */
+
+body.terminal-skin-icu {
+  --icu-bright: #d4a017;
+  --icu-ultrabright: #ffcc33;
+  --icu-midlight: #a67c00;
+  --icu-standard: #8a6800;
+  --icu-highlighter: #3a3010;
+  --icu-background: #1a1608;
+  --icu-dark: #5c4a12;
+  --icu-tint: #4a3c14;
+
+  --tm-bg: var(--icu-background);
+  --tm-tree-bg: #12100a;
+  --tm-fg: #ffd866;
+  --tm-fg-dim: #b8962e;
+  --tm-accent: var(--icu-bright);
+  --tm-hot: var(--icu-ultrabright);
+  --tm-line: var(--icu-dark);
+
+  --tm-scan: linear-gradient(rgba(0, 0, 0, 0.45) 2px, transparent 1px);
+  --tm-scan-size: 100% 3px;
+
+  --pocket-scroll-track: #12100a;
+  --pocket-scroll-thumb: #6e5818;
+  --pocket-scroll-thumb-hover: #d4a017;
+
+  color: var(--tm-fg);
+  background-color: var(--icu-background);
+  background-image: var(--tm-scan);
+  background-size: var(--tm-scan-size);
+  box-shadow: inset 0 0 40vh rgba(30, 20, 0, 0.55);
+}
+
+body.terminal-skin-icu .tm-rail {
+  background: #0e0c06;
+  border-right-color: var(--icu-bright);
+  box-shadow:
+    inset -6px 0 18px rgba(0, 0, 0, 0.55),
+    0 0 20px rgba(212, 160, 23, 0.18);
+}
+
+body.terminal-skin-icu .tm-rail-x {
+  box-shadow: 0 0 10px rgba(212, 160, 23, 0.3);
+}
+
+body.terminal-skin-icu .tm-rail-x:hover {
+  box-shadow: 0 0 16px rgba(255, 40, 40, 0.5);
+}
+
+body.terminal-skin-icu .tm-sidebar {
+  background-color: #12100a;
+  background-image: var(--tm-scan);
+  background-size: var(--tm-scan-size);
+  border-right: 1px solid var(--icu-dark);
+}
+
+body.terminal-skin-icu .tm-page-title {
+  color: var(--icu-ultrabright);
+  text-shadow: 0 0 12px rgba(255, 204, 51, 0.4);
+}
+
+body.terminal-skin-icu .tm-broken-top {
+  border-bottom-color: var(--icu-bright);
+}
+
+body.terminal-skin-icu .tm-center {
+  position: relative;
+  background-color: var(--icu-background);
+  background-image: var(--tm-scan);
+  background-size: var(--tm-scan-size);
+}
+
+body.terminal-skin-icu .tm-center::before {
+  content: "I SEE YOU";
+  position: absolute;
+  top: 18%;
+  left: 8%;
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(1rem, 3.2vw, 2.4rem);
+  color: var(--icu-bright);
+  opacity: 0.07;
+  transform: rotate(-8deg);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+body.terminal-skin-icu .tm-main {
+  position: relative;
+  z-index: 1;
+}
+
+body.terminal-skin-icu .tm-tab.is-on {
+  color: var(--icu-ultrabright);
+  text-shadow: 0 0 8px rgba(255, 204, 51, 0.35);
+}
+
+body.terminal-skin-icu .tm-reading h1 {
+  color: var(--icu-ultrabright);
+  text-shadow: 0 0 14px rgba(255, 204, 51, 0.35);
+}
+
+body.terminal-skin-icu .tm-reading p,
+body.terminal-skin-icu .tm-reading .tm-lede {
+  color: #ffe099;
+}
+
+body.terminal-skin-icu .tm-statusbar {
+  background: var(--icu-bright);
+  color: #141008;
+  background-image: var(--tm-scan);
+  background-size: var(--tm-scan-size);
+}
+
+body.terminal-skin-icu .tm-reading a {
+  color: var(--icu-bright);
+  text-decoration-color: rgba(212, 160, 23, 0.45);
+}
+
+body.terminal-skin-icu .tm-reading a:hover {
+  color: var(--icu-ultrabright);
+}
+
+body.terminal-skin-icu .tm-reading a.fk-btn,
+body.terminal-skin-icu .tm-reading a.inv-btn,
+body.terminal-skin-icu .tm-reading a.dd-btn,
+body.terminal-skin-icu .tm-reading a.sd-btn {
+  text-decoration: none;
+  color: inherit;
+}
+
+body.terminal-skin-icu ::selection {
+  background: rgba(80, 60, 10, 0.95);
+  color: #fff;
+}
+
+body.terminal-skin-icu .tm-nav-arch a:hover {
+  text-shadow: 0 0 8px rgba(255, 204, 51, 0.35);
+}

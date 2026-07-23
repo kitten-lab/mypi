@@ -41,11 +41,23 @@ $treeAb = [
     ['key' => 'login', 'label' => 'SESSION'],
 ];
 
+// ICU — amber Watchers · shots + files
+$treeIcu = [
+    ['key' => 'files', 'label' => 'FILES'],
+    ['key' => 'shots', 'label' => 'SHOTS'],
+    ['key' => 'email', 'label' => 'E-MAIL'],
+    ['key' => 'chat', 'label' => 'CHAT'],
+    ['key' => 'login', 'label' => 'SESSION'],
+];
+
 $tree = $treeIo;
 $whisper = 'import · exports · use the rail to leave';
 if ($domL === 'ab') {
     $tree = $treeAb;
     $whisper = 'files · dossier desk · the line is listening';
+} elseif ($domL === 'icu') {
+    $tree = $treeIcu;
+    $whisper = 'files · shot desk · i see you';
 }
 ?>
 <div class="tm-tree">

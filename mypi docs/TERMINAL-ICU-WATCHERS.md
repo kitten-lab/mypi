@@ -1,6 +1,6 @@
 # Terminal ICU · Watchers · shot cards & plot amusement
 
-**Status:** CONCEPT → ready to launch thin station + **shotDesk**  
+**Status:** BUILT — thin ICU station + **shotDesk** v0 + e6O seed  
 **Trigger:** e6O scene card energy — bag is also **show material**, not only in-world evidence  
 **Operator:** **Teehee** · **THE-000**  
 **Chip (locked):** **ICU** — spoken *I See You*  
@@ -130,10 +130,10 @@ ICU = queue for stills, image_to_video, sweater-girl consistency, stupid title c
 
 ```text
 [done]  Concept + hands locks (chip ICU, the000/alwaysknew, shotDesk, files home, e6O→ICU only)
-[next]  Launch thin ICU station (amber skin, chip, doors)
-        + auth THE-000
-        + shotDesk v0 (create/list/view card + image)
-        + seed e6O as first shot_card
+[done]  Launch thin ICU station (amber skin, chip, doors)
+        + auth THE-000 / the000 / alwaysknew
+        + shotDesk v0 (create/list/view card + storyboard image)
+        + seed e6O as first shot_card (terminal/icu/shots only)
 [later] rhyme links, plot pins, Imagine pipeline
 ```
 
