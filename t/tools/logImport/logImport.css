@@ -298,3 +298,122 @@ body.terminal-skin-base .logimport-seg-title {
   border-style: solid !important;
   border-color: color-mix(in srgb, currentColor 55%, transparent) !important;
 }
+
+/* Phase 2 — encode / redact panels */
+.logimport-panel {
+  border: var(--li-border);
+  background: rgba(0, 0, 0, 0.28);
+  padding: 0.5rem 0.6rem 0.65rem;
+  margin: 0 0 0.75rem;
+}
+
+.logimport-enc-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  margin: 0.35rem 0 0.5rem;
+}
+
+.logimport-enc-form input[type="text"] {
+  flex: 1 1 7rem;
+  min-width: 5rem;
+  font: inherit;
+  font-size: 0.85rem;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.35);
+  border: var(--li-border);
+  padding: 0.3rem 0.4rem;
+}
+
+.logimport-enc-form input.logimport-code {
+  flex: 0 1 6.5rem;
+}
+
+.logimport-enc-form button {
+  font: inherit;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.55rem;
+  border: var(--li-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.logimport-enc-form button:hover {
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.logimport-book {
+  list-style: none;
+  margin: 0.25rem 0 0.45rem;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.logimport-book li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.45rem;
+  padding: 0.28rem 0;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.logimport-book .li-code {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+
+.logimport-book .li-alias {
+  font-weight: 600;
+}
+
+.logimport-book .li-arrow {
+  opacity: 0.4;
+  font-size: 0.75rem;
+}
+
+.logimport-book .li-orig {
+  opacity: 0.75;
+}
+
+.logimport-book .muted {
+  opacity: 0.5;
+  font-size: 0.8em;
+}
+
+.logimport-apply-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+.logimport-apply-row button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.logimport-msg.is-redacted .li-body {
+  opacity: 0.85;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, currentColor 70%, #000);
+}
+
+.logimport-status.logimport-err {
+  opacity: 1;
+  border: var(--li-border);
+  padding: 0.4rem 0.5rem;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.logimport-cut-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}

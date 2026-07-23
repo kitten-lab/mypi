@@ -1,8 +1,8 @@
 <?php
 /**
- * logImport · Desk — load tree-core, view, notes, hand-split segments.
- * One form for titles + cuts so names survive every split.
+ * logImport · Desk — load tree-core, view, notes, hand-split, encode, redact.
  * Glass never modified. WIP → z/logs/tree_cores/wip/
+ * Phase 2 Woods: privatize before Log Yard.
  */
 require_once __DIR__ . '/logImport_lib.php';
 
@@ -11,6 +11,14 @@ $wipOk = isset($_GET['wip_ok']);
 $splitOk = isset($_GET['split_ok']);
 $unsplitOk = isset($_GET['unsplit_ok']);
 $clearOk = isset($_GET['clear_ok']);
+$encOk = isset($_GET['enc_ok']);
+$encRm = isset($_GET['enc_rm']);
+$redOk = isset($_GET['red_ok']);
+$redRm = isset($_GET['red_rm']);
+$applyEnc = isset($_GET['apply_enc']);
+$rawEnc = isset($_GET['raw_enc']);
+$applyRed = isset($_GET['apply_red']);
+$rawRed = isset($_GET['raw_red']);
 $err = $GLOBALS['LOGIMPORT_ERROR'] ?? null;
 
 $catalog = logimport_load_catalog();
@@ -22,6 +30,10 @@ $segments = [];
 $lastSeq = -1;
 $cuts = [];
 $seqToSeg = [];
+$encodes = [];
+$redactions = [];
+$doEncode = false;
+$doRedact = false;
 
 if ($core) {
     $wip = logimport_wip_load((string) $core['face_id']);
@@ -47,6 +59,11 @@ if ($core) {
         );
         $seqToSeg = logimport_seq_to_segment($segments, $lastSeq);
     }
+    $encodes = logimport_encodes_list($wip);
+    $redactions = logimport_redactions_list($wip);
+    $flags = logimport_view_flags($wip);
+    $doEncode = $flags['apply_encode'];
+    $doRedact = $flags['apply_redact'];
 }
 
 $self = htmlspecialchars(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '', ENT_QUOTES, 'UTF-8');
@@ -54,16 +71,27 @@ $nCores = is_array($catalog) ? (int) ($catalog['n_cores'] ?? 0) : 0;
 $nSeg = count($segments);
 $faceVal = $core ? (string) $core['face_id'] : '';
 $wipList = logimport_list_wips();
+$h = static function (string $s): string {
+    return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+};
+
+// message seqs that are wholly redacted (for button state)
+$redMsgSeqs = [];
+foreach ($redactions as $r) {
+    if (($r['kind'] ?? '') === 'message') {
+        $redMsgSeqs[(int) $r['seq']] = (string) $r['id'];
+    }
+}
 ?>
 <div class="logimport">
   <p class="logimport-lede">
-    import · forest cores · glass sealed · split the log · wip only
+    import · forest cores · glass sealed · split · encode · redact · wip only
   </p>
 
   <form class="logimport-load" method="get" action="<?= $self ?>">
     <label for="li_face">core #</label>
     <input id="li_face" name="face" type="text" inputmode="numeric" pattern="[0-9]*"
-           value="<?= htmlspecialchars($faceQ !== '' ? logimport_face_key($faceQ) : '', ENT_QUOTES, 'UTF-8') ?>"
+           value="<?= $h($faceQ !== '' ? logimport_face_key($faceQ) : '') ?>"
            placeholder="100" autocomplete="off">
     <button type="submit">load</button>
   </form>
@@ -86,11 +114,10 @@ $wipList = logimport_list_wips();
     </p>
   <?php endif; ?>
 
-  <?php /* Always show WIPs on the import desk (any cores you've touched) */ ?>
   <section class="logimport-wips" id="li-wips">
     <h3 class="logimport-subh">WIPs</h3>
     <?php if (!$wipList): ?>
-      <p class="logimport-meta">none yet · load a core, cut or note, save wip</p>
+      <p class="logimport-meta">none yet · load a core, cut / encode / note, save wip</p>
     <?php else: ?>
       <ul class="logimport-wip-ul">
         <?php foreach ($wipList as $w):
@@ -99,21 +126,21 @@ $wipList = logimport_list_wips();
             $on = ($faceVal !== '' && $faceVal === $w['face_id']);
             ?>
           <li class="<?= $on ? 'is-on' : '' ?>">
-            <a href="<?= htmlspecialchars($href, ENT_QUOTES, 'UTF-8') ?>">
-              <strong><?= htmlspecialchars($w['face_id'], ENT_QUOTES, 'UTF-8') ?></strong>
+            <a href="<?= $h($href) ?>">
+              <strong><?= $h($w['face_id']) ?></strong>
               <?php if ($w['testament_tag'] !== ''): ?>
-                <span class="logimport-meta">[<?= htmlspecialchars($w['testament_tag'], ENT_QUOTES, 'UTF-8') ?>]</span>
+                <span class="logimport-meta">[<?= $h($w['testament_tag']) ?>]</span>
               <?php endif; ?>
-              · <?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?>
+              · <?= $h($title) ?>
               <?php if ($w['n_segments'] > 0): ?>
                 <span class="logimport-meta"> · <?= (int) $w['n_segments'] ?> parts</span>
               <?php endif; ?>
             </a>
             <?php if ($w['saved_at']): ?>
-              <span class="logimport-meta logimport-wip-when"><?= htmlspecialchars(date('m/d H:i', $w['saved_at']), ENT_QUOTES, 'UTF-8') ?></span>
+              <span class="logimport-meta logimport-wip-when"><?= $h(date('m/d H:i', $w['saved_at'])) ?></span>
             <?php endif; ?>
             <?php if ($w['notes_preview'] !== ''): ?>
-              <div class="logimport-meta logimport-wip-note"><?= htmlspecialchars($w['notes_preview'], ENT_QUOTES, 'UTF-8') ?></div>
+              <div class="logimport-meta logimport-wip-note"><?= $h($w['notes_preview']) ?></div>
             <?php endif; ?>
           </li>
         <?php endforeach; ?>
@@ -122,36 +149,135 @@ $wipList = logimport_list_wips();
   </section>
 
   <?php if ($err): ?>
-    <p class="logimport-status" style="opacity:1"><?= htmlspecialchars((string) $err, ENT_QUOTES, 'UTF-8') ?></p>
+    <p class="logimport-status logimport-err"><?= $h((string) $err) ?></p>
   <?php elseif ($splitOk): ?>
     <p class="logimport-status">cut placed · <?= (int) max(1, $nSeg) ?> segment(s) · names kept</p>
   <?php elseif ($unsplitOk): ?>
     <p class="logimport-status">cut removed</p>
   <?php elseif ($clearOk): ?>
     <p class="logimport-status">all cuts cleared · whole log again</p>
+  <?php elseif ($encOk): ?>
+    <p class="logimport-status">encode filed · original stays in z/ wip only</p>
+  <?php elseif ($encRm): ?>
+    <p class="logimport-status">encode removed from book</p>
+  <?php elseif ($redOk): ?>
+    <p class="logimport-status">redaction filed · glass still whole</p>
+  <?php elseif ($redRm): ?>
+    <p class="logimport-status">redaction removed</p>
+  <?php elseif ($applyEnc): ?>
+    <p class="logimport-status">aliases <strong>applied</strong> in view (EDN-style) · glass raw under it</p>
+  <?php elseif ($rawEnc): ?>
+    <p class="logimport-status">aliases off · showing glass originals</p>
+  <?php elseif ($applyRed): ?>
+    <p class="logimport-status">redactions <strong>applied</strong> in view · bars only</p>
+  <?php elseif ($rawRed): ?>
+    <p class="logimport-status">redactions off · showing unbarred glass</p>
   <?php elseif ($wipOk): ?>
     <p class="logimport-status">wip saved · glass untouched</p>
   <?php endif; ?>
 
   <?php if ($core): ?>
     <p class="logimport-meta">
-      <strong><?= htmlspecialchars($faceVal, ENT_QUOTES, 'UTF-8') ?></strong>
-      · <?= htmlspecialchars((string) ($core['testament_tag'] ?? '?'), ENT_QUOTES, 'UTF-8') ?>
-      · <?= htmlspecialchars((string) ($core['create_date_utc'] ?? ''), ENT_QUOTES, 'UTF-8') ?>
+      <strong><?= $h($faceVal) ?></strong>
+      · <?= $h((string) ($core['testament_tag'] ?? '?')) ?>
+      · <?= $h((string) ($core['create_date_utc'] ?? '')) ?>
       · <?= count($messages) ?> msgs
       <?php if ($nSeg > 0): ?>
         · <strong><?= (int) $nSeg ?> parts</strong>
       <?php endif; ?>
-      · glass <em><?= htmlspecialchars((string) ($core['title'] ?? ''), ENT_QUOTES, 'UTF-8') ?></em>
+      · enc <?= count($encodes) ?><?= $doEncode ? ' · ON' : '' ?>
+      · red <?= count($redactions) ?><?= $doRedact ? ' · ON' : '' ?>
+      · glass <em><?= $h((string) ($core['title'] ?? '')) ?></em>
     </p>
 
-    <?php /* ONE form: titles + notes + split/unsplit buttons (names survive cuts) */ ?>
     <form method="post" action="" id="li_main">
-      <input type="hidden" name="face" value="<?= htmlspecialchars($faceVal, ENT_QUOTES, 'UTF-8') ?>">
+      <input type="hidden" name="face" value="<?= $h($faceVal) ?>">
 
       <label class="logimport-meta" for="li_title">working title (starts as glass)</label>
       <input class="logimport-title" id="li_title" name="yard_title" type="text"
-             value="<?= htmlspecialchars($workingTitle, ENT_QUOTES, 'UTF-8') ?>">
+             value="<?= $h($workingTitle) ?>">
+
+      <?php /* ── Phase 2: encode book ── */ ?>
+      <section class="logimport-panel" id="li-encode">
+        <h3 class="logimport-subh">Encode book · privatize names</h3>
+        <p class="logimport-meta">
+          original stays in <code>z/…/wip</code> only · alias is the public face · apply is a button (not silent)
+        </p>
+        <div class="logimport-enc-form">
+          <input type="text" name="enc_original" placeholder="original (private)" autocomplete="off">
+          <input type="text" name="enc_alias" placeholder="alias (public)" autocomplete="off">
+          <input type="text" name="enc_code" placeholder="code (auto if blank)" autocomplete="off" class="logimport-code">
+          <button type="submit" name="add_encode" value="1">+ encode</button>
+        </div>
+        <?php if ($encodes): ?>
+          <ul class="logimport-book">
+            <?php foreach ($encodes as $e): ?>
+              <li>
+                <code class="li-code"><?= $h($e['code']) ?></code>
+                <span class="li-alias"><?= $h($e['alias']) ?></span>
+                <span class="li-arrow">←</span>
+                <span class="li-orig muted"><?= $h($e['original']) ?></span>
+                <button type="submit" name="remove_encode" value="<?= $h($e['id']) ?>" class="logimport-cut">remove</button>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+        <?php else: ?>
+          <p class="logimport-meta">no encodes yet · e.g. real name → Haji · code HJI-001</p>
+        <?php endif; ?>
+        <div class="logimport-apply-row">
+          <?php if ($doEncode): ?>
+            <button type="submit" name="clear_apply_encode" value="1" class="logimport-cut is-cut">show glass names</button>
+            <span class="logimport-meta">viewing aliases</span>
+          <?php else: ?>
+            <button type="submit" name="apply_encode" value="1"<?= $encodes ? '' : ' disabled' ?>>Apply aliases</button>
+            <span class="logimport-meta">viewing originals</span>
+          <?php endif; ?>
+        </div>
+      </section>
+
+      <?php /* ── Phase 2: redact ── */ ?>
+      <section class="logimport-panel" id="li-redact">
+        <h3 class="logimport-subh">Redact · black bars</h3>
+        <p class="logimport-meta">
+          hide content (not rename) · phrase anywhere in thread · or whole message via button on the msg
+        </p>
+        <div class="logimport-enc-form">
+          <input type="text" name="red_original" placeholder="phrase to bar out" autocomplete="off">
+          <input type="text" name="red_label" placeholder="label (optional)" autocomplete="off" class="logimport-code">
+          <button type="submit" name="add_redact_phrase" value="1">+ redact phrase</button>
+        </div>
+        <?php if ($redactions): ?>
+          <ul class="logimport-book">
+            <?php foreach ($redactions as $r): ?>
+              <li>
+                <?php if (($r['kind'] ?? '') === 'message'): ?>
+                  <code class="li-code">MSG</code>
+                  <span class="li-alias">#<?= (int) $r['seq'] ?></span>
+                  <span class="muted">whole message</span>
+                <?php else: ?>
+                  <code class="li-code">█</code>
+                  <span class="li-orig"><?= $h((string) ($r['original'] ?? '')) ?></span>
+                  <?php if (!empty($r['label'])): ?>
+                    <span class="muted">(<?= $h((string) $r['label']) ?>)</span>
+                  <?php endif; ?>
+                <?php endif; ?>
+                <button type="submit" name="remove_redact" value="<?= $h($r['id']) ?>" class="logimport-cut">remove</button>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+        <?php else: ?>
+          <p class="logimport-meta">no redactions yet</p>
+        <?php endif; ?>
+        <div class="logimport-apply-row">
+          <?php if ($doRedact): ?>
+            <button type="submit" name="clear_apply_redact" value="1" class="logimport-cut is-cut">show unbarred</button>
+            <span class="logimport-meta">viewing bars</span>
+          <?php else: ?>
+            <button type="submit" name="apply_redact" value="1"<?= $redactions ? '' : ' disabled' ?>>Apply redactions</button>
+            <span class="logimport-meta">viewing raw glass text</span>
+          <?php endif; ?>
+        </div>
+      </section>
 
       <div class="logimport-thread" id="li_thread">
         <?php if (!$messages): ?>
@@ -172,22 +298,35 @@ $wipList = logimport_list_wips();
                      name="seg_title[<?= (int) $si ?>]"
                      class="logimport-seg-title"
                      id="li-seg-<?= (int) $si ?>"
-                     value="<?= htmlspecialchars($segTitle, ENT_QUOTES, 'UTF-8') ?>"
+                     value="<?= $h($segTitle) ?>"
                      placeholder="name this part"
                      autocomplete="off">
               <span class="logimport-seg-range">#<?= (int) $segments[$si]['from_seq'] ?>–#<?= (int) $segments[$si]['to_seq'] ?></span>
             </div>
                   <?php
               endif;
+              $tx = logimport_transform_text((string) $m['text'], $seq, $wip, $doRedact, $doEncode);
+              $cls = 'logimport-msg role-' . $h($m['role']);
+              if (!empty($tx['wholly_redacted'])) {
+                  $cls .= ' is-redacted';
+              }
               ?>
-            <div class="logimport-msg role-<?= htmlspecialchars($m['role'], ENT_QUOTES, 'UTF-8') ?>"
-                 id="li-msg-<?= $seq ?>">
+            <div class="<?= $cls ?>" id="li-msg-<?= $seq ?>">
               <div class="li-role">
-                <?= htmlspecialchars($m['role'], ENT_QUOTES, 'UTF-8') ?> · #<?= $seq ?>
+                <?= $h($m['role']) ?> · #<?= $seq ?>
               </div>
-              <pre class="li-body"><?= htmlspecialchars($m['text'], ENT_QUOTES, 'UTF-8') ?></pre>
-              <?php if ($seq < $lastSeq): ?>
-                <div class="logimport-cut-row">
+              <pre class="li-body"><?= $h($tx['text']) ?></pre>
+              <div class="logimport-cut-row">
+                <?php if (isset($redMsgSeqs[$seq])): ?>
+                  <button type="submit" name="remove_redact" value="<?= $h($redMsgSeqs[$seq]) ?>" class="logimport-cut is-cut">
+                    unredact msg #<?= $seq ?>
+                  </button>
+                <?php else: ?>
+                  <button type="submit" name="add_redact_msg" value="<?= $seq ?>" class="logimport-cut">
+                    redact msg #<?= $seq ?>
+                  </button>
+                <?php endif; ?>
+                <?php if ($seq < $lastSeq): ?>
                   <?php if (in_array($seq, $cuts, true)): ?>
                     <button type="submit" name="unsplit_after" value="<?= $seq ?>" class="logimport-cut is-cut">
                       unsplit after #<?= $seq ?>
@@ -197,41 +336,39 @@ $wipList = logimport_list_wips();
                       split after #<?= $seq ?>
                     </button>
                   <?php endif; ?>
-                </div>
-              <?php endif; ?>
+                <?php endif; ?>
+              </div>
             </div>
           <?php endforeach; ?>
         <?php endif; ?>
       </div>
 
       <label class="logimport-meta" for="li_notes">notes (wip · rides export later)</label>
-      <textarea class="logimport-notes" id="li_notes" name="notes" placeholder="lumberjack notes…"><?= htmlspecialchars((string) ($wip['notes'] ?? ''), ENT_QUOTES, 'UTF-8') ?></textarea>
+      <textarea class="logimport-notes" id="li_notes" name="notes" placeholder="lumberjack notes…"><?= $h((string) ($wip['notes'] ?? '')) ?></textarea>
 
       <div class="logimport-actions">
         <button type="submit" name="logimport_action" value="save_wip">save wip</button>
         <?php if ($nSeg > 0): ?>
           <button type="submit" name="clear_splits" value="1" class="logimport-cut">clear all cuts</button>
         <?php endif; ?>
-        <span class="logimport-meta">encode · redact · submit — later</span>
+        <span class="logimport-meta">submit → Log Yard — later</span>
       </div>
     </form>
 
   <?php elseif ($faceQ !== ''): ?>
-    <p class="logimport-warn">no core for #<?= htmlspecialchars(logimport_face_key($faceQ), ENT_QUOTES, 'UTF-8') ?></p>
+    <p class="logimport-warn">no core for #<?= $h(logimport_face_key($faceQ)) ?></p>
   <?php endif; ?>
 
   <p class="logimport-catalog-hint">
-    lumberjack: split after a message · name the parts · save wip · glass stays whole
+    woods phase 2: encode names · redact chunks · apply by button · glass stays sealed · submit not yet
   </p>
 </div>
 <?php if ($core && $messages): ?>
 <script>
 (function () {
-  // Keep scroll position after redirect to #li-msg-N (browser may run before layout)
   if (location.hash && location.hash.indexOf('li-msg-') === 1) {
     var el = document.getElementById(location.hash.slice(1));
     if (el) {
-      // thread is the scrollport — scroll message into view inside it
       var thread = document.getElementById('li_thread');
       if (thread && thread.contains(el)) {
         var top = el.offsetTop - thread.offsetTop - 24;
@@ -240,6 +377,10 @@ $wipList = logimport_list_wips();
         el.scrollIntoView({ block: 'center' });
       }
     }
+  }
+  if (location.hash === '#li-encode' || location.hash === '#li-redact') {
+    var p = document.getElementById(location.hash.slice(1));
+    if (p) p.scrollIntoView({ block: 'nearest' });
   }
 })();
 </script>

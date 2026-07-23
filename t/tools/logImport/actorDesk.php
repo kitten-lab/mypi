@@ -1,9 +1,10 @@
 <?php
 /**
  * logImport · WIP actions (never writes glass).
- * save_wip | split_after | unsplit_after | clear_splits
  *
- * All actions come from one form so segment titles ride along on every cut.
+ * save_wip | split_after | unsplit_after | clear_splits
+ * add_encode | remove_encode | add_redact_phrase | add_redact_msg | remove_redact
+ * apply_encode | clear_apply_encode | apply_redact | clear_apply_redact
  */
 require_once __DIR__ . '/logImport_lib.php';
 
@@ -30,6 +31,24 @@ if (isset($_POST['split_after']) && $_POST['split_after'] !== '') {
     $afterSeq = (int) $_POST['unsplit_after'];
 } elseif (isset($_POST['clear_splits'])) {
     $action = 'clear_splits';
+} elseif (isset($_POST['add_encode'])) {
+    $action = 'add_encode';
+} elseif (isset($_POST['remove_encode']) && $_POST['remove_encode'] !== '') {
+    $action = 'remove_encode';
+} elseif (isset($_POST['add_redact_phrase'])) {
+    $action = 'add_redact_phrase';
+} elseif (isset($_POST['add_redact_msg']) && $_POST['add_redact_msg'] !== '') {
+    $action = 'add_redact_msg';
+} elseif (isset($_POST['remove_redact']) && $_POST['remove_redact'] !== '') {
+    $action = 'remove_redact';
+} elseif (isset($_POST['apply_encode'])) {
+    $action = 'apply_encode';
+} elseif (isset($_POST['clear_apply_encode'])) {
+    $action = 'clear_apply_encode';
+} elseif (isset($_POST['apply_redact'])) {
+    $action = 'apply_redact';
+} elseif (isset($_POST['clear_apply_redact'])) {
+    $action = 'clear_apply_redact';
 }
 
 $lastSeq = 0;
@@ -42,13 +61,13 @@ if ($conv) {
 }
 
 $existing = logimport_wip_load($faceKey);
-// Merge titles/notes from the same form POST (critical: titles before re-cut)
+// Merge titles/notes from the same form POST
 $wip = logimport_wip_merge_form($faceKey, $_POST, $existing);
-// Prefer segments rebuilt from posted titles + existing cuts, not stale file alone
 $segments = logimport_segments_from_post_and_wip($_POST, $wip, $lastSeq);
 
 $status = 'wip_ok';
 $anchorSeq = null;
+$fragExtra = '';
 
 if ($action === 'save_wip') {
     $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
@@ -63,6 +82,116 @@ if ($action === 'save_wip') {
 } elseif ($action === 'clear_splits') {
     $wip['segments'] = [];
     $status = 'clear_ok';
+} elseif ($action === 'add_encode') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    $orig = trim((string) ($_POST['enc_original'] ?? ''));
+    $alias = trim((string) ($_POST['enc_alias'] ?? ''));
+    $codeIn = trim((string) ($_POST['enc_code'] ?? ''));
+    if ($orig === '' || $alias === '') {
+        $GLOBALS['LOGIMPORT_ERROR'] = 'encode needs original + alias';
+        return;
+    }
+    $book = logimport_encodes_list($wip);
+    // skip exact dup original
+    foreach ($book as $e) {
+        if (strcasecmp($e['original'], $orig) === 0) {
+            $GLOBALS['LOGIMPORT_ERROR'] = 'original already in encode book';
+            return;
+        }
+    }
+    $code = $codeIn !== '' ? $codeIn : logimport_encode_mint_code($orig, $book);
+    $book[] = [
+        'id' => logimport_new_id('e'),
+        'code' => $code,
+        'alias' => $alias,
+        'original' => $orig,
+        'created_at' => time(),
+    ];
+    $wip['encodes'] = $book;
+    $status = 'enc_ok';
+    $fragExtra = '#li-encode';
+} elseif ($action === 'remove_encode') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    $rid = (string) ($_POST['remove_encode'] ?? '');
+    $wip['encodes'] = array_values(array_filter(
+        logimport_encodes_list($wip),
+        static fn($e) => ($e['id'] ?? '') !== $rid
+    ));
+    $status = 'enc_rm';
+    $fragExtra = '#li-encode';
+} elseif ($action === 'add_redact_phrase') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    $orig = trim((string) ($_POST['red_original'] ?? ''));
+    if ($orig === '') {
+        $GLOBALS['LOGIMPORT_ERROR'] = 'redact needs a phrase';
+        return;
+    }
+    $book = logimport_redactions_list($wip);
+    foreach ($book as $r) {
+        if (($r['kind'] ?? '') === 'phrase' && strcasecmp((string) ($r['original'] ?? ''), $orig) === 0) {
+            $GLOBALS['LOGIMPORT_ERROR'] = 'phrase already redacted';
+            return;
+        }
+    }
+    $book[] = [
+        'id' => logimport_new_id('r'),
+        'kind' => 'phrase',
+        'original' => $orig,
+        'label' => trim((string) ($_POST['red_label'] ?? '')),
+        'created_at' => time(),
+    ];
+    $wip['redactions'] = $book;
+    $status = 'red_ok';
+    $fragExtra = '#li-redact';
+} elseif ($action === 'add_redact_msg') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    $seq = (int) ($_POST['add_redact_msg'] ?? -1);
+    if ($seq < 0 || $seq > $lastSeq) {
+        $GLOBALS['LOGIMPORT_ERROR'] = 'bad message seq for redact';
+        return;
+    }
+    $book = logimport_redactions_list($wip);
+    foreach ($book as $r) {
+        if (($r['kind'] ?? '') === 'message' && (int) ($r['seq'] ?? -1) === $seq) {
+            $GLOBALS['LOGIMPORT_ERROR'] = 'message already redacted';
+            return;
+        }
+    }
+    $book[] = [
+        'id' => logimport_new_id('r'),
+        'kind' => 'message',
+        'seq' => $seq,
+        'label' => '',
+        'created_at' => time(),
+    ];
+    $wip['redactions'] = $book;
+    $status = 'red_ok';
+    $anchorSeq = $seq;
+} elseif ($action === 'remove_redact') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    $rid = (string) ($_POST['remove_redact'] ?? '');
+    $wip['redactions'] = array_values(array_filter(
+        logimport_redactions_list($wip),
+        static fn($r) => ($r['id'] ?? '') !== $rid
+    ));
+    $status = 'red_rm';
+    $fragExtra = '#li-redact';
+} elseif ($action === 'apply_encode') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    $wip['apply_encode'] = true;
+    $status = 'apply_enc';
+} elseif ($action === 'clear_apply_encode') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    $wip['apply_encode'] = false;
+    $status = 'raw_enc';
+} elseif ($action === 'apply_redact') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    $wip['apply_redact'] = true;
+    $status = 'apply_red';
+} elseif ($action === 'clear_apply_redact') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    $wip['apply_redact'] = false;
+    $status = 'raw_red';
 } else {
     $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
 }
@@ -75,6 +204,6 @@ if (!logimport_wip_save($faceKey, $wip)) {
 
 $path = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '';
 $q = 'face=' . rawurlencode($faceKey) . '&' . $status . '=1';
-$frag = $anchorSeq !== null ? '#li-msg-' . (int) $anchorSeq : '';
+$frag = $anchorSeq !== null ? '#li-msg-' . (int) $anchorSeq : $fragExtra;
 header('Location: ' . $path . '?' . $q . $frag);
 exit;

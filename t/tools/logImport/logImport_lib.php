@@ -584,4 +584,183 @@ if (!function_exists('logimport_paths')) {
         }
         return $map;
     }
+
+    // ── Encode book (z/ WIP only — originals never on ledger) ─────────
+
+    function logimport_new_id(string $prefix = 'e'): string {
+        try {
+            return $prefix . '.' . strtoupper(bin2hex(random_bytes(4)));
+        } catch (Throwable $e) {
+            return $prefix . '.' . strtoupper(dechex(mt_rand()) . dechex(time()));
+        }
+    }
+
+    /**
+     * VEN-ish code: letters from original + serial (HJI-048).
+     *
+     * @param list<array> $encodes
+     */
+    function logimport_encode_mint_code(string $original, array $encodes): string {
+        $letters = preg_replace('/[^a-zA-Z]/', '', $original) ?? '';
+        $prefix = strtoupper(substr($letters !== '' ? $letters : 'ENC', 0, 3));
+        if (strlen($prefix) < 3) {
+            $prefix = str_pad($prefix, 3, 'X');
+        }
+        $used = [];
+        foreach ($encodes as $e) {
+            if (is_array($e) && !empty($e['code'])) {
+                $used[strtoupper((string) $e['code'])] = true;
+            }
+        }
+        for ($n = 1; $n < 1000; $n++) {
+            $code = $prefix . '-' . sprintf('%03d', $n);
+            if (empty($used[$code])) {
+                return $code;
+            }
+        }
+        return $prefix . '-' . strtoupper(substr(md5($original . microtime()), 0, 3));
+    }
+
+    /**
+     * @return list<array{id:string,code:string,alias:string,original:string,created_at:int}>
+     */
+    function logimport_encodes_list(?array $wip): array {
+        if (!is_array($wip) || !is_array($wip['encodes'] ?? null)) {
+            return [];
+        }
+        $out = [];
+        foreach ($wip['encodes'] as $e) {
+            if (!is_array($e)) {
+                continue;
+            }
+            $orig = trim((string) ($e['original'] ?? ''));
+            $alias = trim((string) ($e['alias'] ?? ''));
+            if ($orig === '' || $alias === '') {
+                continue;
+            }
+            $out[] = [
+                'id' => (string) ($e['id'] ?? logimport_new_id('e')),
+                'code' => (string) ($e['code'] ?? ''),
+                'alias' => $alias,
+                'original' => $orig,
+                'created_at' => (int) ($e['created_at'] ?? 0),
+            ];
+        }
+        return $out;
+    }
+
+    /**
+     * @return list<array{id:string,kind:string,original?:string,seq?:int,label?:string,created_at:int}>
+     */
+    function logimport_redactions_list(?array $wip): array {
+        if (!is_array($wip) || !is_array($wip['redactions'] ?? null)) {
+            return [];
+        }
+        $out = [];
+        foreach ($wip['redactions'] as $r) {
+            if (!is_array($r)) {
+                continue;
+            }
+            $kind = (string) ($r['kind'] ?? 'phrase');
+            if ($kind === 'message') {
+                if (!array_key_exists('seq', $r)) {
+                    continue;
+                }
+                $out[] = [
+                    'id' => (string) ($r['id'] ?? logimport_new_id('r')),
+                    'kind' => 'message',
+                    'seq' => (int) $r['seq'],
+                    'label' => trim((string) ($r['label'] ?? '')),
+                    'created_at' => (int) ($r['created_at'] ?? 0),
+                ];
+            } else {
+                $orig = trim((string) ($r['original'] ?? ''));
+                if ($orig === '') {
+                    continue;
+                }
+                $out[] = [
+                    'id' => (string) ($r['id'] ?? logimport_new_id('r')),
+                    'kind' => 'phrase',
+                    'original' => $orig,
+                    'label' => trim((string) ($r['label'] ?? '')),
+                    'created_at' => (int) ($r['created_at'] ?? 0),
+                ];
+            }
+        }
+        return $out;
+    }
+
+    /** Replace longest originals first (avoid partial clobber). */
+    function logimport_replace_map(string $text, array $pairs): string {
+        if ($text === '' || $pairs === []) {
+            return $text;
+        }
+        // $pairs: list of [original, replacement]
+        usort($pairs, static function ($a, $b) {
+            return strlen((string) $b[0]) <=> strlen((string) $a[0]);
+        });
+        foreach ($pairs as $pair) {
+            $from = (string) $pair[0];
+            $to = (string) $pair[1];
+            if ($from === '') {
+                continue;
+            }
+            $text = str_replace($from, $to, $text);
+        }
+        return $text;
+    }
+
+    /**
+     * Apply redactions then encodes for display/export preview.
+     * Glass raw is never mutated — this is a view transform only.
+     *
+     * @return array{text:string,wholly_redacted:bool}
+     */
+    function logimport_transform_text(string $text, int $seq, ?array $wip, bool $applyRedact, bool $applyEncode): array {
+        $wholly = false;
+        $redacts = logimport_redactions_list($wip);
+
+        if ($applyRedact) {
+            foreach ($redacts as $r) {
+                if (($r['kind'] ?? '') === 'message' && (int) ($r['seq'] ?? -1) === $seq) {
+                    $wholly = true;
+                    break;
+                }
+            }
+            if ($wholly) {
+                $text = '████████  [REDACTED · msg #' . $seq . ']  ████████';
+            } else {
+                $pairs = [];
+                foreach ($redacts as $r) {
+                    if (($r['kind'] ?? '') === 'phrase' && !empty($r['original'])) {
+                        $n = max(4, min(48, (int) (strlen((string) $r['original']) * 0.9)));
+                        $pairs[] = [(string) $r['original'], str_repeat('█', $n)];
+                    }
+                }
+                $text = logimport_replace_map($text, $pairs);
+            }
+        }
+
+        if ($applyEncode && !$wholly) {
+            $pairs = [];
+            foreach (logimport_encodes_list($wip) as $e) {
+                $pairs[] = [$e['original'], $e['alias']];
+            }
+            $text = logimport_replace_map($text, $pairs);
+        }
+
+        return ['text' => $text, 'wholly_redacted' => $wholly];
+    }
+
+    function logimport_view_flags(?array $wip): array {
+        return [
+            'apply_redact' => !empty($wip['apply_redact']),
+            'apply_encode' => !empty($wip['apply_encode']),
+        ];
+    }
+
+    function logimport_bar(string $s, int $max = 48): string {
+        $n = max(4, min($max, (int) (strlen($s) * 0.85)));
+        return str_repeat('█', $n);
+    }
 }
