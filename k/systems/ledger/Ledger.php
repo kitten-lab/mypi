@@ -47,6 +47,8 @@ if (!function_exists('mypi_ledger_path')) {
             'dossier_membership' => 'leaf',
             'dossier_note' => 'leaf',
             'shot_card' => 'leaf',
+            'headline' => 'leaf',
+            'codex_entry' => 'leaf',
             'arc' => 'yard_crate',
             'shipment' => 'yard_crate',
             'yard_crate' => 'yard_crate',
