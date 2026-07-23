@@ -6,7 +6,8 @@ $GLOBALS[BLOCK_ID]['GETS']['Nav'] = echoSONAR . 'a/' . BLOCK_ID . '/asSys/nav.ph
 $GLOBALS[BLOCK_ID]['tDOM'] = [
     ['DOM' => 'base'],
     ['DOM' => 'io'],
-    // future: ab, rx, jx, cu, …
+    ['DOM' => 'ab'],
+    // future: rx, jx, cu, …
 ];
 
 $GLOBALS[BLOCK_ID]['NAV'] = [

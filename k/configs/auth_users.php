@@ -61,4 +61,21 @@ return [
         'sys' => 'terminal',
         'roles' => ['terminal', 'io'],
     ],
+    // Terminal AB — red station · Agent K (underground)
+    [
+        'username' => 'kde555',
+        'keyphrase' => 'wireblood',
+        'display' => 'Agent K',
+        'dom' => 'ab',
+        'sys' => 'terminal',
+        'roles' => ['terminal', 'ab', 'agent-k'],
+    ],
+    [
+        'username' => 'KDE555',
+        'keyphrase' => 'wireblood',
+        'display' => 'Agent K',
+        'dom' => 'ab',
+        'sys' => 'terminal',
+        'roles' => ['terminal', 'ab', 'agent-k'],
+    ],
 ];

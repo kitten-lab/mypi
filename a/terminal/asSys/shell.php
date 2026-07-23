@@ -38,6 +38,18 @@ if ($authed && !empty($agent['dom'])) {
     $skin = preg_replace('/[^a-z0-9_-]/i', '', $agent['dom']) ?: $skin;
 }
 $face = $authed ? strtoupper($agent['slug']) : '???';
+$domSkin = strtolower((string) ($authed ? ($agent['dom'] ?: $skin) : $skin));
+// chip brand: IO green house · AB red line
+$chip = ($domSkin === 'ab') ? 'ABX' : 'IOX';
+$statusBrand = ($domSkin === 'ab') ? "ABX · ON WATCH" : "CHESTER'S NOW IMPORTING";
+$brokenWhisper = ($domSkin === 'ab')
+    ? 'for the collection of what they tried to unwrite'
+    : 'for the collection and protection of your thoughts';
+$ghost = ($domSkin === 'ab') ? 'someone left the line open' : 'put them here';
+$foot = ($domSkin === 'ab') ? 'A·X' : 'O·X';
+$hint = !$authed
+    ? 'log in · put them here'
+    : (($domSkin === 'ab') ? 'the line is listening' : 'the forest remembers');
 ?>
 <body class="terminal-station terminal-skin-<?= htmlspecialchars($skin) ?>">
 
@@ -46,13 +58,14 @@ $face = $authed ? strtoupper($agent['slug']) : '???';
   /*
    * Far-left rail = SESSION / LOGOUT strut — not a dup of Files/Email/Chat.
    * Archive energy: >|TERMINAL, Press Start labels, slightly wrong.
+   * Chip: IOX (green) / ABX (red)
    */
   ?>
   <aside class="tm-rail" aria-label="Session rail">
     <div class="tm-rail-brand pywebview-drag-region" data-pocket-drag
          title="drag window · deep: this is your grabber">
       <span class="tm-rail-gt">&gt;|</span>
-      <span class="tm-rail-iox">IOX</span>
+      <span class="tm-rail-iox"><?= htmlspecialchars($chip, ENT_QUOTES, 'UTF-8') ?></span>
     </div>
     <?php if ($authed): ?>
       <div class="tm-rail-face" title="you">
@@ -64,7 +77,7 @@ $face = $authed ? strtoupper($agent['slug']) : '???';
         <button type="submit" class="tm-rail-x">X</button>
         <span class="tm-rail-out-l">OUT</span>
       </form>
-      <div class="tm-rail-ghost" aria-hidden="true">put them here</div>
+      <div class="tm-rail-ghost" aria-hidden="true"><?= htmlspecialchars($ghost, ENT_QUOTES, 'UTF-8') ?></div>
     <?php else: ?>
       <a class="tm-rail-in" href="<?= htmlspecialchars($tmH('base', 'login')) ?>" title="authenticate">
         <span class="tm-rail-in-l">IN</span>
@@ -72,7 +85,7 @@ $face = $authed ? strtoupper($agent['slug']) : '???';
       <div class="tm-rail-ghost" aria-hidden="true">who are you</div>
     <?php endif; ?>
     <div class="tm-rail-fill"></div>
-    <div class="tm-rail-foot" aria-hidden="true">O·X</div>
+    <div class="tm-rail-foot" aria-hidden="true"><?= htmlspecialchars($foot, ENT_QUOTES, 'UTF-8') ?></div>
   </aside>
 
   <div class="tm-workspace">
@@ -83,7 +96,7 @@ $face = $authed ? strtoupper($agent['slug']) : '???';
     <div class="tm-center">
       <div class="tm-broken-top" aria-hidden="true">
         <span class="tm-broken-label">&gt;|TERMINAL</span>
-        <span class="tm-broken-whisper">for the collection and protection of your thoughts</span>
+        <span class="tm-broken-whisper"><?= htmlspecialchars($brokenWhisper, ENT_QUOTES, 'UTF-8') ?></span>
       </div>
       <div class="tm-tabline">
         <span class="tm-tab is-on"><?= htmlspecialchars(defined('ROOM_DISPLAY') ? ROOM_DISPLAY : 'screen') ?></span>
@@ -102,7 +115,7 @@ $face = $authed ? strtoupper($agent['slug']) : '???';
   </div>
 
   <footer class="tm-statusbar">
-    <span class="tm-status-brand">CHESTER'S NOW IMPORTING</span>
+    <span class="tm-status-brand"><?= htmlspecialchars($statusBrand, ENT_QUOTES, 'UTF-8') ?></span>
     <span class="tm-status-sep">|</span>
     <span><?= htmlspecialchars($authed ? strtoupper($agent['dom'] ?: $skin) : 'BASE') ?></span>
     <span class="tm-status-sep">|</span>
@@ -110,7 +123,7 @@ $face = $authed ? strtoupper($agent['slug']) : '???';
     <span class="tm-status-sep">|</span>
     <span class="tm-status-agent"><?= htmlspecialchars($authed ? $agent['display'] : 'NO SESSION') ?></span>
     <span class="tm-status-flex"></span>
-    <span class="tm-status-hint"><?= $authed ? 'the forest remembers' : 'log in · put them here' ?></span>
+    <span class="tm-status-hint"><?= htmlspecialchars($hint, ENT_QUOTES, 'UTF-8') ?></span>
   </footer>
 </div>
 

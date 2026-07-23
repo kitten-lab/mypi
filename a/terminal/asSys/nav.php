@@ -13,6 +13,7 @@ $dom = defined('DOM_SLUG') ? DOM_SLUG : 'base';
 $room = defined('ROOM_SLUG') ? ROOM_SLUG : '';
 $authed = mypi_auth_check();
 $agent = mypi_auth_agent();
+$domL = strtolower((string) $dom);
 
 $h = function ($d, $key) {
     return function_exists('mypi_room_href')
@@ -20,6 +21,7 @@ $h = function ($d, $key) {
         : ('/terminal/' . $d . '/' . $key);
 };
 
+// IO — full green house
 $treeIo = [
     ['key' => 'import', 'label' => 'IMPORT'],
     ['key' => 'exports', 'label' => 'EXPORTS'],
@@ -29,6 +31,21 @@ $treeIo = [
     ['key' => 'chat', 'label' => 'CHAT'],
     ['key' => 'login', 'label' => 'SESSION'],
 ];
+
+// AB — red station · files + quiet chat/email only (tools later)
+$treeAb = [
+    ['key' => 'files', 'label' => 'FILES'],
+    ['key' => 'email', 'label' => 'E-MAIL'],
+    ['key' => 'chat', 'label' => 'CHAT'],
+    ['key' => 'login', 'label' => 'SESSION'],
+];
+
+$tree = $treeIo;
+$whisper = 'import · exports · use the rail to leave';
+if ($domL === 'ab') {
+    $tree = $treeAb;
+    $whisper = 'files only · the rest of the tools are offline · for now';
+}
 ?>
 <div class="tm-tree">
   <h1 class="tm-page-title flicker">
@@ -41,7 +58,7 @@ $treeIo = [
   <?php endif; ?>
 
   <nav class="tm-nav-arch">
-    <?php if (!$authed || strtolower($dom) === 'base'): ?>
+    <?php if (!$authed || $domL === 'base'): ?>
       <span class="tm-navSec">GATE</span>
       <ul>
         <li class="<?= strtolower($room) === 'login' ? 'is-active' : '' ?>">
@@ -52,7 +69,7 @@ $treeIo = [
     <?php else: ?>
       <span class="tm-navSec"><?= htmlspecialchars(strtoupper($dom)) ?> DESK</span>
       <ul>
-        <?php foreach ($treeIo as $node):
+        <?php foreach ($tree as $node):
             $on = (strtolower($room) === strtolower($node['key']));
             ?>
           <li class="<?= $on ? 'is-active' : '' ?>">
@@ -60,7 +77,7 @@ $treeIo = [
           </li>
         <?php endforeach; ?>
       </ul>
-      <p class="tm-nav-whisper">import · exports · use the rail to leave</p>
+      <p class="tm-nav-whisper"><?= htmlspecialchars($whisper, ENT_QUOTES, 'UTF-8') ?></p>
     <?php endif; ?>
   </nav>
 </div>
