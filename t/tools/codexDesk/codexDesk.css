@@ -1,0 +1,203 @@
+/**
+ * codexDesk — lore of the system (RX-friendly)
+ */
+.cxdesk {
+  --cx-border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.cxdesk-layout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr);
+  gap: 0.5rem;
+  height: 100%;
+}
+
+@media (max-width: 720px) {
+  .cxdesk-layout { grid-template-columns: 1fr; }
+}
+
+.cxdesk-side {
+  border: var(--cx-border);
+  background: rgba(0, 0, 0, 0.22);
+  overflow: auto;
+  padding: 0.4rem 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cxdesk-brand { padding: 0.2rem 0.25rem; }
+.cxdesk-chip {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+}
+.cxdesk-whisper {
+  font-size: 0.58rem;
+  opacity: 0.55;
+  letter-spacing: 0.06em;
+}
+
+.cxdesk-list { list-style: none; margin: 0; padding: 0; flex: 1; }
+.cxdesk-list a {
+  display: block;
+  padding: 0.38rem 0.4rem;
+  color: inherit;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  font-size: 0.88rem;
+  line-height: 1.25;
+}
+.cxdesk-list a:hover,
+.cxdesk-list a.is-on {
+  border-left-color: currentColor;
+  background: rgba(0, 0, 0, 0.2);
+}
+.cxdesk-list .cx-meta {
+  display: block;
+  font-size: 0.62rem;
+  opacity: 0.55;
+  margin-top: 0.1rem;
+}
+
+.cxdesk-panel {
+  border: var(--cx-border);
+  background: rgba(0, 0, 0, 0.14);
+  overflow: auto;
+  padding: 0.55rem 0.75rem 1rem;
+}
+
+.cxdesk-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.cxdesk-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+}
+
+.cx-type {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.cx-lede {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  opacity: 0.9;
+  max-width: 40rem;
+}
+
+.cx-body {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 40rem;
+}
+
+.cx-status { font-size: 0.85rem; margin: 0 0 0.5rem; }
+.cx-err { color: #f88; }
+
+.cx-form {
+  border: var(--cx-border);
+  padding: 0.5rem 0.55rem 0.6rem;
+  margin: 0.5rem 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.cx-form label {
+  display: block;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin: 0.35rem 0 0.12rem;
+}
+
+.cx-form input[type="text"],
+.cx-form textarea,
+.cx-form select {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.32);
+  border: var(--cx-border);
+  padding: 0.35rem 0.45rem;
+}
+
+.cx-form textarea {
+  min-height: 10rem;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.cx-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+
+.cx-btn {
+  font: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  padding: 0.35rem 0.65rem;
+  border: var(--cx-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cx-btn:hover {
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.cx-btn-primary {
+  border-color: color-mix(in srgb, currentColor 50%, transparent);
+  background: color-mix(in srgb, currentColor 10%, transparent);
+  font-weight: 600;
+}
+
+.cx-empty, .cx-hint { font-size: 0.75rem; opacity: 0.55; }
+.muted { opacity: 0.55; text-transform: none; letter-spacing: 0; font-size: 0.85em; }
+
+.cx-index { list-style: none; margin: 0.75rem 0 0; padding: 0; }
+.cx-index li {
+  border-bottom: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+}
+.cx-index a {
+  display: block;
+  padding: 0.4rem 0.1rem;
+  color: inherit;
+  text-decoration: none;
+}
+.cx-index a:hover { background: rgba(0, 0, 0, 0.15); }
+.cx-index .cx-meta {
+  display: block;
+  font-size: 0.65rem;
+  opacity: 0.5;
+  margin-top: 0.1rem;
+}

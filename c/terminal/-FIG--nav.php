@@ -8,7 +8,8 @@ $GLOBALS[BLOCK_ID]['tDOM'] = [
     ['DOM' => 'io'],
     ['DOM' => 'ab'],
     ['DOM' => 'icu'],
-    // future: rx, jx, cu, …
+    ['DOM' => 'rx'],
+    // future: jx, cu, …
 ];
 
 $GLOBALS[BLOCK_ID]['NAV'] = [

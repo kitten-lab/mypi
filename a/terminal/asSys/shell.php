@@ -39,7 +39,7 @@ if ($authed && !empty($agent['dom'])) {
 }
 $face = $authed ? strtoupper($agent['slug']) : '???';
 $domSkin = strtolower((string) ($authed ? ($agent['dom'] ?: $skin) : $skin));
-// chip brand: IOX green · ABX red · ICU amber (I See You)
+// chip brand: IOX green · ABX red · ICU amber · RX bios blue (medicine)
 if ($domSkin === 'ab') {
     $chip = 'ABX';
     $statusBrand = 'ABX · ON WATCH';
@@ -54,6 +54,13 @@ if ($domSkin === 'ab') {
     $ghost = 'the watchers never blinked';
     $foot = 'I·U';
     $hint = 'i see you';
+} elseif ($domSkin === 'rx') {
+    $chip = 'RX';
+    $statusBrand = 'RX · MEDICINE';
+    $brokenWhisper = 'for the codes that keep true names from the yard';
+    $ghost = 'the blue book is open';
+    $foot = 'R·X';
+    $hint = 'match the story to the code';
 } else {
     $chip = 'IOX';
     $statusBrand = "CHESTER'S NOW IMPORTING";

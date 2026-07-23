@@ -39,6 +39,7 @@ Both true. Wrong desk pollutes the storybox.
 | **IO** | **IOX** | in-out crossing | Sam / SDK808 | Green · imports, invent-ory, life bag |
 | **AB** | **ABX** | ALPHA BET crossing | Agent K · kde555 | Red · suppression · dossierDesk |
 | **ICU** | **ICU** | **I See You** (also: Imported Chester Universe — whatever) | **Teehee · THE-000** | Watchers · shots · media rhymes · plot amusement |
+| **RX** | **RX** | medicine / remedy crossing | **Oriel** | Bios blue · venDesk · codes · leaks Skyline-shaped maps |
 | **JX** (later) | — | — | — | Train / letter boards |
 | **Skyline services** | — | — | Oman, Jasmine, … | Report buckets; later **platform surfaces beyond terminals** |
 

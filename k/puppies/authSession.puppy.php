@@ -229,9 +229,15 @@ if (!function_exists('mypi_auth_boot')) {
         if ($dom === '') {
             $dom = 'io';
         }
-        if (function_exists('mypi_room_href') && $sys === 'terminal') {
-            return mypi_room_href($dom, 'files');
+        // per-station home room (RX = VEN medicine cabinet)
+        $homeRoom = 'files';
+        $domL = strtolower($dom);
+        if ($domL === 'rx') {
+            $homeRoom = 'ven';
         }
-        return '/' . rawurlencode($sys) . '/' . rawurlencode($dom) . '/files';
+        if (function_exists('mypi_room_href') && $sys === 'terminal') {
+            return mypi_room_href($dom, $homeRoom);
+        }
+        return '/' . rawurlencode($sys) . '/' . rawurlencode($dom) . '/' . rawurlencode($homeRoom);
     }
 }

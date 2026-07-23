@@ -50,6 +50,16 @@ $treeIcu = [
     ['key' => 'login', 'label' => 'SESSION'],
 ];
 
+// RX — bios blue · Oriel · medicine · VEN home · codex lore
+$treeRx = [
+    ['key' => 'ven', 'label' => 'VEN'],
+    ['key' => 'codex', 'label' => 'CODEX'],
+    ['key' => 'files', 'label' => 'FILES'],
+    ['key' => 'email', 'label' => 'E-MAIL'],
+    ['key' => 'chat', 'label' => 'CHAT'],
+    ['key' => 'login', 'label' => 'SESSION'],
+];
+
 $tree = $treeIo;
 $whisper = 'import · exports · use the rail to leave';
 if ($domL === 'ab') {
@@ -58,6 +68,9 @@ if ($domL === 'ab') {
 } elseif ($domL === 'icu') {
     $tree = $treeIcu;
     $whisper = 'files · shot desk · i see you';
+} elseif ($domL === 'rx') {
+    $tree = $treeRx;
+    $whisper = 'ven · codex · codes + lore of the system';
 }
 ?>
 <div class="tm-tree">
