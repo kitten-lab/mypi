@@ -1,6 +1,6 @@
 # Terminal AB · Dossier (factions & members)
 
-**Status:** CONCEPT / PLAN — not building yet  
+**Status:** **BUILT v0** — person / faction / membership / notes / images on AB  
 **Station:** **AB** (red · ABX) · Agent K  
 **First real AB tool** (after thin shell: files / quiet chat / email)  
 **Hands seed:** factions, members, active/inactive/unsure, leaders, names, images, field notes on involvement & behavior  

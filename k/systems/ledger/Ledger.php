@@ -42,6 +42,10 @@ if (!function_exists('mypi_ledger_path')) {
             'dailylog' => 'log',
             'dailylog_entry' => 'leaf',
             'report' => 'leaf',
+            'dossier_person' => 'leaf',
+            'dossier_faction' => 'log',
+            'dossier_membership' => 'leaf',
+            'dossier_note' => 'leaf',
             'arc' => 'yard_crate',
             'shipment' => 'yard_crate',
             'yard_crate' => 'yard_crate',
@@ -2222,6 +2226,454 @@ SQL
             'skipped' => $skipped,
             'errors' => $errors,
         ];
+    }
+
+    // ── dossierDesk (AB · person-first factions) ─────────────────────
+
+    function mypi_dossier_statuses() {
+        return ['unsure', 'active', 'inactive', 'dissolved'];
+    }
+
+    function mypi_dossier_norm_status($s, $default = 'unsure') {
+        $s = strtolower(trim((string) $s));
+        $ok = mypi_dossier_statuses();
+        return in_array($s, $ok, true) ? $s : $default;
+    }
+
+    function mypi_dossier_place(array $in = []) {
+        return [
+            'sys' => (string) ($in['sys'] ?? 'terminal'),
+            'dom' => (string) ($in['dom'] ?? 'ab'),
+            'room' => (string) ($in['room'] ?? 'dossier'),
+            'mod' => (string) ($in['mod'] ?? ''),
+            'place_label' => (string) ($in['place_label'] ?? 'Dossier desk'),
+        ];
+    }
+
+    function mypi_dossier_parse_akas($raw) {
+        if (is_array($raw)) {
+            $out = [];
+            foreach ($raw as $a) {
+                $a = trim((string) $a);
+                if ($a !== '') {
+                    $out[] = $a;
+                }
+            }
+            return array_values(array_unique($out));
+        }
+        $raw = trim((string) $raw);
+        if ($raw === '') {
+            return [];
+        }
+        $parts = preg_split('/[,;\n]+/', $raw);
+        $out = [];
+        foreach ($parts as $p) {
+            $p = trim($p);
+            if ($p !== '') {
+                $out[] = $p;
+            }
+        }
+        return array_values(array_unique($out));
+    }
+
+    /**
+     * @return list<array>
+     */
+    function mypi_dossier_list(string $kind, array $opts = []) {
+        $limit = max(1, min(300, (int) ($opts['limit'] ?? 100)));
+        $place = mypi_dossier_place($opts);
+        $pdo = mypi_ledger_pdo();
+        $sql = "SELECT * FROM crates
+                WHERE kind = ? AND tool = 'dossierDesk'
+                  AND (deleted_at IS NULL OR deleted_at = 0)
+                  AND sys = ? AND dom = ? AND room = ?";
+        $args = [$kind, $place['sys'], $place['dom'], $place['room']];
+        if (!empty($opts['q'])) {
+            $sql .= ' AND (lower(topic) LIKE ? OR lower(body) LIKE ? OR lower(meta_json) LIKE ?)';
+            $q = '%' . strtolower(trim((string) $opts['q'])) . '%';
+            $args[] = $q;
+            $args[] = $q;
+            $args[] = $q;
+        }
+        $sql .= ' ORDER BY lower(topic) ASC, ingest_unix DESC LIMIT ' . $limit;
+        $st = $pdo->prepare($sql);
+        $st->execute($args);
+        return $st->fetchAll() ?: [];
+    }
+
+    function mypi_dossier_save_person(array $in) {
+        $name = trim((string) ($in['name'] ?? $in['topic'] ?? ''));
+        $body = trim((string) ($in['body'] ?? ''));
+        if ($name === '') {
+            return ['ok' => false, 'error' => 'name required'];
+        }
+        $place = mypi_dossier_place($in);
+        $c_uid = trim((string) ($in['c_uid'] ?? ''));
+        $akas = mypi_dossier_parse_akas($in['akas'] ?? '');
+        $status = mypi_dossier_norm_status($in['status'] ?? 'unsure');
+        $agent = (string) ($in['agent'] ?? 'user');
+        $meta = [
+            'display_name' => $name,
+            'akas' => $akas,
+            'status' => $status,
+            'portrait_asset' => (string) ($in['portrait_asset'] ?? ''),
+        ];
+        if ($c_uid !== '') {
+            $row = mypi_ledger_get($c_uid);
+            if (!$row || ($row['kind'] ?? '') !== 'dossier_person') {
+                return ['ok' => false, 'error' => 'person not found'];
+            }
+            $old = json_decode((string) ($row['meta_json'] ?? '{}'), true) ?: [];
+            if (!empty($old['portrait_asset']) && $meta['portrait_asset'] === '') {
+                $meta['portrait_asset'] = $old['portrait_asset'];
+            }
+            $meta = array_merge($old, $meta);
+            $pdo = mypi_ledger_pdo();
+            $now = time();
+            $pdo->prepare(
+                'UPDATE crates SET topic=?, body=?, meta_json=?, tags_raw=?, tags_json=?, updated_at=? WHERE c_uid=?'
+            )->execute([
+                $name,
+                $body,
+                json_encode($meta),
+                (string) ($in['tags_raw'] ?? $row['tags_raw'] ?? ''),
+                json_encode(mypi_ledger_parse_tags(
+                    (string) ($in['tags_raw'] ?? $row['tags_raw'] ?? ''),
+                    $place['sys'], $place['dom'], $place['room'], $place['mod']
+                )),
+                $now,
+                $c_uid,
+            ]);
+            return ['ok' => true, 'c_uid' => $c_uid, 'updated' => true];
+        }
+        $r = mypi_ledger_create_post([
+            'topic' => $name,
+            'body' => $body,
+            'kind' => 'dossier_person',
+            'scale' => 'leaf',
+            'tool' => 'dossierDesk',
+            'tool_version' => 1,
+            'sys' => $place['sys'],
+            'dom' => $place['dom'],
+            'room' => $place['room'],
+            'mod' => $place['mod'],
+            'place_label' => $place['place_label'],
+            'agent' => $agent,
+            'actor' => (string) ($in['actor'] ?? $agent),
+            'timezone' => (string) ($in['timezone'] ?? ''),
+            'tags_raw' => (string) ($in['tags_raw'] ?? ''),
+            'meta' => $meta,
+        ]);
+        if (!empty($r['ok']) && !empty($r['c_uid'])) {
+            $pdo = mypi_ledger_pdo();
+            $pdo->prepare('UPDATE crates SET stem_c_uid=? WHERE c_uid=?')->execute([$r['c_uid'], $r['c_uid']]);
+        }
+        return $r;
+    }
+
+    function mypi_dossier_save_faction(array $in) {
+        $name = trim((string) ($in['name'] ?? $in['topic'] ?? ''));
+        $body = trim((string) ($in['body'] ?? ''));
+        if ($name === '') {
+            return ['ok' => false, 'error' => 'name required'];
+        }
+        $place = mypi_dossier_place($in);
+        $c_uid = trim((string) ($in['c_uid'] ?? ''));
+        $status = mypi_dossier_norm_status($in['status'] ?? 'unsure');
+        $agent = (string) ($in['agent'] ?? 'user');
+        $meta = [
+            'status' => $status,
+            'sigil_asset' => (string) ($in['sigil_asset'] ?? ''),
+        ];
+        if ($c_uid !== '') {
+            $row = mypi_ledger_get($c_uid);
+            if (!$row || ($row['kind'] ?? '') !== 'dossier_faction') {
+                return ['ok' => false, 'error' => 'faction not found'];
+            }
+            $old = json_decode((string) ($row['meta_json'] ?? '{}'), true) ?: [];
+            if (!empty($old['sigil_asset']) && $meta['sigil_asset'] === '') {
+                $meta['sigil_asset'] = $old['sigil_asset'];
+            }
+            $meta = array_merge($old, $meta);
+            $now = time();
+            mypi_ledger_pdo()->prepare(
+                'UPDATE crates SET topic=?, body=?, meta_json=?, tags_raw=?, updated_at=? WHERE c_uid=?'
+            )->execute([
+                $name, $body, json_encode($meta),
+                (string) ($in['tags_raw'] ?? $row['tags_raw'] ?? ''),
+                $now, $c_uid,
+            ]);
+            return ['ok' => true, 'c_uid' => $c_uid, 'updated' => true];
+        }
+        return mypi_ledger_create_post([
+            'topic' => $name,
+            'body' => $body,
+            'kind' => 'dossier_faction',
+            'scale' => 'log',
+            'tool' => 'dossierDesk',
+            'tool_version' => 1,
+            'sys' => $place['sys'],
+            'dom' => $place['dom'],
+            'room' => $place['room'],
+            'mod' => $place['mod'],
+            'place_label' => $place['place_label'],
+            'agent' => $agent,
+            'actor' => (string) ($in['actor'] ?? $agent),
+            'timezone' => (string) ($in['timezone'] ?? ''),
+            'tags_raw' => (string) ($in['tags_raw'] ?? ''),
+            'meta' => $meta,
+        ]);
+    }
+
+    /**
+     * Upsert membership (person ↔ faction).
+     */
+    function mypi_dossier_save_membership(array $in) {
+        $person = trim((string) ($in['person_c_uid'] ?? ''));
+        $faction = trim((string) ($in['faction_c_uid'] ?? ''));
+        if ($person === '' || $faction === '') {
+            return ['ok' => false, 'error' => 'person and faction required'];
+        }
+        $p = mypi_ledger_get($person);
+        $f = mypi_ledger_get($faction);
+        if (!$p || ($p['kind'] ?? '') !== 'dossier_person') {
+            return ['ok' => false, 'error' => 'bad person'];
+        }
+        if (!$f || ($f['kind'] ?? '') !== 'dossier_faction') {
+            return ['ok' => false, 'error' => 'bad faction'];
+        }
+        $place = mypi_dossier_place($in);
+        $status = mypi_dossier_norm_status($in['status'] ?? 'unsure');
+        $isLeader = !empty($in['is_leader']);
+        $role = trim((string) ($in['role'] ?? ''));
+        $agent = (string) ($in['agent'] ?? 'user');
+
+        // find existing membership
+        $pdo = mypi_ledger_pdo();
+        $st = $pdo->prepare(
+            "SELECT * FROM crates
+             WHERE kind = 'dossier_membership' AND tool = 'dossierDesk'
+               AND (deleted_at IS NULL OR deleted_at = 0)
+               AND json_extract(meta_json, '$.person_c_uid') = ?
+               AND json_extract(meta_json, '$.faction_c_uid') = ?
+             LIMIT 1"
+        );
+        $st->execute([$person, $faction]);
+        $existing = $st->fetch();
+
+        $meta = [
+            'person_c_uid' => $person,
+            'faction_c_uid' => $faction,
+            'status' => $status,
+            'is_leader' => $isLeader,
+            'role' => $role,
+        ];
+        $topic = ($p['topic'] ?? 'person') . ' ∈ ' . ($f['topic'] ?? 'faction');
+
+        if ($existing) {
+            $c_uid = $existing['c_uid'];
+            $old = json_decode((string) ($existing['meta_json'] ?? '{}'), true) ?: [];
+            $meta = array_merge($old, $meta);
+            $pdo->prepare('UPDATE crates SET topic=?, meta_json=?, updated_at=? WHERE c_uid=?')
+                ->execute([$topic, json_encode($meta), time(), $c_uid]);
+            $leaders = mypi_dossier_faction_leaders($faction);
+            return [
+                'ok' => true,
+                'c_uid' => $c_uid,
+                'updated' => true,
+                'leader_warn' => count($leaders) >= 2,
+                'leader_count' => count($leaders),
+                'leaders' => $leaders,
+            ];
+        }
+
+        $r = mypi_ledger_create_post([
+            'topic' => $topic,
+            'body' => $role,
+            'kind' => 'dossier_membership',
+            'scale' => 'leaf',
+            'tool' => 'dossierDesk',
+            'tool_version' => 1,
+            'sys' => $place['sys'],
+            'dom' => $place['dom'],
+            'room' => $place['room'],
+            'mod' => $place['mod'],
+            'place_label' => $place['place_label'],
+            'agent' => $agent,
+            'actor' => (string) ($in['actor'] ?? $agent),
+            'timezone' => (string) ($in['timezone'] ?? ''),
+            'parent_c_uid' => $person,
+            'stem_c_uid' => $person,
+            'meta' => $meta,
+        ]);
+        if (empty($r['ok'])) {
+            return $r;
+        }
+        $leaders = mypi_dossier_faction_leaders($faction);
+        $r['leader_warn'] = count($leaders) >= 2;
+        $r['leader_count'] = count($leaders);
+        $r['leaders'] = $leaders;
+        return $r;
+    }
+
+    /**
+     * @return list<array{c_uid:string,name:string,membership_c_uid:string}>
+     */
+    function mypi_dossier_faction_leaders($faction_c_uid) {
+        $faction_c_uid = trim((string) $faction_c_uid);
+        if ($faction_c_uid === '') {
+            return [];
+        }
+        $st = mypi_ledger_pdo()->prepare(
+            "SELECT * FROM crates
+             WHERE kind = 'dossier_membership' AND tool = 'dossierDesk'
+               AND (deleted_at IS NULL OR deleted_at = 0)
+               AND json_extract(meta_json, '$.faction_c_uid') = ?
+               AND (
+                 json_extract(meta_json, '$.is_leader') = 1
+                 OR json_extract(meta_json, '$.is_leader') = 'true'
+                 OR json_extract(meta_json, '$.is_leader') = true
+               )"
+        );
+        $st->execute([$faction_c_uid]);
+        $out = [];
+        foreach ($st->fetchAll() ?: [] as $m) {
+            $mm = json_decode((string) ($m['meta_json'] ?? '{}'), true) ?: [];
+            if (empty($mm['is_leader'])) {
+                continue;
+            }
+            $pid = (string) ($mm['person_c_uid'] ?? '');
+            $person = $pid !== '' ? mypi_ledger_get($pid) : null;
+            $out[] = [
+                'c_uid' => $pid,
+                'name' => $person ? (string) $person['topic'] : '?',
+                'membership_c_uid' => $m['c_uid'],
+            ];
+        }
+        return $out;
+    }
+
+    function mypi_dossier_memberships_for_person($person_c_uid) {
+        $st = mypi_ledger_pdo()->prepare(
+            "SELECT * FROM crates
+             WHERE kind = 'dossier_membership' AND tool = 'dossierDesk'
+               AND (deleted_at IS NULL OR deleted_at = 0)
+               AND json_extract(meta_json, '$.person_c_uid') = ?
+             ORDER BY ingest_unix DESC"
+        );
+        $st->execute([trim((string) $person_c_uid)]);
+        return $st->fetchAll() ?: [];
+    }
+
+    function mypi_dossier_memberships_for_faction($faction_c_uid) {
+        $st = mypi_ledger_pdo()->prepare(
+            "SELECT * FROM crates
+             WHERE kind = 'dossier_membership' AND tool = 'dossierDesk'
+               AND (deleted_at IS NULL OR deleted_at = 0)
+               AND json_extract(meta_json, '$.faction_c_uid') = ?
+             ORDER BY ingest_unix DESC"
+        );
+        $st->execute([trim((string) $faction_c_uid)]);
+        return $st->fetchAll() ?: [];
+    }
+
+    function mypi_dossier_add_note(array $in) {
+        $body = trim((string) ($in['body'] ?? ''));
+        $topic = trim((string) ($in['title'] ?? $in['topic'] ?? ''));
+        if ($body === '' && $topic === '') {
+            return ['ok' => false, 'error' => 'empty note'];
+        }
+        if ($topic === '') {
+            $topic = '(field note)';
+        }
+        $place = mypi_dossier_place($in);
+        $subjects = [];
+        if (!empty($in['person_c_uid'])) {
+            $subjects[] = trim((string) $in['person_c_uid']);
+        }
+        if (!empty($in['faction_c_uid'])) {
+            $subjects[] = trim((string) $in['faction_c_uid']);
+        }
+        if (!empty($in['subject_c_uid'])) {
+            $subjects[] = trim((string) $in['subject_c_uid']);
+        }
+        $subjects = array_values(array_unique(array_filter($subjects)));
+        if (!$subjects) {
+            return ['ok' => false, 'error' => 'subject required (person and/or faction)'];
+        }
+        $event = time();
+        if (isset($in['event_unix']) && $in['event_unix'] !== '' && $in['event_unix'] !== null) {
+            $event = (int) $in['event_unix'];
+        } elseif (!empty($in['event_raw'])) {
+            $ts = strtotime((string) $in['event_raw']);
+            if ($ts !== false) {
+                $event = $ts;
+            }
+        }
+        $parent = $subjects[0];
+        $agent = (string) ($in['agent'] ?? 'user');
+        $meta = [
+            'subject_c_uids' => $subjects,
+            'person_c_uid' => (string) ($in['person_c_uid'] ?? ''),
+            'faction_c_uid' => (string) ($in['faction_c_uid'] ?? ''),
+            'confidence' => (string) ($in['confidence'] ?? 'rumor'),
+            'context' => trim((string) ($in['context'] ?? '')),
+            'source' => (string) ($in['source'] ?? 'field'),
+        ];
+        return mypi_ledger_create_post([
+            'topic' => $topic,
+            'body' => $body,
+            'kind' => 'dossier_note',
+            'scale' => 'leaf',
+            'tool' => 'dossierDesk',
+            'tool_version' => 1,
+            'sys' => $place['sys'],
+            'dom' => $place['dom'],
+            'room' => $place['room'],
+            'mod' => $place['mod'],
+            'place_label' => $place['place_label'],
+            'agent' => $agent,
+            'actor' => (string) ($in['actor'] ?? $agent),
+            'timezone' => (string) ($in['timezone'] ?? ''),
+            'event_unix' => $event,
+            'tags_raw' => (string) ($in['tags_raw'] ?? ''),
+            'parent_c_uid' => $parent,
+            'stem_c_uid' => $parent,
+            'meta' => $meta,
+        ]);
+    }
+
+    function mypi_dossier_list_notes(array $opts = []) {
+        $limit = max(1, min(200, (int) ($opts['limit'] ?? 80)));
+        $place = mypi_dossier_place($opts);
+        $pdo = mypi_ledger_pdo();
+        $sql = "SELECT * FROM crates
+                WHERE kind = 'dossier_note' AND tool = 'dossierDesk'
+                  AND (deleted_at IS NULL OR deleted_at = 0)
+                  AND sys = ? AND dom = ? AND room = ?";
+        $args = [$place['sys'], $place['dom'], $place['room']];
+        if (!empty($opts['person_c_uid'])) {
+            $sql .= " AND (
+              json_extract(meta_json, '$.person_c_uid') = ?
+              OR meta_json LIKE ?
+            )";
+            $pid = (string) $opts['person_c_uid'];
+            $args[] = $pid;
+            $args[] = '%' . $pid . '%';
+        }
+        if (!empty($opts['faction_c_uid'])) {
+            $sql .= " AND (
+              json_extract(meta_json, '$.faction_c_uid') = ?
+              OR meta_json LIKE ?
+            )";
+            $fid = (string) $opts['faction_c_uid'];
+            $args[] = $fid;
+            $args[] = '%' . $fid . '%';
+        }
+        $sql .= ' ORDER BY event_unix DESC, ingest_unix DESC LIMIT ' . $limit;
+        $st = $pdo->prepare($sql);
+        $st->execute($args);
+        return $st->fetchAll() ?: [];
     }
 
     // ── Media store (diagram boards, covers, sine waves…) ─────────────

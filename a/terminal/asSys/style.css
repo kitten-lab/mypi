@@ -452,7 +452,8 @@ aside.tm-rail form.tm-rail-out {
 
 /* fileKeeper / inventOry desks: fill reading pane top→bottom */
 .tm-main:has(.filekeeper),
-.tm-main:has(.inventury) {
+.tm-main:has(.inventury),
+.tm-main:has(.ddesk) {
   display: flex;
   flex-direction: column;
   overflow: hidden; /* scroll lives inside tree / panel */
@@ -461,7 +462,8 @@ aside.tm-rail form.tm-rail-out {
 }
 
 .tm-reading:has(.filekeeper),
-.tm-reading:has(.inventury) {
+.tm-reading:has(.inventury),
+.tm-reading:has(.ddesk) {
   max-width: none;
   width: 100%;
   flex: 1 1 auto;
@@ -472,7 +474,8 @@ aside.tm-rail form.tm-rail-out {
 }
 
 .tm-reading:has(.filekeeper) .filekeeper,
-.tm-reading:has(.inventury) .inventury {
+.tm-reading:has(.inventury) .inventury,
+.tm-reading:has(.ddesk) .ddesk {
   flex: 1 1 auto;
   min-height: 0;
   max-width: none;

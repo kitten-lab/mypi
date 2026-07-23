@@ -32,9 +32,10 @@ $treeIo = [
     ['key' => 'login', 'label' => 'SESSION'],
 ];
 
-// AB — red station · files + quiet chat/email only (tools later)
+// AB — red station · investigation shell
 $treeAb = [
     ['key' => 'files', 'label' => 'FILES'],
+    ['key' => 'dossier', 'label' => 'DOSSIER'],
     ['key' => 'email', 'label' => 'E-MAIL'],
     ['key' => 'chat', 'label' => 'CHAT'],
     ['key' => 'login', 'label' => 'SESSION'],
@@ -44,7 +45,7 @@ $tree = $treeIo;
 $whisper = 'import · exports · use the rail to leave';
 if ($domL === 'ab') {
     $tree = $treeAb;
-    $whisper = 'files only · the rest of the tools are offline · for now';
+    $whisper = 'files · dossier desk · the line is listening';
 }
 ?>
 <div class="tm-tree">

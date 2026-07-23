@@ -1,0 +1,333 @@
+/**
+ * dossierDesk — AB investigation map (person-first)
+ */
+.ddesk {
+  --dd-border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  width: 100%;
+  max-width: none;
+  min-height: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.ddesk-layout {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr);
+  gap: 0.5rem;
+  height: 100%;
+}
+
+@media (max-width: 720px) {
+  .ddesk-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ddesk-side {
+  border: var(--dd-border);
+  background: rgba(0, 0, 0, 0.28);
+  min-height: 0;
+  overflow: auto;
+  padding: 0.4rem 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ddesk-tabs {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.ddesk-tabs a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.2rem;
+  border: var(--dd-border);
+  opacity: 0.75;
+}
+
+.ddesk-tabs a.is-on {
+  opacity: 1;
+  background: color-mix(in srgb, currentColor 16%, transparent);
+  border-color: currentColor;
+  font-weight: 700;
+}
+
+.ddesk-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.ddesk-list a {
+  display: block;
+  padding: 0.35rem 0.4rem;
+  color: inherit;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+.ddesk-list a:hover,
+.ddesk-list a.is-on {
+  border-left-color: currentColor;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.ddesk-list .dd-meta {
+  display: block;
+  font-size: 0.65rem;
+  opacity: 0.55;
+  margin-top: 0.1rem;
+}
+
+.ddesk-panel {
+  border: var(--dd-border);
+  background: rgba(0, 0, 0, 0.16);
+  min-height: 0;
+  overflow: auto;
+  padding: 0.55rem 0.75rem 1rem;
+  box-sizing: border-box;
+}
+
+.ddesk-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.ddesk-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.dd-badge {
+  display: inline-block;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.35rem;
+  border: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.dd-badge.st-active {
+  border-color: currentColor;
+  background: color-mix(in srgb, currentColor 18%, transparent);
+}
+
+.dd-badge.st-inactive {
+  opacity: 0.55;
+}
+
+.dd-badge.st-unsure {
+  border-style: dashed;
+  opacity: 0.8;
+}
+
+.dd-badge.st-dissolved {
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+.dd-warn {
+  border: 1px solid color-mix(in srgb, currentColor 55%, transparent);
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  padding: 0.4rem 0.55rem;
+  margin: 0 0 0.65rem;
+  font-size: 0.88rem;
+}
+
+.dd-status {
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
+}
+
+.dd-err {
+  color: #f88;
+}
+
+.dd-section {
+  margin: 0.85rem 0 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  padding-bottom: 0.15rem;
+}
+
+.dd-form {
+  border: var(--dd-border);
+  padding: 0.5rem 0.55rem 0.6rem;
+  margin: 0.5rem 0 0.75rem;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.dd-form label {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin: 0.35rem 0 0.12rem;
+}
+
+.dd-form input[type="text"],
+.dd-form input[type="date"],
+.dd-form textarea,
+.dd-form select {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.35);
+  border: var(--dd-border);
+  border-radius: 0;
+  padding: 0.35rem 0.45rem;
+}
+
+.dd-form textarea {
+  min-height: 4rem;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+.dd-form .dd-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  margin-top: 0.35rem;
+}
+
+.dd-form .dd-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.dd-btn {
+  font: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  padding: 0.35rem 0.65rem;
+  border: var(--dd-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.dd-btn:hover {
+  background: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.dd-btn-primary {
+  border-color: color-mix(in srgb, currentColor 55%, transparent);
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  font-weight: 600;
+}
+
+.dd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 0.35rem 0 0.65rem;
+}
+
+.dd-table th,
+.dd-table td {
+  text-align: left;
+  padding: 0.3rem 0.35rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+  vertical-align: top;
+}
+
+.dd-table th {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.dd-table a {
+  color: inherit;
+}
+
+.dd-note {
+  border-left: 2px solid color-mix(in srgb, currentColor 40%, transparent);
+  padding: 0.3rem 0 0.45rem 0.55rem;
+  margin: 0.4rem 0;
+}
+
+.dd-note h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.dd-note .dd-when {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.dd-note-body {
+  margin-top: 0.2rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.dd-portrait {
+  max-width: 8rem;
+  max-height: 8rem;
+  border: var(--dd-border);
+  display: block;
+  margin: 0.35rem 0 0.5rem;
+}
+
+.dd-empty {
+  opacity: 0.55;
+  font-size: 0.88rem;
+}
+
+.dd-hint {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin: 0.15rem 0 0.4rem;
+}
+
+.muted {
+  opacity: 0.6;
+}
+
+.dd-leader {
+  color: inherit;
+  font-weight: 700;
+}
