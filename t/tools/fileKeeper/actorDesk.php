@@ -35,6 +35,73 @@ if ($action === 'mkdir') {
     return;
 }
 
+if ($action === 'attach') {
+    $stem = trim((string) ($_POST['fk_stem'] ?? ''));
+    $cUid = trim((string) ($_POST['fk_c_uid'] ?? ''));
+    $role = trim((string) ($_POST['fk_media_role'] ?? 'attach'));
+    if ($role === '') {
+        $role = 'attach';
+    }
+    if ($cUid === '' && $stem !== '') {
+        // attach to current head of stem
+        $heads = mypi_ledger_file_heads([
+            'sys' => $place['sys'],
+            'dom' => $place['dom'],
+            'room' => $place['room'],
+            'limit' => 200,
+        ]);
+        foreach ($heads as $h) {
+            $hm = json_decode((string) ($h['meta_json'] ?? '{}'), true) ?: [];
+            $hs = (string) ($hm['stem_c_uid'] ?? $h['c_uid']);
+            if ($hs === $stem) {
+                $cUid = $h['c_uid'];
+                break;
+            }
+        }
+    }
+    if ($cUid === '') {
+        $GLOBALS['FILEKEEPER_ERROR'] = 'no file to attach to';
+        return;
+    }
+    if (empty($_FILES['fk_image']['tmp_name']) || !is_uploaded_file($_FILES['fk_image']['tmp_name'])) {
+        $GLOBALS['FILEKEEPER_ERROR'] = 'no image uploaded';
+        return;
+    }
+    $stored = mypi_media_store(
+        $_FILES['fk_image']['tmp_name'],
+        (string) ($_FILES['fk_image']['name'] ?? 'upload.png'),
+        ['c_uid' => $cUid, 'stem_c_uid' => $stem, 'role' => $role]
+    );
+    if (empty($stored['ok'])) {
+        $GLOBALS['FILEKEEPER_ERROR'] = $stored['error'] ?? 'store failed';
+        return;
+    }
+    $att = mypi_media_attach_crate($cUid, $stored, $role);
+    if (empty($att['ok'])) {
+        $GLOBALS['FILEKEEPER_ERROR'] = $att['error'] ?? 'attach failed';
+        return;
+    }
+    // append markdown ref into body if body is the IMG SUPPORT placeholder or empty
+    $row = mypi_ledger_get($cUid);
+    if ($row) {
+        $body = (string) ($row['body'] ?? '');
+        $md = "\n\n![" . ($stored['name'] ?? 'image') . "](media:" . $stored['asset_id'] . ")\n";
+        if (trim($body) === '' || stripos($body, 'INSTALL IMG SUPPORT') !== false || stripos($body, 'ERROR, PLEASE INSTALL IMG') !== false) {
+            // keep the prophecy line, then unlock
+            if (stripos($body, 'INSTALL IMG SUPPORT') !== false || stripos($body, 'ERROR, PLEASE INSTALL IMG') !== false) {
+                $body = trim($body) . "\n\n<!-- IMG SUPPORT ONLINE -->" . $md;
+            } else {
+                $body = $md;
+            }
+            mypi_ledger_pdo()->prepare('UPDATE crates SET body = ?, updated_at = ? WHERE c_uid = ?')
+                ->execute([$body, time(), $cUid]);
+        }
+    }
+    $q = ['stem' => $stem !== '' ? $stem : $cUid, 'fk_ok' => 'img'];
+    header('Location: ' . $path . '?' . http_build_query($q));
+    exit;
+}
+
 if ($action !== 'save') {
     return;
 }

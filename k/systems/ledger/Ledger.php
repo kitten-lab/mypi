@@ -2223,4 +2223,238 @@ SQL
             'errors' => $errors,
         ];
     }
+
+    // ── Media store (diagram boards, covers, sine waves…) ─────────────
+
+    function mypi_media_root() {
+        if (!defined('echoSONAR')) {
+            throw new RuntimeException('echoSONAR not defined');
+        }
+        $dir = rtrim(str_replace('\\', '/', echoSONAR), '/') . '/d/_MEDIA';
+        if (!is_dir($dir)) {
+            mkdir($dir, 0775, true);
+        }
+        return $dir;
+    }
+
+    /** New asset id: m.HEX */
+    function mypi_media_new_id() {
+        return 'm.' . strtoupper(bin2hex(random_bytes(8)));
+    }
+
+    function mypi_media_safe_id($id) {
+        $id = trim((string) $id);
+        if (!preg_match('/^m\.([A-Fa-f0-9]{16})$/', $id, $m)) {
+            return '';
+        }
+        return 'm.' . strtoupper($m[1]);
+    }
+
+    /**
+     * Store an uploaded / local image file into d/_MEDIA.
+     *
+     * @return array{ok:bool,asset_id?:string,ext?:string,name?:string,bytes?:int,error?:string}
+     */
+    function mypi_media_store($sourcePath, $originalName, array $opts = []) {
+        if (!is_file($sourcePath)) {
+            return ['ok' => false, 'error' => 'no source file'];
+        }
+        $orig = basename((string) $originalName);
+        $ext = strtolower(pathinfo($orig, PATHINFO_EXTENSION));
+        $allowed = ['png' => 1, 'jpg' => 1, 'jpeg' => 1, 'gif' => 1, 'webp' => 1, 'svg' => 1];
+        if ($ext === 'jpeg') {
+            $ext = 'jpg';
+        }
+        if ($ext === '' || empty($allowed[$ext])) {
+            return ['ok' => false, 'error' => 'unsupported type (png/jpg/gif/webp/svg)'];
+        }
+        $bytes = (int) filesize($sourcePath);
+        $max = (int) ($opts['max_bytes'] ?? 12 * 1024 * 1024);
+        if ($bytes <= 0 || $bytes > $max) {
+            return ['ok' => false, 'error' => 'file too large or empty (max 12MB)'];
+        }
+        $id = mypi_media_new_id();
+        $root = mypi_media_root();
+        $dest = $root . '/' . $id . '.' . $ext;
+        $moved = false;
+        if (is_uploaded_file($sourcePath)) {
+            $moved = @move_uploaded_file($sourcePath, $dest);
+        }
+        if (!$moved) {
+            $moved = @copy($sourcePath, $dest);
+        }
+        if (!$moved) {
+            return ['ok' => false, 'error' => 'could not store file'];
+        }
+        $meta = [
+            'asset_id' => $id,
+            'ext' => $ext,
+            'name' => $orig,
+            'bytes' => $bytes,
+            'stored_at' => time(),
+            'stem_c_uid' => (string) ($opts['stem_c_uid'] ?? ''),
+            'c_uid' => (string) ($opts['c_uid'] ?? ''),
+            'role' => (string) ($opts['role'] ?? 'attach'),
+        ];
+        file_put_contents($root . '/' . $id . '.json', json_encode($meta, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        return [
+            'ok' => true,
+            'asset_id' => $id,
+            'ext' => $ext,
+            'name' => $orig,
+            'bytes' => $bytes,
+            'path' => $dest,
+        ];
+    }
+
+    /**
+     * Resolve asset filesystem path (null if missing / bad id).
+     */
+    function mypi_media_resolve($asset_id) {
+        $id = mypi_media_safe_id($asset_id);
+        if ($id === '') {
+            return null;
+        }
+        $root = mypi_media_root();
+        $hits = glob($root . '/' . $id . '.*') ?: [];
+        foreach ($hits as $f) {
+            if (preg_match('/\.(json)$/i', $f)) {
+                continue;
+            }
+            return $f;
+        }
+        return null;
+    }
+
+    function mypi_media_meta($asset_id) {
+        $id = mypi_media_safe_id($asset_id);
+        if ($id === '') {
+            return null;
+        }
+        $jf = mypi_media_root() . '/' . $id . '.json';
+        if (!is_file($jf)) {
+            return null;
+        }
+        $m = json_decode((string) file_get_contents($jf), true);
+        return is_array($m) ? $m : null;
+    }
+
+    /** Public href for img src (auth-gated door). */
+    function mypi_media_href($asset_id) {
+        $id = mypi_media_safe_id($asset_id);
+        if ($id === '') {
+            return '';
+        }
+        if (function_exists('mypi_room_href')) {
+            return mypi_room_href('io', 'media') . '?id=' . rawurlencode($id);
+        }
+        return '/terminal/io/media?id=' . rawurlencode($id);
+    }
+
+    /**
+     * Attach asset to a crate's meta.attachments (stem head preferred).
+     *
+     * @return array{ok:bool,error?:string}
+     */
+    function mypi_media_attach_crate($c_uid, array $asset, $role = 'attach') {
+        $row = mypi_ledger_get($c_uid);
+        if (!$row) {
+            return ['ok' => false, 'error' => 'crate not found'];
+        }
+        $meta = json_decode((string) ($row['meta_json'] ?? '{}'), true) ?: [];
+        $atts = $meta['attachments'] ?? [];
+        if (!is_array($atts)) {
+            $atts = [];
+        }
+        $atts[] = [
+            'asset_id' => $asset['asset_id'],
+            'name' => $asset['name'] ?? '',
+            'ext' => $asset['ext'] ?? '',
+            'role' => $role,
+            'bytes' => $asset['bytes'] ?? 0,
+            'attached_at' => time(),
+        ];
+        $meta['attachments'] = $atts;
+        mypi_ledger_pdo()->prepare('UPDATE crates SET meta_json = ?, updated_at = ? WHERE c_uid = ?')
+            ->execute([json_encode($meta), time(), $c_uid]);
+        return ['ok' => true, 'meta' => $meta];
+    }
+
+    /**
+     * HTML for attachment strip + rewrite body media: refs before Parsedown.
+     *
+     * @return array{html:string,body:string}
+     */
+    function mypi_media_prepare_body_view($body, array $meta = []) {
+        $body = (string) $body;
+        $atts = $meta['attachments'] ?? [];
+        if (!is_array($atts)) {
+            $atts = [];
+        }
+        // rewrite ![alt](media:ID) → real src
+        $body = preg_replace_callback(
+            '/!\[([^\]]*)\]\(\s*media:([a-zA-Z0-9.]+)\s*\)/u',
+            static function ($m) {
+                $href = mypi_media_href($m[2]);
+                if ($href === '') {
+                    return $m[0];
+                }
+                return '![' . $m[1] . '](' . $href . ')';
+            },
+            $body
+        );
+        // Obsidian ![[file.png]] → if name matches an attachment, embed it
+        $byName = [];
+        foreach ($atts as $a) {
+            $n = strtolower((string) ($a['name'] ?? ''));
+            if ($n !== '') {
+                $byName[$n] = $a;
+            }
+        }
+        $body = preg_replace_callback(
+            '/!\[\[([^\]|#]+)(?:\|[^\]]+)?\]\]/u',
+            static function ($m) use ($byName) {
+                $name = basename(trim($m[1]));
+                $key = strtolower($name);
+                if (!isset($byName[$key])) {
+                    return '*(missing embed: ' . $name . ')*';
+                }
+                $href = mypi_media_href($byName[$key]['asset_id'] ?? '');
+                if ($href === '') {
+                    return '*(missing embed: ' . $name . ')*';
+                }
+                return '![' . $name . '](' . $href . ')';
+            },
+            $body
+        );
+
+        $html = '';
+        if ($atts) {
+            $html .= '<div class="fk-media-strip">';
+            foreach ($atts as $a) {
+                $id = $a['asset_id'] ?? '';
+                $href = mypi_media_href($id);
+                if ($href === '') {
+                    continue;
+                }
+                $nm = htmlspecialchars((string) ($a['name'] ?? $id), ENT_QUOTES, 'UTF-8');
+                $html .= '<figure class="fk-media-fig">';
+                $html .= '<img src="' . htmlspecialchars($href, ENT_QUOTES, 'UTF-8') . '" alt="' . $nm . '" loading="lazy">';
+                $html .= '<figcaption>' . $nm . '</figcaption>';
+                $html .= '</figure>';
+            }
+            $html .= '</div>';
+        }
+
+        // narrative: bag asked for IMG SUPPORT
+        if (stripos($body, 'INSTALL IMG SUPPORT') !== false || stripos($body, 'ERROR, PLEASE INSTALL IMG') !== false) {
+            if ($atts) {
+                $html = '<p class="fk-img-support-ok"><strong>IMG SUPPORT ONLINE</strong> · sine continues</p>' . $html;
+            } else {
+                $html = '<p class="fk-img-support-wait"><strong>IMG SUPPORT READY</strong> · attach an image on Modify to continue the wave</p>' . $html;
+            }
+        }
+
+        return ['html' => $html, 'body' => $body];
+    }
 }

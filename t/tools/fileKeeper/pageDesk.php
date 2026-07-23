@@ -145,30 +145,40 @@ $self = htmlspecialchars(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) 
 $editHref = $self . '?stem=' . rawurlencode($stem) . '&edit=1';
 $viewHref = $self . '?stem=' . rawurlencode($stem);
 
-// markdown render for view (GFM task lists + single-newline breaks for grids)
+// markdown render for view (GFM task lists + single-newline breaks for grids + media)
 $rendered = '';
-if ($mode === 'view' && $body !== '') {
+$mediaStrip = '';
+$viewMeta = [];
+if ($mode === 'view' && $currentUid !== '') {
+    $crow = mypi_ledger_get($currentUid);
+    $viewMeta = $crow ? (json_decode((string) ($crow['meta_json'] ?? '{}'), true) ?: []) : [];
+    $prep = mypi_media_prepare_body_view($body, $viewMeta);
+    $mediaStrip = $prep['html'];
+    $bodyForMd = $prep['body'];
     $equip = ROUTE_TO_SYSTEMS . 'Borrows/parsedown/equip.parsedown.php';
     $pdTasks = ROUTE_TO_SYSTEMS . 'Borrows/parsedown/ParsedownTasks.php';
     $pdBase = ROUTE_TO_SYSTEMS . 'Borrows/parsedown/Parsedown.php';
-    if (is_file($equip)) {
-        require_once $equip;
-        $rendered = render_md($body);
-    } elseif (is_file($pdTasks)) {
-        require_once $pdTasks;
-        $pd = new ParsedownTasks();
-        $pd->setSafeMode(true);
-        $pd->setBreaksEnabled(true);
-        $rendered = $pd->text($body);
-    } elseif (is_file($pdBase)) {
-        require_once $pdBase;
-        $pd = new Parsedown();
-        $pd->setSafeMode(true);
-        $pd->setBreaksEnabled(true);
-        $rendered = $pd->text($body);
-    } else {
-        $rendered = '<pre class="fk-pre">' . htmlspecialchars($body, ENT_QUOTES, 'UTF-8') . '</pre>';
+    if ($bodyForMd !== '') {
+        if (is_file($equip)) {
+            require_once $equip;
+            $rendered = render_md($bodyForMd);
+        } elseif (is_file($pdTasks)) {
+            require_once $pdTasks;
+            $pd = new ParsedownTasks();
+            $pd->setSafeMode(true);
+            $pd->setBreaksEnabled(true);
+            $rendered = $pd->text($bodyForMd);
+        } elseif (is_file($pdBase)) {
+            require_once $pdBase;
+            $pd = new Parsedown();
+            $pd->setSafeMode(true);
+            $pd->setBreaksEnabled(true);
+            $rendered = $pd->text($bodyForMd);
+        } else {
+            $rendered = '<pre class="fk-pre">' . htmlspecialchars($bodyForMd, ENT_QUOTES, 'UTF-8') . '</pre>';
+        }
     }
+    $rendered = $mediaStrip . $rendered;
 }
 ?>
 <div class="filekeeper">
@@ -190,20 +200,13 @@ if ($mode === 'view' && $body !== '') {
         };
         ?>
 
-        <?php if (!empty($byFolder[''])): ?>
-          <ul class="fk-file-ul">
-            <?php foreach ($byFolder[''] as $h) {
-                $renderFileLink($h, $stem, $new, $self);
-            } ?>
-          </ul>
-        <?php endif; ?>
-
-        <?php foreach ($byFolder as $fname => $files):
+        <?php
+        // Folders first, then root files
+        foreach ($byFolder as $fname => $files):
             if ($fname === '') {
                 continue;
             }
             $openFolder = ($folder === $fname) || (!$new && $stem !== '' && $folder === $fname);
-            // keep open if any file in folder is selected
             if (!$openFolder && $stem !== '') {
                 foreach ($files as $fh) {
                     $fhm = json_decode((string) ($fh['meta_json'] ?? '{}'), true) ?: [];
@@ -234,6 +237,14 @@ if ($mode === 'view' && $body !== '') {
             </ul>
           </details>
         <?php endforeach; ?>
+
+        <?php if (!empty($byFolder[''])): ?>
+          <ul class="fk-file-ul fk-root-files">
+            <?php foreach ($byFolder[''] as $h) {
+                $renderFileLink($h, $stem, $new, $self);
+            } ?>
+          </ul>
+        <?php endif; ?>
 
         <?php if (!$heads && !$folderNames): ?>
           <p class="fk-empty-hint">no files yet</p>
@@ -296,6 +307,25 @@ if ($mode === 'view' && $body !== '') {
               <p class="muted"><em>(empty)</em></p>
             <?php endif; ?>
           </div>
+          <?php if (!$new && $stem !== '' && $currentUid !== ''): ?>
+            <form method="post" action="" enctype="multipart/form-data" class="fk-attach-form">
+              <input type="hidden" name="filekeeper_action" value="attach">
+              <input type="hidden" name="fk_stem" value="<?= htmlspecialchars($stem, ENT_QUOTES, 'UTF-8') ?>">
+              <input type="hidden" name="fk_c_uid" value="<?= htmlspecialchars($currentUid, ENT_QUOTES, 'UTF-8') ?>">
+              <input type="hidden" name="fk_tz" class="fk-tz" value="">
+              <label class="fk-attach-label" for="fk_image">Attach image · IMG SUPPORT</label>
+              <div class="fk-attach-row">
+                <input id="fk_image" name="fk_image" type="file" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" required>
+                <select name="fk_media_role" aria-label="role">
+                  <option value="diagram">diagram</option>
+                  <option value="cover">cover</option>
+                  <option value="attach" selected>attach</option>
+                </select>
+                <button type="submit" class="fk-btn">Install image</button>
+              </div>
+              <p class="filekeeper-status muted">png/jpg/gif/webp · lands in d/_MEDIA · body can use <code>![](media:ID)</code></p>
+            </form>
+          <?php endif; ?>
           <?php if (count($revs) > 1): ?>
             <div class="filekeeper-revs">
               history:
@@ -373,6 +403,12 @@ if ($mode === 'view' && $body !== '') {
     </section>
   </div>
 </div>
+<script>
+(function () {
+  var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+  document.querySelectorAll('#fk-tz, .fk-tz').forEach(function (el) { el.value = tz; });
+})();
+</script>
 <?php if ($mode === 'edit'): ?>
 <script>
 (function () {
