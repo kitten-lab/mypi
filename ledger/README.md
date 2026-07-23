@@ -34,12 +34,22 @@ Place is still `place_path` + sys/dom/room/mod columns.
 
 ## Trust drill
 
-1. Open TUI → **Add demo crate**  
+1. Open TUI → **Demo** crate  
 2. Select it → see place + tags (`place:…`, `@segment`)  
-3. **Add tag trusted** → history shows `tag_add`  
-4. **Edit body** → history shows `set_body` with old/new  
+3. **Tag bar** → type `aubel` or `aubel*knows>iox` → **Tag+** (append) or **Set raw** (replace whole `tags_raw`)  
+4. History shows `charlie_set`; Charlie section lists terms/edges  
 5. DB file alone is the backup  
+
+### Charlie from TUI
+
+| Control | Action |
+|---------|--------|
+| **Tag+** / Enter | Append fragment onto crate `tags_raw`, rebuild `tag_map` + edges |
+| **Set raw** | Replace full `tags_raw` (backend rewrite) |
+| **t** | Focus tag input |
+
+Full multi-stage Charlie syntax: `from*rel>that,that2; other`.
 
 ## Next
 
-Wire postBASIC MakePost → this ledger (same fields, no room JSON slips).
+Wire postBASIC / desks → same `set_crate_charlie` when you want glass tools to write threads.

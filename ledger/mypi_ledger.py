@@ -667,27 +667,77 @@ def add_tag(
     place_path: str = "",
     tool: str = "mypi-tui",
 ) -> None:
+    """Append one plain tag (no Charlie edges). Prefer append_charlie for full language."""
     tag = tag.strip().lstrip("#")
     if not tag:
         raise ValueError("empty tag")
+    append_charlie(conn, c_uid, tag, actor=actor, place_path=place_path, tool=tool)
+
+
+def set_crate_charlie(
+    conn: sqlite3.Connection,
+    c_uid: str,
+    tags_raw: str,
+    *,
+    actor: str = "hands",
+    place_path: str = "",
+    tool: str = "mypi-tui",
+) -> None:
+    """
+    Replace tags_raw on a crate, rebuild tag_map + Charlie edges/terms.
+    Full multi-stage Charlie syntax supported (a*b>c,d ; clauses).
+    """
     init_db(conn)
-    row = conn.execute("SELECT tags_json, tags_raw FROM crates WHERE c_uid=?", (c_uid,)).fetchone()
+    row = conn.execute(
+        "SELECT tags_raw, sys, dom, room, mod, place_path FROM crates WHERE c_uid=?",
+        (c_uid,),
+    ).fetchone()
     if not row:
         raise KeyError(c_uid)
-    tags = json.loads(row["tags_json"] or "[]")
-    if tag in tags:
-        return
-    tags.append(tag)
+
+    sys = str(row["sys"] or "")
+    dom = str(row["dom"] or "")
+    room = str(row["room"] or "")
+    mod = str(row["mod"] or "")
+    ppath = place_path or str(row["place_path"] or "")
+    if not ppath:
+        ppath = join_place_path(sys, dom, room, mod)
+
+    tags_raw = (tags_raw or "").strip()
+    parsed = parse_charlie(tags_raw)
+    # place path tags + charlie production tags
+    place_bits = _parse_tags("", ppath, sys, dom, room, mod)
+    all_tags: list[str] = []
+    for t in place_bits + list(parsed["tags"]):
+        t = str(t).strip().lower()
+        if t and t not in all_tags:
+            all_tags.append(t)
+
     ingest = _now()
-    raw = (row["tags_raw"] or "").strip()
-    new_raw = f"{raw} {tag}".strip()
+    old_raw = str(row["tags_raw"] or "")
+
+    # rebuild map + edges for this crate
+    charlie_detach(conn, c_uid)
+    conn.execute("DELETE FROM tag_map WHERE c_uid=?", (c_uid,))
     conn.execute(
         "UPDATE crates SET tags_json=?, tags_raw=?, updated_at=? WHERE c_uid=?",
-        (json.dumps(tags), new_raw, ingest, c_uid),
+        (json.dumps(all_tags), tags_raw, ingest, c_uid),
     )
-    conn.execute(
-        "INSERT OR IGNORE INTO tag_map(c_uid, tag) VALUES(?, ?)",
-        (c_uid, tag),
+    for t in all_tags:
+        conn.execute(
+            "INSERT OR IGNORE INTO tag_map(c_uid, tag) VALUES(?, ?)",
+            (c_uid, t),
+        )
+    charlie_write(
+        conn,
+        c_uid=c_uid,
+        tags_raw=tags_raw,
+        all_tags=all_tags,
+        sys=sys,
+        dom=dom,
+        room=room,
+        mod=mod,
+        ingest_unix=ingest,
     )
     conn.execute(
         """
@@ -698,16 +748,58 @@ def add_tag(
         """,
         (
             c_uid,
-            "tag_add",
-            json.dumps({"tag": tag}),
+            "charlie_set",
+            json.dumps({"tags_raw": tags_raw, "was": old_raw[:500]}),
             actor,
-            place_path,
+            ppath,
             ingest,
             ingest,
             tool,
         ),
     )
     conn.commit()
+
+
+def append_charlie(
+    conn: sqlite3.Connection,
+    c_uid: str,
+    fragment: str,
+    *,
+    actor: str = "hands",
+    place_path: str = "",
+    tool: str = "mypi-tui",
+) -> None:
+    """
+    Append Charlie language onto existing tags_raw (backend tagging from TUI).
+    Examples:  aubel   |  lore,system   |  aubel*knows>iox
+    """
+    fragment = (fragment or "").strip()
+    if not fragment:
+        raise ValueError("empty charlie fragment")
+    init_db(conn)
+    row = conn.execute(
+        "SELECT tags_raw FROM crates WHERE c_uid=?", (c_uid,)
+    ).fetchone()
+    if not row:
+        raise KeyError(c_uid)
+    old = (row["tags_raw"] or "").strip()
+    if old:
+        # avoid double-append exact
+        if fragment.lower() in old.lower():
+            # still allow re-apply to rebuild edges if needed
+            new_raw = old
+        else:
+            new_raw = f"{old}; {fragment}"
+    else:
+        new_raw = fragment
+    set_crate_charlie(
+        conn,
+        c_uid,
+        new_raw,
+        actor=actor,
+        place_path=place_path,
+        tool=tool,
+    )
 
 
 def set_body(
@@ -757,15 +849,55 @@ def list_crates(
     tag: str | None = None,
     limit: int = 50,
     include_deleted: bool = False,
+    heads_only: bool = True,
 ) -> list[sqlite3.Row]:
+    """
+    List crates. By default **heads_only**: one row per stem lineage
+    (latest ingest_unix) so fileKeeper linebreak revs don't flood the index.
+    Pass heads_only=False for full revision lists.
+    """
     init_db(conn)
     _ensure_deleted_col(conn)
+    _ensure_composition_cols(conn)
     alive = "" if include_deleted else " AND (c.deleted_at IS NULL OR c.deleted_at=0)"
     alive_plain = "" if include_deleted else " AND (deleted_at IS NULL OR deleted_at=0)"
+
+    # stem key: explicit stem_c_uid, else self (leaf with no lineage)
+    stem_expr = "COALESCE(NULLIF(c.stem_c_uid, ''), c.c_uid)"
+    stem_expr_plain = "COALESCE(NULLIF(stem_c_uid, ''), c_uid)"
+
+    if heads_only:
+        # latest ingest per stem; tie-break c_uid for stability
+        head_join = f"""
+        INNER JOIN (
+          SELECT {stem_expr_plain} AS stem, MAX(ingest_unix) AS mx
+          FROM crates
+          WHERE 1=1 {alive_plain}
+          GROUP BY stem
+        ) _head ON {stem_expr} = _head.stem AND c.ingest_unix = _head.mx
+        """
+        # if two revs same second, pick max c_uid
+        head_join = f"""
+        INNER JOIN (
+          SELECT stem, MAX(ingest_unix) AS mx, MAX(c_uid) AS pick
+          FROM (
+            SELECT {stem_expr_plain} AS stem, ingest_unix, c_uid
+            FROM crates
+            WHERE 1=1 {alive_plain}
+          )
+          GROUP BY stem
+        ) _head ON {stem_expr} = _head.stem
+            AND c.ingest_unix = _head.mx
+            AND c.c_uid = _head.pick
+        """
+    else:
+        head_join = ""
+
     if tag:
         q = f"""
         SELECT c.* FROM crates c
         JOIN tag_map t ON t.c_uid = c.c_uid
+        {head_join}
         WHERE t.tag = ?
         {alive}
         """
@@ -777,20 +909,45 @@ def list_crates(
         args.append(limit)
         return list(conn.execute(q, args))
     if place_path:
-        return list(
-            conn.execute(
-                f"SELECT * FROM crates WHERE place_path=? {alive_plain} "
-                "ORDER BY ingest_unix DESC LIMIT ?",
-                (place_path, limit),
-            )
-        )
-    return list(
-        conn.execute(
-            f"SELECT * FROM crates WHERE 1=1 {alive_plain} "
-            "ORDER BY ingest_unix DESC LIMIT ?",
-            (limit,),
-        )
-    )
+        q = f"""
+        SELECT c.* FROM crates c
+        {head_join}
+        WHERE c.place_path = ?
+        {alive}
+        ORDER BY c.ingest_unix DESC LIMIT ?
+        """
+        return list(conn.execute(q, (place_path, limit)))
+    q = f"""
+    SELECT c.* FROM crates c
+    {head_join}
+    WHERE 1=1
+    {alive}
+    ORDER BY c.ingest_unix DESC LIMIT ?
+    """
+    return list(conn.execute(q, (limit,)))
+
+
+def stem_head_c_uid(conn: sqlite3.Connection, c_uid: str) -> str:
+    """Return latest c_uid in this crate's stem lineage (or self)."""
+    init_db(conn)
+    _ensure_composition_cols(conn)
+    row = conn.execute(
+        "SELECT c_uid, stem_c_uid FROM crates WHERE c_uid=?", (c_uid,)
+    ).fetchone()
+    if not row:
+        return c_uid
+    stem = (row["stem_c_uid"] or "").strip() or c_uid
+    head = conn.execute(
+        """
+        SELECT c_uid FROM crates
+        WHERE (COALESCE(NULLIF(stem_c_uid, ''), c_uid) = ?)
+          AND (deleted_at IS NULL OR deleted_at = 0)
+        ORDER BY ingest_unix DESC, c_uid DESC
+        LIMIT 1
+        """,
+        (stem,),
+    ).fetchone()
+    return str(head["c_uid"]) if head else c_uid
 
 
 def get_crate(conn: sqlite3.Connection, c_uid: str) -> sqlite3.Row | None:

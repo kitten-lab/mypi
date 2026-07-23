@@ -21,6 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from mypi_ledger import (  # noqa: E402
     DEFAULT_DB,
+    append_charlie,
     charlie_edges,
     connect,
     create_crate,
@@ -30,8 +31,10 @@ from mypi_ledger import (  # noqa: E402
     init_db,
     list_crates,
     list_tps_shelves,
+    set_crate_charlie,
     soft_delete,
     stats,
+    stem_head_c_uid,
     tps_window_seconds,
 )
 
@@ -41,7 +44,7 @@ try:
     from textual.app import App, ComposeResult
     from textual.binding import Binding
     from textual.containers import Horizontal, Vertical, VerticalScroll
-    from textual.widgets import Button, DataTable, Footer, Header, Label, Static
+    from textual.widgets import Button, DataTable, Footer, Header, Input, Label, Static
 except ImportError:
     print("Need textual: pip install textual")
     sys.exit(1)
@@ -422,13 +425,11 @@ def _render_body_material(body: str) -> list[Text]:
 class MypiTui(App[None]):
     TITLE = "mypi ledger"
     CSS = """
-    Screen { background: #0c1210; color: #b8e0c8; }
+    /* layout (shared) */
     #topnav {
         height: auto;
         dock: top;
         padding: 0 1;
-        background: #0a100e;
-        border-bottom: tall #2a4a38;
     }
     #topnav Horizontal { height: auto; }
     #topnav Button {
@@ -437,34 +438,119 @@ class MypiTui(App[None]):
         width: auto;
         border: none;
     }
-    #topnav .nav-on { background: #143314; text-style: bold; }
     #body { height: 1fr; }
     #index-pane {
         width: 38%;
         min-width: 26;
-        border-right: tall #2a4a38;
         padding: 0 1;
     }
     #viewer-pane {
         width: 1fr;
         padding: 0 1;
     }
-    #index-title, #viewer-title { text-style: bold; color: #7ab890; margin: 1 0 0 0; }
+    #index-title, #viewer-title { text-style: bold; margin: 1 0 0 0; }
     #index-table { height: 1fr; }
-    #related-table { height: 8; border: tall #2a4a38; margin-bottom: 1; }
+    #related-table { height: 8; margin-bottom: 1; }
     #viewer-scroll {
         height: 1fr;
-        border: tall #2a4a38;
-        background: #0a100e;
         overflow-x: auto;
     }
     #viewer {
         height: auto;
         padding: 1 1 2 1;
+    }
+    /* bottom stack: tag bar sits under work, status under that, footer last */
+    #bottom-stack {
+        dock: bottom;
+        height: auto;
+        layout: vertical;
+    }
+    #tag-row {
+        height: 3;
+        padding: 0 1;
+        layout: horizontal;
+    }
+    #tag-input { width: 1fr; }
+    #btn-tag, #btn-tag-set { min-width: 10; margin-left: 1; }
+    #status { height: 2; padding: 0 1; }
+
+    /* ── forest (default) ───────────────────────────── */
+    Screen.theme-forest { background: #0c1210; color: #b8e0c8; }
+    Screen.theme-forest #topnav {
+        background: #0a100e;
+        border-bottom: tall #2a4a38;
+    }
+    Screen.theme-forest #topnav .nav-on { background: #143314; text-style: bold; }
+    Screen.theme-forest #index-pane { border-right: tall #2a4a38; }
+    Screen.theme-forest #index-title,
+    Screen.theme-forest #viewer-title { color: #7ab890; }
+    Screen.theme-forest #related-table { border: tall #2a4a38; }
+    Screen.theme-forest #viewer-scroll {
+        border: tall #2a4a38;
         background: #0a100e;
     }
-    .muted { color: #5a8a6a; }
-    #status { color: #7ab890; dock: bottom; height: 2; padding: 0 1; }
+    Screen.theme-forest #viewer { background: #0a100e; }
+    Screen.theme-forest .muted { color: #5a8a6a; }
+    Screen.theme-forest #bottom-stack { background: #0a100e; border-top: tall #2a4a38; }
+    Screen.theme-forest #status { color: #7ab890; background: #0a100e; }
+    Screen.theme-forest #tag-row { background: #0a100e; }
+    Screen.theme-forest #tag-input {
+        background: #0c1410;
+        border: tall #2a4a38;
+        color: #b8e0c8;
+    }
+
+    /* ── barbie (toggle) ────────────────────────────── */
+    Screen.theme-barbie { background: #2a1020; color: #ffe4f0; }
+    Screen.theme-barbie #topnav {
+        background: #3d1530;
+        border-bottom: tall #ff69b4;
+    }
+    Screen.theme-barbie #topnav Button {
+        color: #fff0f8;
+        background: #5a2048;
+    }
+    Screen.theme-barbie #topnav .nav-on {
+        background: #ff69b4;
+        color: #2a1020;
+        text-style: bold;
+    }
+    Screen.theme-barbie #index-pane { border-right: tall #ff69b4; }
+    Screen.theme-barbie #index-title,
+    Screen.theme-barbie #viewer-title { color: #ffb6d9; }
+    Screen.theme-barbie #related-table { border: tall #e85a9b; }
+    Screen.theme-barbie #viewer-scroll {
+        border: tall #ff69b4;
+        background: #1f0a18;
+    }
+    Screen.theme-barbie #viewer { background: #1f0a18; color: #ffe4f0; }
+    Screen.theme-barbie .muted { color: #d48ab0; }
+    Screen.theme-barbie #bottom-stack {
+        background: #3d1530;
+        border-top: tall #ff69b4;
+    }
+    Screen.theme-barbie #status {
+        color: #ffb6d9;
+        background: #3d1530;
+    }
+    Screen.theme-barbie #tag-row { background: #3d1530; }
+    Screen.theme-barbie #tag-input {
+        background: #2a1020;
+        border: tall #ff69b4;
+        color: #ffe4f0;
+    }
+    Screen.theme-barbie #btn-tag,
+    Screen.theme-barbie #btn-tag-set {
+        background: #ff69b4;
+        color: #2a1020;
+        text-style: bold;
+    }
+    Screen.theme-barbie DataTable {
+        background: #1f0a18;
+        color: #ffe4f0;
+    }
+    Screen.theme-barbie Footer { background: #3d1530; color: #ffb6d9; }
+    Screen.theme-barbie Header { background: #5a2048; color: #fff0f8; }
     """
     BINDINGS = [
         Binding("q", "quit", "Quit"),
@@ -474,6 +560,9 @@ class MypiTui(App[None]):
         Binding("3", "sec_edges", "Edges"),
         Binding("4", "sec_tps", "TPS"),
         Binding("d", "demo", "Demo"),
+        Binding("t", "focus_tag", "Tag"),
+        Binding("b", "toggle_theme", "Barbie"),
+        Binding("l", "toggle_lineage", "Lineage"),
         # Soft-del = devalue (deleted_at); NUKE = hard remove one crate
         Binding("delete", "soft_del", "Soft-del"),
         Binding("backspace", "soft_del", "Soft-del", show=False),
@@ -489,6 +578,7 @@ class MypiTui(App[None]):
         self._focus_term: str | None = None
         self._focus_tps: str | None = None
         self._selected_crate: str | None = None
+        self._theme = "forest"  # forest | barbie
 
     def compose(self) -> ComposeResult:
         yield Header(show_clock=True)
@@ -502,6 +592,8 @@ class MypiTui(App[None]):
             yield Button("Demo", id="btn-demo")
             yield Button("Soft-del", id="btn-del")
             yield Button("NUKE", id="btn-hard")
+            yield Static(" · ", classes="muted")
+            yield Button("Barbie ♡", id="btn-theme")
         with Horizontal(id="body"):
             with Vertical(id="index-pane"):
                 yield Label("Index", id="index-title")
@@ -521,15 +613,48 @@ class MypiTui(App[None]):
                         id="viewer",
                         markup=False,
                     )
-        yield Static("", id="status")
+        # Charlie lives under the work (not floating in the header)
+        with Vertical(id="bottom-stack"):
+            with Horizontal(id="tag-row"):
+                yield Input(
+                    placeholder="Charlie: tag · aubel,lore · aubel*knows>iox  (selected crate)",
+                    id="tag-input",
+                )
+                yield Button("Tag+", id="btn-tag")
+                yield Button("Set raw", id="btn-tag-set")
+            yield Static("", id="status")
         yield Footer()
 
     def on_mount(self) -> None:
         for tid in ("index-table", "related-table"):
             t = self.query_one(f"#{tid}", DataTable)
             t.cursor_type = "row"
+        self._apply_theme()
         self._load_index()
         self._set_nav_highlight()
+
+    def _apply_theme(self) -> None:
+        """forest (default ledger) ↔ barbie (cute pink)"""
+        scr = self.screen
+        scr.remove_class("theme-forest")
+        scr.remove_class("theme-barbie")
+        if self._theme == "barbie":
+            scr.add_class("theme-barbie")
+            self.TITLE = "mypi ledger ♡ barbie"
+        else:
+            scr.add_class("theme-forest")
+            self.TITLE = "mypi ledger"
+        try:
+            btn = self.query_one("#btn-theme", Button)
+            btn.label = "Forest" if self._theme == "barbie" else "Barbie ♡"
+        except Exception:
+            pass
+
+    def action_toggle_theme(self) -> None:
+        self._theme = "barbie" if self._theme == "forest" else "forest"
+        self._apply_theme()
+        label = "BARBIE MODE" if self._theme == "barbie" else "forest mode"
+        self._status_line(label)
 
     def _set_nav_highlight(self) -> None:
         mapping = {
@@ -586,6 +711,13 @@ class MypiTui(App[None]):
 
     def action_soft_del(self) -> None:
         self.del_soft()
+
+    def action_focus_tag(self) -> None:
+        """Focus Charlie tag input (backend tagging on selected crate)."""
+        try:
+            self.query_one("#tag-input", Input).focus()
+        except Exception:
+            pass
 
     def action_hard_del(self) -> None:
         self.del_hard()
@@ -671,9 +803,9 @@ class MypiTui(App[None]):
 
         if self._section == "crates":
             title.update("Index · Crates")
-            hint.update("all crates — select → full viewer")
+            hint.update("heads only (latest rev) — related lists revs · L → head")
             table.add_columns("c_uid", "kind", "place", "agent", "body")
-            for r in list_crates(self.conn, limit=120):
+            for r in list_crates(self.conn, limit=120, heads_only=True):
                 table.add_row(
                     r["c_uid"][:18],
                     (r["kind"] or "")[:8],
@@ -754,7 +886,7 @@ class MypiTui(App[None]):
     def _show_tag_in_viewer(self, term: str) -> None:
         self._focus_term = term
         self._focus_tps = None
-        crates = list_crates(self.conn, tag=term, limit=80)
+        crates = list_crates(self.conn, tag=term, limit=80, heads_only=True)
         self._fill_related_crates(
             crates,
             f"crates tagged [{term}]  ·  select a crate for full view",
@@ -805,8 +937,8 @@ class MypiTui(App[None]):
             self.query_one("#viewer", Static).update("\n".join(lines))
 
     def _stem_family(self, row) -> list:
-        """Other revisions / siblings sharing stem_c_uid (fileKeeper lineage)."""
-        stem = _g(row, "stem_c_uid") or _g(row, "c_uid")
+        """Revisions sharing stem (oldest → newest)."""
+        stem = (_g(row, "stem_c_uid") or "").strip() or _g(row, "c_uid")
         if not stem:
             return []
         try:
@@ -814,15 +946,27 @@ class MypiTui(App[None]):
                 self.conn.execute(
                     """
                     SELECT * FROM crates
-                    WHERE (stem_c_uid = ? OR c_uid = ?)
+                    WHERE COALESCE(NULLIF(stem_c_uid, ''), c_uid) = ?
                       AND (deleted_at IS NULL OR deleted_at = 0)
-                    ORDER BY ingest_unix ASC, created_at ASC
+                    ORDER BY ingest_unix ASC, c_uid ASC
                     """,
-                    (stem, stem),
+                    (stem,),
                 )
             )
         except Exception:
             return []
+
+    def action_toggle_lineage(self) -> None:
+        """Jump viewer to stem head (safe for tagging)."""
+        if not self._selected_crate:
+            self._status_line("L · select a crate first")
+            return
+        try:
+            head = stem_head_c_uid(self.conn, self._selected_crate)
+        except Exception:
+            head = self._selected_crate
+        self._show_crate(head, prefer_head=True)
+        self._status_line(f"head {head[:20]}…")
 
     def _crate_edges(self, c_uid: str) -> list:
         try:
@@ -840,7 +984,20 @@ class MypiTui(App[None]):
         except Exception:
             return []
 
-    def _show_crate(self, c_uid: str) -> None:
+    def _show_crate(self, c_uid: str, *, prefer_head: bool = True) -> None:
+        """
+        Show crate payload. prefer_head=True (index / tag) jumps to latest rev
+        so Tag+ doesn't hit linebreak history. Related-table pick uses prefer_head=False.
+        Always lists stem revs in the related pane when there are multiple.
+        """
+        if prefer_head:
+            try:
+                head = stem_head_c_uid(self.conn, c_uid)
+                if head and head != c_uid:
+                    c_uid = head
+            except Exception:
+                pass
+
         self._selected_crate = c_uid
         row = get_crate(self.conn, c_uid)
         viewer = self.query_one("#viewer", Static)
@@ -849,28 +1006,39 @@ class MypiTui(App[None]):
             viewer.update(Text("missing crate", style=_S_WARN))
             return
 
-        # Related pane → stem family when multi-rev (don't clobber tag/TPS lists
-        # for single leaves — puritanical but keep drill-down context).
         family = self._stem_family(row)
-        if len(family) > 1:
-            related = self.query_one("#related-table", DataTable)
+        n_revs = len(family)
+        related = self.query_one("#related-table", DataTable)
+        head_uid = _g(family[-1], "c_uid") if family else c_uid
+
+        if n_revs > 1:
+            # Always list revs here (this is what the "N revs" note was for)
             related.clear(columns=True)
-            related.add_columns("when", "kind", "agent", "body", "tps", "c_uid")
+            related.add_columns("rev", "when", "kind", "snippet", "c_uid")
             self.query_one("#related-hint", Static).update(
-                f"lineage stem={_g(row, 'stem_c_uid') or c_uid[:18]}  ·  "
-                f"{len(family)} rev(s)  ·  select another"
+                f"{n_revs} revs · ★ = head (tag this) · pick a row to inspect · Tag+ uses selection"
             )
-            for r in family:
+            for i, r in enumerate(family, start=1):
                 when = r["event_unix"] or r["ingest_unix"] or 0
+                is_head = _g(r, "c_uid") == head_uid
+                is_open = _g(r, "c_uid") == c_uid
+                mark = "★" if is_head else str(i)
+                if is_open:
+                    mark = mark + "·"
                 related.add_row(
+                    mark,
                     str(when),
-                    _clip((r["kind"] or "") + "·" + (r["tool"] or ""), 12),
-                    _clip(r["agent"] or "", 10),
-                    _clip(r["body"] or "", 36),
-                    _clip(r["t_uid"] or "", 12),
-                    r["c_uid"][:16],
+                    _clip((r["kind"] or "") + "·" + (r["tool"] or ""), 10),
+                    _clip(r["body"] or r["topic"] or "", 40),
+                    r["c_uid"][:18],
                     key=r["c_uid"],
                 )
+        else:
+            if self._section == "crates":
+                related.clear(columns=True)
+                related.add_columns("note")
+                self.query_one("#related-hint", Static).update("related · single leaf")
+                related.add_row("(no other revs)")
 
         try:
             tags = json.loads(_g(row, "tags_json") or "[]")
@@ -1015,9 +1183,19 @@ class MypiTui(App[None]):
                 add(Text(f"    {payload}", style=_S_META))
 
         add()
+        if n_revs > 1:
+            is_head = c_uid == head_uid
+            add(
+                _t_kv(
+                    "revs",
+                    f"{n_revs} in stem · viewing "
+                    + ("HEAD ★" if is_head else f"older {c_uid[:16]}…")
+                    + " · L → jump to head · Tag+ uses selection",
+                )
+            )
         add(
             Text(
-                "del Soft-del / Backspace  ·  shift+del NUKE  ·  r refresh",
+                "t Tag  ·  L → head  ·  Tag+  ·  b barbie  ·  del Soft  ·  r refresh",
                 style=_S_DIM,
             )
         )
@@ -1087,10 +1265,10 @@ class MypiTui(App[None]):
         key = str(event.row_key.value)
         table_id = event.data_table.id if event.data_table else ""
 
-        # Right pane related table → full crate
+        # Right pane related table → that exact rev (do not snap to head)
         if table_id == "related-table":
             if get_crate(self.conn, key):
-                self._show_crate(key)
+                self._show_crate(key, prefer_head=False)
             return
 
         self._apply_index_key(key, open_viewer=True)
@@ -1171,11 +1349,79 @@ class MypiTui(App[None]):
         self._clear_viewer(f"Hard-deleted {c_uid}\n(snapshot in deleted_log)")
         self._status_line(note)
 
+    def _apply_tag_input(self, *, replace: bool) -> None:
+        """Backend Charlie: append/replace on **stem head** (never old linebreak revs)."""
+        c_uid = self._resolve_target_crate()
+        if not c_uid:
+            self.query_one("#status", Static).update(
+                "  Tag: select a crate first (index or related)"
+            )
+            return
+        try:
+            head = stem_head_c_uid(self.conn, c_uid)
+            if head:
+                c_uid = head
+        except Exception:
+            pass
+        try:
+            frag = self.query_one("#tag-input", Input).value
+        except Exception:
+            frag = ""
+        frag = (frag or "").strip()
+        if not frag:
+            self.query_one("#status", Static).update(
+                "  Tag: type a term or Charlie clause (aubel · lore · aubel*knows>iox)"
+            )
+            return
+        try:
+            if replace:
+                set_crate_charlie(
+                    self.conn, c_uid, frag, actor="mypi-tui", tool="mypi-tui"
+                )
+                note = f"charlie SET on HEAD {c_uid[:18]}…  {frag[:40]}"
+            else:
+                append_charlie(
+                    self.conn, c_uid, frag, actor="mypi-tui", tool="mypi-tui"
+                )
+                note = f"charlie + on HEAD {c_uid[:18]}…  {frag[:40]}"
+        except Exception as e:
+            self.query_one("#status", Static).update(f"  Tag failed: {e}")
+            return
+        try:
+            self.query_one("#tag-input", Input).value = ""
+        except Exception:
+            pass
+        self._show_crate(c_uid, prefer_head=True)
+        if self._section == "charlie":
+            self._load_index()
+        self._status_line(note)
+
+    @on(Button.Pressed, "#btn-tag")
+    def tag_append(self) -> None:
+        self._apply_tag_input(replace=False)
+
+    @on(Button.Pressed, "#btn-tag-set")
+    def tag_set(self) -> None:
+        self._apply_tag_input(replace=True)
+
+    @on(Input.Submitted, "#tag-input")
+    def tag_submit(self) -> None:
+        """Enter in tag field = append Charlie."""
+        self._apply_tag_input(replace=False)
+
+    @on(Button.Pressed, "#btn-theme")
+    def theme_btn(self) -> None:
+        self.action_toggle_theme()
+
 
 def main() -> None:
     print(f"ledger db: {DEFAULT_DB}")
-    print("Layout: top nav · left index · right viewer (related + full payload)")
-    print("Delete: highlight crate → Soft-del / Del / Backspace  ·  Shift+Del or NUKE")
+    print("Layout: top nav · left index · right viewer · Charlie tag bar at BOTTOM")
+    print("Charlie: select crate → tag bar → Tag+ (append) or Set raw (replace) · t focuses")
+    print("  plain: aubel,lore  ·  edges: aubel*knows>iox")
+    print("Theme: Barbie ♡ / Forest  ·  key b")
+    print("Heads only in crate list (latest rev) · L toggles full lineage")
+    print("Delete: Soft-del / Del / Backspace  ·  Shift+Del or NUKE")
     MypiTui().run()
 
 
