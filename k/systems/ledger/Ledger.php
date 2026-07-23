@@ -2352,6 +2352,39 @@ SQL
     }
 
     /**
+     * data: URI for small local assets (reliable in-page display if media door glitches).
+     * Empty string if missing or too large.
+     */
+    function mypi_media_data_uri($asset_id, $max_bytes = 3500000) {
+        $path = mypi_media_resolve($asset_id);
+        if ($path === null || !is_file($path)) {
+            return '';
+        }
+        $bytes = (int) filesize($path);
+        if ($bytes <= 0 || $bytes > (int) $max_bytes) {
+            return '';
+        }
+        $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+        $types = [
+            'png' => 'image/png',
+            'jpg' => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'gif' => 'image/gif',
+            'webp' => 'image/webp',
+            'svg' => 'image/svg+xml',
+        ];
+        $mime = $types[$ext] ?? '';
+        if ($mime === '') {
+            return '';
+        }
+        $bin = @file_get_contents($path);
+        if ($bin === false || $bin === '') {
+            return '';
+        }
+        return 'data:' . $mime . ';base64,' . base64_encode($bin);
+    }
+
+    /**
      * Attach asset to a crate's meta.attachments (stem head preferred).
      *
      * @return array{ok:bool,error?:string}
@@ -2381,6 +2414,19 @@ SQL
     }
 
     /**
+     * Prefer data: URI for in-page display; fall back to media door href.
+     * Parsedown safeMode only allows data:image/* and http(s) — NOT relative /paths,
+     * so relative media door URLs get mangled or blocked. data: is on the whitelist.
+     */
+    function mypi_media_img_src($asset_id) {
+        $data = mypi_media_data_uri($asset_id);
+        if ($data !== '') {
+            return $data;
+        }
+        return mypi_media_href($asset_id);
+    }
+
+    /**
      * HTML for attachment strip + rewrite body media: refs before Parsedown.
      *
      * @return array{html:string,body:string}
@@ -2391,15 +2437,16 @@ SQL
         if (!is_array($atts)) {
             $atts = [];
         }
-        // rewrite ![alt](media:ID) → real src
+        // rewrite ![alt](media:ID) → data:image/...;base64,... (Parsedown safeMode allows those schemes;
+        // relative /terminal/io/media?... URLs get scrubbed and look "broken")
         $body = preg_replace_callback(
             '/!\[([^\]]*)\]\(\s*media:([a-zA-Z0-9.]+)\s*\)/u',
             static function ($m) {
-                $href = mypi_media_href($m[2]);
-                if ($href === '') {
-                    return $m[0];
+                $src = mypi_media_img_src($m[2]);
+                if ($src === '') {
+                    return '*(missing image: ' . $m[2] . ')*';
                 }
-                return '![' . $m[1] . '](' . $href . ')';
+                return '![' . $m[1] . '](' . $src . ')';
             },
             $body
         );
@@ -2419,11 +2466,11 @@ SQL
                 if (!isset($byName[$key])) {
                     return '*(missing embed: ' . $name . ')*';
                 }
-                $href = mypi_media_href($byName[$key]['asset_id'] ?? '');
-                if ($href === '') {
+                $src = mypi_media_img_src($byName[$key]['asset_id'] ?? '');
+                if ($src === '') {
                     return '*(missing embed: ' . $name . ')*';
                 }
-                return '![' . $name . '](' . $href . ')';
+                return '![' . $name . '](' . $src . ')';
             },
             $body
         );
@@ -2433,13 +2480,13 @@ SQL
             $html .= '<div class="fk-media-strip">';
             foreach ($atts as $a) {
                 $id = $a['asset_id'] ?? '';
-                $href = mypi_media_href($id);
-                if ($href === '') {
+                $src = mypi_media_img_src($id);
+                if ($src === '') {
                     continue;
                 }
                 $nm = htmlspecialchars((string) ($a['name'] ?? $id), ENT_QUOTES, 'UTF-8');
                 $html .= '<figure class="fk-media-fig">';
-                $html .= '<img src="' . htmlspecialchars($href, ENT_QUOTES, 'UTF-8') . '" alt="' . $nm . '" loading="lazy">';
+                $html .= '<img src="' . htmlspecialchars($src, ENT_QUOTES, 'UTF-8') . '" alt="' . $nm . '" loading="lazy">';
                 $html .= '<figcaption>' . $nm . '</figcaption>';
                 $html .= '</figure>';
             }
@@ -2447,11 +2494,12 @@ SQL
         }
 
         // narrative: bag asked for IMG SUPPORT
-        if (stripos($body, 'INSTALL IMG SUPPORT') !== false || stripos($body, 'ERROR, PLEASE INSTALL IMG') !== false) {
+        if (stripos($body, 'INSTALL IMG SUPPORT') !== false || stripos($body, 'ERROR, PLEASE INSTALL IMG') !== false
+            || stripos($body, 'install img support') !== false) {
             if ($atts) {
                 $html = '<p class="fk-img-support-ok"><strong>IMG SUPPORT ONLINE</strong> · sine continues</p>' . $html;
             } else {
-                $html = '<p class="fk-img-support-wait"><strong>IMG SUPPORT READY</strong> · attach an image on Modify to continue the wave</p>' . $html;
+                $html = '<p class="fk-img-support-wait"><strong>IMG SUPPORT READY</strong> · attach an image to continue the wave</p>' . $html;
             }
         }
 
