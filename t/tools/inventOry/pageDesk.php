@@ -130,17 +130,24 @@ $renderEntry = static function (array $e) use ($equip): void {
         <input id="jump_day" name="day" type="date" value="<?= htmlspecialchars($day, ENT_QUOTES, 'UTF-8') ?>">
         <button type="submit" class="inv-btn">Go</button>
       </form>
-      <p class="inv-hint muted">changing the day field on insert opens that day — not a silent append to today</p>
       <ul class="inv-day-list">
         <?php foreach ($days as $d):
             $dm = json_decode((string) ($d['meta_json'] ?? '{}'), true) ?: [];
             $dkey = (string) ($dm['day'] ?? '');
             $on = ($dkey === $day);
+            $isToday = ($dkey === $today);
             $cl = !empty($dm['closed']) ? ' closed' : '';
+            $cls = 'inv-day-link'
+                . ($on ? ' is-on' : '')
+                . ($isToday ? ' is-today' : '')
+                . $cl;
             ?>
-          <li>
-            <a class="inv-day-link<?= $on ? ' is-on' : '' ?><?= $cl ?>"
+          <li<?= $isToday ? ' class="inv-day-item-today"' : '' ?>>
+            <a class="<?= htmlspecialchars($cls, ENT_QUOTES, 'UTF-8') ?>"
                href="<?= $self ?>?day=<?= htmlspecialchars($dkey, ENT_QUOTES, 'UTF-8') ?>">
+              <?php if ($isToday): ?>
+                <span class="inv-day-today-label">today</span>
+              <?php endif; ?>
               <span class="inv-day-key"><?= htmlspecialchars($dkey, ENT_QUOTES, 'UTF-8') ?></span>
               <span class="inv-day-name"><?= htmlspecialchars((string) ($dm['weekday'] ?? ''), ENT_QUOTES, 'UTF-8') ?></span>
               <?php if (!empty($dm['closed'])): ?>
@@ -213,19 +220,20 @@ $renderEntry = static function (array $e) use ($equip): void {
         <?php endif; ?>
       </header>
 
+      <?php if ($closed): ?>
+        <p class="inv-status muted" id="inv-insert">
+          Day closed — insert form stowed.
+          Reopen this day to capture more leaves, or <strong>Open day</strong> / change date to work another log.
+        </p>
+      <?php else: ?>
       <form method="post" action="" class="inv-insert" id="inv-insert">
         <input type="hidden" name="invent_action" value="insert">
         <input type="hidden" name="inv_tz" class="inv-tz" value="">
         <input type="hidden" name="inv_event_unix" id="inv-event-unix" value="">
 
         <h3 class="inv-insert-label">Insert · invent leaf</h3>
-        <p class="inv-hint muted">
-          <strong>Day field decides the log.</strong> Change it → that calendar day is created/opened and the leaf goes there
-          (not silently onto today). Optional Skyline copy (mod empty).
-          <?php if ($closed): ?> · this day is closed — capture still works (or reopen first)<?php endif; ?>
-        </p>
 
-        <label for="inv_day">Day <span class="muted">(this is the log shell · backdate OK)</span></label>
+        <label for="inv_day">Day <span class="muted">(backdate OK)</span></label>
         <input id="inv_day" name="inv_day" type="date" required value="<?= htmlspecialchars($day, ENT_QUOTES, 'UTF-8') ?>">
 
         <label for="inv_section">Section</label>
@@ -275,6 +283,7 @@ $renderEntry = static function (array $e) use ($equip): void {
           <button type="submit" class="inv-btn inv-btn-primary">Capture leaf</button>
         </div>
       </form>
+      <?php endif; ?>
 
       <details class="inv-vault" id="inv-vault">
         <summary>Import old vault Daily Inventory (YYMMDD · … .md)</summary>

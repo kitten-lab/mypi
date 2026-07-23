@@ -289,17 +289,13 @@ if ($mode === 'view' && $currentUid !== '') {
               <a class="fk-btn fk-btn-new" href="<?= $self ?>?new=1">+ New file</a>
             </div>
           </header>
-          <p class="filekeeper-status">
-            rev <?= (int) $rev ?>
-            <?php if ($folder !== ''): ?>
-              · <?= htmlspecialchars($folder, ENT_QUOTES, 'UTF-8') ?>
-            <?php else: ?>
-              · root
-            <?php endif; ?>
-            <?php if ($eventDisplay !== ''): ?>
-              · <?= htmlspecialchars($eventDisplay, ENT_QUOTES, 'UTF-8') ?>
-            <?php endif; ?>
-          </p>
+          <p class="fk-view-meta"><?php
+            $metaBits = ['rev ' . (int) $rev, $folder !== '' ? $folder : 'root'];
+            if ($eventDisplay !== '') {
+                $metaBits[] = $eventDisplay;
+            }
+            echo htmlspecialchars(implode(' · ', $metaBits), ENT_QUOTES, 'UTF-8');
+          ?></p>
           <div class="fk-view-body">
             <?php if ($rendered !== ''): ?>
               <?= $rendered ?>

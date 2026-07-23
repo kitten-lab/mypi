@@ -134,3 +134,34 @@ body.terminal-skin-io ::selection {
 body.terminal-skin-io .tm-nav-arch a:hover {
   text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
 }
+
+/* file input + task checkboxes inherit phosphor currentColor */
+body.terminal-skin-io .fk-attach-row input[type="file"]::file-selector-button,
+body.terminal-skin-io .fk-attach-row input[type="file"]::-webkit-file-upload-button {
+  color: var(--iox-ultrabright);
+  border-color: var(--iox-bright);
+  background: rgba(56, 180, 51, 0.18);
+  text-shadow: 0 0 6px rgba(0, 255, 0, 0.25);
+}
+
+body.terminal-skin-io .fk-attach-row input[type="file"]:hover::file-selector-button,
+body.terminal-skin-io .fk-attach-row input[type="file"]:hover::-webkit-file-upload-button {
+  background: rgba(56, 180, 51, 0.32);
+  box-shadow: 0 0 14px rgba(0, 255, 0, 0.28);
+}
+
+body.terminal-skin-io .fk-view-body input.md-task-checkbox {
+  border-color: var(--iox-bright);
+  background: rgba(10, 22, 8, 0.85);
+  box-shadow: 0 0 8px rgba(56, 180, 51, 0.25);
+}
+
+body.terminal-skin-io .fk-view-body input.md-task-checkbox:checked {
+  background: rgba(56, 180, 51, 0.28);
+  border-color: var(--iox-ultrabright);
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.35);
+}
+
+body.terminal-skin-io .fk-view-body input.md-task-checkbox:checked::after {
+  border-color: var(--iox-ultrabright);
+}

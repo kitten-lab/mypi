@@ -490,7 +490,8 @@ aside.tm-rail form.tm-rail-out {
 .tm-reading a {
   color: var(--tm-accent);
   text-decoration: underline;
-  text-decoration-color: rgba(0, 255, 0, 0.25);
+  /* theme-aware — was hard green; AB (and future skins) inherit accent */
+  text-decoration-color: color-mix(in srgb, var(--tm-accent) 40%, transparent);
   text-transform: none;
 }
 .tm-reading a::before {
@@ -498,6 +499,18 @@ aside.tm-rail form.tm-rail-out {
 }
 .tm-reading a:hover {
   color: var(--tm-hot);
+  text-decoration-color: color-mix(in srgb, var(--tm-hot) 55%, transparent);
+}
+
+/* tool chrome buttons are not “links in prose” */
+.tm-reading a.fk-btn,
+.tm-reading a.inv-btn {
+  text-decoration: none;
+  text-decoration-color: transparent;
+}
+.tm-reading a.fk-btn:hover,
+.tm-reading a.inv-btn:hover {
+  text-decoration: none;
 }
 
 .tm-reading code {

@@ -135,6 +135,22 @@ body.terminal-skin-ab .tm-nav-arch a:hover {
   text-shadow: 0 0 8px rgba(255, 40, 40, 0.35);
 }
 
+body.terminal-skin-ab .tm-reading a {
+  color: var(--abx-bright);
+  text-decoration-color: rgba(196, 58, 58, 0.45);
+}
+
+body.terminal-skin-ab .tm-reading a:hover {
+  color: var(--abx-ultrabright);
+  text-decoration-color: rgba(255, 59, 59, 0.6);
+}
+
+body.terminal-skin-ab .tm-reading a.fk-btn,
+body.terminal-skin-ab .tm-reading a.inv-btn {
+  text-decoration: none;
+  color: inherit;
+}
+
 body.terminal-skin-ab .fk-attach-row input[type="file"]::file-selector-button,
 body.terminal-skin-ab .fk-attach-row input[type="file"]::-webkit-file-upload-button {
   color: var(--abx-ultrabright);
