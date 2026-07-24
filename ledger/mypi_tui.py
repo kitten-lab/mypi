@@ -54,24 +54,90 @@ except ImportError:
     print("Need textual: pip install textual")
     sys.exit(1)
 
-# Styles (applied via Text API — never parse crate payload as markup)
-_S_HEAD = "bold #9ed4b0"
-_S_SEC = "bold #7ab890"
-_S_DIM = "dim #5a8a6a"
-_S_VAL = "#b8e0c8"
-_S_EDGE = "#8fc9a0"
-_S_REL = "#5a8a6a"
-_S_WARN = "bold red"
-_S_META = "dim #6a9a7a"
-_S_BODY = "#c5e6d0"
-_S_H1 = "bold #d4f0dc"
-_S_H2 = "bold #b8e0c8"
-_S_H3 = "bold #9ed4b0"
-_S_CODE = "#e2f5e8"
-_S_CODE_EDGE = "dim #3a5a48"
-_S_QUOTE = "italic #8fb89a"
-_S_LINK = "underline #9ed4b0"
-_S_URL = "dim #4a7a5a"
+# Styles (applied via Text API — never parse crate payload as markup).
+# Forest = default ledger green; barbie = hot pink (swapped by theme toggle).
+_PALETTE_FOREST = {
+    "head": "bold #9ed4b0",
+    "sec": "bold #7ab890",
+    "dim": "dim #5a8a6a",
+    "val": "#b8e0c8",
+    "edge": "#8fc9a0",
+    "rel": "#5a8a6a",
+    "warn": "bold red",
+    "meta": "dim #6a9a7a",
+    "body": "#c5e6d0",
+    "h1": "bold #d4f0dc",
+    "h2": "bold #b8e0c8",
+    "h3": "bold #9ed4b0",
+    "code": "#e2f5e8",
+    "code_edge": "dim #3a5a48",
+    "quote": "italic #8fb89a",
+    "link": "underline #9ed4b0",
+    "url": "dim #4a7a5a",
+}
+# Hot pink / bubblegum — details box must match chrome, not leftover forest green
+_PALETTE_BARBIE = {
+    "head": "bold #ff69b4",
+    "sec": "bold #ff1493",
+    "dim": "dim #d48ab0",
+    "val": "#ffe4f0",
+    "edge": "#ff8dc7",
+    "rel": "#e85a9b",
+    "warn": "bold #ff4d6d",
+    "meta": "dim #c97aab",
+    "body": "#ffd6ec",
+    "h1": "bold #ffb6d9",
+    "h2": "bold #ff69b4",
+    "h3": "bold #ff8dc7",
+    "code": "#fff0f8",
+    "code_edge": "dim #8a3060",
+    "quote": "italic #ffb6d9",
+    "link": "underline #ff69b4",
+    "url": "dim #e85a9b",
+}
+
+_S_HEAD = _PALETTE_FOREST["head"]
+_S_SEC = _PALETTE_FOREST["sec"]
+_S_DIM = _PALETTE_FOREST["dim"]
+_S_VAL = _PALETTE_FOREST["val"]
+_S_EDGE = _PALETTE_FOREST["edge"]
+_S_REL = _PALETTE_FOREST["rel"]
+_S_WARN = _PALETTE_FOREST["warn"]
+_S_META = _PALETTE_FOREST["meta"]
+_S_BODY = _PALETTE_FOREST["body"]
+_S_H1 = _PALETTE_FOREST["h1"]
+_S_H2 = _PALETTE_FOREST["h2"]
+_S_H3 = _PALETTE_FOREST["h3"]
+_S_CODE = _PALETTE_FOREST["code"]
+_S_CODE_EDGE = _PALETTE_FOREST["code_edge"]
+_S_QUOTE = _PALETTE_FOREST["quote"]
+_S_LINK = _PALETTE_FOREST["link"]
+_S_URL = _PALETTE_FOREST["url"]
+
+
+def _apply_text_palette(theme: str) -> None:
+    """Rebind module text styles so viewer body follows forest / barbie."""
+    global _S_HEAD, _S_SEC, _S_DIM, _S_VAL, _S_EDGE, _S_REL, _S_WARN
+    global _S_META, _S_BODY, _S_H1, _S_H2, _S_H3, _S_CODE, _S_CODE_EDGE
+    global _S_QUOTE, _S_LINK, _S_URL
+    p = _PALETTE_BARBIE if theme == "barbie" else _PALETTE_FOREST
+    _S_HEAD = p["head"]
+    _S_SEC = p["sec"]
+    _S_DIM = p["dim"]
+    _S_VAL = p["val"]
+    _S_EDGE = p["edge"]
+    _S_REL = p["rel"]
+    _S_WARN = p["warn"]
+    _S_META = p["meta"]
+    _S_BODY = p["body"]
+    _S_H1 = p["h1"]
+    _S_H2 = p["h2"]
+    _S_H3 = p["h3"]
+    _S_CODE = p["code"]
+    _S_CODE_EDGE = p["code_edge"]
+    _S_QUOTE = p["quote"]
+    _S_LINK = p["link"]
+    _S_URL = p["url"]
 
 # Optional ``` fences still work if present, but are NOT required.
 # Terminal styling may own ``` — prefer auto grid/prose detection.
@@ -601,8 +667,15 @@ class MypiTui(App[None]):
     Screen.theme-forest #viewer-scroll {
         border: tall #2a4a38;
         background: #0a100e;
+        scrollbar-background: #0a100e;
+        scrollbar-background-hover: #0c1410;
+        scrollbar-background-active: #0c1410;
+        scrollbar-color: #3a6a50;
+        scrollbar-color-hover: #5a8a6a;
+        scrollbar-color-active: #7ab890;
+        scrollbar-corner-color: #0a100e;
     }
-    Screen.theme-forest #viewer { background: #0a100e; }
+    Screen.theme-forest #viewer { background: #0a100e; color: #b8e0c8; }
     Screen.theme-forest .muted { color: #5a8a6a; }
     Screen.theme-forest #bottom-stack { background: #0a100e; border-top: tall #2a4a38; }
     Screen.theme-forest #status { color: #7ab890; background: #0a100e; }
@@ -612,9 +685,31 @@ class MypiTui(App[None]):
         border: tall #2a4a38;
         color: #b8e0c8;
     }
+    Screen.theme-forest DataTable {
+        scrollbar-background: #0a100e;
+        scrollbar-color: #3a6a50;
+        scrollbar-color-hover: #5a8a6a;
+        scrollbar-corner-color: #0a100e;
+    }
+    Screen.theme-forest {
+        scrollbar-background: #0c1210;
+        scrollbar-color: #3a6a50;
+        scrollbar-color-hover: #5a8a6a;
+        scrollbar-corner-color: #0c1210;
+    }
 
     /* ── barbie (toggle) ────────────────────────────── */
-    Screen.theme-barbie { background: #2a1020; color: #ffe4f0; }
+    Screen.theme-barbie {
+        background: #2a1020;
+        color: #ffe4f0;
+        scrollbar-background: #2a1020;
+        scrollbar-background-hover: #3d1530;
+        scrollbar-background-active: #3d1530;
+        scrollbar-color: #ff69b4;
+        scrollbar-color-hover: #ff1493;
+        scrollbar-color-active: #ff1493;
+        scrollbar-corner-color: #2a1020;
+    }
     Screen.theme-barbie #topnav {
         background: #3d1530;
         border-bottom: tall #ff69b4;
@@ -630,13 +725,20 @@ class MypiTui(App[None]):
     }
     Screen.theme-barbie #index-pane { border-right: tall #ff69b4; }
     Screen.theme-barbie #index-title,
-    Screen.theme-barbie #viewer-title { color: #ffb6d9; }
+    Screen.theme-barbie #viewer-title { color: #ff69b4; text-style: bold; }
     Screen.theme-barbie #related-table { border: tall #e85a9b; }
     Screen.theme-barbie #viewer-scroll {
         border: tall #ff69b4;
         background: #1f0a18;
+        scrollbar-background: #1f0a18;
+        scrollbar-background-hover: #2a1020;
+        scrollbar-background-active: #2a1020;
+        scrollbar-color: #ff69b4;
+        scrollbar-color-hover: #ff1493;
+        scrollbar-color-active: #ff1493;
+        scrollbar-corner-color: #1f0a18;
     }
-    Screen.theme-barbie #viewer { background: #1f0a18; color: #ffe4f0; }
+    Screen.theme-barbie #viewer { background: #1f0a18; color: #ffd6ec; }
     Screen.theme-barbie .muted { color: #d48ab0; }
     Screen.theme-barbie #bottom-stack {
         background: #3d1530;
@@ -661,6 +763,12 @@ class MypiTui(App[None]):
     Screen.theme-barbie DataTable {
         background: #1f0a18;
         color: #ffe4f0;
+        scrollbar-background: #1f0a18;
+        scrollbar-background-hover: #2a1020;
+        scrollbar-color: #ff69b4;
+        scrollbar-color-hover: #ff1493;
+        scrollbar-color-active: #ff1493;
+        scrollbar-corner-color: #1f0a18;
     }
     Screen.theme-barbie Footer { background: #3d1530; color: #ffb6d9; }
     Screen.theme-barbie Header { background: #5a2048; color: #fff0f8; }
@@ -751,7 +859,7 @@ class MypiTui(App[None]):
         self._set_nav_highlight()
 
     def _apply_theme(self) -> None:
-        """forest (default ledger) ↔ barbie (cute pink)"""
+        """forest (default ledger) ↔ barbie (hot pink chrome + detail text)"""
         scr = self.screen
         scr.remove_class("theme-forest")
         scr.remove_class("theme-barbie")
@@ -761,16 +869,34 @@ class MypiTui(App[None]):
         else:
             scr.add_class("theme-forest")
             self.TITLE = "mypi ledger"
+        # Viewer body is Rich Text — must rebind palette or details stay forest green
+        _apply_text_palette(self._theme)
         try:
             btn = self.query_one("#btn-theme", Button)
             btn.label = "Forest" if self._theme == "barbie" else "Barbie ♡"
         except Exception:
             pass
+        # Rebuild open detail so pink/green applies immediately
+        try:
+            self._reshow_focus()
+        except Exception:
+            pass
+
+    def _reshow_focus(self) -> None:
+        """Re-render viewer (and leave index) after theme / palette swap."""
+        if self._section == "ven" and getattr(self, "_selected_ven", None):
+            self._show_ven(self._selected_ven)
+        elif self._focus_term and self._section == "charlie":
+            self._show_tag_in_viewer(self._focus_term)
+        elif self._focus_tps and self._section == "tps":
+            self._show_tps_in_viewer(self._focus_tps)
+        elif self._selected_crate:
+            self._show_crate(self._selected_crate, prefer_head=False)
 
     def action_toggle_theme(self) -> None:
         self._theme = "barbie" if self._theme == "forest" else "forest"
         self._apply_theme()
-        label = "BARBIE MODE" if self._theme == "barbie" else "forest mode"
+        label = "BARBIE MODE ♡" if self._theme == "barbie" else "forest mode"
         self._status_line(label)
 
     def _set_nav_highlight(self) -> None:
