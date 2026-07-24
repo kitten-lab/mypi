@@ -5,6 +5,17 @@
 // so intellesense doesn't recognize its form. It does exist.
 
 function getTool(string $tool, string $function) {
+  // Rail = facility sidebar slot (shell owns chrome; tool only injects controls)
+  if (strcasecmp($function, 'Rail') === 0) {
+    if (!isset($GLOBALS['GETS']['rail']) || !is_array($GLOBALS['GETS']['rail'])) {
+      $GLOBALS['GETS']['rail'] = [];
+    }
+    $GLOBALS['GETS']['rail'][] = function () use ($tool, $function) {
+      getToolNIM($tool, 'page', $function);
+    };
+    return;
+  }
+
   $GLOBALS['GETS']['set'][] = function () use ($tool, $function) {
     getToolNIM($tool, 'page', $function);
   };
