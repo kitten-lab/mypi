@@ -464,3 +464,17 @@ d/_LEDGER/*.sqlite
 d/_LEDGER/*.sqlite-wal
 d/_LEDGER/*.sqlite-shm
 d/_LEDGER/*.db
+
+# Private / local runtime (not plaza code bank)
+z/ven_registry/
+z/logs/
+d/_CHARLIE/
+d/_CHESTER/
+d/_DEWEY/
+d/_SATORA/
+d/_MEDIA/
+d/_LEDGER/_*.py
+d/_LEDGER/_*.html
+d/www/
+mypi docs/.obsidian/
+mypi docs/extracts/
