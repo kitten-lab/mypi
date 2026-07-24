@@ -107,6 +107,34 @@
   color: color-mix(in srgb, currentColor 90%, #8af);
 }
 
+/* encode hits · bright green chip, dark words (quick scan) */
+mark.li-enc-hit,
+.li-enc-hit {
+  display: inline;
+  padding: 0.05em 0.28em;
+  margin: 0 0.05em;
+  border-radius: 0.2em;
+  background: #39ff14;
+  color: #0a1408;
+  font-weight: 700;
+  font-style: normal;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  box-shadow: 0 0 0 1px #1a4a12;
+}
+.li-enc-count {
+  margin-left: 0.4rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #39ff14;
+  opacity: 0.9;
+}
+.logimport-msg.has-enc .li-role {
+  border-left: 2px solid #39ff14;
+  padding-left: 0.35rem;
+}
+
 .logimport-msg .li-body {
   white-space: pre-wrap;
   word-break: break-word;
@@ -249,6 +277,149 @@
   font-size: 0.75rem;
 }
 
+/* Exports bay · parent group + nested parts */
+.logimport-export-groups {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.logimport-export-group {
+  margin: 0 0 1rem;
+  padding: 0.55rem 0.65rem 0.45rem;
+  border: var(--li-border);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.logimport-export-group.is-on {
+  border-left: 2px solid currentColor;
+}
+
+.logimport-export-group.is-complete {
+  opacity: 0.88;
+}
+
+.logimport-export-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.45rem 0.75rem;
+}
+
+.logimport-export-head-main {
+  flex: 1 1 12rem;
+  min-width: 0;
+  line-height: 1.45;
+}
+
+.logimport-export-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  flex: 0 0 auto;
+}
+
+.logimport-export-status-form {
+  display: inline;
+  margin: 0;
+}
+
+.logimport-export-reopen {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: inherit;
+  text-decoration: none;
+  border: var(--li-border);
+  padding: 0.3rem 0.55rem;
+}
+
+.logimport-export-reopen:hover {
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  text-decoration: none;
+}
+
+.logimport-export-badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  padding: 0.08rem 0.35rem;
+  vertical-align: middle;
+}
+
+.logimport-export-badge.is-complete {
+  opacity: 0.9;
+  border-color: color-mix(in srgb, #6f6 45%, currentColor);
+  color: color-mix(in srgb, #8f8 70%, currentColor);
+}
+
+.logimport-export-yard {
+  margin: 0.25rem 0 0.35rem;
+}
+
+.logimport-export-parts {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0 0 0 0.65rem;
+  border-left: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.logimport-export-parts li {
+  margin: 0.28rem 0;
+  padding: 0.15rem 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.logimport-export-actions button {
+  font: inherit;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.55rem;
+  border: var(--li-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.logimport-export-actions button:hover {
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.logimport-export-actions button.logimport-export {
+  border-color: color-mix(in srgb, currentColor 50%, transparent);
+}
+
+/* Desk gate when export already complete */
+.logimport-already {
+  margin: 0.75rem 0 1rem;
+  padding: 0.75rem 0.85rem;
+  border: var(--li-border);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.logimport-already-h {
+  margin: 0 0 0.45rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.logimport-already .logimport-export-groups {
+  margin-top: 0.55rem;
+}
+
+.logimport-reopen-banner a {
+  color: inherit;
+}
+
 /* terminal-io skin can override if needed */
 body.terminal-skin-io .logimport-seg-head {
   background: #0a160a;
@@ -328,6 +499,53 @@ body.terminal-skin-base .logimport-seg-title {
 
 .logimport-enc-form input.logimport-code {
   flex: 0 1 6.5rem;
+}
+
+.logimport-enc-form input.logimport-also {
+  flex: 1 1 12rem;
+  min-width: 10rem;
+}
+
+.logimport-enc-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.45rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dotted rgba(128, 128, 128, 0.25);
+}
+.logimport-enc-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.4rem;
+}
+.logimport-enc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: center;
+}
+.logimport-enc-actions .logimport-also-inline {
+  flex: 1 1 8rem;
+  min-width: 6rem;
+  font: inherit;
+  font-size: 0.8rem;
+  color: inherit;
+  background: rgba(0, 0, 0, 0.35);
+  border: var(--li-border);
+  padding: 0.25rem 0.35rem;
+}
+.logimport-enc-actions button {
+  font: inherit;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.45rem;
+  border: var(--li-border);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
 }
 
 .logimport-enc-form button {

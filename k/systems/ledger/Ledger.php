@@ -52,6 +52,11 @@ if (!function_exists('mypi_ledger_path')) {
             'arc' => 'yard_crate',
             'shipment' => 'yard_crate',
             'yard_crate' => 'yard_crate',
+            // Terminal I/O · awareness notes (dual-write from private sidecars)
+            'log_export' => 'leaf',
+            'ven_ship' => 'leaf',
+            'ven_add' => 'leaf',
+            'ven_modify' => 'leaf',
         ];
         return $map[$k] ?? 'leaf';
     }
@@ -581,6 +586,173 @@ SQL
              )"
         );
         return ['removed' => (int) $n];
+    }
+
+    /**
+     * Replace tags_raw on a timber; rebuild tag_map + Charlie edges (mailroom / TUI).
+     * @return array{ok:bool,error?:string,tags_raw?:string}
+     */
+    function mypi_ledger_set_charlie($c_uid, $tags_raw, array $opts = []) {
+        $c_uid = trim((string) $c_uid);
+        $tags_raw = trim((string) $tags_raw);
+        $row = mypi_ledger_get($c_uid);
+        if (!$row) {
+            return ['ok' => false, 'error' => 'timber not found'];
+        }
+        $sys = (string) ($row['sys'] ?? '');
+        $dom = (string) ($row['dom'] ?? '');
+        $room = (string) ($row['room'] ?? '');
+        $mod = (string) ($row['mod'] ?? '');
+        $place_path = (string) ($row['place_path'] ?? '');
+        if ($place_path === '') {
+            $place_path = trim(implode('/', array_filter([$sys, $dom, $room], 'strlen')), '/');
+        }
+        $actor = (string) ($opts['actor'] ?? 'charlie');
+        $tool = (string) ($opts['tool'] ?? 'mailroom');
+        $ingest = time();
+        $pdo = mypi_ledger_pdo();
+        $parsed = mypi_ledger_parse_charlie($tags_raw);
+        $placeTags = mypi_ledger_parse_tags('', $sys, $dom, $room, $mod);
+        $all = [];
+        foreach (array_merge($placeTags, $parsed['tags']) as $t) {
+            $t = strtolower(trim((string) $t));
+            if ($t !== '' && !in_array($t, $all, true)) {
+                $all[] = $t;
+            }
+        }
+        $oldRaw = (string) ($row['tags_raw'] ?? '');
+        mypi_ledger_charlie_detach($pdo, $c_uid);
+        $pdo->prepare('DELETE FROM tag_map WHERE c_uid=?')->execute([$c_uid]);
+        $pdo->prepare(
+            'UPDATE crates SET tags_json=?, tags_raw=?, updated_at=? WHERE c_uid=?'
+        )->execute([json_encode($all), $tags_raw, $ingest, $c_uid]);
+        $ins = $pdo->prepare('INSERT OR IGNORE INTO tag_map(c_uid, tag) VALUES(?,?)');
+        foreach ($all as $t) {
+            $ins->execute([$c_uid, $t]);
+        }
+        mypi_ledger_charlie_write($pdo, $c_uid, $tags_raw, $sys, $dom, $room, $mod, $ingest, $all);
+        try {
+            $pdo->prepare(
+                'INSERT INTO crate_events(c_uid, event_type, payload_json, actor, place_path, event_unix, ingest_unix, tool)
+                 VALUES (?,?,?,?,?,?,?,?)'
+            )->execute([
+                $c_uid,
+                'charlie_set',
+                json_encode(['tags_raw' => $tags_raw, 'was' => mb_substr($oldRaw, 0, 500)]),
+                $actor,
+                $place_path,
+                $ingest,
+                $ingest,
+                $tool,
+            ]);
+        } catch (Throwable $e) {
+            // events optional if schema lag
+        }
+        return ['ok' => true, 'tags_raw' => $tags_raw, 'c_uid' => $c_uid];
+    }
+
+    /** Append Charlie fragment onto timber tags_raw. */
+    function mypi_ledger_append_charlie($c_uid, $fragment, array $opts = []) {
+        $fragment = trim((string) $fragment);
+        if ($fragment === '') {
+            return ['ok' => false, 'error' => 'empty fragment'];
+        }
+        $row = mypi_ledger_get($c_uid);
+        if (!$row) {
+            return ['ok' => false, 'error' => 'timber not found'];
+        }
+        $old = trim((string) ($row['tags_raw'] ?? ''));
+        if ($old !== '' && stripos($old, $fragment) !== false) {
+            $new = $old;
+        } elseif ($old !== '') {
+            $new = $old . '; ' . $fragment;
+        } else {
+            $new = $fragment;
+        }
+        return mypi_ledger_set_charlie($c_uid, $new, $opts);
+    }
+
+    /**
+     * Mailroom index: latest head per stem + tag/edge density.
+     * @return list<array>
+     */
+    function mypi_ledger_list_timbers(array $opts = []) {
+        $pdo = mypi_ledger_pdo();
+        $limit = max(1, min(300, (int) ($opts['limit'] ?? 80)));
+        $queue = (string) ($opts['queue'] ?? 'all'); // all | bare | wired | terms
+        $kind = trim((string) ($opts['kind'] ?? ''));
+        $agent = trim((string) ($opts['agent'] ?? ''));
+        $place = trim((string) ($opts['place'] ?? '')); // substring match on place_path
+        $q = trim((string) ($opts['q'] ?? ''));
+        $sort = (string) ($opts['sort'] ?? 'ingest'); // ingest | event | tags | edges | kind | place
+
+        $sql = "SELECT c.*,
+            (SELECT COUNT(*) FROM tag_map tm WHERE tm.c_uid = c.c_uid) AS n_tags,
+            (SELECT COUNT(*) FROM thread_edges te WHERE te.c_uid = c.c_uid) AS n_edges
+          FROM crates c
+          INNER JOIN (
+            SELECT stem, MAX(ingest_unix) AS mx, MAX(c_uid) AS pick
+            FROM (
+              SELECT COALESCE(NULLIF(stem_c_uid, ''), c_uid) AS stem, ingest_unix, c_uid
+              FROM crates
+              WHERE (deleted_at IS NULL OR deleted_at = 0)
+            )
+            GROUP BY stem
+          ) h ON COALESCE(NULLIF(c.stem_c_uid, ''), c.c_uid) = h.stem
+              AND c.ingest_unix = h.mx
+              AND c.c_uid = h.pick
+          WHERE (c.deleted_at IS NULL OR c.deleted_at = 0)";
+        $args = [];
+        if ($kind !== '') {
+            $sql .= ' AND c.kind = ?';
+            $args[] = $kind;
+        }
+        if ($agent !== '') {
+            $sql .= ' AND lower(c.agent) LIKE ?';
+            $args[] = '%' . strtolower($agent) . '%';
+        }
+        if ($place !== '') {
+            $sql .= ' AND lower(c.place_path) LIKE ?';
+            $args[] = '%' . strtolower($place) . '%';
+        }
+        if ($q !== '') {
+            $sql .= ' AND (lower(c.topic) LIKE ? OR lower(c.body) LIKE ? OR lower(c.c_uid) LIKE ? OR lower(c.tags_raw) LIKE ?)';
+            $like = '%' . strtolower($q) . '%';
+            $args[] = $like;
+            $args[] = $like;
+            $args[] = $like;
+            $args[] = $like;
+        }
+        // queue filters need HAVING-like — apply after via wrap or AND subqueries
+        if ($queue === 'bare') {
+            $sql .= ' AND (SELECT COUNT(*) FROM tag_map tm WHERE tm.c_uid = c.c_uid
+                        AND tm.tag NOT LIKE \'path:%\' AND tm.tag NOT LIKE \'@%\'
+                        AND tm.tag NOT LIKE \'sys:%\' AND tm.tag NOT LIKE \'dom:%\'
+                        AND tm.tag NOT LIKE \'mod:%\') = 0';
+        } elseif ($queue === 'wired') {
+            $sql .= ' AND (SELECT COUNT(*) FROM thread_edges te WHERE te.c_uid = c.c_uid) > 0';
+        } elseif ($queue === 'terms') {
+            $sql .= ' AND (SELECT COUNT(*) FROM tag_map tm WHERE tm.c_uid = c.c_uid) > 0
+                      AND (SELECT COUNT(*) FROM thread_edges te WHERE te.c_uid = c.c_uid) = 0';
+        }
+
+        $order = 'c.ingest_unix DESC';
+        if ($sort === 'event') {
+            $order = 'COALESCE(c.event_unix, c.ingest_unix) DESC';
+        } elseif ($sort === 'tags') {
+            $order = 'n_tags DESC, c.ingest_unix DESC';
+        } elseif ($sort === 'edges') {
+            $order = 'n_edges DESC, c.ingest_unix DESC';
+        } elseif ($sort === 'kind') {
+            $order = 'c.kind ASC, c.ingest_unix DESC';
+        } elseif ($sort === 'place') {
+            $order = 'c.place_path ASC, c.ingest_unix DESC';
+        }
+        $sql .= ' ORDER BY ' . $order . ' LIMIT ' . $limit;
+
+        $st = $pdo->prepare($sql);
+        $st->execute($args);
+        return $st->fetchAll() ?: [];
     }
 
     /**

@@ -2,8 +2,9 @@
 /**
  * logImport · WIP actions (never writes glass).
  *
- * save_wip | split_after | unsplit_after | clear_splits
- * add_encode | remove_encode | add_redact_phrase | add_redact_msg | remove_redact
+ * save_wip | submit_export | split_after | unsplit_after | clear_splits
+ * add_encode | add_encode_also | remove_encode | push_encode_ven
+ * add_redact_phrase | add_redact_msg | remove_redact
  * apply_encode | clear_apply_encode | apply_redact | clear_apply_redact
  */
 require_once __DIR__ . '/logImport_lib.php';
@@ -33,8 +34,12 @@ if (isset($_POST['split_after']) && $_POST['split_after'] !== '') {
     $action = 'clear_splits';
 } elseif (isset($_POST['add_encode'])) {
     $action = 'add_encode';
+} elseif (isset($_POST['add_encode_also']) && $_POST['add_encode_also'] !== '') {
+    $action = 'add_encode_also';
 } elseif (isset($_POST['remove_encode']) && $_POST['remove_encode'] !== '') {
     $action = 'remove_encode';
+} elseif (isset($_POST['push_encode_ven']) && $_POST['push_encode_ven'] !== '') {
+    $action = 'push_encode_ven';
 } elseif (isset($_POST['add_redact_phrase'])) {
     $action = 'add_redact_phrase';
 } elseif (isset($_POST['add_redact_msg']) && $_POST['add_redact_msg'] !== '') {
@@ -49,6 +54,8 @@ if (isset($_POST['split_after']) && $_POST['split_after'] !== '') {
     $action = 'apply_redact';
 } elseif (isset($_POST['clear_apply_redact'])) {
     $action = 'clear_apply_redact';
+} elseif (isset($_POST['submit_export']) || $action === 'submit_export') {
+    $action = 'submit_export';
 }
 
 $lastSeq = 0;
@@ -87,15 +94,37 @@ if ($action === 'save_wip') {
     $orig = trim((string) ($_POST['enc_original'] ?? ''));
     $alias = trim((string) ($_POST['enc_alias'] ?? ''));
     $codeIn = trim((string) ($_POST['enc_code'] ?? ''));
+    $alsoRaw = trim((string) ($_POST['enc_also'] ?? ''));
+    $also = [];
+    if ($alsoRaw !== '') {
+        foreach (preg_split('/\s*,\s*/', $alsoRaw) ?: [] as $a) {
+            $a = trim((string) $a);
+            if ($a !== '' && strcasecmp($a, $orig) !== 0) {
+                $also[] = $a;
+            }
+        }
+        $also = array_values(array_unique($also));
+    }
     if ($orig === '' || $alias === '') {
         $GLOBALS['LOGIMPORT_ERROR'] = 'encode needs original + alias';
         return;
     }
     $book = logimport_encodes_list($wip);
-    // skip exact dup original
+    // skip exact dup original (or also-spelling already claimed)
+    $claimed = [];
     foreach ($book as $e) {
-        if (strcasecmp($e['original'], $orig) === 0) {
-            $GLOBALS['LOGIMPORT_ERROR'] = 'original already in encode book';
+        $claimed[strtolower($e['original'])] = true;
+        foreach ($e['also'] as $a) {
+            $claimed[strtolower($a)] = true;
+        }
+    }
+    if (!empty($claimed[strtolower($orig)])) {
+        $GLOBALS['LOGIMPORT_ERROR'] = 'original (or also-spelling) already in encode book';
+        return;
+    }
+    foreach ($also as $a) {
+        if (!empty($claimed[strtolower($a)])) {
+            $GLOBALS['LOGIMPORT_ERROR'] = 'also-spelling already used: ' . $a;
             return;
         }
     }
@@ -105,10 +134,127 @@ if ($action === 'save_wip') {
         'code' => $code,
         'alias' => $alias,
         'original' => $orig,
+        'also' => $also,
         'created_at' => time(),
     ];
     $wip['encodes'] = $book;
     $status = 'enc_ok';
+    $fragExtra = '#li-encode';
+} elseif ($action === 'add_encode_also') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    $rid = (string) ($_POST['add_encode_also'] ?? '');
+    // PHP mangles '.' in field names → use alnum form key (see logimport_encode_form_key)
+    $formKey = logimport_encode_form_key($rid);
+    $alsoRaw = trim((string) (
+        $_POST['enc_also_' . $formKey]
+        ?? $_POST['enc_also_for_' . $rid]
+        ?? $_POST['enc_also_for_' . str_replace('.', '_', $rid)]
+        ?? ''
+    ));
+    if ($rid === '' || $alsoRaw === '') {
+        $GLOBALS['LOGIMPORT_ERROR'] = 'add also: type spellings in the row field, then click add also';
+        return;
+    }
+    $add = [];
+    foreach (preg_split('/\s*,\s*/', $alsoRaw) ?: [] as $a) {
+        $a = trim((string) $a);
+        if ($a !== '') {
+            $add[] = $a;
+        }
+    }
+    $add = array_values(array_unique($add));
+    if ($add === []) {
+        $GLOBALS['LOGIMPORT_ERROR'] = 'no also-spellings to add';
+        return;
+    }
+    $book = logimport_encodes_list($wip);
+    $claimedOther = [];
+    foreach ($book as $e) {
+        if (($e['id'] ?? '') === $rid) {
+            continue;
+        }
+        $claimedOther[strtolower($e['original'])] = true;
+        foreach ($e['also'] as $a) {
+            $claimedOther[strtolower($a)] = true;
+        }
+    }
+    $found = false;
+    $addedN = 0;
+    $skipped = [];
+    foreach ($book as &$e) {
+        if (($e['id'] ?? '') !== $rid) {
+            continue;
+        }
+        $found = true;
+        $onRow = [strtolower($e['original']) => true];
+        foreach ($e['also'] as $a) {
+            $onRow[strtolower($a)] = true;
+        }
+        foreach ($add as $a) {
+            $lk = strtolower($a);
+            if (!empty($onRow[$lk])) {
+                $skipped[] = $a . ' (already on this row)';
+                continue;
+            }
+            if (!empty($claimedOther[$lk])) {
+                $skipped[] = $a . ' (used on another encode)';
+                continue;
+            }
+            $e['also'][] = $a;
+            $onRow[$lk] = true;
+            $addedN++;
+        }
+        $e['also'] = array_values(array_unique($e['also']));
+        break;
+    }
+    unset($e);
+    if (!$found) {
+        $GLOBALS['LOGIMPORT_ERROR'] = 'encode row not found';
+        return;
+    }
+    if ($addedN === 0) {
+        $GLOBALS['LOGIMPORT_ERROR'] = 'nothing new added'
+            . ($skipped ? (': ' . implode('; ', $skipped)) : '');
+        return;
+    }
+    $wip['encodes'] = $book;
+    $status = 'enc_also_ok';
+    $fragExtra = '#li-encode';
+} elseif ($action === 'push_encode_ven') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    $rid = (string) ($_POST['push_encode_ven'] ?? '');
+    $enc = null;
+    foreach (logimport_encodes_list($wip) as $e) {
+        if (($e['id'] ?? '') === $rid) {
+            $enc = $e;
+            break;
+        }
+    }
+    if (!$enc) {
+        $GLOBALS['LOGIMPORT_ERROR'] = 'encode row not found for VEN push';
+        return;
+    }
+    $push = logimport_encode_push_ven($enc, $faceKey);
+    if (empty($push['ok'])) {
+        $GLOBALS['LOGIMPORT_ERROR'] = $push['error'] ?? 'VEN push failed';
+        return;
+    }
+    if (!empty($push['c_uid'])) {
+        $GLOBALS['LOGIMPORT_VEN_CUID'] = (string) $push['c_uid'];
+    }
+    // stamp kven back onto encode if code was empty/minted
+    if (!empty($push['kven'])) {
+        $book = logimport_encodes_list($wip);
+        foreach ($book as &$e) {
+            if (($e['id'] ?? '') === $rid) {
+                $e['code'] = $push['kven'];
+                break;
+            }
+        }
+        unset($e);
+        $wip['encodes'] = $book;
+    }
+    $status = 'enc_ven_ok';
     $fragExtra = '#li-encode';
 } elseif ($action === 'remove_encode') {
     $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
@@ -192,6 +338,31 @@ if ($action === 'save_wip') {
     $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
     $wip['apply_redact'] = false;
     $status = 'raw_red';
+} elseif ($action === 'submit_export') {
+    $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
+    if (!logimport_wip_save($faceKey, $wip)) {
+        $GLOBALS['LOGIMPORT_ERROR'] = 'could not write wip before export';
+        return;
+    }
+    $ex = logimport_export_submit($faceKey, $core, $wip);
+    if (empty($ex['ok'])) {
+        $GLOBALS['LOGIMPORT_ERROR'] = $ex['error'] ?? 'export failed';
+        return;
+    }
+    $status = 'export_ok';
+    $path = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '';
+    // bounce to exports list when possible
+    $exportHref = function_exists('mypi_room_href')
+        ? mypi_room_href('io', 'exports')
+        : '/terminal/io/exports';
+    $partsN = max(1, (int) ($ex['parts'] ?? 1));
+    header(
+        'Location: ' . $exportHref
+        . '?face=' . rawurlencode($faceKey)
+        . '&export_ok=1'
+        . '&parts=' . $partsN
+    );
+    exit;
 } else {
     $wip['segments'] = logimport_segments_collapse_trivial($segments, $lastSeq);
 }

@@ -45,6 +45,7 @@ if ($action === 'save') {
 
     $now = time();
     $found = false;
+    $isModify = false;
     foreach ($reg['entries'] as $i => $e) {
         if ($id !== '' && ($e['id'] ?? '') === $id) {
             $reg['entries'][$i] = vendesk_normalize_entry([
@@ -59,6 +60,7 @@ if ($action === 'save') {
                 'updated' => $now,
             ]);
             $found = true;
+            $isModify = true;
             $id = $reg['entries'][$i]['id'];
             break;
         }
@@ -82,7 +84,19 @@ if ($action === 'save') {
         $GLOBALS['VEN_ERROR'] = 'could not write registry (z/ven_registry)';
         return;
     }
-    $go(['tab' => 'view', 'id' => $id, 'ok' => 'saved']);
+    // Big ledger awareness (public code + label only)
+    // Desk direct: ADDED (new) vs MODIFY (edit). SHIP is logImport →VEN push.
+    $ship = vendesk_ledger_ship(
+        $kven,
+        $label,
+        'venDesk',
+        $isModify ? 'modify' : 'add'
+    );
+    $q = ['tab' => 'view', 'id' => $id, 'ok' => 'saved'];
+    if (!empty($ship['ok']) && !empty($ship['c_uid'])) {
+        $q['c_uid'] = (string) $ship['c_uid'];
+    }
+    $go($q);
 }
 
 if ($action === 'delete') {

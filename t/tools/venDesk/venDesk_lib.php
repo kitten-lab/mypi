@@ -188,4 +188,123 @@ if (!function_exists('vendesk_paths')) {
         }
         return $prefix . '-' . sprintf('%03d', random_int(100, 999));
     }
+
+    /**
+     * Dual-write public VEN note into big ledger (code + label only).
+     * Matches / private names stay in z/ven_registry.
+     *
+     * @param 'add'|'ship'|'modify' $event
+     *   add    = new row on RX venDesk
+     *   ship   = pushed in from logImport (or other IO rail)
+     *   modify = edit existing row
+     * @return array{ok:bool,c_uid?:string,error?:string}
+     */
+    function vendesk_ledger_ship(
+        string $kven,
+        string $label,
+        string $via = 'venDesk',
+        string $event = 'add'
+    ): array {
+        if (!function_exists('mypi_ledger_create_post')) {
+            $candidates = [];
+            if (defined('ROUTE_TO_SYSTEMS')) {
+                $candidates[] = ROUTE_TO_SYSTEMS . 'ledger/Ledger.php';
+            }
+            if (defined('echoSONAR')) {
+                $root = rtrim(str_replace('\\', '/', (string) echoSONAR), '/');
+                $candidates[] = $root . '/k/systems/ledger/Ledger.php';
+            }
+            $candidates[] = dirname(__DIR__, 3) . '/k/systems/ledger/Ledger.php';
+            foreach ($candidates as $p) {
+                if (is_string($p) && is_file($p)) {
+                    require_once $p;
+                    break;
+                }
+            }
+        }
+        if (!function_exists('mypi_ledger_create_post')) {
+            return ['ok' => false, 'error' => 'ledger unavailable'];
+        }
+        $sys = 'mypi';
+        $dom = 'rx';
+        $room = 'ven';
+        $mod = '';
+        $place_label = 'ven desk';
+        $agent = 'rx';
+        if (function_exists('mypi_ledger_place_from_sky')) {
+            $p = mypi_ledger_place_from_sky();
+            if (!empty($p['sys'])) {
+                $sys = (string) $p['sys'];
+            }
+            if (!empty($p['dom'])) {
+                $dom = (string) $p['dom'];
+            }
+            if (!empty($p['room'])) {
+                $room = (string) $p['room'];
+            }
+            $mod = (string) ($p['mod'] ?? '');
+            if (!empty($p['place_label'])) {
+                $place_label = (string) $p['place_label'];
+            }
+        }
+        if (function_exists('mypi_auth_agent')) {
+            $a = mypi_auth_agent();
+            if (is_array($a) && !empty($a['slug'])) {
+                $agent = (string) $a['slug'];
+            }
+        }
+        $ev = strtolower(trim($event));
+        if ($ev !== 'modify' && $ev !== 'ship' && $ev !== 'add') {
+            $ev = 'add';
+        }
+        $kven = vendesk_normalize_kven($kven);
+        $label = trim($label);
+        if ($ev === 'modify') {
+            $verb = 'MODIFY';
+            $kind = 'ven_modify';
+            $tagExtra = ' venmodify';
+            $metaEvent = 'ven_modify';
+        } elseif ($ev === 'ship') {
+            $verb = 'SHIP';
+            $kind = 'ven_ship';
+            $tagExtra = ' venship';
+            $metaEvent = 'ven_ship';
+        } else {
+            $verb = 'ADDED';
+            $kind = 'ven_add';
+            $tagExtra = ' venadd';
+            $metaEvent = 'ven_add';
+        }
+        $topic = 'VEN ' . $verb . ' · ' . $kven . ($label !== '' ? (' · ' . $label) : '');
+        $body = "VEN registry {$verb}\ncode: {$kven}\n"
+            . ($label !== '' ? "alias: {$label}\n" : '')
+            . "via: {$via}\n"
+            . 'private matches stay in ven registry · not in this crate';
+        $r = mypi_ledger_create_post([
+            'topic' => $topic,
+            'body' => $body,
+            'kind' => $kind,
+            'scale' => 'leaf',
+            'tool' => 'venDesk',
+            'tool_version' => 1,
+            'sys' => $sys,
+            'dom' => $dom,
+            'room' => $room,
+            'mod' => $mod,
+            'place_label' => $place_label,
+            'agent' => $agent,
+            'actor' => $agent,
+            'tags_raw' => 'ven ' . $kven . $tagExtra,
+            'meta' => [
+                'event' => $metaEvent,
+                'kven' => $kven,
+                'alias' => $label,
+                'via' => $via,
+            ],
+        ]);
+        if (empty($r['ok'])) {
+            return ['ok' => false, 'error' => (string) ($r['error'] ?? 'ledger write failed')];
+        }
+        return ['ok' => true, 'c_uid' => (string) ($r['c_uid'] ?? '')];
+    }
 }

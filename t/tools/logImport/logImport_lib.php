@@ -13,6 +13,7 @@ if (!function_exists('logimport_paths')) {
             'catalog' => $root . '/z/logs/tree_cores/catalog.json',
             'glass' => $root . '/z/logs/tree_cores/glass',
             'wip' => $root . '/z/logs/tree_cores/wip',
+            'exports' => $root . '/z/logs/tree_cores/exports',
         ];
     }
 
@@ -280,7 +281,9 @@ if (!function_exists('logimport_paths')) {
     }
 
     /**
-     * List all WIP sidecars (one file per core you've touched).
+     * List WIP sidecars for the Active bay (one file per core you've touched).
+     * Faces with sealed export status "complete" are omitted — WIP stays on disk
+     * so "reopen log" / desk can still load encode book & cuts.
      *
      * @return list<array{face_id:string,yard_title:string,notes_preview:string,n_segments:int,saved_at:int,glass_title:string,testament_tag:string}>
      */
@@ -305,6 +308,11 @@ if (!function_exists('logimport_paths')) {
                 continue;
             }
             $face = logimport_face_key($m[1]);
+            // Complete export → drop from active list
+            $st = logimport_export_status_load($face);
+            if (($st['status'] ?? '') === 'complete') {
+                continue;
+            }
             $j = json_decode((string) file_get_contents($file), true);
             if (!is_array($j)) {
                 continue;
@@ -336,29 +344,792 @@ if (!function_exists('logimport_paths')) {
     }
 
     /**
-     * Submitted exports live here later (submit → material). Empty until then.
+     * Workflow status for a sealed face (parent). Sidecar — not inside part wood.
+     * Path: z/logs/tree_cores/exports/status_{face}.json
+     */
+    function logimport_export_status_path(string $face): string {
+        $key = logimport_face_key($face);
+        $dir = logimport_paths()['exports'];
+        if (!is_dir($dir)) {
+            mkdir($dir, 0775, true);
+        }
+        return $dir . '/status_' . $key . '.json';
+    }
+
+    /**
+     * @return array{status:string,completed_at:?int,updated_at:int}
+     */
+    function logimport_export_status_load(string $face): array {
+        $p = logimport_export_status_path($face);
+        $defaults = [
+            'status' => 'in_progress',
+            'completed_at' => null,
+            'updated_at' => 0,
+        ];
+        if (!is_file($p)) {
+            return $defaults;
+        }
+        $j = json_decode((string) file_get_contents($p), true);
+        if (!is_array($j)) {
+            return $defaults;
+        }
+        $st = (string) ($j['status'] ?? 'in_progress');
+        if ($st !== 'complete' && $st !== 'in_progress') {
+            $st = 'in_progress';
+        }
+        return [
+            'status' => $st,
+            'completed_at' => isset($j['completed_at']) && is_numeric($j['completed_at'])
+                ? (int) $j['completed_at']
+                : null,
+            'updated_at' => (int) ($j['updated_at'] ?? 0),
+        ];
+    }
+
+    /**
+     * @param 'in_progress'|'complete' $status
+     */
+    function logimport_export_status_set(string $face, string $status): bool {
+        $key = logimport_face_key($face);
+        if ($key === '') {
+            return false;
+        }
+        if ($status !== 'complete' && $status !== 'in_progress') {
+            return false;
+        }
+        $now = time();
+        $payload = [
+            'face_id' => $key,
+            'status' => $status,
+            'completed_at' => $status === 'complete' ? $now : null,
+            'updated_at' => $now,
+        ];
+        return file_put_contents(
+            logimport_export_status_path($key),
+            json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)
+        ) !== false;
+    }
+
+    /**
+     * Submitted exports: sealed snapshot of WIP + transformed messages.
+     * Path: export_{face}.json  OR  export_{face}.{part}.json when split (e.g. 008.1).
+     * Glass is never modified.
      *
-     * @return list<array{face_id:string,path:string,saved_at:int,title:string}>
+     * @return list<array{face_id:string,path:string,saved_at:int,title:string,part:?int,part_count:?int,parent_face:string,glass_title:string,yard_title:string,basename:string}>
      */
     function logimport_list_exports(): array {
-        $root = rtrim(str_replace('\\', '/', echoSONAR), '/');
-        $dir = $root . '/z/logs/tree_cores/exports';
+        $dir = logimport_paths()['exports'];
         if (!is_dir($dir)) {
             return [];
         }
         $out = [];
-        foreach (glob($dir . '/*.json') ?: [] as $file) {
+        foreach (glob($dir . '/export_*.json') ?: [] as $file) {
             $j = json_decode((string) file_get_contents($file), true);
             $meta = is_array($j) ? $j : [];
+            $part = array_key_exists('part', $meta) && $meta['part'] !== null
+                ? (int) $meta['part']
+                : null;
+            if ($part !== null && $part < 1) {
+                $part = null;
+            }
+            $partCount = isset($meta['part_count']) ? (int) $meta['part_count'] : null;
+            $title = (string) ($meta['title'] ?? $meta['part_title'] ?? $meta['yard_title'] ?? basename($file));
+            $faceId = (string) ($meta['face_id'] ?? '');
+            $parent = (string) ($meta['parent_face'] ?? '');
+            if ($parent === '') {
+                // export_008.1 → parent 008 when meta missing
+                if (preg_match('/^(.+)\.(\d+)$/', $faceId, $m)) {
+                    $parent = $m[1];
+                    if ($part === null) {
+                        $part = (int) $m[2];
+                    }
+                } else {
+                    $parent = $faceId;
+                }
+            }
             $out[] = [
-                'face_id' => (string) ($meta['face_id'] ?? ''),
+                'face_id' => $faceId,
                 'path' => $file,
+                'basename' => basename($file),
                 'saved_at' => (int) ($meta['exported_at'] ?? filemtime($file) ?: 0),
-                'title' => (string) ($meta['yard_title'] ?? $meta['title'] ?? basename($file)),
+                'title' => $title,
+                'part' => $part,
+                'part_count' => $partCount,
+                'parent_face' => $parent,
+                'glass_title' => (string) ($meta['glass_title'] ?? ''),
+                'yard_title' => (string) ($meta['yard_title'] ?? ''),
             ];
         }
-        usort($out, static fn($a, $b) => ($b['saved_at'] <=> $a['saved_at']));
+        usort($out, static function ($a, $b) {
+            $pa = (string) ($a['parent_face'] ?? $a['face_id'] ?? '');
+            $pb = (string) ($b['parent_face'] ?? $b['face_id'] ?? '');
+            if ($pa !== $pb) {
+                return $pa <=> $pb;
+            }
+            $na = (int) ($a['part'] ?? 0);
+            $nb = (int) ($b['part'] ?? 0);
+            if ($na !== $nb) {
+                return $na <=> $nb;
+            }
+            return ($b['saved_at'] <=> $a['saved_at']);
+        });
         return $out;
+    }
+
+    /**
+     * Group sealed files by parent face for the exports bay UI.
+     *
+     * @return list<array{
+     *   parent_face:string,
+     *   glass_title:string,
+     *   yard_title:string,
+     *   display_title:string,
+     *   part_count:int,
+     *   exported_at:int,
+     *   status:string,
+     *   completed_at:?int,
+     *   parts:list<array>
+     * }>
+     */
+    function logimport_list_export_groups(): array {
+        $flat = logimport_list_exports();
+        $groups = [];
+        foreach ($flat as $ex) {
+            $pf = (string) ($ex['parent_face'] ?? $ex['face_id'] ?? '');
+            if ($pf === '') {
+                $pf = 'unknown';
+            }
+            if (!isset($groups[$pf])) {
+                $groups[$pf] = [
+                    'parent_face' => $pf,
+                    'glass_title' => (string) ($ex['glass_title'] ?? ''),
+                    'yard_title' => (string) ($ex['yard_title'] ?? ''),
+                    'exported_at' => (int) ($ex['saved_at'] ?? 0),
+                    'parts' => [],
+                ];
+            }
+            if (($ex['glass_title'] ?? '') !== '' && $groups[$pf]['glass_title'] === '') {
+                $groups[$pf]['glass_title'] = (string) $ex['glass_title'];
+            }
+            if (($ex['yard_title'] ?? '') !== '' && $groups[$pf]['yard_title'] === '') {
+                $groups[$pf]['yard_title'] = (string) $ex['yard_title'];
+            }
+            $groups[$pf]['exported_at'] = max(
+                (int) $groups[$pf]['exported_at'],
+                (int) ($ex['saved_at'] ?? 0)
+            );
+            $groups[$pf]['parts'][] = $ex;
+        }
+
+        $out = [];
+        foreach ($groups as $g) {
+            $nParts = count($g['parts']);
+            // Prefer declared part_count from any part file
+            $declared = 0;
+            foreach ($g['parts'] as $p) {
+                $declared = max($declared, (int) ($p['part_count'] ?? 0));
+            }
+            $partCount = max($nParts, $declared > 0 ? $declared : $nParts);
+            $st = logimport_export_status_load($g['parent_face']);
+            $yard = trim((string) $g['yard_title']);
+            $glass = trim((string) $g['glass_title']);
+            $display = $glass !== '' ? $glass : ($yard !== '' ? $yard : 'untitled');
+            $out[] = [
+                'parent_face' => $g['parent_face'],
+                'glass_title' => $glass,
+                'yard_title' => $yard,
+                'display_title' => $display,
+                'part_count' => $partCount,
+                'exported_at' => (int) $g['exported_at'],
+                'status' => $st['status'],
+                'completed_at' => $st['completed_at'],
+                'parts' => $g['parts'],
+            ];
+        }
+
+        // Newest seal groups first
+        usort($out, static fn($a, $b) => ($b['exported_at'] <=> $a['exported_at']));
+        return $out;
+    }
+
+    /**
+     * One export group for a parent face, or null if no sealed files.
+     * Status-only complete faces (no files) still return a stub when $allowStatusOnly.
+     */
+    function logimport_export_group_by_face(string $face, bool $allowStatusOnly = true): ?array {
+        $key = logimport_face_key($face);
+        if ($key === '') {
+            return null;
+        }
+        foreach (logimport_list_export_groups() as $g) {
+            if ((string) ($g['parent_face'] ?? '') === $key) {
+                return $g;
+            }
+        }
+        if (!$allowStatusOnly) {
+            return null;
+        }
+        $st = logimport_export_status_load($key);
+        if (($st['status'] ?? '') !== 'complete') {
+            return null;
+        }
+        $core = logimport_core_by_face($key);
+        $glass = is_array($core) ? (string) ($core['title'] ?? '') : '';
+        $wip = logimport_wip_load($key);
+        $yard = is_array($wip) ? trim((string) ($wip['yard_title'] ?? '')) : '';
+        return [
+            'parent_face' => $key,
+            'glass_title' => $glass,
+            'yard_title' => $yard,
+            'display_title' => $glass !== '' ? $glass : ($yard !== '' ? $yard : 'untitled'),
+            'part_count' => 0,
+            'exported_at' => (int) ($st['completed_at'] ?? $st['updated_at'] ?? 0),
+            'status' => 'complete',
+            'completed_at' => $st['completed_at'],
+            'parts' => [],
+        ];
+    }
+
+    /**
+     * @param int|null $part 1-based part number; null = whole-face monolithic file
+     */
+    function logimport_export_path(string $face, ?int $part = null): string {
+        $key = logimport_face_key($face);
+        $dir = logimport_paths()['exports'];
+        if (!is_dir($dir)) {
+            mkdir($dir, 0775, true);
+        }
+        if ($part !== null && $part > 0) {
+            return $dir . '/export_' . $key . '.' . $part . '.json';
+        }
+        return $dir . '/export_' . $key . '.json';
+    }
+
+    /**
+     * Remove stale seal files when re-exporting (monolith ↔ multi-part).
+     * $keepParts = 0 or 1 → keep only export_{face}.json; remove export_{face}.N.json
+     * $keepParts >= 2 → keep export_{face}.1..N; remove monolith + higher parts
+     */
+    function logimport_export_clear_stale(string $faceKey, int $keepParts): void {
+        $dir = logimport_paths()['exports'];
+        if (!is_dir($dir) || $faceKey === '') {
+            return;
+        }
+        $mono = $dir . '/export_' . $faceKey . '.json';
+        if ($keepParts >= 2) {
+            if (is_file($mono)) {
+                @unlink($mono);
+            }
+            foreach (glob($dir . '/export_' . $faceKey . '.*.json') ?: [] as $file) {
+                $base = basename($file, '.json');
+                // export_008.1 → part after last dot of name without export_
+                if (!preg_match('/^export_' . preg_quote($faceKey, '/') . '\.(\d+)$/', $base, $m)) {
+                    continue;
+                }
+                $n = (int) $m[1];
+                if ($n < 1 || $n > $keepParts) {
+                    @unlink($file);
+                }
+            }
+        } else {
+            foreach (glob($dir . '/export_' . $faceKey . '.*.json') ?: [] as $file) {
+                @unlink($file);
+            }
+        }
+    }
+
+    /**
+     * Public encode face for sealed export — never ship original / also spellings.
+     *
+     * @return list<array{code:string,alias:string}>
+     */
+    function logimport_encodes_public(?array $wip): array {
+        $out = [];
+        foreach (logimport_encodes_list($wip) as $e) {
+            $out[] = [
+                'code' => (string) ($e['code'] ?? ''),
+                'alias' => (string) ($e['alias'] ?? ''),
+            ];
+        }
+        return $out;
+    }
+
+    /**
+     * Redaction summary for sealed export — no private phrase originals.
+     *
+     * @return list<array{kind:string,seq?:int,label?:string}>
+     */
+    function logimport_redactions_public(?array $wip): array {
+        $out = [];
+        foreach (logimport_redactions_list($wip) as $r) {
+            if (($r['kind'] ?? '') === 'message') {
+                $out[] = [
+                    'kind' => 'message',
+                    'seq' => (int) ($r['seq'] ?? 0),
+                    'label' => (string) ($r['label'] ?? ''),
+                ];
+            } else {
+                // phrase redaction applied in text; do not export the barred phrase
+                $out[] = [
+                    'kind' => 'phrase',
+                    'label' => (string) ($r['label'] ?? 'phrase'),
+                ];
+            }
+        }
+        return $out;
+    }
+
+    /**
+     * Load ledger rail (big db). Fail soft if unavailable.
+     */
+    function logimport_ledger_boot(): bool {
+        if (function_exists('mypi_ledger_create_post')) {
+            return true;
+        }
+        $candidates = [];
+        if (defined('ROUTE_TO_SYSTEMS')) {
+            $candidates[] = ROUTE_TO_SYSTEMS . 'ledger/Ledger.php';
+        }
+        if (defined('echoSONAR')) {
+            $root = rtrim(str_replace('\\', '/', (string) echoSONAR), '/');
+            $candidates[] = $root . '/k/systems/ledger/Ledger.php';
+        }
+        $candidates[] = dirname(__DIR__, 3) . '/k/systems/ledger/Ledger.php';
+        foreach ($candidates as $p) {
+            if (is_string($p) && is_file($p)) {
+                require_once $p;
+                break;
+            }
+        }
+        return function_exists('mypi_ledger_create_post');
+    }
+
+    /**
+     * Place for IO terminal notes (sky if present, else io defaults).
+     *
+     * @return array{sys:string,dom:string,room:string,mod:string,place_label:string,agent:string}
+     */
+    function logimport_ledger_place(string $roomHint = 'exports'): array {
+        $sys = '';
+        $dom = 'io';
+        $room = $roomHint;
+        $mod = '';
+        $place_label = 'terminal io';
+        $agent = 'io';
+        if (function_exists('mypi_ledger_place_from_sky')) {
+            $p = mypi_ledger_place_from_sky();
+            $sys = (string) ($p['sys'] ?? '');
+            $dom = (string) (($p['dom'] ?? '') !== '' ? $p['dom'] : $dom);
+            $room = (string) (($p['room'] ?? '') !== '' ? $p['room'] : $room);
+            $mod = (string) ($p['mod'] ?? '');
+            $place_label = (string) (($p['place_label'] ?? '') !== '' ? $p['place_label'] : $place_label);
+        }
+        if (function_exists('mypi_auth_agent')) {
+            $a = mypi_auth_agent();
+            if (is_array($a) && !empty($a['slug'])) {
+                $agent = (string) $a['slug'];
+            }
+        } elseif (function_exists('mypi_auth_check') && mypi_auth_check() && function_exists('mypi_auth_agent')) {
+            $a = mypi_auth_agent();
+            if (is_array($a) && !empty($a['slug'])) {
+                $agent = (string) $a['slug'];
+            }
+        }
+        if ($sys === '' && defined('echoSONAR')) {
+            $sys = 'mypi';
+        }
+        return compact('sys', 'dom', 'room', 'mod', 'place_label', 'agent');
+    }
+
+    /**
+     * Big-db awareness: export sealed (public fields only — no encode originals).
+     *
+     * @param list<string> $paths
+     * @return array{ok:bool,c_uid?:string,error?:string}
+     */
+    function logimport_ledger_note_export(
+        string $faceKey,
+        array $core,
+        array $wip,
+        int $parts,
+        array $paths = []
+    ): array {
+        if (!logimport_ledger_boot()) {
+            return ['ok' => false, 'error' => 'ledger unavailable'];
+        }
+        $place = logimport_ledger_place('exports');
+        $yard = trim((string) ($wip['yard_title'] ?? ''));
+        $glass = (string) ($core['title'] ?? '');
+        $title = $yard !== '' ? $yard : ($glass !== '' ? $glass : ('face ' . $faceKey));
+        $n = max(1, $parts);
+        $topic = 'export sealed · ' . $faceKey
+            . ($n > 1 ? (' · ' . $n . ' parts') : '');
+        $bodyLines = [
+            'IO seal export',
+            'face: ' . $faceKey,
+            'title: ' . $title,
+        ];
+        if ($glass !== '' && $glass !== $title) {
+            $bodyLines[] = 'glass: ' . $glass;
+        }
+        $bodyLines[] = 'parts: ' . $n;
+        if ($n > 1) {
+            $bodyLines[] = 'part faces: ' . $faceKey . '.1 … ' . $faceKey . '.' . $n;
+        }
+        $bases = [];
+        foreach ($paths as $p) {
+            if (is_string($p) && $p !== '') {
+                $bases[] = basename($p);
+            }
+        }
+        if ($bases) {
+            $bodyLines[] = 'files: ' . implode(', ', $bases);
+        }
+        $bodyLines[] = 'private encode book stays in wip · not in this crate';
+        $r = mypi_ledger_create_post([
+            'topic' => $topic,
+            'body' => implode("\n", $bodyLines),
+            'kind' => 'log_export',
+            'scale' => 'leaf',
+            'tool' => 'logImport',
+            'tool_version' => 2,
+            'face_id' => $faceKey,
+            'glass_title' => $glass,
+            'yard_title' => $yard !== '' ? $yard : $title,
+            'sys' => $place['sys'],
+            'dom' => $place['dom'],
+            'room' => $place['room'],
+            'mod' => $place['mod'],
+            'place_label' => $place['place_label'],
+            'agent' => $place['agent'],
+            'actor' => $place['agent'],
+            'tags_raw' => 'logexport ' . $faceKey,
+            'meta' => [
+                'event' => 'seal_export',
+                'parent_face' => $faceKey,
+                'part_count' => $n,
+                'export_basenames' => $bases,
+                'via' => 'io',
+            ],
+        ]);
+        if (empty($r['ok'])) {
+            return ['ok' => false, 'error' => (string) ($r['error'] ?? 'ledger write failed')];
+        }
+        return ['ok' => true, 'c_uid' => (string) ($r['c_uid'] ?? '')];
+    }
+
+    /**
+     * Big-db awareness: VEN ship/modify (public code + alias only — never matches/original).
+     *
+     * @param 'ship'|'modify' $event
+     * @return array{ok:bool,c_uid?:string,error?:string}
+     */
+    function logimport_ledger_note_ven(
+        string $kven,
+        string $alias,
+        string $via = 'logImport',
+        string $faceKey = '',
+        string $event = 'ship'
+    ): array {
+        if (!logimport_ledger_boot()) {
+            return ['ok' => false, 'error' => 'ledger unavailable'];
+        }
+        $domHint = (stripos($via, 'ven') !== false || stripos($via, 'rx') !== false) ? 'rx' : 'io';
+        $place = logimport_ledger_place($domHint === 'rx' ? 'ven' : 'import');
+        if ($domHint === 'rx' && ($place['dom'] === 'io' || $place['dom'] === '')) {
+            $place['dom'] = 'rx';
+        }
+        $event = strtolower(trim($event)) === 'modify' ? 'modify' : 'ship';
+        $verb = $event === 'modify' ? 'MODIFY' : 'SHIP';
+        $kind = $event === 'modify' ? 'ven_modify' : 'ven_ship';
+        $kven = strtoupper(trim($kven));
+        $alias = trim($alias);
+        $topic = 'VEN ' . $verb . ' · ' . $kven . ($alias !== '' ? (' · ' . $alias) : '');
+        $bodyLines = [
+            'VEN registry ' . $verb,
+            'code: ' . $kven,
+        ];
+        if ($alias !== '') {
+            $bodyLines[] = 'alias: ' . $alias;
+        }
+        $bodyLines[] = 'via: ' . $via;
+        if ($faceKey !== '') {
+            $bodyLines[] = 'from face: ' . $faceKey;
+        }
+        $bodyLines[] = 'private matches stay in ven registry / wip · not in this crate';
+        $r = mypi_ledger_create_post([
+            'topic' => $topic,
+            'body' => implode("\n", $bodyLines),
+            'kind' => $kind,
+            'scale' => 'leaf',
+            'tool' => $via === 'venDesk' ? 'venDesk' : 'logImport',
+            'tool_version' => 1,
+            'face_id' => $faceKey,
+            'sys' => $place['sys'],
+            'dom' => $place['dom'],
+            'room' => $place['room'],
+            'mod' => $place['mod'],
+            'place_label' => $place['place_label'],
+            'agent' => $place['agent'],
+            'actor' => $place['agent'],
+            'tags_raw' => 'ven ' . $kven . ($event === 'modify' ? ' venmodify' : ' venship'),
+            'meta' => [
+                'event' => $event === 'modify' ? 'ven_modify' : 'ven_ship',
+                'kven' => $kven,
+                'alias' => $alias,
+                'via' => $via,
+                'parent_face' => $faceKey,
+            ],
+        ]);
+        if (empty($r['ok'])) {
+            return ['ok' => false, 'error' => (string) ($r['error'] ?? 'ledger write failed')];
+        }
+        return ['ok' => true, 'c_uid' => (string) ($r['c_uid'] ?? '')];
+    }
+
+    /**
+     * Span min/max create_time from a message list.
+     *
+     * @param list<array> $messages
+     * @return array{0:?float,1:?float}
+     */
+    function logimport_messages_span(array $messages): array {
+        $tMin = null;
+        $tMax = null;
+        foreach ($messages as $m) {
+            $ctF = $m['create_time'] ?? null;
+            if (!is_numeric($ctF)) {
+                continue;
+            }
+            $ctF = (float) $ctF;
+            $tMin = $tMin === null ? $ctF : min($tMin, $ctF);
+            $tMax = $tMax === null ? $ctF : max($tMax, $ctF);
+        }
+        return [$tMin, $tMax];
+    }
+
+    /**
+     * Seal current WIP to exports/ for Log Yard.
+     * - Message bodies ALWAYS get encode + redact applied (sanitized wood).
+     * - Per-message create_time preserved (unix + ISO) for multi-hour/day spans.
+     * - Encode book in export is PUBLIC ONLY (code + alias) — no original/also.
+     * - No full wip_snapshot (would re-leak private maps).
+     * - Desk splits (≥2 segments) → one file per part: export_{face}.{n}.json
+     *   face_id "{face}.{n}" e.g. 008.1 · 008.2 (messages for that range only).
+     * - No cuts → single export_{face}.json
+     * Does not write glass.
+     *
+     * @return array{ok:bool,path:string,paths:list<string>,parts:int,c_uid:?string,error:?string}
+     */
+    function logimport_export_submit(string $face, array $core, ?array $wip = null): array {
+        $faceKey = logimport_face_key($face);
+        $wip = is_array($wip) ? $wip : logimport_wip_load($faceKey);
+        if (!is_array($wip)) {
+            return ['ok' => false, 'path' => '', 'paths' => [], 'parts' => 0, 'c_uid' => null, 'error' => 'no wip to export — save wip first'];
+        }
+
+        $messagesOut = [];
+        $conv = logimport_load_conversation($core);
+        $lastSeq = -1;
+        if ($conv) {
+            $msgs = logimport_extract_messages($conv);
+            // Seal = always sanitize (ignore view toggles)
+            $doRedact = true;
+            $doEncode = true;
+            foreach ($msgs as $m) {
+                $seq = (int) ($m['seq'] ?? 0);
+                if ($seq > $lastSeq) {
+                    $lastSeq = $seq;
+                }
+                $text = (string) ($m['text'] ?? '');
+                if (function_exists('logimport_transform_text')) {
+                    // markEncodes=false → plain text for yard, no LIENC tokens
+                    $tx = logimport_transform_text($text, $seq, $wip, $doRedact, $doEncode, false);
+                    $text = is_array($tx) ? (string) ($tx['text'] ?? $text) : (string) $tx;
+                }
+                $ct = $m['create_time'] ?? null;
+                $ctF = is_numeric($ct) ? (float) $ct : null;
+                $iso = null;
+                if ($ctF !== null && $ctF > 0) {
+                    try {
+                        $iso = gmdate('c', (int) floor($ctF));
+                    } catch (Throwable $e) {
+                        $iso = null;
+                    }
+                }
+                $messagesOut[] = [
+                    'seq' => $seq,
+                    'message_id' => (string) ($m['message_id'] ?? ''),
+                    'role' => (string) ($m['role'] ?? ''),
+                    'create_time' => $ctF,
+                    'create_time_iso' => $iso,
+                    'text' => $text,
+                ];
+            }
+        }
+
+        $yardTitle = trim((string) ($wip['yard_title'] ?? ''));
+        $defaultTitle = $yardTitle !== ''
+            ? $yardTitle
+            : (string) ($core['title'] ?? ('export ' . $faceKey));
+        $encPub = logimport_encodes_public($wip);
+        $redPub = logimport_redactions_public($wip);
+        $exportedAt = time();
+        $privacy = [
+            'originals_omitted' => true,
+            'wip_snapshot_omitted' => true,
+            'note' => 'Yard wood: bodies encoded/redacted; encode book ships code+alias only',
+        ];
+        $baseMeta = [
+            'schema' => 'logimport.export.v2',
+            'conversation_id' => (string) ($core['conversation_id'] ?? ''),
+            'glass_title' => (string) ($core['title'] ?? ''),
+            'yard_title' => $yardTitle,
+            'testament_tag' => (string) ($core['testament_tag'] ?? ''),
+            'create_time' => $core['create_time'] ?? null,
+            'notes' => (string) ($wip['notes'] ?? ''),
+            'encodes_public' => $encPub,
+            'redactions_public' => $redPub,
+            'sanitized' => true,
+            'encode_applied' => true,
+            'redact_applied' => true,
+            'exported_at' => $exportedAt,
+            'glass_sealed' => true,
+            'privacy' => $privacy,
+        ];
+
+        // If glass empty but WIP has cuts, still honor segment ranges for part files
+        $segSrc = is_array($wip['segments'] ?? null) ? $wip['segments'] : [];
+        foreach ($segSrc as $s) {
+            if (is_array($s) && isset($s['to_seq'])) {
+                $lastSeq = max($lastSeq, (int) $s['to_seq']);
+            }
+        }
+        $seqCeiling = max(0, $lastSeq);
+        $segments = logimport_segments_normalize($segSrc, $seqCeiling);
+        $segments = logimport_segments_collapse_trivial($segments, $seqCeiling);
+        $partCount = count($segments);
+
+        // Shared sibling index (public: ranges + titles, no private maps)
+        $siblings = [];
+        if ($partCount >= 2) {
+            foreach ($segments as $i => $seg) {
+                $p = $i + 1;
+                $pt = trim((string) ($seg['title'] ?? ''));
+                $siblings[] = [
+                    'part' => $p,
+                    'face_id' => $faceKey . '.' . $p,
+                    'title' => $pt !== '' ? $pt : ($defaultTitle . ' · part ' . $p),
+                    'from_seq' => (int) $seg['from_seq'],
+                    'to_seq' => (int) $seg['to_seq'],
+                ];
+            }
+        }
+
+        $write = static function (string $path, array $payload): bool {
+            return file_put_contents(
+                $path,
+                json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)
+            ) !== false;
+        };
+
+        // No multi-cut → one file for the whole face
+        if ($partCount < 2) {
+            logimport_export_clear_stale($faceKey, 1);
+            [$tMin, $tMax] = logimport_messages_span($messagesOut);
+            $payload = array_merge($baseMeta, [
+                'face_id' => $faceKey,
+                'parent_face' => $faceKey,
+                'part' => null,
+                'part_count' => 1,
+                'part_title' => '',
+                'from_seq' => $messagesOut !== [] ? (int) $messagesOut[0]['seq'] : 0,
+                'to_seq' => $lastSeq >= 0 ? $lastSeq : 0,
+                'title' => $defaultTitle,
+                'span_start' => $tMin,
+                'span_end' => $tMax,
+                'segments' => [],
+                'siblings' => [],
+                'messages' => $messagesOut,
+            ]);
+            $path = logimport_export_path($faceKey);
+            $ok = $write($path, $payload);
+            $cUid = null;
+            if ($ok) {
+                // Fresh seal = yard work still open until operator marks complete
+                logimport_export_status_set($faceKey, 'in_progress');
+                $note = logimport_ledger_note_export($faceKey, $core, $wip, 1, [$path]);
+                if (!empty($note['ok'])) {
+                    $cUid = (string) ($note['c_uid'] ?? '');
+                }
+            }
+            return [
+                'ok' => $ok,
+                'path' => $path,
+                'paths' => $ok ? [$path] : [],
+                'parts' => 1,
+                'c_uid' => $cUid,
+                'error' => $ok ? null : 'could not write export file',
+            ];
+        }
+
+        // Multi-part seal: export_008.1.json … face_id 008.1
+        logimport_export_clear_stale($faceKey, $partCount);
+        $paths = [];
+        $allOk = true;
+        foreach ($segments as $i => $seg) {
+            $p = $i + 1;
+            $from = (int) $seg['from_seq'];
+            $to = (int) $seg['to_seq'];
+            $partMsgs = array_values(array_filter(
+                $messagesOut,
+                static fn($m) => (int) $m['seq'] >= $from && (int) $m['seq'] <= $to
+            ));
+            [$tMin, $tMax] = logimport_messages_span($partMsgs);
+            $partTitle = trim((string) ($seg['title'] ?? ''));
+            $title = $partTitle !== '' ? $partTitle : ($defaultTitle . ' · part ' . $p);
+            $partFace = $faceKey . '.' . $p;
+            $payload = array_merge($baseMeta, [
+                'face_id' => $partFace,
+                'parent_face' => $faceKey,
+                'part' => $p,
+                'part_count' => $partCount,
+                'part_title' => $partTitle,
+                'from_seq' => $from,
+                'to_seq' => $to,
+                'title' => $title,
+                'span_start' => $tMin,
+                'span_end' => $tMax,
+                // full split map for yard navigation (same on every part)
+                'segments' => $segments,
+                'siblings' => $siblings,
+                'messages' => $partMsgs,
+            ]);
+            $path = logimport_export_path($faceKey, $p);
+            if (!$write($path, $payload)) {
+                $allOk = false;
+                break;
+            }
+            $paths[] = $path;
+        }
+
+        $ok = $allOk && $paths !== [];
+        $cUid = null;
+        if ($ok) {
+            logimport_export_status_set($faceKey, 'in_progress');
+            $note = logimport_ledger_note_export($faceKey, $core, $wip, count($paths), $paths);
+            if (!empty($note['ok'])) {
+                $cUid = (string) ($note['c_uid'] ?? '');
+            }
+        }
+        return [
+            'ok' => $ok,
+            'path' => $paths[0] ?? '',
+            'paths' => $paths,
+            'parts' => count($paths),
+            'c_uid' => $cUid,
+            'error' => $ok ? null : 'could not write one or more part export files',
+        ];
     }
 
     /**
@@ -622,7 +1393,7 @@ if (!function_exists('logimport_paths')) {
     }
 
     /**
-     * @return list<array{id:string,code:string,alias:string,original:string,created_at:int}>
+     * @return list<array{id:string,code:string,alias:string,original:string,also:list<string>,created_at:int}>
      */
     function logimport_encodes_list(?array $wip): array {
         if (!is_array($wip) || !is_array($wip['encodes'] ?? null)) {
@@ -638,15 +1409,53 @@ if (!function_exists('logimport_paths')) {
             if ($orig === '' || $alias === '') {
                 continue;
             }
+            $also = [];
+            $rawAlso = $e['also'] ?? $e['alts'] ?? $e['spellings'] ?? [];
+            if (is_string($rawAlso)) {
+                $rawAlso = preg_split('/\s*,\s*/', $rawAlso) ?: [];
+            }
+            if (is_array($rawAlso)) {
+                foreach ($rawAlso as $a) {
+                    $a = trim((string) $a);
+                    if ($a !== '' && strcasecmp($a, $orig) !== 0) {
+                        $also[] = $a;
+                    }
+                }
+            }
             $out[] = [
                 'id' => (string) ($e['id'] ?? logimport_new_id('e')),
                 'code' => (string) ($e['code'] ?? ''),
                 'alias' => $alias,
                 'original' => $orig,
+                'also' => array_values(array_unique($also)),
                 'created_at' => (int) ($e['created_at'] ?? 0),
             ];
         }
         return $out;
+    }
+
+    /**
+     * Expand encode book to [original|also → alias] pairs (longest first via replace_map sort).
+     *
+     * @return list<array{0:string,1:string}>
+     */
+    function logimport_encode_pairs(?array $wip): array {
+        $pairs = [];
+        foreach (logimport_encodes_list($wip) as $e) {
+            $alias = (string) $e['alias'];
+            $pairs[] = [(string) $e['original'], $alias];
+            foreach ($e['also'] as $a) {
+                $pairs[] = [$a, $alias];
+            }
+        }
+        return $pairs;
+    }
+
+    /**
+     * Safe HTML form key for encode row id (PHP converts '.' in field names to '_').
+     */
+    function logimport_encode_form_key(string $id): string {
+        return preg_replace('/[^a-zA-Z0-9]/', '', $id) ?? '';
     }
 
     /**
@@ -690,12 +1499,26 @@ if (!function_exists('logimport_paths')) {
         return $out;
     }
 
-    /** Replace longest originals first (avoid partial clobber). */
+    /**
+     * Word/phrase boundary pattern so "mom" does not match inside "moment".
+     * Boundaries = not a letter/digit/_ on either side (Unicode letters via \p{L}).
+     */
+    function logimport_replace_pattern(string $from): string {
+        $q = preg_quote($from, '/');
+        return '/(?<![\p{L}\p{N}_])' . $q . '(?![\p{L}\p{N}_])/iu';
+    }
+
+    /**
+     * Replace longest originals first (avoid partial clobber).
+     * Case-insensitive · whole-word/phrase only · replacement keeps alias casing.
+     * Plain text only — no UI markers (use replace_map_marked for encode chips).
+     *
+     * @param list<array{0:string,1:string}> $pairs
+     */
     function logimport_replace_map(string $text, array $pairs): string {
         if ($text === '' || $pairs === []) {
             return $text;
         }
-        // $pairs: list of [original, replacement]
         usort($pairs, static function ($a, $b) {
             return strlen((string) $b[0]) <=> strlen((string) $a[0]);
         });
@@ -705,19 +1528,171 @@ if (!function_exists('logimport_paths')) {
             if ($from === '') {
                 continue;
             }
-            $text = str_replace($from, $to, $text);
+            $text = preg_replace(logimport_replace_pattern($from), $to, $text) ?? $text;
         }
         return $text;
     }
 
     /**
+     * Encode-only: leave opaque tokens where hits landed so UI can chip them.
+     * Tokens: \x1ELIENC\x1F{alias}\x1E  — never use for redaction bars.
+     * Whole-word/phrase only (mom ≠ moment).
+     *
+     * @param list<array{0:string,1:string}> $pairs
+     * @return array{text:string,hit_count:int}
+     */
+    function logimport_replace_map_marked(string $text, array $pairs): array {
+        if ($text === '' || $pairs === []) {
+            return ['text' => $text, 'hit_count' => 0];
+        }
+        usort($pairs, static function ($a, $b) {
+            return strlen((string) $b[0]) <=> strlen((string) $a[0]);
+        });
+        $n = 0;
+        foreach ($pairs as $pair) {
+            $from = (string) $pair[0];
+            $to = (string) $pair[1];
+            if ($from === '') {
+                continue;
+            }
+            $text = preg_replace_callback(
+                logimport_replace_pattern($from),
+                static function () use ($to, &$n) {
+                    $n++;
+                    return "\x1ELIENC\x1F" . str_replace(["\x1E", "\x1F"], '', $to) . "\x1E";
+                },
+                $text
+            ) ?? $text;
+        }
+        return ['text' => $text, 'hit_count' => $n];
+    }
+
+    /**
+     * Turn marked encode text into safe HTML (chips on hits, escaped plain elsewhere).
+     */
+    function logimport_format_marked_html(string $marked): string {
+        $h = static fn(string $s): string => htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+        $parts = preg_split("/(\x1ELIENC\x1F.*?\x1E)/u", $marked, -1, PREG_SPLIT_DELIM_CAPTURE);
+        if ($parts === false) {
+            return $h($marked);
+        }
+        $html = '';
+        foreach ($parts as $part) {
+            if ($part === '') {
+                continue;
+            }
+            if (preg_match("/^\x1ELIENC\x1F(.*)\x1E$/us", $part, $m)) {
+                $html .= '<mark class="li-enc-hit">' . $h($m[1]) . '</mark>';
+            } else {
+                $html .= $h($part);
+            }
+        }
+        return $html;
+    }
+
+    /**
+     * Push one encode row into RX venDesk registry (z/ven_registry).
+     * KVEN from code · label = alias · matches = original + also spellings.
+     * Also dual-writes a public ven_ship crate to the big ledger (code + alias only).
+     * @return array{ok:bool,error?:string,kven?:string,c_uid?:string}
+     */
+    function logimport_encode_push_ven(array $enc, string $faceKey = ''): array {
+        $venLib = dirname(__DIR__) . '/venDesk/venDesk_lib.php';
+        if (!is_file($venLib)) {
+            return ['ok' => false, 'error' => 'venDesk lib missing'];
+        }
+        require_once $venLib;
+        if (!function_exists('vendesk_load') || !function_exists('vendesk_save')) {
+            return ['ok' => false, 'error' => 'venDesk not loaded'];
+        }
+        $code = trim((string) ($enc['code'] ?? ''));
+        $alias = trim((string) ($enc['alias'] ?? ''));
+        $orig = trim((string) ($enc['original'] ?? ''));
+        $also = is_array($enc['also'] ?? null) ? $enc['also'] : [];
+        if ($alias === '' || $orig === '') {
+            return ['ok' => false, 'error' => 'encode needs original + alias'];
+        }
+        $reg = vendesk_load();
+        if ($code === '' || !function_exists('vendesk_valid_kven') || !vendesk_valid_kven($code)) {
+            $code = function_exists('vendesk_mint_kven')
+                ? vendesk_mint_kven($reg, $orig)
+                : logimport_encode_mint_code($orig, []);
+        }
+        $code = vendesk_normalize_kven($code);
+        $matches = array_values(array_unique(array_filter(array_merge([$orig], $also), static fn($s) => trim((string) $s) !== '')));
+        // merge into existing KVEN if present
+        $existing = vendesk_find($reg, $code);
+        $venEvent = $existing ? 'modify' : 'ship';
+        if ($existing) {
+            $existing['label'] = $alias !== '' ? $alias : (string) ($existing['label'] ?? '');
+            $alts = $existing['alts'] ?? [];
+            if ($alias !== '' && !in_array($alias, $alts, true)) {
+                $alts[] = $alias;
+            }
+            $existing['alts'] = array_values(array_unique(array_map('strval', $alts)));
+            $m = $existing['matches'] ?? [];
+            foreach ($matches as $mt) {
+                $found = false;
+                foreach ($m as $em) {
+                    if (strcasecmp((string) $em, (string) $mt) === 0) {
+                        $found = true;
+                        break;
+                    }
+                }
+                if (!$found) {
+                    $m[] = $mt;
+                }
+            }
+            $existing['matches'] = array_values($m);
+            $existing['updated'] = time();
+            $entries = [];
+            foreach ($reg['entries'] as $e) {
+                $entries[] = (($e['id'] ?? '') === ($existing['id'] ?? '') || ($e['kven'] ?? '') === $code)
+                    ? $existing
+                    : $e;
+            }
+            $reg['entries'] = $entries;
+        } else {
+            $reg['entries'][] = vendesk_normalize_entry([
+                'kven' => $code,
+                'label' => $alias,
+                'alts' => [$alias],
+                'matches' => $matches,
+                'type' => 'person',
+                'notes' => 'from logImport encode book',
+            ]);
+        }
+        if (!vendesk_save($reg)) {
+            return ['ok' => false, 'error' => 'could not write ven registry'];
+        }
+        // Big db awareness — public face only (ship new / modify existing)
+        $note = logimport_ledger_note_ven($code, $alias, 'logImport', $faceKey, $venEvent);
+        return [
+            'ok' => true,
+            'kven' => $code,
+            'c_uid' => !empty($note['ok']) ? (string) ($note['c_uid'] ?? '') : null,
+        ];
+    }
+
+    /**
      * Apply redactions then encodes for display/export preview.
      * Glass raw is never mutated — this is a view transform only.
+     * When encode is on, text may include chip markers (see format_marked_html).
      *
-     * @return array{text:string,wholly_redacted:bool}
+     * @param bool $markEncodes when true (desk view), wrap encode hits in tokens for HTML chips
+     * @return array{text:string,wholly_redacted:bool,encode_marked:bool,hit_count:int}
      */
-    function logimport_transform_text(string $text, int $seq, ?array $wip, bool $applyRedact, bool $applyEncode): array {
+    function logimport_transform_text(
+        string $text,
+        int $seq,
+        ?array $wip,
+        bool $applyRedact,
+        bool $applyEncode,
+        bool $markEncodes = false
+    ): array {
         $wholly = false;
+        $encodeMarked = false;
+        $hitCount = 0;
         $redacts = logimport_redactions_list($wip);
 
         if ($applyRedact) {
@@ -742,14 +1717,23 @@ if (!function_exists('logimport_paths')) {
         }
 
         if ($applyEncode && !$wholly) {
-            $pairs = [];
-            foreach (logimport_encodes_list($wip) as $e) {
-                $pairs[] = [$e['original'], $e['alias']];
+            $pairs = logimport_encode_pairs($wip);
+            if ($markEncodes) {
+                $r = logimport_replace_map_marked($text, $pairs);
+                $text = $r['text'];
+                $hitCount = (int) $r['hit_count'];
+                $encodeMarked = $hitCount > 0;
+            } else {
+                $text = logimport_replace_map($text, $pairs);
             }
-            $text = logimport_replace_map($text, $pairs);
         }
 
-        return ['text' => $text, 'wholly_redacted' => $wholly];
+        return [
+            'text' => $text,
+            'wholly_redacted' => $wholly,
+            'encode_marked' => $encodeMarked,
+            'hit_count' => $hitCount,
+        ];
     }
 
     function logimport_view_flags(?array $wip): array {
