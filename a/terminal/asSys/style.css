@@ -648,6 +648,37 @@ aside.tm-rail form.tm-rail-out {
   opacity: 1;
 }
 
+/* IMPORTS drawer · submenu */
+.tm-nav-arch li.tm-nav-parent > a {
+  font-weight: 600;
+}
+.tm-nav-arch ul.tm-nav-sub {
+  list-style: none;
+  margin: 0 0 0.15rem 0.55rem;
+  padding: 0 0 0.15rem 0.35rem;
+  border-left: 1px dotted var(--tm-line);
+  display: none;
+}
+.tm-nav-arch li.tm-nav-parent.is-open > ul.tm-nav-sub,
+.tm-nav-arch li.tm-nav-parent.is-active > ul.tm-nav-sub {
+  display: block;
+}
+.tm-nav-arch ul.tm-nav-sub a {
+  font-size: 0.82rem;
+  padding: 0.18rem 0.35rem;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+}
+.tm-nav-arch ul.tm-nav-sub a::before {
+  content: "· ";
+  opacity: 0.5;
+}
+.tm-nav-arch ul.tm-nav-sub li.is-active a {
+  color: var(--tm-hot);
+  background: rgba(0, 0, 0, 0.22);
+}
+
 .tm-nav-whisper {
   margin: 1rem 0.45rem 0;
   font-size: 0.72rem;

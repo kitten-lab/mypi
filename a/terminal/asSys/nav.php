@@ -21,9 +21,16 @@ $h = function ($d, $key) {
         : ('/terminal/' . $d . '/' . $key);
 };
 
-// IO — full green house
+// IO — full green house · IMPORTS is a desk drawer with two bays
 $treeIo = [
-    ['key' => 'import', 'label' => 'IMPORT'],
+    [
+        'key' => 'imports',
+        'label' => 'IMPORTS',
+        'children' => [
+            ['key' => 'import', 'label' => 'START AN IMPORT'],
+            ['key' => 'imports-active', 'label' => 'ACTIVE IMPORTS'],
+        ],
+    ],
     ['key' => 'exports', 'label' => 'EXPORTS'],
     ['key' => 'files', 'label' => 'FILES'],
     ['key' => 'inventory', 'label' => 'INVENT'],
@@ -61,7 +68,7 @@ $treeRx = [
 ];
 
 $tree = $treeIo;
-$whisper = 'import · exports · use the rail to leave';
+$whisper = 'imports · start · active wips · exports';
 if ($domL === 'ab') {
     $tree = $treeAb;
     $whisper = 'files · dossier desk · the line is listening';
@@ -96,11 +103,35 @@ if ($domL === 'ab') {
       <span class="tm-navSec"><?= htmlspecialchars(strtoupper($dom)) ?> DESK</span>
       <ul>
         <?php foreach ($tree as $node):
-            $on = (strtolower($room) === strtolower($node['key']));
-            ?>
-          <li class="<?= $on ? 'is-active' : '' ?>">
-            <a href="<?= htmlspecialchars($h($dom, $node['key'])) ?>"><?= htmlspecialchars($node['label']) ?></a>
+            $kids = (isset($node['children']) && is_array($node['children'])) ? $node['children'] : [];
+            $childKeys = array_map(static fn($c) => strtolower((string) ($c['key'] ?? '')), $kids);
+            $roomL = strtolower((string) $room);
+            $onSelf = $roomL === strtolower((string) ($node['key'] ?? ''));
+            $onChild = $kids && in_array($roomL, $childKeys, true);
+            $open = $onSelf || $onChild;
+            if ($kids):
+                // parent is a drawer label (not a dead end) — first child is default hop
+                $first = $kids[0]['key'] ?? $node['key'];
+                ?>
+          <li class="tm-nav-parent <?= $open ? 'is-open' : '' ?> <?= $onChild || $onSelf ? 'is-active' : '' ?>">
+            <a href="<?= htmlspecialchars($h($dom, (string) $first)) ?>"><?= htmlspecialchars((string) $node['label']) ?></a>
+            <ul class="tm-nav-sub">
+              <?php foreach ($kids as $ch):
+                  $chOn = $roomL === strtolower((string) ($ch['key'] ?? ''));
+                  ?>
+                <li class="<?= $chOn ? 'is-active' : '' ?>">
+                  <a href="<?= htmlspecialchars($h($dom, (string) $ch['key'])) ?>"><?= htmlspecialchars((string) $ch['label']) ?></a>
+                </li>
+              <?php endforeach; ?>
+            </ul>
           </li>
+            <?php else:
+                $on = $onSelf;
+                ?>
+          <li class="<?= $on ? 'is-active' : '' ?>">
+            <a href="<?= htmlspecialchars($h($dom, (string) $node['key'])) ?>"><?= htmlspecialchars((string) $node['label']) ?></a>
+          </li>
+            <?php endif; ?>
         <?php endforeach; ?>
       </ul>
       <p class="tm-nav-whisper"><?= htmlspecialchars($whisper, ENT_QUOTES, 'UTF-8') ?></p>
