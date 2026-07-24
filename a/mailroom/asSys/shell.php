@@ -20,6 +20,21 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && ($_POST['authgate_action'] 
   <?php getMy_Styles() ?>
   <?php setGET('dressing'); ?>
   <style><?php setGET('quickDress'); ?></style>
+  <script>
+  /* Apply saved skin before paint so O/X (night/day) doesn't flash wrong. */
+  (function () {
+    try {
+      var t = localStorage.getItem('mailroom-theme');
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
+          ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+  </script>
 </head>
 <body class="mailroom-floor pocket-app">
 <?php include __DIR__ . '/header.php'; ?>
@@ -62,7 +77,37 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST' && ($_POST['authgate_action'] 
     window.location.replace(base + '/floor/sort');
   }
 })();
-console.log('%cmailROOM · cosmic facility · tool slots','background:#1a0a10;color:#e85a6b;padding:4px 8px;font-size:11px');
+
+/* O = night (dark/red) · X = day (light/blue) — uses existing data-theme CSS only */
+(function () {
+  var KEY = 'mailroom-theme';
+  function current() {
+    var t = document.documentElement.getAttribute('data-theme');
+    return t === 'light' ? 'light' : 'dark';
+  }
+  function apply(theme) {
+    theme = theme === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.setAttribute('data-theme', theme);
+    try { localStorage.setItem(KEY, theme); } catch (e) {}
+    var o = document.getElementById('mr-skin-o');
+    var x = document.getElementById('mr-skin-x');
+    if (o) {
+      o.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+      o.classList.toggle('is-on', theme === 'dark');
+    }
+    if (x) {
+      x.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+      x.classList.toggle('is-on', theme === 'light');
+    }
+  }
+  apply(current());
+  var oBtn = document.getElementById('mr-skin-o');
+  var xBtn = document.getElementById('mr-skin-x');
+  if (oBtn) oBtn.addEventListener('click', function () { apply('dark'); });
+  if (xBtn) xBtn.addEventListener('click', function () { apply('light'); });
+})();
+console.log('%cmailROOM · O night · X day','background:#1a0a10;color:#e85a6b;padding:4px 8px;font-size:11px');
 </script>
 <?php setGET('scripts'); ?>
 </body>

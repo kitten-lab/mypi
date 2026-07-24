@@ -19,7 +19,10 @@ $mrAuthed = function_exists('mypi_auth_user') && mypi_auth_user();
     <?php else: ?>
       <a class="mr-session-a" href="<?= htmlspecialchars($mrLogin, ENT_QUOTES, 'UTF-8') ?>">Login</a>
     <?php endif; ?>
-    <a class="mr-session-a" href="/terminal/base/doors" title="doors">O</a>
-    <a class="mr-session-a" href="/" title="home">X</a>
+    <?php /* O/X = skin set (night red / day blue). Not doors/home. */ ?>
+    <button type="button" class="mr-session-a mr-skin-btn" id="mr-skin-o"
+            data-theme="dark" title="night · red thread" aria-pressed="true">O</button>
+    <button type="button" class="mr-session-a mr-skin-btn" id="mr-skin-x"
+            data-theme="light" title="day · blue frost" aria-pressed="false">X</button>
   </nav>
 </header>

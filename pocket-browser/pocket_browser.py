@@ -4,7 +4,8 @@ mypi pocket browser — one host (b), many SYS paths.
   python pocket_browser.py
 
 Frameless (default ON): no OS title bar, no white native menu strip.
-  Doors live on the dark caption ☰ · Alt+M / Ctrl+K
+  Doors: left gem on caption · Alt+M / Ctrl+K
+  Ctrl+N → another pocket window
   MYPI_POCKET_FRAMELESS=0 → normal frame + native menu
   MYPI_POCKET_DEBUG=0     → DevTools off
 """
@@ -27,8 +28,9 @@ except ImportError:
 
 HERE = Path(__file__).resolve().parent
 LAUNCHER = (HERE / "launcher.html").as_uri()
-HOME = LAUNCHER
 B = "http://b"
+# New windows + home land on Terminal BASE login (multi-station launch pad)
+HOME = B.rstrip("/") + "/terminal/base/login"
 TITLE_ROOT = "mypi"
 CAPTION_JS = HERE / "caption.js"
 _CAPTION_H = 36
@@ -159,6 +161,16 @@ class PocketApi:
             except Exception:
                 pass
 
+    def new_window(self) -> str:
+        """Spawn another pocket window (Ctrl+N). Gate URL, same frameless chrome."""
+        try:
+            spawn_pocket_window()
+            return "ok"
+        except Exception as e:
+            if _DEBUG:
+                print(f"[pocket] new_window failed: {e}")
+            return f"err:{e}"
+
 
 _SOFT_RELOAD_JS = r"""
 (function () {
@@ -217,6 +229,8 @@ def path_title(url: str, short: bool = False) -> str:
         return TITLE_ROOT
     if url.startswith("file:") or "launcher.html" in url:
         return "gate" if short else f"{TITLE_ROOT} · gate"
+    if "/terminal/base/login" in url:
+        return "login" if short else f"{TITLE_ROOT} · terminal login"
     try:
         p = urlparse(url)
         path = (p.path or "/").rstrip("/") or "/"
@@ -275,38 +289,8 @@ def build_caption_js(title: str) -> str:
     return preamble + _CAPTION_SRC
 
 
-def main() -> None:
-    try:
-        webview.settings["OPEN_DEVTOOLS_IN_DEBUG"] = False
-    except Exception:
-        pass
-
-    api = PocketApi()
-
-    window = webview.create_window(
-        title=f"{TITLE_ROOT} · gate",
-        url=HOME,
-        width=_MAG_SMALL[0],
-        height=_MAG_SMALL[1],
-        min_size=(640, 480),
-        background_color="#0a0c12",
-        text_select=True,
-        frameless=_FRAMELESS,
-        easy_drag=False,
-        resizable=True,
-        shadow=True,
-        js_api=api,
-    )
-    api.bind(window)
-
-    def go(path: str) -> None:
-        api.go(path)
-
-    def soft_reload() -> None:
-        api.reload()
-
-    def hard_refresh() -> None:
-        api.hard_refresh()
+def _attach_window_events(window: webview.Window, api: PocketApi) -> None:
+    """Caption inject + title sync for one window (first or Ctrl+N spawn)."""
 
     def inject_caption(short_title: str) -> None:
         if not _FRAMELESS:
@@ -329,7 +313,6 @@ def main() -> None:
         threading.Timer(0.9, lambda: attempt(2)).start()
 
     def on_loaded() -> None:
-        url = ""
         short = TITLE_ROOT
         try:
             url = window.get_current_url() or ""
@@ -344,18 +327,71 @@ def main() -> None:
             pass
         inject_caption(short)
 
+    window.events.loaded += on_loaded
+
+
+def spawn_pocket_window(
+    url: str | None = None,
+    width: int | None = None,
+    height: int | None = None,
+) -> webview.Window:
+    """Create a pocket window + API + caption hooks (call after webview.start OK)."""
+    api = PocketApi()
+    w = webview.create_window(
+        title=f"{TITLE_ROOT} · login",
+        url=url or HOME,
+        width=width or _MAG_SMALL[0],
+        height=height or _MAG_SMALL[1],
+        min_size=(640, 480),
+        background_color="#0a0c12",
+        text_select=True,
+        frameless=_FRAMELESS,
+        easy_drag=False,
+        resizable=True,
+        shadow=True,
+        js_api=api,
+    )
+    api.bind(w)
+    _attach_window_events(w, api)
+    return w
+
+
+def main() -> None:
+    try:
+        webview.settings["OPEN_DEVTOOLS_IN_DEBUG"] = False
+    except Exception:
+        pass
+
+    api = PocketApi()
+    window = webview.create_window(
+        title=f"{TITLE_ROOT} · login",
+        url=HOME,
+        width=_MAG_SMALL[0],
+        height=_MAG_SMALL[1],
+        min_size=(640, 480),
+        background_color="#0a0c12",
+        text_select=True,
+        frameless=_FRAMELESS,
+        easy_drag=False,
+        resizable=True,
+        shadow=True,
+        js_api=api,
+    )
+    api.bind(window)
+    _attach_window_events(window, api)
+
     # Native WinForms menu only when framed — white strip is gone in portal mode
+    # Framed mode only — keep surface titles aligned with caption doors
     menu_items = [
-        webview.menu.MenuAction("Home (gate)", lambda: window.load_url(HOME)),
-        webview.menu.MenuAction("WWW · danyi", lambda: go("www/danyi/index")),
-        webview.menu.MenuAction("Starline News", lambda: go("starline/news/headlines")),
-        webview.menu.MenuAction("Book Oriel", lambda: go("book/terminal_girls/oriel")),
-        webview.menu.MenuAction("Crates", lambda: go("starline/chester/crates")),
-        webview.menu.MenuAction("Charlie", lambda: go("starline/charlie/threads")),
-        webview.menu.MenuAction("TPS", lambda: go("starline/satora/shelves")),
-        webview.menu.MenuAction("Port b", lambda: window.load_url(B + "/")),
-        webview.menu.MenuAction("Reload", soft_reload),
-        webview.menu.MenuAction("Hard refresh", hard_refresh),
+        webview.menu.MenuAction("Terminal", lambda: window.load_url(HOME)),
+        webview.menu.MenuAction("WWW", lambda: api.go("www/danyi/index")),
+        webview.menu.MenuAction("Starline", lambda: api.go("starline/news/headlines")),
+        webview.menu.MenuAction("Book", lambda: api.go("book/terminal_girls/oriel")),
+        webview.menu.MenuAction("Mythleak", lambda: api.go("mythleak/news/headlines")),
+        webview.menu.MenuAction("Mailroom", lambda: api.go("mailroom/floor/sort")),
+        webview.menu.MenuAction("New window", lambda: spawn_pocket_window()),
+        webview.menu.MenuAction("Reload", lambda: api.reload()),
+        webview.menu.MenuAction("Hard refresh", lambda: api.hard_refresh()),
         webview.menu.MenuAction("Back", lambda: window.evaluate_js("history.back()")),
         webview.menu.MenuAction("Forward", lambda: window.evaluate_js("history.forward()")),
         webview.menu.MenuAction("Minimize", lambda: api.minimize()),
@@ -363,10 +399,8 @@ def main() -> None:
         webview.menu.MenuAction("Close", lambda: api.close()),
     ]
 
-    window.events.loaded += on_loaded
-
     if _FRAMELESS:
-        # No white menu bar — doors via caption ☰ / Alt+M
+        # Doors via caption gem / Alt+M · Ctrl+N new window
         webview.start(debug=_DEBUG)
     else:
         try:
@@ -383,8 +417,8 @@ if __name__ == "__main__":
     )
     if _FRAMELESS:
         print(
-            "  portal: caption ☰ · Alt+M · drag · ─ □ ✕ · "
-            "Ctrl± zoom · F11 go deep · Esc surface"
+            "  portal: gem doors · Alt+M · Ctrl+N new · drag · ⤢ size · "
+            "Ctrl± zoom · F11 deep · Esc surface"
         )
     if not CAPTION_JS.is_file():
         print(f"  WARNING: missing {CAPTION_JS}")

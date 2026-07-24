@@ -312,6 +312,17 @@ body.mailroom-floor::before {
 
 .mr-logout-form { display: inline; margin: 0; }
 
+/* O/X skin set — minimal; no redesign, just button chrome + on state */
+button.mr-skin-btn {
+  font: inherit;
+  line-height: inherit;
+}
+button.mr-skin-btn.is-on {
+  background-color: var(--mr-glow);
+  color: var(--accent-lightest);
+  border-style: solid;
+}
+
 /* main = full floor under brand */
 .mr-main-wrap {
   flex: 1 1 auto;

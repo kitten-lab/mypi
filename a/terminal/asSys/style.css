@@ -878,9 +878,36 @@ html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption {
   background-size: var(--tm-scan-size);
   border-bottom: 1px solid var(--tm-line);
   box-shadow: none;
+  /* full bar height — do not let skin crush controls */
+  align-items: stretch;
 }
 
+/* mark = doors button (full hit area); gem = tiny accent inside */
 html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-mark {
+  flex-shrink: 0;
+  width: 36px;
+  min-width: 36px;
+  height: auto;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: inherit;
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-mark:hover,
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-mark.is-open {
+  background: color-mix(in srgb, var(--tm-accent) 18%, transparent);
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-mark-gem {
   width: 8px;
   height: 8px;
   border-radius: 0;
@@ -893,9 +920,49 @@ html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-
   letter-spacing: 0.08em;
 }
 
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-zoom {
+  color: inherit;
+  opacity: 0.72;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-size: 11px;
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-btns {
+  display: flex;
+  flex-shrink: 0;
+  align-items: stretch;
+}
+
 html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-btn {
   color: var(--tm-fg-dim);
   font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  min-width: 36px;
+  height: auto;
+  min-height: 100%;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-btn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 html.mypi-pocket-frameless body.terminal-station #mypi-pocket-caption .mypi-cap-btn:hover {

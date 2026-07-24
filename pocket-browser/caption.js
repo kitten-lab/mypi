@@ -4,7 +4,8 @@
  *
  * Zoom: Ctrl+= / Ctrl+- / Ctrl+0  (page zoom, persisted)
  * Deep: F11 or doors “Go deep” — hide caption, full surface; Esc / F11 exit
- * Doors: ☰ · Alt+M / Ctrl+K
+ * Doors: left gem mark · Alt+M / Ctrl+K
+ * New window: Ctrl+N
  */
 (function (title, heightPx) {
   var TITLE = title || "mypi";
@@ -15,32 +16,16 @@
   var LS_ZOOM = "mypi-pocket-zoom";
   var LS_DEEP = "mypi-pocket-deep";
 
+  // Surfaces only (title → logical home). Terminal is core start; rest leave the station.
+  // Zoom / deep / size live on the caption chrome — not repeated here.
   var DOORS = [
-    { label: "Gate (home)", path: null, action: "home" },
+    { label: "Terminal", path: null, action: "home" },
     { sep: true },
-    { label: "Terminal · BASE login", path: "terminal/base/login" },
-    { label: "Terminal · IO import", path: "terminal/io/import" },
-    { label: "Terminal · IO files", path: "terminal/io/files" },
-    { label: "Terminal · IO email", path: "terminal/io/email" },
-    { label: "Terminal · IO login", path: "terminal/io/login" },
-    { label: "Terminal · RX ven (Oriel)", path: "terminal/rx/ven" },
-    { label: "Terminal · RX codex (lore)", path: "terminal/rx/codex" },
-    { label: "Terminal · RX files", path: "terminal/rx/files" },
-    { sep: true },
-    { label: "WWW · danyi", path: "www/danyi/index" },
-    { label: "Mythleak · Headlines", path: "mythleak/news/headlines" },
-    { label: "Mythleak · File a leak", path: "mythleak/news/write" },
-    { label: "Mailroom · Sort (Charlie)", path: "mailroom/floor/sort" },
-    { label: "Starline · News", path: "starline/news/headlines" },
-    { label: "Book · Oriel", path: "book/terminal_girls/oriel" },
-    { label: "Book · Connection", path: "book/fragments/connection" },
-    { label: "Crates (starline test)", path: "starline/chester/crates" },
-    { label: "Charlie threads (starline test)", path: "starline/charlie/threads" },
-    { label: "TPS", path: "starline/satora/shelves" },
-    { sep: true },
-    { label: "Zoom 100%", action: "zoom_reset" },
-    { label: "Window 1024×768 ↔ 1600×1200", action: "step_size" },
-    { label: "Go deep (hide chrome)", action: "deep" },
+    { label: "WWW", path: "www/danyi/index" },
+    { label: "Starline", path: "starline/news/headlines" },
+    { label: "Book", path: "book/terminal_girls/oriel" },
+    { label: "Mythleak", path: "mythleak/news/headlines" },
+    { label: "Mailroom", path: "mailroom/floor/sort" },
     { sep: true },
     { label: "Hard refresh", action: "hard_refresh" },
     { label: "Reload", action: "reload" },
@@ -100,11 +85,22 @@
     }
   }
 
+  function setMagIcon(sizeStr) {
+    var btn = document.querySelector("#mypi-pocket-caption [data-act=step_size]");
+    if (!btn) return;
+    // 1600 = large → show “contract”; else “expand” (arrows out / in)
+    var large = sizeStr && /1600/.test(String(sizeStr));
+    btn.textContent = large ? "⤡" : "⤢";
+    btn.title = large
+      ? "Window · contract to 1024×768"
+      : "Window · expand to 1600×1200";
+  }
+
   function flashSizeHint(s) {
     if (!s) return;
+    setMagIcon(s);
     var lab = document.querySelector("#mypi-pocket-caption .mypi-cap-zoom");
     if (!lab) return;
-    var prev = lab.textContent;
     lab.textContent = String(s).replace("x", "×");
     lab.classList.add("is-flash");
     setTimeout(function () {
@@ -214,6 +210,8 @@
     var a = api();
     if (item.action === "home") {
       if (a && a.home) a.home();
+      else if (a && a.go) a.go("terminal/base/login");
+      else location.assign("http://b/terminal/base/login");
       return;
     }
     if (item.action === "zoom_reset") {
@@ -253,9 +251,19 @@
     }
   }
 
+  function syncMenuMark() {
+    var m = document.getElementById("mypi-pocket-menu");
+    var mark = document.getElementById("mypi-pocket-mark");
+    if (!mark) return;
+    var open = m && !m.hidden;
+    mark.classList.toggle("is-open", !!open);
+    mark.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
   function closeMenu() {
     var m = document.getElementById("mypi-pocket-menu");
     if (m) m.hidden = true;
+    syncMenuMark();
   }
 
   function toggleMenu() {
@@ -264,6 +272,7 @@
     // if deep, surface first so menu has a home
     if (isDeep()) setDeep(false);
     m.hidden = !m.hidden;
+    syncMenuMark();
     if (!m.hidden) {
       try {
         var btn = m.querySelector("button");
@@ -306,18 +315,32 @@
       "padding:0 10px;min-width:0;cursor:grab}" +
       "#mypi-pocket-caption .mypi-cap-drag:active{cursor:grabbing}" +
       "#mypi-pocket-caption .mypi-cap-mark{" +
-      "width:9px;height:9px;flex-shrink:0;" +
+      "flex-shrink:0;width:" +
+      H +
+      "px;height:" +
+      H +
+      "px;margin:0;padding:0;border:0;cursor:pointer;" +
+      "display:flex;align-items:center;justify-content:center;" +
+      "background:transparent}" +
+      "#mypi-pocket-caption .mypi-cap-mark:hover{background:rgba(255,255,255,.08)}" +
+      "#mypi-pocket-caption .mypi-cap-mark.is-open{background:rgba(106,140,255,.18)}" +
+      "#mypi-pocket-caption .mypi-cap-mark-gem{" +
+      "display:block;width:9px;height:9px;pointer-events:none;" +
       "background:linear-gradient(135deg,#6a8cff,#a070ff);" +
       "box-shadow:0 0 10px rgba(100,130,255,.5)}" +
       "#mypi-pocket-caption .mypi-cap-title{" +
       "overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" +
       "letter-spacing:.04em;opacity:.95;flex:1;min-width:0}" +
       "#mypi-pocket-caption .mypi-cap-zoom{" +
-      "flex-shrink:0;font-size:10px;opacity:.55;letter-spacing:.06em;" +
-      "min-width:2.6em;text-align:right;cursor:pointer;padding:0 4px;" +
-      "border-radius:2px}" +
-      "#mypi-pocket-caption .mypi-cap-zoom:hover{opacity:1;background:rgba(255,255,255,.08)}" +
-      "#mypi-pocket-caption .mypi-cap-zoom.is-flash{opacity:1;color:#a8c0ff}" +
+      "flex-shrink:0;font:inherit;font-size:11px;font-weight:500;" +
+      "letter-spacing:.04em;color:inherit;opacity:.72;" +
+      "min-width:2.4em;text-align:right;cursor:pointer;" +
+      "padding:0 8px 0 4px;margin:0;border:0;background:transparent;" +
+      "border-radius:0;line-height:" +
+      H +
+      "px}" +
+      "#mypi-pocket-caption .mypi-cap-zoom:hover{opacity:1;background:transparent}" +
+      "#mypi-pocket-caption .mypi-cap-zoom.is-flash{opacity:1}" +
       "#mypi-pocket-caption .mypi-cap-btns{display:flex;flex-shrink:0;align-items:stretch}" +
       "#mypi-pocket-caption .mypi-cap-btn{" +
       "width:36px;border:0;background:transparent;color:inherit;" +
@@ -326,9 +349,18 @@
       "px;padding:0}" +
       "#mypi-pocket-caption .mypi-cap-btn:hover{background:rgba(255,255,255,.1)}" +
       "#mypi-pocket-caption .mypi-cap-btn.close:hover{background:#c42b1c;color:#fff}" +
-      "#mypi-pocket-caption .mypi-cap-btn.menu-btn{width:44px;font-size:16px;letter-spacing:0}" +
-      "#mypi-pocket-caption .mypi-cap-btn.mag-btn{width:36px;font-size:14px;letter-spacing:0}" +
-      "#mypi-pocket-caption .mypi-cap-btn.deep-btn{width:36px;font-size:12px;letter-spacing:0}" +
+      "#mypi-pocket-caption .mypi-cap-btn.mag-btn{width:36px;font-size:15px;letter-spacing:0}" +
+      "#mypi-pocket-caption .mypi-cap-btn.deep-btn{width:36px;line-height:1}" +
+      "#mypi-pocket-caption .mypi-cap-btn.deep-btn .mypi-eye{display:block;width:18px;height:18px;margin:0 auto}" +
+      "#mypi-pocket-caption .mypi-cap-btn.deep-btn .mypi-eye-shut{display:none}" +
+      "#mypi-pocket-caption .mypi-cap-btn.deep-btn:hover .mypi-eye-open{display:none}" +
+      "#mypi-pocket-caption .mypi-cap-btn.deep-btn:hover .mypi-eye-shut{display:block}" +
+      "#mypi-pocket-caption .mypi-cap-btn.deep-btn svg," +
+      "#mypi-pocket-caption .mypi-cap-btn.max-btn svg{" +
+      "display:block;width:18px;height:18px;margin:0 auto;fill:none;" +
+      "stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}" +
+      "#mypi-pocket-caption .mypi-cap-btn.max-btn{width:36px;line-height:1}" +
+
       "#mypi-pocket-menu{" +
       "position:fixed;top:" +
       H +
@@ -391,13 +423,32 @@
     var bar = document.createElement("div");
     bar.id = "mypi-pocket-caption";
 
+    // Left gem = doors menu (replaces hamburger)
+    var mark = document.createElement("button");
+    mark.type = "button";
+    mark.id = "mypi-pocket-mark";
+    mark.className = "mypi-cap-mark";
+    mark.setAttribute("data-act", "menu");
+    mark.setAttribute("aria-label", "Doors menu");
+    mark.setAttribute("aria-haspopup", "true");
+    mark.setAttribute("aria-expanded", "false");
+    mark.title = "Menu";
+    var gem = document.createElement("span");
+    gem.className = "mypi-cap-mark-gem";
+    gem.setAttribute("aria-hidden", "true");
+    mark.appendChild(gem);
+    mark.addEventListener("mousedown", function (e) {
+      e.stopPropagation();
+    });
+    mark.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+
     var drag = document.createElement("div");
     drag.className = "mypi-cap-drag pywebview-drag-region";
     drag.title = "Drag to move · double-click maximize";
-
-    var mark = document.createElement("span");
-    mark.className = "mypi-cap-mark";
-    mark.setAttribute("aria-hidden", "true");
 
     var lab = document.createElement("span");
     lab.className = "mypi-cap-title";
@@ -406,7 +457,7 @@
     var zoomLab = document.createElement("button");
     zoomLab.type = "button";
     zoomLab.className = "mypi-cap-zoom";
-    zoomLab.title = "Click → 100% · keyboard Ctrl± / Ctrl+0";
+    zoomLab.title = "Click → 100% · Ctrl± zoom · Ctrl+0 reset";
     zoomLab.textContent = Math.round(readZoom() * 100) + "%";
     zoomLab.addEventListener("mousedown", function (e) {
       e.stopPropagation();
@@ -417,7 +468,6 @@
       applyZoom(1);
     });
 
-    drag.appendChild(mark);
     drag.appendChild(lab);
     drag.appendChild(zoomLab);
 
@@ -447,10 +497,6 @@
       b.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        if (act === "menu") {
-          toggleMenu();
-          return;
-        }
         if (act === "step_size") {
           stepWindowSize();
           return;
@@ -468,18 +514,31 @@
       return b;
     }
 
-    btns.appendChild(mkBtn("menu", "☰", "Doors · Alt+M / Ctrl+K", "menu-btn"));
+    // deep (eye) · expand · min · max · close  — expand sits next to minimize
+    var deepBtn = mkBtn("deep", "", "Go deep · hide chrome · F11", "deep-btn");
+    deepBtn.innerHTML =
+      '<span class="mypi-eye mypi-eye-open" aria-hidden="true">' +
+      '<svg viewBox="0 0 24 24">' +
+      '<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/>' +
+      '<circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none"/>' +
+      "</svg></span>" +
+      '<span class="mypi-eye mypi-eye-shut" aria-hidden="true">' +
+      '<svg viewBox="0 0 24 24">' +
+      '<path d="M3 12h18"/>' +
+      '<path d="M5.5 12c1.2-2.4 3.6-4 6.5-4s5.3 1.6 6.5 4"/>' +
+      "</svg></span>";
+    btns.appendChild(deepBtn);
     btns.appendChild(
-      mkBtn(
-        "step_size",
-        "▣",
-        "Window · 1024×768 ↔ 1600×1200",
-        "mag-btn"
-      )
+      mkBtn("step_size", "⤢", "Window · expand to 1600×1200", "mag-btn")
     );
-    btns.appendChild(mkBtn("deep", "◎", "Go deep · hide chrome · F11", "deep-btn"));
     btns.appendChild(mkBtn("min", "─", "Minimize"));
-    btns.appendChild(mkBtn("max", "□", "Maximize window"));
+    // maximize: full-weight square (matches eye stroke), not tiny □ glyph
+    var maxBtn = mkBtn("max", "", "Maximize window", "max-btn");
+    maxBtn.innerHTML =
+      '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+      '<rect x="5" y="5" width="14" height="14" rx="1.2"/>' +
+      "</svg>";
+    btns.appendChild(maxBtn);
     btns.appendChild(mkBtn("close", "✕", "Close", "close"));
 
     var menu = document.createElement("div");
@@ -489,7 +548,7 @@
 
     var hint = document.createElement("div");
     hint.className = "mypi-menu-hint";
-    hint.textContent = "Doors · Alt+M · F11 deep · Ctrl± zoom · ▣ size";
+    hint.textContent = "POCKET BROWSER";
     menu.appendChild(hint);
 
     DOORS.forEach(function (item) {
@@ -511,6 +570,7 @@
       menu.appendChild(b);
     });
 
+    bar.appendChild(mark);
     bar.appendChild(drag);
     bar.appendChild(btns);
     document.body.insertBefore(bar, document.body.firstChild);
@@ -523,7 +583,9 @@
         if (!t) return;
         if (
           t.closest &&
-          (t.closest("#mypi-pocket-menu") || t.closest("[data-act=menu]"))
+          (t.closest("#mypi-pocket-menu") ||
+            t.closest("[data-act=menu]") ||
+            t.closest("#mypi-pocket-mark"))
         ) {
           return;
         }
@@ -546,6 +608,18 @@
           ) {
             e.preventDefault();
             toggleMenu();
+            return;
+          }
+
+          // Ctrl+N — another pocket window
+          if (ctrl && (key === "n" || key === "N") && !e.shiftKey && !e.altKey) {
+            e.preventDefault();
+            var aNew = api();
+            if (aNew && aNew.new_window) {
+              try {
+                aNew.new_window();
+              } catch (errN) {}
+            }
             return;
           }
 
