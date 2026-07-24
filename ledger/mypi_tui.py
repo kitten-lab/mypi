@@ -38,6 +38,11 @@ from mypi_ledger import (  # noqa: E402
     tps_window_seconds,
 )
 
+# Oriel / RX venDesk code book (JSON — not crates)
+_VEN_REGISTRY = (
+    Path(__file__).resolve().parent.parent / "z" / "ven_registry" / "registry.json"
+)
+
 try:
     from rich.text import Text
     from textual import on
@@ -110,6 +115,114 @@ def _path_of(row) -> str:
 def _clip(s: str, n: int = 48) -> str:
     s = (s or "").replace("\n", " ")
     return s if len(s) <= n else s[: n - 1] + "…"
+
+
+def _load_ven_registry(path: Path | None = None) -> dict:
+    """Load z/ven_registry/registry.json (same file RX venDesk uses)."""
+    p = path or _VEN_REGISTRY
+    empty: dict = {"version": 1, "updated_at": 0, "entries": [], "path": str(p)}
+    if not p.is_file():
+        empty["error"] = "missing file"
+        return empty
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+    except Exception as e:
+        empty["error"] = str(e)
+        return empty
+    if not isinstance(data, dict):
+        empty["error"] = "registry not an object"
+        return empty
+    entries = data.get("entries")
+    if not isinstance(entries, list):
+        # fossil map shape { "ABL-000": {...} }
+        entries = []
+        for k, v in data.items():
+            if k in ("version", "updated_at", "entries") or not isinstance(v, dict):
+                continue
+            row = dict(v)
+            row.setdefault("kven", k)
+            entries.append(row)
+    # sort by kven
+    entries = [e for e in entries if isinstance(e, dict)]
+    entries.sort(key=lambda e: str(e.get("kven") or e.get("id") or "").upper())
+    return {
+        "version": int(data.get("version") or 1),
+        "updated_at": int(data.get("updated_at") or 0),
+        "entries": entries,
+        "path": str(p),
+        "error": None,
+    }
+
+
+def _ven_entry_by_key(reg: dict, key: str) -> dict | None:
+    key = (key or "").strip()
+    if key.startswith("ven:"):
+        key = key[4:]
+    for e in reg.get("entries") or []:
+        if not isinstance(e, dict):
+            continue
+        if str(e.get("id") or "") == key or str(e.get("kven") or "") == key:
+            return e
+    return None
+
+
+def _render_ven_entry(e: dict, *, reg_path: str = "") -> Text:
+    """Rich Text viewer for one VEN registry row."""
+    out = Text()
+    kven = str(e.get("kven") or "—")
+    label = str(e.get("label") or "—")
+    out.append(kven, style=_S_HEAD)
+    out.append("  ·  ", style=_S_DIM)
+    out.append(label, style=_S_H2)
+    out.append("\n\n")
+
+    def add(line: Text | str = "") -> None:
+        if isinstance(line, Text):
+            out.append_text(line)
+        else:
+            out.append(str(line))
+        out.append("\n")
+
+    add(_t_section("identity"))
+    add(_t_kv("id", str(e.get("id") or "—")))
+    add(_t_kv("kven", kven))
+    add(_t_kv("label", label))
+    add(_t_kv("type", str(e.get("type") or "—")))
+    add()
+    alts = e.get("alts") if isinstance(e.get("alts"), list) else []
+    matches = e.get("matches") if isinstance(e.get("matches"), list) else []
+    add(_t_section("alts · also written as"))
+    if alts:
+        for a in alts:
+            add(Text(f"  · {a}", style=_S_VAL))
+    else:
+        add(Text("  (none)", style=_S_DIM))
+    add()
+    add(_t_section("matches · log spellings"))
+    if matches:
+        for m in matches:
+            add(Text(f"  · {m}", style=_S_BODY))
+    else:
+        add(Text("  (none)", style=_S_DIM))
+    add()
+    notes = str(e.get("notes") or "").strip()
+    add(_t_section("notes"))
+    if notes:
+        for line in notes.splitlines() or [notes]:
+            add(Text(line, style=_S_BODY))
+    else:
+        add(Text("  (empty)", style=_S_DIM))
+    add()
+    add(_t_section("time"))
+    add(_t_kv("created", _fmt_ts(e.get("created") or e.get("created_at"))))
+    add(_t_kv("updated", _fmt_ts(e.get("updated") or e.get("updated_at"))))
+    add()
+    add(_t_section("source file"))
+    add(Text(f"  {reg_path or str(_VEN_REGISTRY)}", style=_S_META))
+    add(Text("  (JSON code book · not a crate in sqlite)", style=_S_DIM))
+    add()
+    add(Text("5 VEN  ·  r refresh  ·  encode → VEN from IO import also lands here", style=_S_DIM))
+    return out
 
 
 def _g(row, key: str, default: str = "") -> str:
@@ -559,6 +672,7 @@ class MypiTui(App[None]):
         Binding("2", "sec_charlie", "Charlie"),
         Binding("3", "sec_edges", "Edges"),
         Binding("4", "sec_tps", "TPS"),
+        Binding("5", "sec_ven", "VEN"),
         Binding("d", "demo", "Demo"),
         Binding("t", "focus_tag", "Tag"),
         Binding("b", "toggle_theme", "Barbie"),
@@ -573,11 +687,13 @@ class MypiTui(App[None]):
         super().__init__()
         self.conn = connect()
         init_db(self.conn)
-        # crates | charlie | edges | tps
+        # crates | charlie | edges | tps | ven
         self._section = "crates"
         self._focus_term: str | None = None
         self._focus_tps: str | None = None
         self._selected_crate: str | None = None
+        self._selected_ven: str | None = None  # kven or id
+        self._ven_reg: dict | None = None
         self._theme = "forest"  # forest | barbie
 
     def compose(self) -> ComposeResult:
@@ -587,6 +703,7 @@ class MypiTui(App[None]):
             yield Button("2 Charlie", id="sec-charlie")
             yield Button("3 Edges", id="sec-edges")
             yield Button("4 TPS", id="sec-tps")
+            yield Button("5 VEN", id="sec-ven")
             yield Static(" · ", classes="muted")
             yield Button("Refresh", id="btn-refresh")
             yield Button("Demo", id="btn-demo")
@@ -662,6 +779,7 @@ class MypiTui(App[None]):
             "charlie": "sec-charlie",
             "edges": "sec-edges",
             "tps": "sec-tps",
+            "ven": "sec-ven",
         }
         for sec, bid in mapping.items():
             btn = self.query_one(f"#{bid}", Button)
@@ -671,9 +789,13 @@ class MypiTui(App[None]):
                 btn.remove_class("nav-on")
 
     def action_refresh(self) -> None:
+        if self._section == "ven":
+            self._ven_reg = None  # force reload from disk
         self._load_index()
         # re-show focus if any
-        if self._focus_term and self._section == "charlie":
+        if self._section == "ven" and self._selected_ven:
+            self._show_ven(self._selected_ven)
+        elif self._focus_term and self._section == "charlie":
             self._show_tag_in_viewer(self._focus_term)
         elif self._focus_tps and self._section == "tps":
             self._show_tps_in_viewer(self._focus_tps)
@@ -684,12 +806,14 @@ class MypiTui(App[None]):
         self._section = "crates"
         self._focus_term = None
         self._focus_tps = None
+        self._selected_ven = None
         self._load_index()
         self._clear_viewer("Select a crate on the left.")
 
     def action_sec_charlie(self) -> None:
         self._section = "charlie"
         self._focus_tps = None
+        self._selected_ven = None
         self._load_index()
         self._clear_viewer("Select a term → related crates appear above; pick one for full body.")
 
@@ -697,14 +821,27 @@ class MypiTui(App[None]):
         self._section = "edges"
         self._focus_term = None
         self._focus_tps = None
+        self._selected_ven = None
         self._load_index()
         self._clear_viewer("Select an edge → crate opens in the viewer.")
 
     def action_sec_tps(self) -> None:
         self._section = "tps"
         self._focus_term = None
+        self._selected_ven = None
         self._load_index()
         self._clear_viewer("Select a TPS window → crates in that window; pick one for full body.")
+
+    def action_sec_ven(self) -> None:
+        self._section = "ven"
+        self._focus_term = None
+        self._focus_tps = None
+        self._selected_crate = None
+        self._ven_reg = None
+        self._load_index()
+        self._clear_viewer(
+            "VEN registry (z/ven_registry) · select a KVEN on the left · not sqlite crates"
+        )
 
     def action_demo(self) -> None:
         self.demo()
@@ -736,11 +873,20 @@ class MypiTui(App[None]):
             w = tps_window_seconds(self.conn)
         except Exception:
             w = 900
-        base = f"  crates={st['crates']}  TPS={w}s  v{st['schema_version']}  ·  {DEFAULT_DB}"
+        n_ven = 0
+        if self._section == "ven":
+            reg = self._ven_reg if self._ven_reg is not None else _load_ven_registry()
+            self._ven_reg = reg
+            n_ven = len(reg.get("entries") or [])
+            base = f"  VEN codes={n_ven}  ·  {_VEN_REGISTRY}"
+        else:
+            base = f"  crates={st['crates']}  TPS={w}s  v{st['schema_version']}  ·  {DEFAULT_DB}"
         if note:
             base = f"{base}  ·  {note}"
-        if self._selected_crate:
+        if self._selected_crate and self._section != "ven":
             base = f"{base}  ·  sel={self._selected_crate[:18]}"
+        if self._selected_ven and self._section == "ven":
+            base = f"{base}  ·  sel={self._selected_ven}"
         self.query_one("#status", Static).update(base)
 
     @staticmethod
@@ -845,7 +991,7 @@ class MypiTui(App[None]):
                     key=f"edge:{eid}:{e['c_uid']}",
                 )
 
-        else:  # tps
+        elif self._section == "tps":
             title.update("Index · TPS windows")
             hint.update("select window → crates in right pane")
             table.add_columns("tps_uid", "window", "width", "n")
@@ -857,6 +1003,35 @@ class MypiTui(App[None]):
                     str(s["n_crates"]),
                     key=f"tps:{s['tps_uid']}",
                 )
+
+        else:  # ven — JSON code book (RX venDesk / encode → VEN)
+            title.update("Index · VEN registry")
+            reg = self._ven_reg if self._ven_reg is not None else _load_ven_registry()
+            self._ven_reg = reg
+            n = len(reg.get("entries") or [])
+            err = reg.get("error")
+            if err:
+                hint.update(f"ERROR · {err} · {reg.get('path', '')}")
+            else:
+                hint.update(
+                    f"{n} codes · z/ven_registry · encode→VEN from IO lands here"
+                )
+            table.add_columns("kven", "label", "type", "matches")
+            for e in reg.get("entries") or []:
+                if not isinstance(e, dict):
+                    continue
+                kven = str(e.get("kven") or "")
+                eid = str(e.get("id") or kven)
+                matches = e.get("matches") if isinstance(e.get("matches"), list) else []
+                table.add_row(
+                    kven or "—",
+                    _clip(str(e.get("label") or ""), 22),
+                    _clip(str(e.get("type") or ""), 8),
+                    _clip(", ".join(str(m) for m in matches[:4]), 28),
+                    key=f"ven:{eid}",
+                )
+            if n == 0 and not err:
+                table.add_row("(empty)", "push from IO encode → VEN", "", "", key="ven:__empty__")
 
     def _fill_related_crates(self, crates, headline: str) -> None:
         related = self.query_one("#related-table", DataTable)
@@ -1207,6 +1382,43 @@ class MypiTui(App[None]):
         except Exception:
             pass
 
+    def _show_ven(self, key: str) -> None:
+        """Open one VEN registry entry in the materials viewer."""
+        if key in ("ven:__empty__", "__empty__"):
+            self.query_one("#viewer", Static).update(
+                "Registry empty. On IO import: encode book → → VEN"
+            )
+            return
+        reg = self._ven_reg if self._ven_reg is not None else _load_ven_registry()
+        self._ven_reg = reg
+        e = _ven_entry_by_key(reg, key)
+        related = self.query_one("#related-table", DataTable)
+        related.clear(columns=True)
+        self.query_one("#related-hint", Static).update("VEN code book (not crates)")
+        if not e:
+            self.query_one("#viewer-title", Label).update("Viewer · VEN")
+            self.query_one("#viewer", Static).update(f"No entry for {key}")
+            return
+        self._selected_ven = str(e.get("kven") or e.get("id") or key)
+        self._selected_crate = None
+        self.query_one("#viewer-title", Label).update(
+            f"Viewer · VEN · {e.get('kven') or '—'}"
+        )
+        # related pane: list matches as a quick table
+        related.add_columns("field", "value")
+        for a in e.get("alts") or []:
+            related.add_row("alt", str(a), key=f"venmeta:alt:{a}")
+        for m in e.get("matches") or []:
+            related.add_row("match", str(m), key=f"venmeta:match:{m}")
+        self.query_one("#viewer", Static).update(
+            _render_ven_entry(e, reg_path=str(reg.get("path") or _VEN_REGISTRY))
+        )
+        self._status_line(f"ven={self._selected_ven}")
+        try:
+            self.query_one("#viewer-scroll", VerticalScroll).scroll_home(animate=False)
+        except Exception:
+            pass
+
     def _apply_index_key(self, key: str, *, open_viewer: bool) -> None:
         """Shared path for highlight (select only) vs select (open materials)."""
         if key.startswith("term:"):
@@ -1223,6 +1435,15 @@ class MypiTui(App[None]):
         if key.startswith("tps:"):
             if open_viewer:
                 self._show_tps_in_viewer(key[4:])
+            return
+        if key.startswith("ven:"):
+            self._selected_ven = key[4:]
+            if open_viewer:
+                self._show_ven(key)
+            else:
+                self._status_line(f"ven={self._selected_ven}")
+            return
+        if key.startswith("venmeta:"):
             return
         # bare c_uid / crate.*
         if key.startswith("crate.") or get_crate(self.conn, key):
@@ -1288,6 +1509,10 @@ class MypiTui(App[None]):
     @on(Button.Pressed, "#sec-tps")
     def b_tps(self) -> None:
         self.action_sec_tps()
+
+    @on(Button.Pressed, "#sec-ven")
+    def b_ven(self) -> None:
+        self.action_sec_ven()
 
     @on(Button.Pressed, "#btn-refresh")
     def refresh_btn(self) -> None:

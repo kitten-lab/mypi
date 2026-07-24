@@ -11,11 +11,20 @@ pip install textual
 python mypi_tui.py
 ```
 
+| Key | Section |
+|-----|---------|
+| **1** | Crates (sqlite) |
+| **2** | Charlie terms |
+| **3** | Charlie edges |
+| **4** | TPS windows |
+| **5** | **VEN registry** (`z/ven_registry/registry.json` — same file as RX venDesk / IO encode → VEN) |
+
 ## What it is
 
 | Piece | Path |
 |-------|------|
 | SQLite DB | `d/_LEDGER/chesters_imports.sqlite` |
+| VEN code book | `z/ven_registry/registry.json` (TUI **5 VEN** — not crates) |
 | Schema | `schema.sql` (v3) |
 | Python API | `mypi_ledger.py` |
 | PHP API | `k/systems/ledger/Ledger.php` |
